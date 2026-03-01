@@ -10,65 +10,63 @@
 		<h1>Bluffers</h1>
 		<!-- Tab links -->
 		<div class="tab">
-			<button class="toggle-button">Famille de mots</button>
-			<button class="toggle-button">Mots</button>
-			<button class="toggle-button">Langues</button>
+			<button class="tab__button" id="wordFamilyBtn">Famille de mots</button>
+			<button class="tab__button" id="wordBtn">Mots</button>
+			<button class="tab__button" id="languagesBtn">Langues</button>
 		</div>
 
 		<!-- Tab content -->
-		<div id="Famille de mots" class="tabcontent">
+		<!-- Tab de Famille de mots  -->
+		<div class="tab-panel" id="wordFamilyTab">
 			<h3>Famille de mots</h3>
-			<div class="accordion-container container"></div>
+			<div class="tab-panel__content"></div>
 		</div>
 
 		<!-- Tab des Mots  -->
-		<div id="Mots" class="tabcontent">
+		<div class="tab-panel" id="wordTab">
 			<h3>Mots</h3>
-			<div class="word-container container">
-				<button type="button" class="add-btn" id="add-word-btn">+</button>
-				<label for="add-word-btn" class="add-btn-label">Ajouter un mot</label>
+			<div class="tab-panel__content">
+				<button type="button" class="tab-panel__button">+</button>
+				<label for="addWordButton" class="tab-panel__label"
+					>Ajouter un mot</label
+				>
 				<input
 					type="text"
 					placeholder="Votre Key"
-					class="add-word-input"
-					id="add-word-input"
-					name="add-word-input"
+					class="tab-panel__input"
+					id="addWordInput"
+					name="addWordInput"
 				/>
-				<button type="button" class="submit-btn">Submit</button>
+				<button type="button" class="tab-panel__submit-button">Submit</button>
 			</div>
 		</div>
 
 		<!-- Tab des Langues  -->
-		<div id="Langues" class="tabcontent">
+		<div class="tab-panel" id="languageTab">
 			<h3>Langues</h3>
-			<div class="language-container container"></div>
+			<div class="tab-panel__content"></div>
 		</div>
 
 		<!-- Templates  -->
-		<template id="template-list">
-			<div class="accordion-item">
-				<button class="accordion-btn">Sous-section A2</button>
-				<div class="panel">
-					<div class="panel-inner">
-						<button type="button" class="add-btn">+</button>
-						<label for="add-language-btn" class="add-btn-label"
-							>Ajouter une nouvelle langue</label
-						>
-						<input
-							type="text"
-							placeholder="La Langue"
-							class="add-word-input language-input"
-							name="add-word-input"
-						/>
-						<input
-							type="text"
-							placeholder="Le Mot"
-							class="add-word-input word-input"
-							name="add-word-input"
-						/>
-						<button type="button" class="submit-btn">Confirmer</button>
-					</div>
+		<template id="listTemplate">
+			<div class="accordion">
+				<button class="accordion__button">Accordion Button</button>
+				<div class="accordion__panel">
+					<div class="accordion__content"></div>
 				</div>
+			</div>
+		</template>
+
+		<template id="addSystemTemplate">
+			<div class="add-panel">
+				<button type="button" class="add-panel__button" id="addButton">
+					+
+				</button>
+				<label for="addButton" class="add-panel__label"> Ajouter </label>
+				<div class="add-panel__inputs"></div>
+				<button type="button" class="add-panel__submit-button">
+					Confirmer
+				</button>
 			</div>
 		</template>
 

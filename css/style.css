@@ -6,7 +6,7 @@
 }
 
 /* Style the buttons that are used to open the tab content */
-.tab button {
+.tab__button {
 	background-color: inherit;
 	border: none;
 	outline: none;
@@ -16,54 +16,68 @@
 }
 
 /* Change background color of buttons on hover */
-.tab button:hover {
+.tab__button:hover {
 	background-color: #ddd;
 }
 
 /* Create an active/current tablink class */
-.tab button.active {
+.tab__button--active {
 	background-color: #ccc;
 }
 
 /* Style the tab content */
-.tabcontent {
+.tab-panel {
 	padding: 6px 12px;
 	border: 1px solid #ccc;
 	border-top: none;
+	display: none;
+}
+.tab-panel--open {
+	display: block;
 }
 
 .word {
-	/* background: red; */
 	margin: auto;
 	padding: 0;
 }
 
-.accordion-btn:hover {
+button:hover,
+label:hover {
 	cursor: pointer;
 }
 
-.panel {
+.accordion__panel {
 	display: grid;
 	grid-template-rows: 0fr;
 	transition: grid-template-rows 0.3s ease;
 	overflow: hidden;
 }
 
-.panel.open {
+.accordion__panel--open {
 	grid-template-rows: 1fr;
 }
 
-.panel-inner {
+.accordion__panel {
 	min-height: 0;
 	padding-left: 15px;
 }
 
-.container {
+.tab-panel__content {
 	border-top: solid;
 	padding-top: 10px;
 }
 
-.add-btn {
+.add-panel__inputs {
+	display: inline;
+	margin: 5px;
+}
+
+.add-panel__input {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+/* .add-btn {
 	border-radius: 100px;
 	border-width: 1px;
 }
@@ -98,7 +112,7 @@
 
 .submit-btn.clicked {
 	display: inline;
-}
+} */
 
 button {
 	cursor: pointer;
