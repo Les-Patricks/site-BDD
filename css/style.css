@@ -1,0 +1,105 @@
+/* Style the tab */
+.tab {
+	display: flex;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+	background-color: inherit;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top: none;
+}
+
+.word {
+	/* background: red; */
+	margin: auto;
+	padding: 0;
+}
+
+.accordion-btn:hover {
+	cursor: pointer;
+}
+
+.panel {
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows 0.3s ease;
+	overflow: hidden;
+}
+
+.panel.open {
+	grid-template-rows: 1fr;
+}
+
+.panel-inner {
+	min-height: 0;
+	padding-left: 15px;
+}
+
+.container {
+	border-top: solid;
+	padding-top: 10px;
+}
+
+.add-btn {
+	border-radius: 100px;
+	border-width: 1px;
+}
+
+.add-btn,
+.add-btn-label {
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+
+.add-btn:hover {
+	background: #b1b1b1;
+}
+
+.add-word-input.clicked {
+	display: inline;
+}
+
+.add-btn-label.clicked,
+.add-btn.clicked {
+	display: none;
+}
+
+.add-word-input {
+	display: none;
+}
+
+.submit-btn {
+	margin-left: 10px;
+	display: none;
+}
+
+.submit-btn.clicked {
+	display: inline;
+}
+
+button {
+	cursor: pointer;
+}

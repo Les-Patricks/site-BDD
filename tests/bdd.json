@@ -1,0 +1,13227 @@
+{
+	"words": [
+		{
+			"key": "Coffee",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Café"
+				},
+				{
+					"lang": "en",
+					"text": "Coffee"
+				}
+			]
+		},
+		{
+			"key": "Tea",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Thé"
+				},
+				{
+					"lang": "en",
+					"text": "Tea"
+				},
+				{
+					"lang": "es",
+					"text": "Té"
+				}
+			]
+		},
+		{
+			"key": "Cocoa",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chocolat Chaud"
+				},
+				{
+					"lang": "en",
+					"text": "Cocoa"
+				}
+			]
+		},
+		{
+			"key": "HerbalTea",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tisane"
+				},
+				{
+					"lang": "en",
+					"text": "HerbalTea"
+				}
+			]
+		},
+		{
+			"key": "Beer",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bière"
+				},
+				{
+					"lang": "en",
+					"text": "Beer"
+				}
+			]
+		},
+		{
+			"key": "Wine",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Vin"
+				},
+				{
+					"lang": "en",
+					"text": "Wine"
+				}
+			]
+		},
+		{
+			"key": "Cider",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cidre"
+				},
+				{
+					"lang": "en",
+					"text": "Cider"
+				}
+			]
+		},
+		{
+			"key": "Champagne",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Champagne"
+				},
+				{
+					"lang": "en",
+					"text": "Champagne"
+				}
+			]
+		},
+		{
+			"key": "Whiskey",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Whisky"
+				},
+				{
+					"lang": "en",
+					"text": "Whiskey"
+				}
+			]
+		},
+		{
+			"key": "Vodka",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Vodka"
+				},
+				{
+					"lang": "en",
+					"text": "Vodka"
+				}
+			]
+		},
+		{
+			"key": "Fork",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Fourchette"
+				},
+				{
+					"lang": "en",
+					"text": "Fork"
+				}
+			]
+		},
+		{
+			"key": "Spoon",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cuillère"
+				},
+				{
+					"lang": "en",
+					"text": "Spoon"
+				}
+			]
+		},
+		{
+			"key": "Knife",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Couteau"
+				},
+				{
+					"lang": "en",
+					"text": "Knife"
+				}
+			]
+		},
+		{
+			"key": "Chopsticks",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Baguettes"
+				},
+				{
+					"lang": "en",
+					"text": "Chopsticks"
+				}
+			]
+		},
+		{
+			"key": "Bee",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Abeille"
+				},
+				{
+					"lang": "en",
+					"text": "Bee"
+				}
+			]
+		},
+		{
+			"key": "Wasp",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Guêpe"
+				},
+				{
+					"lang": "en",
+					"text": "Wasp"
+				}
+			]
+		},
+		{
+			"key": "Mosquito",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Moustique"
+				},
+				{
+					"lang": "en",
+					"text": "Mosquito"
+				}
+			]
+		},
+		{
+			"key": "Fly",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Mouche"
+				},
+				{
+					"lang": "en",
+					"text": "Fly"
+				}
+			]
+		},
+		{
+			"key": "Ant",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Fourmi"
+				},
+				{
+					"lang": "en",
+					"text": "Ant"
+				}
+			]
+		},
+		{
+			"key": "Frog",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Grenouille"
+				},
+				{
+					"lang": "en",
+					"text": "Frog"
+				}
+			]
+		},
+		{
+			"key": "Toad",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Crapaud"
+				},
+				{
+					"lang": "en",
+					"text": "Toad"
+				}
+			]
+		},
+		{
+			"key": "Crocodile",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Crocodile"
+				},
+				{
+					"lang": "en",
+					"text": "Crocodile"
+				}
+			]
+		},
+		{
+			"key": "Alligator",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Alligator"
+				},
+				{
+					"lang": "en",
+					"text": "Alligator"
+				}
+			]
+		},
+		{
+			"key": "Turtle",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tortue"
+				},
+				{
+					"lang": "en",
+					"text": "Turtle"
+				}
+			]
+		},
+		{
+			"key": "Tortoise",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tortue Terrestre"
+				},
+				{
+					"lang": "en",
+					"text": "Tortoise"
+				}
+			]
+		},
+		{
+			"key": "Guitar",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Guitare"
+				},
+				{
+					"lang": "en",
+					"text": "Guitar"
+				}
+			]
+		},
+		{
+			"key": "Ukulele",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ukulélé"
+				},
+				{
+					"lang": "en",
+					"text": "Ukulele"
+				}
+			]
+		},
+		{
+			"key": "Violin",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Violon"
+				},
+				{
+					"lang": "en",
+					"text": "Violin"
+				}
+			]
+		},
+		{
+			"key": "Cello",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Violoncelle"
+				},
+				{
+					"lang": "en",
+					"text": "Cello"
+				}
+			]
+		},
+		{
+			"key": "Harp",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Harpe"
+				},
+				{
+					"lang": "en",
+					"text": "Harp"
+				}
+			]
+		},
+		{
+			"key": "Pen",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Stylo"
+				},
+				{
+					"lang": "en",
+					"text": "Pen"
+				}
+			]
+		},
+		{
+			"key": "Pencil",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Crayon"
+				},
+				{
+					"lang": "en",
+					"text": "Pencil"
+				}
+			]
+		},
+		{
+			"key": "Marker",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Feutre"
+				},
+				{
+					"lang": "en",
+					"text": "Marker"
+				}
+			]
+		},
+		{
+			"key": "Quill",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Plume"
+				},
+				{
+					"lang": "en",
+					"text": "Quill"
+				}
+			]
+		},
+		{
+			"key": "Pillow",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Oreiller"
+				},
+				{
+					"lang": "en",
+					"text": "Pillow"
+				}
+			]
+		},
+		{
+			"key": "Cushion",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Coussin"
+				},
+				{
+					"lang": "en",
+					"text": "Cushion"
+				}
+			]
+		},
+		{
+			"key": "Blanket",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Couverture"
+				},
+				{
+					"lang": "en",
+					"text": "Blanket"
+				}
+			]
+		},
+		{
+			"key": "Duvet",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Couette"
+				},
+				{
+					"lang": "en",
+					"text": "Duvet"
+				}
+			]
+		},
+		{
+			"key": "Soap",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Savon"
+				},
+				{
+					"lang": "en",
+					"text": "Soap"
+				}
+			]
+		},
+		{
+			"key": "ShowerGel",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Gel Douche"
+				},
+				{
+					"lang": "en",
+					"text": "ShowerGel"
+				}
+			]
+		},
+		{
+			"key": "Shampoo",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Shampoing"
+				},
+				{
+					"lang": "en",
+					"text": "Shampoo"
+				}
+			]
+		},
+		{
+			"key": "Sun",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Soleil"
+				},
+				{
+					"lang": "en",
+					"text": "Sun"
+				}
+			]
+		},
+		{
+			"key": "Moon",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Lune"
+				},
+				{
+					"lang": "en",
+					"text": "Moon"
+				}
+			]
+		},
+		{
+			"key": "Star",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Étoile"
+				},
+				{
+					"lang": "en",
+					"text": "Star"
+				}
+			]
+		},
+		{
+			"key": "Planet",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Planète"
+				},
+				{
+					"lang": "en",
+					"text": "Planet"
+				}
+			]
+		},
+		{
+			"key": "Comet",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Comète"
+				},
+				{
+					"lang": "en",
+					"text": "Comet"
+				}
+			]
+		},
+		{
+			"key": "Car",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Voiture"
+				},
+				{
+					"lang": "en",
+					"text": "Car"
+				}
+			]
+		},
+		{
+			"key": "Truck",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Camion"
+				},
+				{
+					"lang": "en",
+					"text": "Truck"
+				}
+			]
+		},
+		{
+			"key": "Bus",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bus"
+				},
+				{
+					"lang": "en",
+					"text": "Bus"
+				}
+			]
+		},
+		{
+			"key": "Van",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Camionnette"
+				},
+				{
+					"lang": "en",
+					"text": "Van"
+				}
+			]
+		},
+		{
+			"key": "Motorcycle",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Moto"
+				},
+				{
+					"lang": "en",
+					"text": "Motorcycle"
+				}
+			]
+		},
+		{
+			"key": "Scooter",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Scooter"
+				},
+				{
+					"lang": "en",
+					"text": "Scooter"
+				}
+			]
+		},
+		{
+			"key": "Bicycle",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Vélo"
+				},
+				{
+					"lang": "en",
+					"text": "Bicycle"
+				}
+			]
+		},
+		{
+			"key": "Vampire",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Vampire"
+				},
+				{
+					"lang": "en",
+					"text": "Vampire"
+				}
+			]
+		},
+		{
+			"key": "Werewolf",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Loup-Garou"
+				},
+				{
+					"lang": "en",
+					"text": "Werewolf"
+				}
+			]
+		},
+		{
+			"key": "Zombie",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Zombie"
+				},
+				{
+					"lang": "en",
+					"text": "Zombie"
+				}
+			]
+		},
+		{
+			"key": "Ghost",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Fantôme"
+				},
+				{
+					"lang": "en",
+					"text": "Ghost"
+				}
+			]
+		},
+		{
+			"key": "Wizard",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sorcier"
+				},
+				{
+					"lang": "en",
+					"text": "Wizard"
+				}
+			]
+		},
+		{
+			"key": "Witch",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sorcière"
+				},
+				{
+					"lang": "en",
+					"text": "Witch"
+				}
+			]
+		},
+		{
+			"key": "Mage",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Mage"
+				},
+				{
+					"lang": "en",
+					"text": "Mage"
+				}
+			]
+		},
+		{
+			"key": "Superman",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Superman"
+				},
+				{
+					"lang": "en",
+					"text": "Superman"
+				}
+			]
+		},
+		{
+			"key": "Batman",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Batman"
+				},
+				{
+					"lang": "en",
+					"text": "Batman"
+				}
+			]
+		},
+		{
+			"key": "Spiderman",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Spiderman"
+				},
+				{
+					"lang": "en",
+					"text": "Spiderman"
+				}
+			]
+		},
+		{
+			"key": "Ironman",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ironman"
+				},
+				{
+					"lang": "en",
+					"text": "Ironman"
+				}
+			]
+		},
+		{
+			"key": "Cinema",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cinéma"
+				},
+				{
+					"lang": "en",
+					"text": "Cinema"
+				}
+			]
+		},
+		{
+			"key": "Theater",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Théâtre"
+				},
+				{
+					"lang": "en",
+					"text": "Theater"
+				}
+			]
+		},
+		{
+			"key": "Opera",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Opéra"
+				},
+				{
+					"lang": "en",
+					"text": "Opera"
+				}
+			]
+		},
+		{
+			"key": "School",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "École"
+				},
+				{
+					"lang": "en",
+					"text": "School"
+				}
+			]
+		},
+		{
+			"key": "University",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Université"
+				},
+				{
+					"lang": "en",
+					"text": "University"
+				}
+			]
+		},
+		{
+			"key": "College",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Collège"
+				},
+				{
+					"lang": "en",
+					"text": "College"
+				}
+			]
+		},
+		{
+			"key": "Soccer",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Football"
+				},
+				{
+					"lang": "en",
+					"text": "Soccer"
+				}
+			]
+		},
+		{
+			"key": "Rugby",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Rugby"
+				},
+				{
+					"lang": "en",
+					"text": "Rugby"
+				}
+			]
+		},
+		{
+			"key": "Handball",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Handball"
+				},
+				{
+					"lang": "en",
+					"text": "Handball"
+				}
+			]
+		},
+		{
+			"key": "Basketball",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Basketball"
+				},
+				{
+					"lang": "en",
+					"text": "Basketball"
+				}
+			]
+		},
+		{
+			"key": "Tennis",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tennis"
+				},
+				{
+					"lang": "en",
+					"text": "Tennis"
+				}
+			]
+		},
+		{
+			"key": "PingPong",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ping-pong"
+				},
+				{
+					"lang": "en",
+					"text": "PingPong"
+				}
+			]
+		},
+		{
+			"key": "Badminton",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Badminton"
+				},
+				{
+					"lang": "en",
+					"text": "Badminton"
+				}
+			]
+		},
+		{
+			"key": "Squash",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Squash"
+				},
+				{
+					"lang": "en",
+					"text": "Squash"
+				}
+			]
+		},
+		{
+			"key": "Strawberry",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Fraise"
+				},
+				{
+					"lang": "en",
+					"text": "Strawberry"
+				}
+			]
+		},
+		{
+			"key": "Raspberry",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Framboise"
+				},
+				{
+					"lang": "en",
+					"text": "Raspberry"
+				}
+			]
+		},
+		{
+			"key": "Cherry",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cerise"
+				},
+				{
+					"lang": "en",
+					"text": "Cherry"
+				}
+			]
+		},
+		{
+			"key": "Currant",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Groseille"
+				},
+				{
+					"lang": "en",
+					"text": "Currant"
+				}
+			]
+		},
+		{
+			"key": "Orange",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Orange"
+				},
+				{
+					"lang": "en",
+					"text": "Orange"
+				}
+			]
+		},
+		{
+			"key": "Lemon",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Citron"
+				},
+				{
+					"lang": "en",
+					"text": "Lemon"
+				}
+			]
+		},
+		{
+			"key": "Lime",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Citron vert"
+				},
+				{
+					"lang": "en",
+					"text": "Lime"
+				}
+			]
+		},
+		{
+			"key": "Grapefruit",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pamplemousse"
+				},
+				{
+					"lang": "en",
+					"text": "Grapefruit"
+				}
+			]
+		},
+		{
+			"key": "Clementine",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Clémentine"
+				},
+				{
+					"lang": "en",
+					"text": "Clementine"
+				}
+			]
+		},
+		{
+			"key": "Ring",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bague"
+				},
+				{
+					"lang": "en",
+					"text": "Ring"
+				}
+			]
+		},
+		{
+			"key": "Necklace",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Collier"
+				},
+				{
+					"lang": "en",
+					"text": "Necklace"
+				}
+			]
+		},
+		{
+			"key": "Bracelet",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bracelet"
+				},
+				{
+					"lang": "en",
+					"text": "Bracelet"
+				}
+			]
+		},
+		{
+			"key": "Earring",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Boucle d'oreille"
+				},
+				{
+					"lang": "en",
+					"text": "Earring"
+				}
+			]
+		},
+		{
+			"key": "King",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Roi"
+				},
+				{
+					"lang": "en",
+					"text": "King"
+				}
+			]
+		},
+		{
+			"key": "Queen",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Reine"
+				},
+				{
+					"lang": "en",
+					"text": "Queen"
+				}
+			]
+		},
+		{
+			"key": "Prince",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Prince"
+				},
+				{
+					"lang": "en",
+					"text": "Prince"
+				}
+			]
+		},
+		{
+			"key": "Princess",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Princesse"
+				},
+				{
+					"lang": "en",
+					"text": "Princess"
+				}
+			]
+		},
+		{
+			"key": "Duke",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Duc"
+				},
+				{
+					"lang": "en",
+					"text": "Duke"
+				}
+			]
+		},
+		{
+			"key": "Love",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Amour"
+				},
+				{
+					"lang": "en",
+					"text": "Love"
+				}
+			]
+		},
+		{
+			"key": "Friendship",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Amitié"
+				},
+				{
+					"lang": "en",
+					"text": "Friendship"
+				}
+			]
+		},
+		{
+			"key": "Hate",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Haine"
+				},
+				{
+					"lang": "en",
+					"text": "Hate"
+				}
+			]
+		},
+		{
+			"key": "Jealousy",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jalousie"
+				},
+				{
+					"lang": "en",
+					"text": "Jealousy"
+				}
+			]
+		},
+		{
+			"key": "Laptop",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "PC Portable"
+				},
+				{
+					"lang": "en",
+					"text": "Laptop"
+				}
+			]
+		},
+		{
+			"key": "Desktop",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ordinateur Fixe"
+				},
+				{
+					"lang": "en",
+					"text": "Desktop"
+				}
+			]
+		},
+		{
+			"key": "Tablet",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tablette"
+				},
+				{
+					"lang": "en",
+					"text": "Tablet"
+				}
+			]
+		},
+		{
+			"key": "TShirt",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "T-shirt"
+				},
+				{
+					"lang": "en",
+					"text": "TShirt"
+				}
+			]
+		},
+		{
+			"key": "Sweater",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pull"
+				},
+				{
+					"lang": "en",
+					"text": "Sweater"
+				}
+			]
+		},
+		{
+			"key": "Shirt",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chemise"
+				},
+				{
+					"lang": "en",
+					"text": "Shirt"
+				}
+			]
+		},
+		{
+			"key": "Blouse",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chemisier"
+				},
+				{
+					"lang": "en",
+					"text": "Blouse"
+				}
+			]
+		},
+		{
+			"key": "Pants",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pantalon"
+				},
+				{
+					"lang": "en",
+					"text": "Pants"
+				}
+			]
+		},
+		{
+			"key": "Jeans",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jean"
+				},
+				{
+					"lang": "en",
+					"text": "Jeans"
+				}
+			]
+		},
+		{
+			"key": "Shorts",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Short"
+				},
+				{
+					"lang": "en",
+					"text": "Shorts"
+				}
+			]
+		},
+		{
+			"key": "Shoe",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chaussure"
+				},
+				{
+					"lang": "en",
+					"text": "Shoe"
+				}
+			]
+		},
+		{
+			"key": "Boot",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Botte"
+				},
+				{
+					"lang": "en",
+					"text": "Boot"
+				}
+			]
+		},
+		{
+			"key": "Sneaker",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Basket"
+				},
+				{
+					"lang": "en",
+					"text": "Sneaker"
+				}
+			]
+		},
+		{
+			"key": "Sandal",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sandale"
+				},
+				{
+					"lang": "en",
+					"text": "Sandal"
+				}
+			]
+		},
+		{
+			"key": "Slipper",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chausson"
+				},
+				{
+					"lang": "en",
+					"text": "Slipper"
+				}
+			]
+		},
+		{
+			"key": "Second",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Seconde"
+				},
+				{
+					"lang": "en",
+					"text": "Second"
+				}
+			]
+		},
+		{
+			"key": "Minute",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Minute"
+				},
+				{
+					"lang": "en",
+					"text": "Minute"
+				}
+			]
+		},
+		{
+			"key": "Hour",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Heure"
+				},
+				{
+					"lang": "en",
+					"text": "Hour"
+				}
+			]
+		},
+		{
+			"key": "Day",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jour"
+				},
+				{
+					"lang": "en",
+					"text": "Day"
+				}
+			]
+		},
+		{
+			"key": "Week",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Semaine"
+				},
+				{
+					"lang": "en",
+					"text": "Week"
+				}
+			]
+		},
+		{
+			"key": "Month",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Mois"
+				},
+				{
+					"lang": "en",
+					"text": "Month"
+				}
+			]
+		},
+		{
+			"key": "Year",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Année"
+				},
+				{
+					"lang": "en",
+					"text": "Year"
+				}
+			]
+		},
+		{
+			"key": "Winter",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Hiver"
+				},
+				{
+					"lang": "en",
+					"text": "Winter"
+				}
+			]
+		},
+		{
+			"key": "Autumn",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Automne"
+				},
+				{
+					"lang": "en",
+					"text": "Autumn"
+				}
+			]
+		},
+		{
+			"key": "Summer",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Été"
+				},
+				{
+					"lang": "en",
+					"text": "Summer"
+				}
+			]
+		},
+		{
+			"key": "Spring",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Printemps"
+				},
+				{
+					"lang": "en",
+					"text": "Spring"
+				}
+			]
+		},
+		{
+			"key": "Rain",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pluie"
+				},
+				{
+					"lang": "en",
+					"text": "Rain"
+				}
+			]
+		},
+		{
+			"key": "Hail",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Grêle"
+				},
+				{
+					"lang": "en",
+					"text": "Hail"
+				}
+			]
+		},
+		{
+			"key": "Snow",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Neige"
+				},
+				{
+					"lang": "en",
+					"text": "Snow"
+				}
+			]
+		},
+		{
+			"key": "Wind",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Vent"
+				},
+				{
+					"lang": "en",
+					"text": "Wind"
+				}
+			]
+		},
+		{
+			"key": "Storm",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tempête"
+				},
+				{
+					"lang": "en",
+					"text": "Storm"
+				}
+			]
+		},
+		{
+			"key": "Hurricane",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ouragan"
+				},
+				{
+					"lang": "en",
+					"text": "Hurricane"
+				}
+			]
+		},
+		{
+			"key": "Tornado",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tornade"
+				},
+				{
+					"lang": "en",
+					"text": "Tornado"
+				}
+			]
+		},
+		{
+			"key": "Hand",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Main"
+				},
+				{
+					"lang": "en",
+					"text": "Hand"
+				}
+			]
+		},
+		{
+			"key": "Palm",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Paume"
+				},
+				{
+					"lang": "en",
+					"text": "Palm"
+				}
+			]
+		},
+		{
+			"key": "Wrist",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Poignet"
+				},
+				{
+					"lang": "en",
+					"text": "Wrist"
+				}
+			]
+		},
+		{
+			"key": "Foot",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pied"
+				},
+				{
+					"lang": "en",
+					"text": "Foot"
+				}
+			]
+		},
+		{
+			"key": "Ankle",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cheville"
+				},
+				{
+					"lang": "en",
+					"text": "Ankle"
+				}
+			]
+		},
+		{
+			"key": "Heel",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Talon"
+				},
+				{
+					"lang": "en",
+					"text": "Heel"
+				}
+			]
+		},
+		{
+			"key": "Eye",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Oeil"
+				},
+				{
+					"lang": "en",
+					"text": "Eye"
+				}
+			]
+		},
+		{
+			"key": "Ear",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Oreille"
+				},
+				{
+					"lang": "en",
+					"text": "Ear"
+				}
+			]
+		},
+		{
+			"key": "Nose",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Nez"
+				},
+				{
+					"lang": "en",
+					"text": "Nose"
+				}
+			]
+		},
+		{
+			"key": "Mouth",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bouche"
+				},
+				{
+					"lang": "en",
+					"text": "Mouth"
+				}
+			]
+		},
+		{
+			"key": "Heart",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cœur"
+				},
+				{
+					"lang": "en",
+					"text": "Heart"
+				}
+			]
+		},
+		{
+			"key": "Lung",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Poumon"
+				},
+				{
+					"lang": "en",
+					"text": "Lung"
+				}
+			]
+		},
+		{
+			"key": "Stomach",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Estomac"
+				},
+				{
+					"lang": "en",
+					"text": "Stomach"
+				}
+			]
+		},
+		{
+			"key": "Liver",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Foie"
+				},
+				{
+					"lang": "en",
+					"text": "Liver"
+				}
+			]
+		},
+		{
+			"key": "Brain",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cerveau"
+				},
+				{
+					"lang": "en",
+					"text": "Brain"
+				}
+			]
+		},
+		{
+			"key": "Mother",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Mère"
+				},
+				{
+					"lang": "en",
+					"text": "Mother"
+				}
+			]
+		},
+		{
+			"key": "Father",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Père"
+				},
+				{
+					"lang": "en",
+					"text": "Father"
+				}
+			]
+		},
+		{
+			"key": "Son",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Fils"
+				},
+				{
+					"lang": "en",
+					"text": "Son"
+				}
+			]
+		},
+		{
+			"key": "Daughter",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Fille"
+				},
+				{
+					"lang": "en",
+					"text": "Daughter"
+				}
+			]
+		},
+		{
+			"key": "Brother",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Frère"
+				},
+				{
+					"lang": "en",
+					"text": "Brother"
+				}
+			]
+		},
+		{
+			"key": "Sister",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Soeur"
+				},
+				{
+					"lang": "en",
+					"text": "Sister"
+				}
+			]
+		},
+		{
+			"key": "Red",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Rouge"
+				},
+				{
+					"lang": "en",
+					"text": "Red"
+				}
+			]
+		},
+		{
+			"key": "Blue",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bleu"
+				},
+				{
+					"lang": "en",
+					"text": "Blue"
+				}
+			]
+		},
+		{
+			"key": "Yellow",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jaune"
+				},
+				{
+					"lang": "en",
+					"text": "Yellow"
+				}
+			]
+		},
+		{
+			"key": "Green",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Vert"
+				},
+				{
+					"lang": "en",
+					"text": "Green"
+				}
+			]
+		},
+		{
+			"key": "Black",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Noir"
+				},
+				{
+					"lang": "en",
+					"text": "Black"
+				}
+			]
+		},
+		{
+			"key": "Grey",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Gris"
+				},
+				{
+					"lang": "en",
+					"text": "Grey"
+				}
+			]
+		},
+		{
+			"key": "Brown",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Marron"
+				},
+				{
+					"lang": "en",
+					"text": "Brown"
+				}
+			]
+		},
+		{
+			"key": "White",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Blanc"
+				},
+				{
+					"lang": "en",
+					"text": "White"
+				}
+			]
+		},
+		{
+			"key": "Beige",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Beige"
+				},
+				{
+					"lang": "en",
+					"text": "Beige"
+				}
+			]
+		},
+		{
+			"key": "Pink",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Rose"
+				},
+				{
+					"lang": "en",
+					"text": "Pink"
+				}
+			]
+		},
+		{
+			"key": "Plate",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Assiette"
+				},
+				{
+					"lang": "en",
+					"text": "Plate"
+				}
+			]
+		},
+		{
+			"key": "Bowl",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bol"
+				},
+				{
+					"lang": "en",
+					"text": "Bowl"
+				}
+			]
+		},
+		{
+			"key": "Cup",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tasse"
+				},
+				{
+					"lang": "en",
+					"text": "Cup"
+				}
+			]
+		},
+		{
+			"key": "Glass",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Verre"
+				},
+				{
+					"lang": "en",
+					"text": "Glass"
+				}
+			]
+		},
+		{
+			"key": "Mug",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Mug"
+				},
+				{
+					"lang": "en",
+					"text": "Mug"
+				}
+			]
+		},
+		{
+			"key": "Chair",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chaise"
+				},
+				{
+					"lang": "en",
+					"text": "Chair"
+				}
+			]
+		},
+		{
+			"key": "Armchair",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Fauteuil"
+				},
+				{
+					"lang": "en",
+					"text": "Armchair"
+				}
+			]
+		},
+		{
+			"key": "Stool",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tabouret"
+				},
+				{
+					"lang": "en",
+					"text": "Stool"
+				}
+			]
+		},
+		{
+			"key": "Sofa",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Canapé"
+				},
+				{
+					"lang": "en",
+					"text": "Sofa"
+				}
+			]
+		},
+		{
+			"key": "Cupboard",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Placard"
+				},
+				{
+					"lang": "en",
+					"text": "Cupboard"
+				}
+			]
+		},
+		{
+			"key": "Wardrobe",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Armoire"
+				},
+				{
+					"lang": "en",
+					"text": "Wardrobe"
+				}
+			]
+		},
+		{
+			"key": "Shelf",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Étagère"
+				},
+				{
+					"lang": "en",
+					"text": "Shelf"
+				}
+			]
+		},
+		{
+			"key": "Drawer",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tiroir"
+				},
+				{
+					"lang": "en",
+					"text": "Drawer"
+				}
+			]
+		},
+		{
+			"key": "Carrot",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Carotte"
+				},
+				{
+					"lang": "en",
+					"text": "Carrot"
+				}
+			]
+		},
+		{
+			"key": "Potato",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pomme de terre"
+				},
+				{
+					"lang": "en",
+					"text": "Potato"
+				}
+			]
+		},
+		{
+			"key": "Radish",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Radis"
+				},
+				{
+					"lang": "en",
+					"text": "Radish"
+				}
+			]
+		},
+		{
+			"key": "Turnip",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Navet"
+				},
+				{
+					"lang": "en",
+					"text": "Turnip"
+				}
+			]
+		},
+		{
+			"key": "Spinach",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Épinards"
+				},
+				{
+					"lang": "en",
+					"text": "Spinach"
+				}
+			]
+		},
+		{
+			"key": "Lettuce",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Laitue"
+				},
+				{
+					"lang": "en",
+					"text": "Lettuce"
+				}
+			]
+		},
+		{
+			"key": "Cabbage",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chou"
+				},
+				{
+					"lang": "en",
+					"text": "Cabbage"
+				}
+			]
+		},
+		{
+			"key": "Broccoli",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Brocoli"
+				},
+				{
+					"lang": "en",
+					"text": "Broccoli"
+				}
+			]
+		},
+		{
+			"key": "Beef",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bœuf"
+				},
+				{
+					"lang": "en",
+					"text": "Beef"
+				}
+			]
+		},
+		{
+			"key": "Pork",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Porc"
+				},
+				{
+					"lang": "en",
+					"text": "Pork"
+				}
+			]
+		},
+		{
+			"key": "Lamb",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Agneau"
+				},
+				{
+					"lang": "en",
+					"text": "Lamb"
+				}
+			]
+		},
+		{
+			"key": "Chicken",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Poulet"
+				},
+				{
+					"lang": "en",
+					"text": "Chicken"
+				}
+			]
+		},
+		{
+			"key": "Duck",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Canard"
+				},
+				{
+					"lang": "en",
+					"text": "Duck"
+				}
+			]
+		},
+		{
+			"key": "Fish",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Poisson"
+				},
+				{
+					"lang": "en",
+					"text": "Fish"
+				}
+			]
+		},
+		{
+			"key": "Shrimp",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Crevette"
+				},
+				{
+					"lang": "en",
+					"text": "Shrimp"
+				}
+			]
+		},
+		{
+			"key": "Crab",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Crabe"
+				},
+				{
+					"lang": "en",
+					"text": "Crab"
+				}
+			]
+		},
+		{
+			"key": "Lobster",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Homard"
+				},
+				{
+					"lang": "en",
+					"text": "Lobster"
+				}
+			]
+		},
+		{
+			"key": "Oyster",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Huître"
+				},
+				{
+					"lang": "en",
+					"text": "Oyster"
+				}
+			]
+		},
+		{
+			"key": "Baguette",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Baguette"
+				},
+				{
+					"lang": "en",
+					"text": "Baguette"
+				}
+			]
+		},
+		{
+			"key": "Loaf",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pain de mie"
+				},
+				{
+					"lang": "en",
+					"text": "Loaf"
+				}
+			]
+		},
+		{
+			"key": "Toast",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Toast"
+				},
+				{
+					"lang": "en",
+					"text": "Toast"
+				}
+			]
+		},
+		{
+			"key": "Bun",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Brioche"
+				},
+				{
+					"lang": "en",
+					"text": "Bun"
+				}
+			]
+		},
+		{
+			"key": "Cake",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Gâteau"
+				},
+				{
+					"lang": "en",
+					"text": "Cake"
+				}
+			]
+		},
+		{
+			"key": "Pie",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tarte"
+				},
+				{
+					"lang": "en",
+					"text": "Pie"
+				}
+			]
+		},
+		{
+			"key": "Brownie",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Brownie"
+				},
+				{
+					"lang": "en",
+					"text": "Brownie"
+				}
+			]
+		},
+		{
+			"key": "Cookie",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cookie"
+				},
+				{
+					"lang": "en",
+					"text": "Cookie"
+				}
+			]
+		},
+		{
+			"key": "Donut",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Beignet"
+				},
+				{
+					"lang": "en",
+					"text": "Donut"
+				}
+			]
+		},
+		{
+			"key": "Doctor",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Docteur"
+				},
+				{
+					"lang": "en",
+					"text": "Doctor"
+				}
+			]
+		},
+		{
+			"key": "Nurse",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Infirmier"
+				},
+				{
+					"lang": "en",
+					"text": "Nurse"
+				}
+			]
+		},
+		{
+			"key": "Surgeon",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chirurgien"
+				},
+				{
+					"lang": "en",
+					"text": "Surgeon"
+				}
+			]
+		},
+		{
+			"key": "Dentist",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Dentiste"
+				},
+				{
+					"lang": "en",
+					"text": "Dentist"
+				}
+			]
+		},
+		{
+			"key": "Lawyer",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Avocat"
+				},
+				{
+					"lang": "en",
+					"text": "Lawyer"
+				}
+			]
+		},
+		{
+			"key": "Judge",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Juge"
+				},
+				{
+					"lang": "en",
+					"text": "Judge"
+				}
+			]
+		},
+		{
+			"key": "Police",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Policier"
+				},
+				{
+					"lang": "en",
+					"text": "Police"
+				}
+			]
+		},
+		{
+			"key": "Detective",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Détective"
+				},
+				{
+					"lang": "en",
+					"text": "Detective"
+				}
+			]
+		},
+		{
+			"key": "Painter",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Peintre"
+				},
+				{
+					"lang": "en",
+					"text": "Painter"
+				}
+			]
+		},
+		{
+			"key": "Sculptor",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sculpteur"
+				},
+				{
+					"lang": "en",
+					"text": "Sculptor"
+				}
+			]
+		},
+		{
+			"key": "Writer",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Écrivain"
+				},
+				{
+					"lang": "en",
+					"text": "Writer"
+				}
+			]
+		},
+		{
+			"key": "Actor",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Acteur"
+				},
+				{
+					"lang": "en",
+					"text": "Actor"
+				}
+			]
+		},
+		{
+			"key": "Plumber",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Plombier"
+				},
+				{
+					"lang": "en",
+					"text": "Plumber"
+				}
+			]
+		},
+		{
+			"key": "Electrician",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Électricien"
+				},
+				{
+					"lang": "en",
+					"text": "Electrician"
+				}
+			]
+		},
+		{
+			"key": "Carpenter",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Charpentier"
+				},
+				{
+					"lang": "en",
+					"text": "Carpenter"
+				}
+			]
+		},
+		{
+			"key": "Mechanic",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Mécanicien"
+				},
+				{
+					"lang": "en",
+					"text": "Mechanic"
+				}
+			]
+		},
+		{
+			"key": "Boat",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bateau"
+				},
+				{
+					"lang": "en",
+					"text": "Boat"
+				}
+			]
+		},
+		{
+			"key": "Ship",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Navire"
+				},
+				{
+					"lang": "en",
+					"text": "Ship"
+				}
+			]
+		},
+		{
+			"key": "Submarine",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sous-marin"
+				},
+				{
+					"lang": "en",
+					"text": "Submarine"
+				}
+			]
+		},
+		{
+			"key": "Yacht",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Yacht"
+				},
+				{
+					"lang": "en",
+					"text": "Yacht"
+				}
+			]
+		},
+		{
+			"key": "Train",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Train"
+				},
+				{
+					"lang": "en",
+					"text": "Train"
+				}
+			]
+		},
+		{
+			"key": "Tram",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tramway"
+				},
+				{
+					"lang": "en",
+					"text": "Tram"
+				}
+			]
+		},
+		{
+			"key": "Metro",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Métro"
+				},
+				{
+					"lang": "en",
+					"text": "Metro"
+				}
+			]
+		},
+		{
+			"key": "River",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Rivière"
+				},
+				{
+					"lang": "en",
+					"text": "River"
+				}
+			]
+		},
+		{
+			"key": "Stream",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ruisseau"
+				},
+				{
+					"lang": "en",
+					"text": "Stream"
+				}
+			]
+		},
+		{
+			"key": "Lake",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Lac"
+				},
+				{
+					"lang": "en",
+					"text": "Lake"
+				}
+			]
+		},
+		{
+			"key": "Pond",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Étang"
+				},
+				{
+					"lang": "en",
+					"text": "Pond"
+				}
+			]
+		},
+		{
+			"key": "Sea",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Mer"
+				},
+				{
+					"lang": "en",
+					"text": "Sea"
+				}
+			]
+		},
+		{
+			"key": "Ocean",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Océan"
+				},
+				{
+					"lang": "en",
+					"text": "Ocean"
+				}
+			]
+		},
+		{
+			"key": "Mountain",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Montagne"
+				},
+				{
+					"lang": "en",
+					"text": "Mountain"
+				}
+			]
+		},
+		{
+			"key": "Hill",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Colline"
+				},
+				{
+					"lang": "en",
+					"text": "Hill"
+				}
+			]
+		},
+		{
+			"key": "Valley",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Vallée"
+				},
+				{
+					"lang": "en",
+					"text": "Valley"
+				}
+			]
+		},
+		{
+			"key": "Canyon",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Canyon"
+				},
+				{
+					"lang": "en",
+					"text": "Canyon"
+				}
+			]
+		},
+		{
+			"key": "Forest",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Forêt"
+				},
+				{
+					"lang": "en",
+					"text": "Forest"
+				}
+			]
+		},
+		{
+			"key": "Jungle",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jungle"
+				},
+				{
+					"lang": "en",
+					"text": "Jungle"
+				}
+			]
+		},
+		{
+			"key": "Park",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Parc"
+				},
+				{
+					"lang": "en",
+					"text": "Park"
+				}
+			]
+		},
+		{
+			"key": "Garden",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jardin"
+				},
+				{
+					"lang": "en",
+					"text": "Garden"
+				}
+			]
+		},
+		{
+			"key": "Wood",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bois"
+				},
+				{
+					"lang": "en",
+					"text": "Wood"
+				}
+			]
+		},
+		{
+			"key": "Stone",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pierre"
+				},
+				{
+					"lang": "en",
+					"text": "Stone"
+				}
+			]
+		},
+		{
+			"key": "Metal",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Métal"
+				},
+				{
+					"lang": "en",
+					"text": "Metal"
+				}
+			]
+		},
+		{
+			"key": "GlassMat",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Verre (Matériau)"
+				},
+				{
+					"lang": "en",
+					"text": "Glass"
+				}
+			]
+		},
+		{
+			"key": "Cotton",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Coton"
+				},
+				{
+					"lang": "en",
+					"text": "Cotton"
+				}
+			]
+		},
+		{
+			"key": "Wool",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Laine"
+				},
+				{
+					"lang": "en",
+					"text": "Wool"
+				}
+			]
+		},
+		{
+			"key": "Silk",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Soie"
+				},
+				{
+					"lang": "en",
+					"text": "Silk"
+				}
+			]
+		},
+		{
+			"key": "Velvet",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Velours"
+				},
+				{
+					"lang": "en",
+					"text": "Velvet"
+				}
+			]
+		},
+		{
+			"key": "Coin",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pièce"
+				},
+				{
+					"lang": "en",
+					"text": "Coin"
+				}
+			]
+		},
+		{
+			"key": "Bill",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Billet"
+				},
+				{
+					"lang": "en",
+					"text": "Bill"
+				}
+			]
+		},
+		{
+			"key": "Check",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chèque"
+				},
+				{
+					"lang": "en",
+					"text": "Check"
+				}
+			]
+		},
+		{
+			"key": "Card",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Carte"
+				},
+				{
+					"lang": "en",
+					"text": "Card"
+				}
+			]
+		},
+		{
+			"key": "House",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Maison"
+				},
+				{
+					"lang": "en",
+					"text": "House"
+				}
+			]
+		},
+		{
+			"key": "Apartment",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Appartement"
+				},
+				{
+					"lang": "en",
+					"text": "Apartment"
+				}
+			]
+		},
+		{
+			"key": "Castle",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Château"
+				},
+				{
+					"lang": "en",
+					"text": "Castle"
+				}
+			]
+		},
+		{
+			"key": "Palace",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Palais"
+				},
+				{
+					"lang": "en",
+					"text": "Palace"
+				}
+			]
+		},
+		{
+			"key": "Cottage",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chalet"
+				},
+				{
+					"lang": "en",
+					"text": "Cottage"
+				}
+			]
+		},
+		{
+			"key": "Office",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bureau"
+				},
+				{
+					"lang": "en",
+					"text": "Office"
+				}
+			]
+		},
+		{
+			"key": "Workshop",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Atelier"
+				},
+				{
+					"lang": "en",
+					"text": "Workshop"
+				}
+			]
+		},
+		{
+			"key": "Studio",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Studio"
+				},
+				{
+					"lang": "en",
+					"text": "Studio"
+				}
+			]
+		},
+		{
+			"key": "LivingRoom",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Salon"
+				},
+				{
+					"lang": "en",
+					"text": "LivingRoom"
+				}
+			]
+		},
+		{
+			"key": "Bedroom",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chambre"
+				},
+				{
+					"lang": "en",
+					"text": "Bedroom"
+				}
+			]
+		},
+		{
+			"key": "Kitchen",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cuisine"
+				},
+				{
+					"lang": "en",
+					"text": "Kitchen"
+				}
+			]
+		},
+		{
+			"key": "Bathroom",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Salle de bain"
+				},
+				{
+					"lang": "en",
+					"text": "Bathroom"
+				}
+			]
+		},
+		{
+			"key": "Hammer",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Marteau"
+				},
+				{
+					"lang": "en",
+					"text": "Hammer"
+				}
+			]
+		},
+		{
+			"key": "Screwdriver",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tournevis"
+				},
+				{
+					"lang": "en",
+					"text": "Screwdriver"
+				}
+			]
+		},
+		{
+			"key": "Wrench",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Clé anglaise"
+				},
+				{
+					"lang": "en",
+					"text": "Wrench"
+				}
+			]
+		},
+		{
+			"key": "Saw",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Scie"
+				},
+				{
+					"lang": "en",
+					"text": "Saw"
+				}
+			]
+		},
+		{
+			"key": "Drill",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Perceuse"
+				},
+				{
+					"lang": "en",
+					"text": "Drill"
+				}
+			]
+		},
+		{
+			"key": "Sword",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Épée"
+				},
+				{
+					"lang": "en",
+					"text": "Sword"
+				}
+			]
+		},
+		{
+			"key": "Dagger",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Dague"
+				},
+				{
+					"lang": "en",
+					"text": "Dagger"
+				}
+			]
+		},
+		{
+			"key": "Axe",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Hache"
+				},
+				{
+					"lang": "en",
+					"text": "Axe"
+				}
+			]
+		},
+		{
+			"key": "Spear",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Lance"
+				},
+				{
+					"lang": "en",
+					"text": "Spear"
+				}
+			]
+		},
+		{
+			"key": "Bow",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Arc"
+				},
+				{
+					"lang": "en",
+					"text": "Bow"
+				}
+			]
+		},
+		{
+			"key": "Crossbow",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Arbalète"
+				},
+				{
+					"lang": "en",
+					"text": "Crossbow"
+				}
+			]
+		},
+		{
+			"key": "Gun",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pistolet"
+				},
+				{
+					"lang": "en",
+					"text": "Gun"
+				}
+			]
+		},
+		{
+			"key": "Rifle",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Fusil"
+				},
+				{
+					"lang": "en",
+					"text": "Rifle"
+				}
+			]
+		},
+		{
+			"key": "Happy",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Heureux"
+				},
+				{
+					"lang": "en",
+					"text": "Happy"
+				}
+			]
+		},
+		{
+			"key": "Joyful",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Joyeux"
+				},
+				{
+					"lang": "en",
+					"text": "Joyful"
+				}
+			]
+		},
+		{
+			"key": "Excited",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Excité"
+				},
+				{
+					"lang": "en",
+					"text": "Excited"
+				}
+			]
+		},
+		{
+			"key": "Sad",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Triste"
+				},
+				{
+					"lang": "en",
+					"text": "Sad"
+				}
+			]
+		},
+		{
+			"key": "Angry",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "En colère"
+				},
+				{
+					"lang": "en",
+					"text": "Angry"
+				}
+			]
+		},
+		{
+			"key": "Scared",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Effrayé"
+				},
+				{
+					"lang": "en",
+					"text": "Scared"
+				}
+			]
+		},
+		{
+			"key": "Anxious",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Anxieux"
+				},
+				{
+					"lang": "en",
+					"text": "Anxious"
+				}
+			]
+		},
+		{
+			"key": "Sight",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Vue"
+				},
+				{
+					"lang": "en",
+					"text": "Sight"
+				}
+			]
+		},
+		{
+			"key": "Hearing",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ouïe"
+				},
+				{
+					"lang": "en",
+					"text": "Hearing"
+				}
+			]
+		},
+		{
+			"key": "Smell",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Odorat"
+				},
+				{
+					"lang": "en",
+					"text": "Smell"
+				}
+			]
+		},
+		{
+			"key": "Taste",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Goût"
+				},
+				{
+					"lang": "en",
+					"text": "Taste"
+				}
+			]
+		},
+		{
+			"key": "Touch",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Toucher"
+				},
+				{
+					"lang": "en",
+					"text": "Touch"
+				}
+			]
+		},
+		{
+			"key": "Fire",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Feu"
+				},
+				{
+					"lang": "en",
+					"text": "Fire"
+				}
+			]
+		},
+		{
+			"key": "Water",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Eau"
+				},
+				{
+					"lang": "en",
+					"text": "Water"
+				}
+			]
+		},
+		{
+			"key": "Earth",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Terre"
+				},
+				{
+					"lang": "en",
+					"text": "Earth"
+				}
+			]
+		},
+		{
+			"key": "Air",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Air"
+				},
+				{
+					"lang": "en",
+					"text": "Air"
+				}
+			]
+		},
+		{
+			"key": "Left",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Gauche"
+				},
+				{
+					"lang": "en",
+					"text": "Left"
+				}
+			]
+		},
+		{
+			"key": "Right",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Droite"
+				},
+				{
+					"lang": "en",
+					"text": "Right"
+				}
+			]
+		},
+		{
+			"key": "North",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Nord"
+				},
+				{
+					"lang": "en",
+					"text": "North"
+				}
+			]
+		},
+		{
+			"key": "South",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sud"
+				},
+				{
+					"lang": "en",
+					"text": "South"
+				}
+			]
+		},
+		{
+			"key": "East",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Est"
+				},
+				{
+					"lang": "en",
+					"text": "East"
+				}
+			]
+		},
+		{
+			"key": "West",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ouest"
+				},
+				{
+					"lang": "en",
+					"text": "West"
+				}
+			]
+		},
+		{
+			"key": "Lamp",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Lampe"
+				},
+				{
+					"lang": "en",
+					"text": "Lamp"
+				}
+			]
+		},
+		{
+			"key": "Candle",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bougie"
+				},
+				{
+					"lang": "en",
+					"text": "Candle"
+				}
+			]
+		},
+		{
+			"key": "Torch",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Torche"
+				},
+				{
+					"lang": "en",
+					"text": "Torch"
+				}
+			]
+		},
+		{
+			"key": "Bulb",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ampoule"
+				},
+				{
+					"lang": "en",
+					"text": "Bulb"
+				}
+			]
+		},
+		{
+			"key": "Book",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Livre"
+				},
+				{
+					"lang": "en",
+					"text": "Book"
+				}
+			]
+		},
+		{
+			"key": "Magazine",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Magazine"
+				},
+				{
+					"lang": "en",
+					"text": "Magazine"
+				}
+			]
+		},
+		{
+			"key": "Newspaper",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Journal"
+				},
+				{
+					"lang": "en",
+					"text": "Newspaper"
+				}
+			]
+		},
+		{
+			"key": "Letter",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Lettre"
+				},
+				{
+					"lang": "en",
+					"text": "Letter"
+				}
+			]
+		},
+		{
+			"key": "Console",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Console"
+				},
+				{
+					"lang": "en",
+					"text": "Console"
+				}
+			]
+		},
+		{
+			"key": "Computer",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ordinateur"
+				},
+				{
+					"lang": "en",
+					"text": "Computer"
+				}
+			]
+		},
+		{
+			"key": "Controller",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Manette"
+				},
+				{
+					"lang": "en",
+					"text": "Controller"
+				}
+			]
+		},
+		{
+			"key": "Circle",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cercle"
+				},
+				{
+					"lang": "en",
+					"text": "Circle"
+				}
+			]
+		},
+		{
+			"key": "Square",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Carré"
+				},
+				{
+					"lang": "en",
+					"text": "Square"
+				}
+			]
+		},
+		{
+			"key": "Triangle",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Triangle"
+				},
+				{
+					"lang": "en",
+					"text": "Triangle"
+				}
+			]
+		},
+		{
+			"key": "Rectangle",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Rectangle"
+				},
+				{
+					"lang": "en",
+					"text": "Rectangle"
+				}
+			]
+		},
+		{
+			"key": "Big",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Grand"
+				},
+				{
+					"lang": "en",
+					"text": "Big"
+				}
+			]
+		},
+		{
+			"key": "Huge",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Énorme"
+				},
+				{
+					"lang": "en",
+					"text": "Huge"
+				}
+			]
+		},
+		{
+			"key": "Giant",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Géant"
+				},
+				{
+					"lang": "en",
+					"text": "Giant"
+				}
+			]
+		},
+		{
+			"key": "Small",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Petit"
+				},
+				{
+					"lang": "en",
+					"text": "Small"
+				}
+			]
+		},
+		{
+			"key": "Tiny",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Minuscule"
+				},
+				{
+					"lang": "en",
+					"text": "Tiny"
+				}
+			]
+		},
+		{
+			"key": "Fast",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Rapide"
+				},
+				{
+					"lang": "en",
+					"text": "Fast"
+				}
+			]
+		},
+		{
+			"key": "Slow",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Lent"
+				},
+				{
+					"lang": "en",
+					"text": "Slow"
+				}
+			]
+		},
+		{
+			"key": "Hot",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chaud"
+				},
+				{
+					"lang": "en",
+					"text": "Hot"
+				}
+			]
+		},
+		{
+			"key": "Cold",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Froid"
+				},
+				{
+					"lang": "en",
+					"text": "Cold"
+				}
+			]
+		},
+		{
+			"key": "Warm",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tiède"
+				},
+				{
+					"lang": "en",
+					"text": "Warm"
+				}
+			]
+		},
+		{
+			"key": "Avocado",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Avocat"
+				},
+				{
+					"lang": "en",
+					"text": "Avocado"
+				}
+			]
+		},
+		{
+			"key": "Mango",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Mangue"
+				},
+				{
+					"lang": "en",
+					"text": "Mango"
+				}
+			]
+		},
+		{
+			"key": "Papaya",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Papaye"
+				},
+				{
+					"lang": "en",
+					"text": "Papaya"
+				}
+			]
+		},
+		{
+			"key": "Prosecutor",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Procureur"
+				},
+				{
+					"lang": "en",
+					"text": "Prosecutor"
+				}
+			]
+		},
+		{
+			"key": "Broom",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Balai"
+				},
+				{
+					"lang": "en",
+					"text": "Broom"
+				}
+			]
+		},
+		{
+			"key": "Mop",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Serpillière"
+				},
+				{
+					"lang": "en",
+					"text": "Mop"
+				}
+			]
+		},
+		{
+			"key": "Vacuum",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Aspirateur"
+				},
+				{
+					"lang": "en",
+					"text": "Vacuum"
+				}
+			]
+		},
+		{
+			"key": "Dice",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Dé"
+				},
+				{
+					"lang": "en",
+					"text": "Dice"
+				}
+			]
+		},
+		{
+			"key": "Chip",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jeton"
+				},
+				{
+					"lang": "en",
+					"text": "Chip"
+				}
+			]
+		},
+		{
+			"key": "Map",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Carte"
+				},
+				{
+					"lang": "en",
+					"text": "Map"
+				}
+			]
+		},
+		{
+			"key": "Compass",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Boussole"
+				},
+				{
+					"lang": "en",
+					"text": "Compass"
+				}
+			]
+		},
+		{
+			"key": "GPS",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "GPS"
+				},
+				{
+					"lang": "en",
+					"text": "GPS"
+				}
+			]
+		},
+		{
+			"key": "Flight",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Vol"
+				},
+				{
+					"lang": "en",
+					"text": "Flight"
+				}
+			]
+		},
+		{
+			"key": "Landing",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Atterrissage"
+				},
+				{
+					"lang": "en",
+					"text": "Landing"
+				}
+			]
+		},
+		{
+			"key": "Takeoff",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Décollage"
+				},
+				{
+					"lang": "en",
+					"text": "Takeoff"
+				}
+			]
+		},
+		{
+			"key": "Theft",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Vol"
+				},
+				{
+					"lang": "en",
+					"text": "Theft"
+				}
+			]
+		},
+		{
+			"key": "Burglary",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cambriolage"
+				},
+				{
+					"lang": "en",
+					"text": "Burglary"
+				}
+			]
+		},
+		{
+			"key": "Fraud",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Fraude"
+				},
+				{
+					"lang": "en",
+					"text": "Fraud"
+				}
+			]
+		},
+		{
+			"key": "Moss",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Mousse"
+				},
+				{
+					"lang": "en",
+					"text": "Moss"
+				}
+			]
+		},
+		{
+			"key": "Foam",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Mousse"
+				},
+				{
+					"lang": "en",
+					"text": "Foam"
+				}
+			]
+		},
+		{
+			"key": "Bubble",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bulle"
+				},
+				{
+					"lang": "en",
+					"text": "Bubble"
+				}
+			]
+		},
+		{
+			"key": "Time",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Temps"
+				},
+				{
+					"lang": "en",
+					"text": "Time"
+				}
+			]
+		},
+		{
+			"key": "Duration",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Durée"
+				},
+				{
+					"lang": "en",
+					"text": "Duration"
+				}
+			]
+		},
+		{
+			"key": "Period",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Période"
+				},
+				{
+					"lang": "en",
+					"text": "Period"
+				}
+			]
+		},
+		{
+			"key": "Fog",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Brouillard"
+				},
+				{
+					"lang": "en",
+					"text": "Fog"
+				}
+			]
+		},
+		{
+			"key": "Mist",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Brume"
+				},
+				{
+					"lang": "en",
+					"text": "Mist"
+				}
+			]
+		},
+		{
+			"key": "Smog",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Nuage de pollution"
+				},
+				{
+					"lang": "en",
+					"text": "Smog"
+				}
+			]
+		},
+		{
+			"key": "Rooster",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Coq"
+				},
+				{
+					"lang": "en",
+					"text": "Rooster"
+				}
+			]
+		},
+		{
+			"key": "Hen",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Poule"
+				},
+				{
+					"lang": "en",
+					"text": "Hen"
+				}
+			]
+		},
+		{
+			"key": "Turkey",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Dinde"
+				},
+				{
+					"lang": "en",
+					"text": "Turkey"
+				}
+			]
+		},
+		{
+			"key": "Goose",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Oie"
+				},
+				{
+					"lang": "en",
+					"text": "Goose"
+				}
+			]
+		},
+		{
+			"key": "Cow",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Vache"
+				},
+				{
+					"lang": "en",
+					"text": "Cow"
+				}
+			]
+		},
+		{
+			"key": "Bull",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Taureau"
+				},
+				{
+					"lang": "en",
+					"text": "Bull"
+				}
+			]
+		},
+		{
+			"key": "Sheep",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Mouton"
+				},
+				{
+					"lang": "en",
+					"text": "Sheep"
+				}
+			]
+		},
+		{
+			"key": "Goat",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chèvre"
+				},
+				{
+					"lang": "en",
+					"text": "Goat"
+				}
+			]
+		},
+		{
+			"key": "Pig",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cochon"
+				},
+				{
+					"lang": "en",
+					"text": "Pig"
+				}
+			]
+		},
+		{
+			"key": "Horse",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cheval"
+				},
+				{
+					"lang": "en",
+					"text": "Horse"
+				}
+			]
+		},
+		{
+			"key": "Donkey",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Âne"
+				},
+				{
+					"lang": "en",
+					"text": "Donkey"
+				}
+			]
+		},
+		{
+			"key": "Lion",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Lion"
+				},
+				{
+					"lang": "en",
+					"text": "Lion"
+				}
+			]
+		},
+		{
+			"key": "Tiger",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tigre"
+				},
+				{
+					"lang": "en",
+					"text": "Tiger"
+				}
+			]
+		},
+		{
+			"key": "Leopard",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Léopard"
+				},
+				{
+					"lang": "en",
+					"text": "Leopard"
+				}
+			]
+		},
+		{
+			"key": "Jaguar",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jaguar"
+				},
+				{
+					"lang": "en",
+					"text": "Jaguar"
+				}
+			]
+		},
+		{
+			"key": "Panther",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Panthère"
+				},
+				{
+					"lang": "en",
+					"text": "Panther"
+				}
+			]
+		},
+		{
+			"key": "Cheetah",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Guépard"
+				},
+				{
+					"lang": "en",
+					"text": "Cheetah"
+				}
+			]
+		},
+		{
+			"key": "Cougar",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Puma"
+				},
+				{
+					"lang": "en",
+					"text": "Cougar"
+				}
+			]
+		},
+		{
+			"key": "Bear",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ours"
+				},
+				{
+					"lang": "en",
+					"text": "Bear"
+				}
+			]
+		},
+		{
+			"key": "Wolf",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Loup"
+				},
+				{
+					"lang": "en",
+					"text": "Wolf"
+				}
+			]
+		},
+		{
+			"key": "Fox",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Renard"
+				},
+				{
+					"lang": "en",
+					"text": "Fox"
+				}
+			]
+		},
+		{
+			"key": "Deer",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cerf"
+				},
+				{
+					"lang": "en",
+					"text": "Deer"
+				}
+			]
+		},
+		{
+			"key": "Boar",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sanglier"
+				},
+				{
+					"lang": "en",
+					"text": "Boar"
+				}
+			]
+		},
+		{
+			"key": "Squirrel",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Écureuil"
+				},
+				{
+					"lang": "en",
+					"text": "Squirrel"
+				}
+			]
+		},
+		{
+			"key": "Elephant",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Éléphant"
+				},
+				{
+					"lang": "en",
+					"text": "Elephant"
+				}
+			]
+		},
+		{
+			"key": "Rhinoceros",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Rhinocéros"
+				},
+				{
+					"lang": "en",
+					"text": "Rhinoceros"
+				}
+			]
+		},
+		{
+			"key": "Hippo",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Hippopotame"
+				},
+				{
+					"lang": "en",
+					"text": "Hippo"
+				}
+			]
+		},
+		{
+			"key": "Giraffe",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Girafe"
+				},
+				{
+					"lang": "en",
+					"text": "Giraffe"
+				}
+			]
+		},
+		{
+			"key": "Zebra",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Zèbre"
+				},
+				{
+					"lang": "en",
+					"text": "Zebra"
+				}
+			]
+		},
+		{
+			"key": "Whale",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Baleine"
+				},
+				{
+					"lang": "en",
+					"text": "Whale"
+				}
+			]
+		},
+		{
+			"key": "Dolphin",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Dauphin"
+				},
+				{
+					"lang": "en",
+					"text": "Dolphin"
+				}
+			]
+		},
+		{
+			"key": "Orca",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Orque"
+				},
+				{
+					"lang": "en",
+					"text": "Orca"
+				}
+			]
+		},
+		{
+			"key": "Seal",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Phoque"
+				},
+				{
+					"lang": "en",
+					"text": "Seal"
+				}
+			]
+		},
+		{
+			"key": "Walrus",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Morse"
+				},
+				{
+					"lang": "en",
+					"text": "Walrus"
+				}
+			]
+		},
+		{
+			"key": "Shark",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Requin"
+				},
+				{
+					"lang": "en",
+					"text": "Shark"
+				}
+			]
+		},
+		{
+			"key": "Tuna",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Thon"
+				},
+				{
+					"lang": "en",
+					"text": "Tuna"
+				}
+			]
+		},
+		{
+			"key": "Salmon",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Saumon"
+				},
+				{
+					"lang": "en",
+					"text": "Salmon"
+				}
+			]
+		},
+		{
+			"key": "Clownfish",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Poisson-clown"
+				},
+				{
+					"lang": "en",
+					"text": "Clownfish"
+				}
+			]
+		},
+		{
+			"key": "Octopus",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pieuvre"
+				},
+				{
+					"lang": "en",
+					"text": "Octopus"
+				}
+			]
+		},
+		{
+			"key": "Squid",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Calamar"
+				},
+				{
+					"lang": "en",
+					"text": "Squid"
+				}
+			]
+		},
+		{
+			"key": "Jellyfish",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Méduse"
+				},
+				{
+					"lang": "en",
+					"text": "Jellyfish"
+				}
+			]
+		},
+		{
+			"key": "Starfish",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Étoile de mer"
+				},
+				{
+					"lang": "en",
+					"text": "Starfish"
+				}
+			]
+		},
+		{
+			"key": "Dog",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chien"
+				},
+				{
+					"lang": "en",
+					"text": "Dog"
+				}
+			]
+		},
+		{
+			"key": "Cat",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chat"
+				},
+				{
+					"lang": "en",
+					"text": "Cat"
+				}
+			]
+		},
+		{
+			"key": "Hamster",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Hamster"
+				},
+				{
+					"lang": "en",
+					"text": "Hamster"
+				}
+			]
+		},
+		{
+			"key": "Rabbit",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Lapin"
+				},
+				{
+					"lang": "en",
+					"text": "Rabbit"
+				}
+			]
+		},
+		{
+			"key": "GuineaPig",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cochon d'Inde"
+				},
+				{
+					"lang": "en",
+					"text": "GuineaPig"
+				}
+			]
+		},
+		{
+			"key": "Goldfish",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Poisson rouge"
+				},
+				{
+					"lang": "en",
+					"text": "Goldfish"
+				}
+			]
+		},
+		{
+			"key": "Eagle",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Aigle"
+				},
+				{
+					"lang": "en",
+					"text": "Eagle"
+				}
+			]
+		},
+		{
+			"key": "Falcon",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Faucon"
+				},
+				{
+					"lang": "en",
+					"text": "Falcon"
+				}
+			]
+		},
+		{
+			"key": "Hawk",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Buse"
+				},
+				{
+					"lang": "en",
+					"text": "Hawk"
+				}
+			]
+		},
+		{
+			"key": "Owl",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Hibou"
+				},
+				{
+					"lang": "en",
+					"text": "Owl"
+				}
+			]
+		},
+		{
+			"key": "Vulture",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Vautour"
+				},
+				{
+					"lang": "en",
+					"text": "Vulture"
+				}
+			]
+		},
+		{
+			"key": "Pigeon",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pigeon"
+				},
+				{
+					"lang": "en",
+					"text": "Pigeon"
+				}
+			]
+		},
+		{
+			"key": "Crow",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Corbeau"
+				},
+				{
+					"lang": "en",
+					"text": "Crow"
+				}
+			]
+		},
+		{
+			"key": "Sparrow",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Moineau"
+				},
+				{
+					"lang": "en",
+					"text": "Sparrow"
+				}
+			]
+		},
+		{
+			"key": "Seagull",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Mouette"
+				},
+				{
+					"lang": "en",
+					"text": "Seagull"
+				}
+			]
+		},
+		{
+			"key": "Toaster",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Grille-pain"
+				},
+				{
+					"lang": "en",
+					"text": "Toaster"
+				}
+			]
+		},
+		{
+			"key": "Microwave",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Micro-ondes"
+				},
+				{
+					"lang": "en",
+					"text": "Microwave"
+				}
+			]
+		},
+		{
+			"key": "Oven",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Four"
+				},
+				{
+					"lang": "en",
+					"text": "Oven"
+				}
+			]
+		},
+		{
+			"key": "Blender",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Mixeur"
+				},
+				{
+					"lang": "en",
+					"text": "Blender"
+				}
+			]
+		},
+		{
+			"key": "Fridge",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Frigo"
+				},
+				{
+					"lang": "en",
+					"text": "Fridge"
+				}
+			]
+		},
+		{
+			"key": "Pot",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Casserole"
+				},
+				{
+					"lang": "en",
+					"text": "Pot"
+				}
+			]
+		},
+		{
+			"key": "Pan",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Poêle"
+				},
+				{
+					"lang": "en",
+					"text": "Pan"
+				}
+			]
+		},
+		{
+			"key": "Wok",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Wok"
+				},
+				{
+					"lang": "en",
+					"text": "Wok"
+				}
+			]
+		},
+		{
+			"key": "Strainer",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Passoire"
+				},
+				{
+					"lang": "en",
+					"text": "Strainer"
+				}
+			]
+		},
+		{
+			"key": "Grater",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Râpe"
+				},
+				{
+					"lang": "en",
+					"text": "Grater"
+				}
+			]
+		},
+		{
+			"key": "Bottle",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bouteille"
+				},
+				{
+					"lang": "en",
+					"text": "Bottle"
+				}
+			]
+		},
+		{
+			"key": "Flask",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Gourde"
+				},
+				{
+					"lang": "en",
+					"text": "Flask"
+				}
+			]
+		},
+		{
+			"key": "Jar",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bocal"
+				},
+				{
+					"lang": "en",
+					"text": "Jar"
+				}
+			]
+		},
+		{
+			"key": "Can",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Canette"
+				},
+				{
+					"lang": "en",
+					"text": "Can"
+				}
+			]
+		},
+		{
+			"key": "Box",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Boîte"
+				},
+				{
+					"lang": "en",
+					"text": "Box"
+				}
+			]
+		},
+		{
+			"key": "Sponge",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Éponge"
+				},
+				{
+					"lang": "en",
+					"text": "Sponge"
+				}
+			]
+		},
+		{
+			"key": "Rag",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chiffon"
+				},
+				{
+					"lang": "en",
+					"text": "Rag"
+				}
+			]
+		},
+		{
+			"key": "Bucket",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Seau"
+				},
+				{
+					"lang": "en",
+					"text": "Bucket"
+				}
+			]
+		},
+		{
+			"key": "Brush",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Brosse"
+				},
+				{
+					"lang": "en",
+					"text": "Brush"
+				}
+			]
+		},
+		{
+			"key": "WashingMachine",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Machine à laver"
+				},
+				{
+					"lang": "en",
+					"text": "WashingMachine"
+				}
+			]
+		},
+		{
+			"key": "Dryer",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sèche-linge"
+				},
+				{
+					"lang": "en",
+					"text": "Dryer"
+				}
+			]
+		},
+		{
+			"key": "Iron",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Fer à repasser"
+				},
+				{
+					"lang": "en",
+					"text": "Iron"
+				}
+			]
+		},
+		{
+			"key": "Europe",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Europe"
+				},
+				{
+					"lang": "en",
+					"text": "Europe"
+				}
+			]
+		},
+		{
+			"key": "Asia",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Asie"
+				},
+				{
+					"lang": "en",
+					"text": "Asia"
+				}
+			]
+		},
+		{
+			"key": "Africa",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Afrique"
+				},
+				{
+					"lang": "en",
+					"text": "Africa"
+				}
+			]
+		},
+		{
+			"key": "America",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Amérique"
+				},
+				{
+					"lang": "en",
+					"text": "America"
+				}
+			]
+		},
+		{
+			"key": "Oceania",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Océanie"
+				},
+				{
+					"lang": "en",
+					"text": "Oceania"
+				}
+			]
+		},
+		{
+			"key": "France",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "France"
+				},
+				{
+					"lang": "en",
+					"text": "France"
+				}
+			]
+		},
+		{
+			"key": "Spain",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Espagne"
+				},
+				{
+					"lang": "en",
+					"text": "Spain"
+				}
+			]
+		},
+		{
+			"key": "Italy",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Italie"
+				},
+				{
+					"lang": "en",
+					"text": "Italy"
+				}
+			]
+		},
+		{
+			"key": "Germany",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Allemagne"
+				},
+				{
+					"lang": "en",
+					"text": "Germany"
+				}
+			]
+		},
+		{
+			"key": "UK",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Royaume-Uni"
+				},
+				{
+					"lang": "en",
+					"text": "UK"
+				}
+			]
+		},
+		{
+			"key": "USA",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "États-Unis"
+				},
+				{
+					"lang": "en",
+					"text": "USA"
+				}
+			]
+		},
+		{
+			"key": "Canada",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Canada"
+				},
+				{
+					"lang": "en",
+					"text": "Canada"
+				}
+			]
+		},
+		{
+			"key": "China",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chine"
+				},
+				{
+					"lang": "en",
+					"text": "China"
+				}
+			]
+		},
+		{
+			"key": "Japan",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Japon"
+				},
+				{
+					"lang": "en",
+					"text": "Japan"
+				}
+			]
+		},
+		{
+			"key": "Brazil",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Brésil"
+				},
+				{
+					"lang": "en",
+					"text": "Brazil"
+				}
+			]
+		},
+		{
+			"key": "Russia",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Russie"
+				},
+				{
+					"lang": "en",
+					"text": "Russia"
+				}
+			]
+		},
+		{
+			"key": "Bridge",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pont"
+				},
+				{
+					"lang": "en",
+					"text": "Bridge"
+				}
+			]
+		},
+		{
+			"key": "Tunnel",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tunnel"
+				},
+				{
+					"lang": "en",
+					"text": "Tunnel"
+				}
+			]
+		},
+		{
+			"key": "Road",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Route"
+				},
+				{
+					"lang": "en",
+					"text": "Road"
+				}
+			]
+		},
+		{
+			"key": "Street",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Rue"
+				},
+				{
+					"lang": "en",
+					"text": "Street"
+				}
+			]
+		},
+		{
+			"key": "Avenue",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Avenue"
+				},
+				{
+					"lang": "en",
+					"text": "Avenue"
+				}
+			]
+		},
+		{
+			"key": "Desert",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Désert"
+				},
+				{
+					"lang": "en",
+					"text": "Desert"
+				}
+			]
+		},
+		{
+			"key": "Tundra",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Toundra"
+				},
+				{
+					"lang": "en",
+					"text": "Tundra"
+				}
+			]
+		},
+		{
+			"key": "Savanna",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Savane"
+				},
+				{
+					"lang": "en",
+					"text": "Savanna"
+				}
+			]
+		},
+		{
+			"key": "Pool",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Piscine"
+				},
+				{
+					"lang": "en",
+					"text": "Pool"
+				}
+			]
+		},
+		{
+			"key": "Face",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Visage"
+				},
+				{
+					"lang": "en",
+					"text": "Face"
+				}
+			]
+		},
+		{
+			"key": "Cheek",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Joue"
+				},
+				{
+					"lang": "en",
+					"text": "Cheek"
+				}
+			]
+		},
+		{
+			"key": "Chin",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Menton"
+				},
+				{
+					"lang": "en",
+					"text": "Chin"
+				}
+			]
+		},
+		{
+			"key": "Forehead",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Front"
+				},
+				{
+					"lang": "en",
+					"text": "Forehead"
+				}
+			]
+		},
+		{
+			"key": "Hair",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cheveux"
+				},
+				{
+					"lang": "en",
+					"text": "Hair"
+				}
+			]
+		},
+		{
+			"key": "Beard",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Barbe"
+				},
+				{
+					"lang": "en",
+					"text": "Beard"
+				}
+			]
+		},
+		{
+			"key": "Mustache",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Moustache"
+				},
+				{
+					"lang": "en",
+					"text": "Mustache"
+				}
+			]
+		},
+		{
+			"key": "Eyebrow",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sourcil"
+				},
+				{
+					"lang": "en",
+					"text": "Eyebrow"
+				}
+			]
+		},
+		{
+			"key": "Chest",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Torse"
+				},
+				{
+					"lang": "en",
+					"text": "Chest"
+				}
+			]
+		},
+		{
+			"key": "Belly",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ventre"
+				},
+				{
+					"lang": "en",
+					"text": "Belly"
+				}
+			]
+		},
+		{
+			"key": "Back",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Dos"
+				},
+				{
+					"lang": "en",
+					"text": "Back"
+				}
+			]
+		},
+		{
+			"key": "Shoulder",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Épaule"
+				},
+				{
+					"lang": "en",
+					"text": "Shoulder"
+				}
+			]
+		},
+		{
+			"key": "Arm",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bras"
+				},
+				{
+					"lang": "en",
+					"text": "Arm"
+				}
+			]
+		},
+		{
+			"key": "Leg",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jambe"
+				},
+				{
+					"lang": "en",
+					"text": "Leg"
+				}
+			]
+		},
+		{
+			"key": "Elbow",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Coude"
+				},
+				{
+					"lang": "en",
+					"text": "Elbow"
+				}
+			]
+		},
+		{
+			"key": "Knee",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Genou"
+				},
+				{
+					"lang": "en",
+					"text": "Knee"
+				}
+			]
+		},
+		{
+			"key": "Bone",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Os"
+				},
+				{
+					"lang": "en",
+					"text": "Bone"
+				}
+			]
+		},
+		{
+			"key": "Muscle",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Muscle"
+				},
+				{
+					"lang": "en",
+					"text": "Muscle"
+				}
+			]
+		},
+		{
+			"key": "Blood",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sang"
+				},
+				{
+					"lang": "en",
+					"text": "Blood"
+				}
+			]
+		},
+		{
+			"key": "Skin",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Peau"
+				},
+				{
+					"lang": "en",
+					"text": "Skin"
+				}
+			]
+		},
+		{
+			"key": "Flu",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Grippe"
+				},
+				{
+					"lang": "en",
+					"text": "Flu"
+				}
+			]
+		},
+		{
+			"key": "Fever",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Fièvre"
+				},
+				{
+					"lang": "en",
+					"text": "Fever"
+				}
+			]
+		},
+		{
+			"key": "Cough",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Toux"
+				},
+				{
+					"lang": "en",
+					"text": "Cough"
+				}
+			]
+		},
+		{
+			"key": "Scarf",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Écharpe"
+				},
+				{
+					"lang": "en",
+					"text": "Scarf"
+				}
+			]
+		},
+		{
+			"key": "Gloves",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Gants"
+				},
+				{
+					"lang": "en",
+					"text": "Gloves"
+				}
+			]
+		},
+		{
+			"key": "Beanie",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bonnet"
+				},
+				{
+					"lang": "en",
+					"text": "Beanie"
+				}
+			]
+		},
+		{
+			"key": "Mittens",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Moufles"
+				},
+				{
+					"lang": "en",
+					"text": "Mittens"
+				}
+			]
+		},
+		{
+			"key": "Suit",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Costume"
+				},
+				{
+					"lang": "en",
+					"text": "Suit"
+				}
+			]
+		},
+		{
+			"key": "Tie",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cravate"
+				},
+				{
+					"lang": "en",
+					"text": "Tie"
+				}
+			]
+		},
+		{
+			"key": "Bowtie",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Nœud papillon"
+				},
+				{
+					"lang": "en",
+					"text": "Bowtie"
+				}
+			]
+		},
+		{
+			"key": "Dress",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Robe"
+				},
+				{
+					"lang": "en",
+					"text": "Dress"
+				}
+			]
+		},
+		{
+			"key": "Skirt",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jupe"
+				},
+				{
+					"lang": "en",
+					"text": "Skirt"
+				}
+			]
+		},
+		{
+			"key": "Belt",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ceinture"
+				},
+				{
+					"lang": "en",
+					"text": "Belt"
+				}
+			]
+		},
+		{
+			"key": "Watch",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Montre"
+				},
+				{
+					"lang": "en",
+					"text": "Watch"
+				}
+			]
+		},
+		{
+			"key": "Glasses",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Lunettes"
+				},
+				{
+					"lang": "en",
+					"text": "Glasses"
+				}
+			]
+		},
+		{
+			"key": "Sunglasses",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Lunettes de soleil"
+				},
+				{
+					"lang": "en",
+					"text": "Sunglasses"
+				}
+			]
+		},
+		{
+			"key": "Wallet",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Portefeuille"
+				},
+				{
+					"lang": "en",
+					"text": "Wallet"
+				}
+			]
+		},
+		{
+			"key": "Hat",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chapeau"
+				},
+				{
+					"lang": "en",
+					"text": "Hat"
+				}
+			]
+		},
+		{
+			"key": "Cap",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Casquette"
+				},
+				{
+					"lang": "en",
+					"text": "Cap"
+				}
+			]
+		},
+		{
+			"key": "Helmet",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Casque"
+				},
+				{
+					"lang": "en",
+					"text": "Helmet"
+				}
+			]
+		},
+		{
+			"key": "Crown",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Couronne"
+				},
+				{
+					"lang": "en",
+					"text": "Crown"
+				}
+			]
+		},
+		{
+			"key": "Brick",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Brique"
+				},
+				{
+					"lang": "en",
+					"text": "Brick"
+				}
+			]
+		},
+		{
+			"key": "Concrete",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Béton"
+				},
+				{
+					"lang": "en",
+					"text": "Concrete"
+				}
+			]
+		},
+		{
+			"key": "Cement",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ciment"
+				},
+				{
+					"lang": "en",
+					"text": "Cement"
+				}
+			]
+		},
+		{
+			"key": "Plaster",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Plâtre"
+				},
+				{
+					"lang": "en",
+					"text": "Plaster"
+				}
+			]
+		},
+		{
+			"key": "Linen",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Lin"
+				},
+				{
+					"lang": "en",
+					"text": "Linen"
+				}
+			]
+		},
+		{
+			"key": "Leather",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cuir"
+				},
+				{
+					"lang": "en",
+					"text": "Leather"
+				}
+			]
+		},
+		{
+			"key": "Denim",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jean (Tissu)"
+				},
+				{
+					"lang": "en",
+					"text": "Denim"
+				}
+			]
+		},
+		{
+			"key": "Gold",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Or"
+				},
+				{
+					"lang": "en",
+					"text": "Gold"
+				}
+			]
+		},
+		{
+			"key": "Silver",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Argent"
+				},
+				{
+					"lang": "en",
+					"text": "Silver"
+				}
+			]
+		},
+		{
+			"key": "Platinum",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Platine"
+				},
+				{
+					"lang": "en",
+					"text": "Platinum"
+				}
+			]
+		},
+		{
+			"key": "Diamond",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Diamant"
+				},
+				{
+					"lang": "en",
+					"text": "Diamond"
+				}
+			]
+		},
+		{
+			"key": "Pearl",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Perle"
+				},
+				{
+					"lang": "en",
+					"text": "Pearl"
+				}
+			]
+		},
+		{
+			"key": "Screen",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Écran"
+				},
+				{
+					"lang": "en",
+					"text": "Screen"
+				}
+			]
+		},
+		{
+			"key": "Keyboard",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Clavier"
+				},
+				{
+					"lang": "en",
+					"text": "Keyboard"
+				}
+			]
+		},
+		{
+			"key": "Mouse",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Souris"
+				},
+				{
+					"lang": "en",
+					"text": "Mouse"
+				}
+			]
+		},
+		{
+			"key": "Speaker",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Enceinte"
+				},
+				{
+					"lang": "en",
+					"text": "Speaker"
+				}
+			]
+		},
+		{
+			"key": "Wifi",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Wifi"
+				},
+				{
+					"lang": "en",
+					"text": "Wifi"
+				}
+			]
+		},
+		{
+			"key": "Bluetooth",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bluetooth"
+				},
+				{
+					"lang": "en",
+					"text": "Bluetooth"
+				}
+			]
+		},
+		{
+			"key": "Email",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Email"
+				},
+				{
+					"lang": "en",
+					"text": "Email"
+				}
+			]
+		},
+		{
+			"key": "Website",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Site Web"
+				},
+				{
+					"lang": "en",
+					"text": "Website"
+				}
+			]
+		},
+		{
+			"key": "Post",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Post"
+				},
+				{
+					"lang": "en",
+					"text": "Post"
+				}
+			]
+		},
+		{
+			"key": "Like",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Like"
+				},
+				{
+					"lang": "en",
+					"text": "Like"
+				}
+			]
+		},
+		{
+			"key": "Comment",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Commentaire"
+				},
+				{
+					"lang": "en",
+					"text": "Comment"
+				}
+			]
+		},
+		{
+			"key": "Share",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Partage"
+				},
+				{
+					"lang": "en",
+					"text": "Share"
+				}
+			]
+		},
+		{
+			"key": "Story",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Story"
+				},
+				{
+					"lang": "en",
+					"text": "Story"
+				}
+			]
+		},
+		{
+			"key": "Rock",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Rock"
+				},
+				{
+					"lang": "en",
+					"text": "Rock"
+				}
+			]
+		},
+		{
+			"key": "Pop",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pop"
+				},
+				{
+					"lang": "en",
+					"text": "Pop"
+				}
+			]
+		},
+		{
+			"key": "Jazz",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jazz"
+				},
+				{
+					"lang": "en",
+					"text": "Jazz"
+				}
+			]
+		},
+		{
+			"key": "Rap",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Rap"
+				},
+				{
+					"lang": "en",
+					"text": "Rap"
+				}
+			]
+		},
+		{
+			"key": "Classical",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Classique"
+				},
+				{
+					"lang": "en",
+					"text": "Classical"
+				}
+			]
+		},
+		{
+			"key": "Electro",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Électro"
+				},
+				{
+					"lang": "en",
+					"text": "Electro"
+				}
+			]
+		},
+		{
+			"key": "Comedy",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Comédie"
+				},
+				{
+					"lang": "en",
+					"text": "Comedy"
+				}
+			]
+		},
+		{
+			"key": "Horror",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Horreur"
+				},
+				{
+					"lang": "en",
+					"text": "Horror"
+				}
+			]
+		},
+		{
+			"key": "Action",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Action"
+				},
+				{
+					"lang": "en",
+					"text": "Action"
+				}
+			]
+		},
+		{
+			"key": "Drama",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Drame"
+				},
+				{
+					"lang": "en",
+					"text": "Drama"
+				}
+			]
+		},
+		{
+			"key": "SciFi",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Science-fiction"
+				},
+				{
+					"lang": "en",
+					"text": "SciFi"
+				}
+			]
+		},
+		{
+			"key": "Baby",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bébé"
+				},
+				{
+					"lang": "en",
+					"text": "Baby"
+				}
+			]
+		},
+		{
+			"key": "Child",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Enfant"
+				},
+				{
+					"lang": "en",
+					"text": "Child"
+				}
+			]
+		},
+		{
+			"key": "Teenager",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Adolescent"
+				},
+				{
+					"lang": "en",
+					"text": "Teenager"
+				}
+			]
+		},
+		{
+			"key": "Adult",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Adulte"
+				},
+				{
+					"lang": "en",
+					"text": "Adult"
+				}
+			]
+		},
+		{
+			"key": "Senior",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Senior"
+				},
+				{
+					"lang": "en",
+					"text": "Senior"
+				}
+			]
+		},
+		{
+			"key": "Sphere",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sphère"
+				},
+				{
+					"lang": "en",
+					"text": "Sphere"
+				}
+			]
+		},
+		{
+			"key": "Cube",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cube"
+				},
+				{
+					"lang": "en",
+					"text": "Cube"
+				}
+			]
+		},
+		{
+			"key": "Cyan",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cyan"
+				},
+				{
+					"lang": "en",
+					"text": "Cyan"
+				}
+			]
+		},
+		{
+			"key": "Turquoise",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Turquoise"
+				},
+				{
+					"lang": "en",
+					"text": "Turquoise"
+				}
+			]
+		},
+		{
+			"key": "Indigo",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Indigo"
+				},
+				{
+					"lang": "en",
+					"text": "Indigo"
+				}
+			]
+		},
+		{
+			"key": "Violet",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Violet"
+				},
+				{
+					"lang": "en",
+					"text": "Violet"
+				}
+			]
+		},
+		{
+			"key": "Calm",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Calme"
+				},
+				{
+					"lang": "en",
+					"text": "Calm"
+				}
+			]
+		},
+		{
+			"key": "Nervous",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Nerveux"
+				},
+				{
+					"lang": "en",
+					"text": "Nervous"
+				}
+			]
+		},
+		{
+			"key": "Shy",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Timide"
+				},
+				{
+					"lang": "en",
+					"text": "Shy"
+				}
+			]
+		},
+		{
+			"key": "Bold",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Audacieux"
+				},
+				{
+					"lang": "en",
+					"text": "Bold"
+				}
+			]
+		},
+		{
+			"key": "Height",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Hauteur"
+				},
+				{
+					"lang": "en",
+					"text": "Height"
+				}
+			]
+		},
+		{
+			"key": "Width",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Largeur"
+				},
+				{
+					"lang": "en",
+					"text": "Width"
+				}
+			]
+		},
+		{
+			"key": "Depth",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Profondeur"
+				},
+				{
+					"lang": "en",
+					"text": "Depth"
+				}
+			]
+		},
+		{
+			"key": "Length",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Longueur"
+				},
+				{
+					"lang": "en",
+					"text": "Length"
+				}
+			]
+		},
+		{
+			"key": "Cash",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Liquide"
+				},
+				{
+					"lang": "en",
+					"text": "Cash"
+				}
+			]
+		},
+		{
+			"key": "Credit",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Crédit"
+				},
+				{
+					"lang": "en",
+					"text": "Credit"
+				}
+			]
+		},
+		{
+			"key": "Debt",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Dette"
+				},
+				{
+					"lang": "en",
+					"text": "Debt"
+				}
+			]
+		},
+		{
+			"key": "Savings",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Épargne"
+				},
+				{
+					"lang": "en",
+					"text": "Savings"
+				}
+			]
+		},
+		{
+			"key": "Tax",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Impôt"
+				},
+				{
+					"lang": "en",
+					"text": "Tax"
+				}
+			]
+		},
+		{
+			"key": "Burger",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Burger"
+				},
+				{
+					"lang": "en",
+					"text": "Burger"
+				}
+			]
+		},
+		{
+			"key": "Pizza",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pizza"
+				},
+				{
+					"lang": "en",
+					"text": "Pizza"
+				}
+			]
+		},
+		{
+			"key": "Fries",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Frites"
+				},
+				{
+					"lang": "en",
+					"text": "Fries"
+				}
+			]
+		},
+		{
+			"key": "HotDog",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Hot-dog"
+				},
+				{
+					"lang": "en",
+					"text": "HotDog"
+				}
+			]
+		},
+		{
+			"key": "Kebab",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Kebab"
+				},
+				{
+					"lang": "en",
+					"text": "Kebab"
+				}
+			]
+		},
+		{
+			"key": "Taco",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tacos"
+				},
+				{
+					"lang": "en",
+					"text": "Taco"
+				}
+			]
+		},
+		{
+			"key": "Milk",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Lait"
+				},
+				{
+					"lang": "en",
+					"text": "Milk"
+				}
+			]
+		},
+		{
+			"key": "Cheese",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Fromage"
+				},
+				{
+					"lang": "en",
+					"text": "Cheese"
+				}
+			]
+		},
+		{
+			"key": "Yogurt",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Yaourt"
+				},
+				{
+					"lang": "en",
+					"text": "Yogurt"
+				}
+			]
+		},
+		{
+			"key": "Cream",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Crème"
+				},
+				{
+					"lang": "en",
+					"text": "Cream"
+				}
+			]
+		},
+		{
+			"key": "Butter",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Beurre"
+				},
+				{
+					"lang": "en",
+					"text": "Butter"
+				}
+			]
+		},
+		{
+			"key": "Pasta",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pâtes"
+				},
+				{
+					"lang": "en",
+					"text": "Pasta"
+				}
+			]
+		},
+		{
+			"key": "Rice",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Riz"
+				},
+				{
+					"lang": "en",
+					"text": "Rice"
+				}
+			]
+		},
+		{
+			"key": "Quinoa",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Quinoa"
+				},
+				{
+					"lang": "en",
+					"text": "Quinoa"
+				}
+			]
+		},
+		{
+			"key": "Semolina",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Semoule"
+				},
+				{
+					"lang": "en",
+					"text": "Semolina"
+				}
+			]
+		},
+		{
+			"key": "Chips",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chips"
+				},
+				{
+					"lang": "en",
+					"text": "Chips"
+				}
+			]
+		},
+		{
+			"key": "Popcorn",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Popcorn"
+				},
+				{
+					"lang": "en",
+					"text": "Popcorn"
+				}
+			]
+		},
+		{
+			"key": "Nuts",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Noix"
+				},
+				{
+					"lang": "en",
+					"text": "Nuts"
+				}
+			]
+		},
+		{
+			"key": "Candy",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bonbon"
+				},
+				{
+					"lang": "en",
+					"text": "Candy"
+				}
+			]
+		},
+		{
+			"key": "Chocolate",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chocolat"
+				},
+				{
+					"lang": "en",
+					"text": "Chocolate"
+				}
+			]
+		},
+		{
+			"key": "Arugula",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Roquette"
+				},
+				{
+					"lang": "en",
+					"text": "Arugula"
+				}
+			]
+		},
+		{
+			"key": "Tomato",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tomate"
+				},
+				{
+					"lang": "en",
+					"text": "Tomato"
+				}
+			]
+		},
+		{
+			"key": "Pepper",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Poivron"
+				},
+				{
+					"lang": "en",
+					"text": "Pepper"
+				}
+			]
+		},
+		{
+			"key": "Chili",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Piment"
+				},
+				{
+					"lang": "en",
+					"text": "Chili"
+				}
+			]
+		},
+		{
+			"key": "Beet",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Betterave"
+				},
+				{
+					"lang": "en",
+					"text": "Beet"
+				}
+			]
+		},
+		{
+			"key": "Banana",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Banane"
+				},
+				{
+					"lang": "en",
+					"text": "Banana"
+				}
+			]
+		},
+		{
+			"key": "Pineapple",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ananas"
+				},
+				{
+					"lang": "en",
+					"text": "Pineapple"
+				}
+			]
+		},
+		{
+			"key": "Apple",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pomme"
+				},
+				{
+					"lang": "en",
+					"text": "Apple"
+				}
+			]
+		},
+		{
+			"key": "Pear",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Poire"
+				},
+				{
+					"lang": "en",
+					"text": "Pear"
+				}
+			]
+		},
+		{
+			"key": "Kiwi",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Kiwi"
+				},
+				{
+					"lang": "en",
+					"text": "Kiwi"
+				}
+			]
+		},
+		{
+			"key": "Grape",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Raisin"
+				},
+				{
+					"lang": "en",
+					"text": "Grape"
+				}
+			]
+		},
+		{
+			"key": "Pharmacist",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pharmacien"
+				},
+				{
+					"lang": "en",
+					"text": "Pharmacist"
+				}
+			]
+		},
+		{
+			"key": "Vet",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Vétérinaire"
+				},
+				{
+					"lang": "en",
+					"text": "Vet"
+				}
+			]
+		},
+		{
+			"key": "Firefighter",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pompier"
+				},
+				{
+					"lang": "en",
+					"text": "Firefighter"
+				}
+			]
+		},
+		{
+			"key": "Soldier",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Soldat"
+				},
+				{
+					"lang": "en",
+					"text": "Soldier"
+				}
+			]
+		},
+		{
+			"key": "Paramedic",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ambulancier"
+				},
+				{
+					"lang": "en",
+					"text": "Paramedic"
+				}
+			]
+		},
+		{
+			"key": "Artist",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Artiste"
+				},
+				{
+					"lang": "en",
+					"text": "Artist"
+				}
+			]
+		},
+		{
+			"key": "Designer",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Designer"
+				},
+				{
+					"lang": "en",
+					"text": "Designer"
+				}
+			]
+		},
+		{
+			"key": "Photographer",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Photographe"
+				},
+				{
+					"lang": "en",
+					"text": "Photographer"
+				}
+			]
+		},
+		{
+			"key": "Developer",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Développeur"
+				},
+				{
+					"lang": "en",
+					"text": "Developer"
+				}
+			]
+		},
+		{
+			"key": "Engineer",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ingénieur"
+				},
+				{
+					"lang": "en",
+					"text": "Engineer"
+				}
+			]
+		},
+		{
+			"key": "Hacker",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Hacker"
+				},
+				{
+					"lang": "en",
+					"text": "Hacker"
+				}
+			]
+		},
+		{
+			"key": "DataScientist",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Data Scientist"
+				},
+				{
+					"lang": "en",
+					"text": "DataScientist"
+				}
+			]
+		},
+		{
+			"key": "Waiter",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Serveur"
+				},
+				{
+					"lang": "en",
+					"text": "Waiter"
+				}
+			]
+		},
+		{
+			"key": "Bartender",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Barman"
+				},
+				{
+					"lang": "en",
+					"text": "Bartender"
+				}
+			]
+		},
+		{
+			"key": "Cook",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cuisinier"
+				},
+				{
+					"lang": "en",
+					"text": "Cook"
+				}
+			]
+		},
+		{
+			"key": "Hairdresser",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Coiffeur"
+				},
+				{
+					"lang": "en",
+					"text": "Hairdresser"
+				}
+			]
+		},
+		{
+			"key": "Gardener",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jardinier"
+				},
+				{
+					"lang": "en",
+					"text": "Gardener"
+				}
+			]
+		},
+		{
+			"key": "Mario",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Mario"
+				},
+				{
+					"lang": "en",
+					"text": "Mario"
+				}
+			]
+		},
+		{
+			"key": "Luigi",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Luigi"
+				},
+				{
+					"lang": "en",
+					"text": "Luigi"
+				}
+			]
+		},
+		{
+			"key": "Sonic",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sonic"
+				},
+				{
+					"lang": "en",
+					"text": "Sonic"
+				}
+			]
+		},
+		{
+			"key": "Pikachu",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pikachu"
+				},
+				{
+					"lang": "en",
+					"text": "Pikachu"
+				}
+			]
+		},
+		{
+			"key": "Link",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Link"
+				},
+				{
+					"lang": "en",
+					"text": "Link"
+				}
+			]
+		},
+		{
+			"key": "CrashBandicoot",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Crash Bandicoot"
+				},
+				{
+					"lang": "en",
+					"text": "CrashBandicoot"
+				}
+			]
+		},
+		{
+			"key": "CallOfDuty",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Call of Duty"
+				},
+				{
+					"lang": "en",
+					"text": "CallOfDuty"
+				}
+			]
+		},
+		{
+			"key": "Battlefield",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Battlefield"
+				},
+				{
+					"lang": "en",
+					"text": "Battlefield"
+				}
+			]
+		},
+		{
+			"key": "Fortnite",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Fortnite"
+				},
+				{
+					"lang": "en",
+					"text": "Fortnite"
+				}
+			]
+		},
+		{
+			"key": "ApexLegends",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Apex Legends"
+				},
+				{
+					"lang": "en",
+					"text": "ApexLegends"
+				}
+			]
+		},
+		{
+			"key": "Overwatch",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Overwatch"
+				},
+				{
+					"lang": "en",
+					"text": "Overwatch"
+				}
+			]
+		},
+		{
+			"key": "Minecraft",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Minecraft"
+				},
+				{
+					"lang": "en",
+					"text": "Minecraft"
+				}
+			]
+		},
+		{
+			"key": "Roblox",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Roblox"
+				},
+				{
+					"lang": "en",
+					"text": "Roblox"
+				}
+			]
+		},
+		{
+			"key": "Lego",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Lego"
+				},
+				{
+					"lang": "en",
+					"text": "Lego"
+				}
+			]
+		},
+		{
+			"key": "Tetris",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tetris"
+				},
+				{
+					"lang": "en",
+					"text": "Tetris"
+				}
+			]
+		},
+		{
+			"key": "Zelda",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Zelda"
+				},
+				{
+					"lang": "en",
+					"text": "Zelda"
+				}
+			]
+		},
+		{
+			"key": "Peach",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Peach"
+				},
+				{
+					"lang": "en",
+					"text": "Peach"
+				}
+			]
+		},
+		{
+			"key": "Bowser",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bowser"
+				},
+				{
+					"lang": "en",
+					"text": "Bowser"
+				}
+			]
+		},
+		{
+			"key": "Yoshi",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Yoshi"
+				},
+				{
+					"lang": "en",
+					"text": "Yoshi"
+				}
+			]
+		},
+		{
+			"key": "Playstation",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Playstation"
+				},
+				{
+					"lang": "en",
+					"text": "Playstation"
+				}
+			]
+		},
+		{
+			"key": "Xbox",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Xbox"
+				},
+				{
+					"lang": "en",
+					"text": "Xbox"
+				}
+			]
+		},
+		{
+			"key": "Switch",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Switch"
+				},
+				{
+					"lang": "en",
+					"text": "Switch"
+				}
+			]
+		},
+		{
+			"key": "GameBoy",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Game Boy"
+				},
+				{
+					"lang": "en",
+					"text": "GameBoy"
+				}
+			]
+		},
+		{
+			"key": "DS",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Nintendo DS"
+				},
+				{
+					"lang": "en",
+					"text": "DS"
+				}
+			]
+		},
+		{
+			"key": "StarWars",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Star Wars"
+				},
+				{
+					"lang": "en",
+					"text": "StarWars"
+				}
+			]
+		},
+		{
+			"key": "StarTrek",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Star Trek"
+				},
+				{
+					"lang": "en",
+					"text": "StarTrek"
+				}
+			]
+		},
+		{
+			"key": "Avatar",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Avatar"
+				},
+				{
+					"lang": "en",
+					"text": "Avatar"
+				}
+			]
+		},
+		{
+			"key": "Matrix",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Matrix"
+				},
+				{
+					"lang": "en",
+					"text": "Matrix"
+				}
+			]
+		},
+		{
+			"key": "Jedi",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jedi"
+				},
+				{
+					"lang": "en",
+					"text": "Jedi"
+				}
+			]
+		},
+		{
+			"key": "Sith",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sith"
+				},
+				{
+					"lang": "en",
+					"text": "Sith"
+				}
+			]
+		},
+		{
+			"key": "Yoda",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Yoda"
+				},
+				{
+					"lang": "en",
+					"text": "Yoda"
+				}
+			]
+		},
+		{
+			"key": "DarthVader",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Dark Vador"
+				},
+				{
+					"lang": "en",
+					"text": "DarthVader"
+				}
+			]
+		},
+		{
+			"key": "Skywalker",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Skywalker"
+				},
+				{
+					"lang": "en",
+					"text": "Skywalker"
+				}
+			]
+		},
+		{
+			"key": "Gryffindor",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Gryffondor"
+				},
+				{
+					"lang": "en",
+					"text": "Gryffindor"
+				}
+			]
+		},
+		{
+			"key": "Slytherin",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Serpentard"
+				},
+				{
+					"lang": "en",
+					"text": "Slytherin"
+				}
+			]
+		},
+		{
+			"key": "Hufflepuff",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Poufsouffle"
+				},
+				{
+					"lang": "en",
+					"text": "Hufflepuff"
+				}
+			]
+		},
+		{
+			"key": "Ravenclaw",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Serdaigle"
+				},
+				{
+					"lang": "en",
+					"text": "Ravenclaw"
+				}
+			]
+		},
+		{
+			"key": "Avengers",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Avengers"
+				},
+				{
+					"lang": "en",
+					"text": "Avengers"
+				}
+			]
+		},
+		{
+			"key": "JusticeLeague",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Justice League"
+				},
+				{
+					"lang": "en",
+					"text": "JusticeLeague"
+				}
+			]
+		},
+		{
+			"key": "XMen",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "X-Men"
+				},
+				{
+					"lang": "en",
+					"text": "XMen"
+				}
+			]
+		},
+		{
+			"key": "Guardians",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Gardiens de la Galaxie"
+				},
+				{
+					"lang": "en",
+					"text": "Guardians"
+				}
+			]
+		},
+		{
+			"key": "Disney",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Disney"
+				},
+				{
+					"lang": "en",
+					"text": "Disney"
+				}
+			]
+		},
+		{
+			"key": "Pixar",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pixar"
+				},
+				{
+					"lang": "en",
+					"text": "Pixar"
+				}
+			]
+		},
+		{
+			"key": "Dreamworks",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Dreamworks"
+				},
+				{
+					"lang": "en",
+					"text": "Dreamworks"
+				}
+			]
+		},
+		{
+			"key": "Ghibli",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Studio Ghibli"
+				},
+				{
+					"lang": "en",
+					"text": "Ghibli"
+				}
+			]
+		},
+		{
+			"key": "Netflix",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Netflix"
+				},
+				{
+					"lang": "en",
+					"text": "Netflix"
+				}
+			]
+		},
+		{
+			"key": "DisneyPlus",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Disney+"
+				},
+				{
+					"lang": "en",
+					"text": "DisneyPlus"
+				}
+			]
+		},
+		{
+			"key": "AmazonPrime",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Prime Video"
+				},
+				{
+					"lang": "en",
+					"text": "AmazonPrime"
+				}
+			]
+		},
+		{
+			"key": "YouTube",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "YouTube"
+				},
+				{
+					"lang": "en",
+					"text": "YouTube"
+				}
+			]
+		},
+		{
+			"key": "CocaCola",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Coca-Cola"
+				},
+				{
+					"lang": "en",
+					"text": "CocaCola"
+				}
+			]
+		},
+		{
+			"key": "Pepsi",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pepsi"
+				},
+				{
+					"lang": "en",
+					"text": "Pepsi"
+				}
+			]
+		},
+		{
+			"key": "DrPepper",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Dr Pepper"
+				},
+				{
+					"lang": "en",
+					"text": "DrPepper"
+				}
+			]
+		},
+		{
+			"key": "Orangina",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Orangina"
+				},
+				{
+					"lang": "en",
+					"text": "Orangina"
+				}
+			]
+		},
+		{
+			"key": "Sprite",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sprite"
+				},
+				{
+					"lang": "en",
+					"text": "Sprite"
+				}
+			]
+		},
+		{
+			"key": "Fanta",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Fanta"
+				},
+				{
+					"lang": "en",
+					"text": "Fanta"
+				}
+			]
+		},
+		{
+			"key": "McDonalds",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "McDonald's"
+				},
+				{
+					"lang": "en",
+					"text": "McDonalds"
+				}
+			]
+		},
+		{
+			"key": "BurgerKing",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Burger King"
+				},
+				{
+					"lang": "en",
+					"text": "BurgerKing"
+				}
+			]
+		},
+		{
+			"key": "KFC",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "KFC"
+				},
+				{
+					"lang": "en",
+					"text": "KFC"
+				}
+			]
+		},
+		{
+			"key": "Subway",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Subway"
+				},
+				{
+					"lang": "en",
+					"text": "Subway"
+				}
+			]
+		},
+		{
+			"key": "PizzaHut",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pizza Hut"
+				},
+				{
+					"lang": "en",
+					"text": "PizzaHut"
+				}
+			]
+		},
+		{
+			"key": "Nike",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Nike"
+				},
+				{
+					"lang": "en",
+					"text": "Nike"
+				}
+			]
+		},
+		{
+			"key": "Adidas",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Adidas"
+				},
+				{
+					"lang": "en",
+					"text": "Adidas"
+				}
+			]
+		},
+		{
+			"key": "Puma",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Puma"
+				},
+				{
+					"lang": "en",
+					"text": "Puma"
+				}
+			]
+		},
+		{
+			"key": "Reebok",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Reebok"
+				},
+				{
+					"lang": "en",
+					"text": "Reebok"
+				}
+			]
+		},
+		{
+			"key": "UnderArmour",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Under Armour"
+				},
+				{
+					"lang": "en",
+					"text": "UnderArmour"
+				}
+			]
+		},
+		{
+			"key": "AppleBrand",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Apple"
+				},
+				{
+					"lang": "en",
+					"text": "Apple"
+				}
+			]
+		},
+		{
+			"key": "Samsung",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Samsung"
+				},
+				{
+					"lang": "en",
+					"text": "Samsung"
+				}
+			]
+		},
+		{
+			"key": "Microsoft",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Microsoft"
+				},
+				{
+					"lang": "en",
+					"text": "Microsoft"
+				}
+			]
+		},
+		{
+			"key": "Google",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Google"
+				},
+				{
+					"lang": "en",
+					"text": "Google"
+				}
+			]
+		},
+		{
+			"key": "Sony",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sony"
+				},
+				{
+					"lang": "en",
+					"text": "Sony"
+				}
+			]
+		},
+		{
+			"key": "Ferrari",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ferrari"
+				},
+				{
+					"lang": "en",
+					"text": "Ferrari"
+				}
+			]
+		},
+		{
+			"key": "Lamborghini",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Lamborghini"
+				},
+				{
+					"lang": "en",
+					"text": "Lamborghini"
+				}
+			]
+		},
+		{
+			"key": "Porsche",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Porsche"
+				},
+				{
+					"lang": "en",
+					"text": "Porsche"
+				}
+			]
+		},
+		{
+			"key": "Bugatti",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bugatti"
+				},
+				{
+					"lang": "en",
+					"text": "Bugatti"
+				}
+			]
+		},
+		{
+			"key": "AstonMartin",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Aston Martin"
+				},
+				{
+					"lang": "en",
+					"text": "AstonMartin"
+				}
+			]
+		},
+		{
+			"key": "Toyota",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Toyota"
+				},
+				{
+					"lang": "en",
+					"text": "Toyota"
+				}
+			]
+		},
+		{
+			"key": "Honda",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Honda"
+				},
+				{
+					"lang": "en",
+					"text": "Honda"
+				}
+			]
+		},
+		{
+			"key": "Ford",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ford"
+				},
+				{
+					"lang": "en",
+					"text": "Ford"
+				}
+			]
+		},
+		{
+			"key": "Renault",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Renault"
+				},
+				{
+					"lang": "en",
+					"text": "Renault"
+				}
+			]
+		},
+		{
+			"key": "Peugeot",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Peugeot"
+				},
+				{
+					"lang": "en",
+					"text": "Peugeot"
+				}
+			]
+		},
+		{
+			"key": "Gucci",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Gucci"
+				},
+				{
+					"lang": "en",
+					"text": "Gucci"
+				}
+			]
+		},
+		{
+			"key": "Chanel",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chanel"
+				},
+				{
+					"lang": "en",
+					"text": "Chanel"
+				}
+			]
+		},
+		{
+			"key": "LouisVuitton",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Louis Vuitton"
+				},
+				{
+					"lang": "en",
+					"text": "LouisVuitton"
+				}
+			]
+		},
+		{
+			"key": "Prada",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Prada"
+				},
+				{
+					"lang": "en",
+					"text": "Prada"
+				}
+			]
+		},
+		{
+			"key": "Dior",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Dior"
+				},
+				{
+					"lang": "en",
+					"text": "Dior"
+				}
+			]
+		},
+		{
+			"key": "Hermes",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Hermès"
+				},
+				{
+					"lang": "en",
+					"text": "Hermes"
+				}
+			]
+		},
+		{
+			"key": "SherlockHolmes",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sherlock Holmes"
+				},
+				{
+					"lang": "en",
+					"text": "SherlockHolmes"
+				}
+			]
+		},
+		{
+			"key": "Watson",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Watson"
+				},
+				{
+					"lang": "en",
+					"text": "Watson"
+				}
+			]
+		},
+		{
+			"key": "Poirot",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Hercule Poirot"
+				},
+				{
+					"lang": "en",
+					"text": "Poirot"
+				}
+			]
+		},
+		{
+			"key": "Columbo",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Columbo"
+				},
+				{
+					"lang": "en",
+					"text": "Columbo"
+				}
+			]
+		},
+		{
+			"key": "ElonMusk",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Elon Musk"
+				},
+				{
+					"lang": "en",
+					"text": "ElonMusk"
+				}
+			]
+		},
+		{
+			"key": "JeffBezos",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jeff Bezos"
+				},
+				{
+					"lang": "en",
+					"text": "JeffBezos"
+				}
+			]
+		},
+		{
+			"key": "BillGates",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bill Gates"
+				},
+				{
+					"lang": "en",
+					"text": "BillGates"
+				}
+			]
+		},
+		{
+			"key": "MarkZuckerberg",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Mark Zuckerberg"
+				},
+				{
+					"lang": "en",
+					"text": "MarkZuckerberg"
+				}
+			]
+		},
+		{
+			"key": "Picasso",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Picasso"
+				},
+				{
+					"lang": "en",
+					"text": "Picasso"
+				}
+			]
+		},
+		{
+			"key": "VanGogh",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Van Gogh"
+				},
+				{
+					"lang": "en",
+					"text": "VanGogh"
+				}
+			]
+		},
+		{
+			"key": "DaVinci",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Léonard de Vinci"
+				},
+				{
+					"lang": "en",
+					"text": "DaVinci"
+				}
+			]
+		},
+		{
+			"key": "Dali",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Dalí"
+				},
+				{
+					"lang": "en",
+					"text": "Dali"
+				}
+			]
+		},
+		{
+			"key": "Monet",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Monet"
+				},
+				{
+					"lang": "en",
+					"text": "Monet"
+				}
+			]
+		},
+		{
+			"key": "Mozart",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Mozart"
+				},
+				{
+					"lang": "en",
+					"text": "Mozart"
+				}
+			]
+		},
+		{
+			"key": "Beethoven",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Beethoven"
+				},
+				{
+					"lang": "en",
+					"text": "Beethoven"
+				}
+			]
+		},
+		{
+			"key": "Bach",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bach"
+				},
+				{
+					"lang": "en",
+					"text": "Bach"
+				}
+			]
+		},
+		{
+			"key": "Chopin",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chopin"
+				},
+				{
+					"lang": "en",
+					"text": "Chopin"
+				}
+			]
+		},
+		{
+			"key": "Vivaldi",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Vivaldi"
+				},
+				{
+					"lang": "en",
+					"text": "Vivaldi"
+				}
+			]
+		},
+		{
+			"key": "MichaelJackson",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Michael Jackson"
+				},
+				{
+					"lang": "en",
+					"text": "MichaelJackson"
+				}
+			]
+		},
+		{
+			"key": "Madonna",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Madonna"
+				},
+				{
+					"lang": "en",
+					"text": "Madonna"
+				}
+			]
+		},
+		{
+			"key": "Beyonce",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Beyoncé"
+				},
+				{
+					"lang": "en",
+					"text": "Beyonce"
+				}
+			]
+		},
+		{
+			"key": "TaylorSwift",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Taylor Swift"
+				},
+				{
+					"lang": "en",
+					"text": "TaylorSwift"
+				}
+			]
+		},
+		{
+			"key": "Eminem",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Eminem"
+				},
+				{
+					"lang": "en",
+					"text": "Eminem"
+				}
+			]
+		},
+		{
+			"key": "Drake",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Drake"
+				},
+				{
+					"lang": "en",
+					"text": "Drake"
+				}
+			]
+		},
+		{
+			"key": "JayZ",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jay-Z"
+				},
+				{
+					"lang": "en",
+					"text": "JayZ"
+				}
+			]
+		},
+		{
+			"key": "KanyeWest",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Kanye West"
+				},
+				{
+					"lang": "en",
+					"text": "KanyeWest"
+				}
+			]
+		},
+		{
+			"key": "SnoopDogg",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Snoop Dogg"
+				},
+				{
+					"lang": "en",
+					"text": "SnoopDogg"
+				}
+			]
+		},
+		{
+			"key": "EiffelTower",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tour Eiffel"
+				},
+				{
+					"lang": "en",
+					"text": "EiffelTower"
+				}
+			]
+		},
+		{
+			"key": "Louvre",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Louvre"
+				},
+				{
+					"lang": "en",
+					"text": "Louvre"
+				}
+			]
+		},
+		{
+			"key": "NotreDame",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Notre-Dame"
+				},
+				{
+					"lang": "en",
+					"text": "NotreDame"
+				}
+			]
+		},
+		{
+			"key": "ArcDeTriomphe",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Arc de Triomphe"
+				},
+				{
+					"lang": "en",
+					"text": "ArcDeTriomphe"
+				}
+			]
+		},
+		{
+			"key": "LibertyStatue",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Statue de la Liberté"
+				},
+				{
+					"lang": "en",
+					"text": "LibertyStatue"
+				}
+			]
+		},
+		{
+			"key": "EmpireState",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Empire State Building"
+				},
+				{
+					"lang": "en",
+					"text": "EmpireState"
+				}
+			]
+		},
+		{
+			"key": "WhiteHouse",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Maison Blanche"
+				},
+				{
+					"lang": "en",
+					"text": "WhiteHouse"
+				}
+			]
+		},
+		{
+			"key": "Pyramids",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pyramides"
+				},
+				{
+					"lang": "en",
+					"text": "Pyramids"
+				}
+			]
+		},
+		{
+			"key": "GreatWall",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Grande Muraille"
+				},
+				{
+					"lang": "en",
+					"text": "GreatWall"
+				}
+			]
+		},
+		{
+			"key": "Colosseum",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Colisée"
+				},
+				{
+					"lang": "en",
+					"text": "Colosseum"
+				}
+			]
+		},
+		{
+			"key": "TajMahal",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Taj Mahal"
+				},
+				{
+					"lang": "en",
+					"text": "TajMahal"
+				}
+			]
+		},
+		{
+			"key": "MachuPicchu",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Machu Picchu"
+				},
+				{
+					"lang": "en",
+					"text": "MachuPicchu"
+				}
+			]
+		},
+		{
+			"key": "Paris",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Paris"
+				},
+				{
+					"lang": "en",
+					"text": "Paris"
+				}
+			]
+		},
+		{
+			"key": "Milan",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Milan"
+				},
+				{
+					"lang": "en",
+					"text": "Milan"
+				}
+			]
+		},
+		{
+			"key": "NewYork",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "New York"
+				},
+				{
+					"lang": "en",
+					"text": "NewYork"
+				}
+			]
+		},
+		{
+			"key": "London",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Londres"
+				},
+				{
+					"lang": "en",
+					"text": "London"
+				}
+			]
+		},
+		{
+			"key": "Tokyo",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tokyo"
+				},
+				{
+					"lang": "en",
+					"text": "Tokyo"
+				}
+			]
+		},
+		{
+			"key": "Venice",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Venise"
+				},
+				{
+					"lang": "en",
+					"text": "Venice"
+				}
+			]
+		},
+		{
+			"key": "Rome",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Rome"
+				},
+				{
+					"lang": "en",
+					"text": "Rome"
+				}
+			]
+		},
+		{
+			"key": "Monopoly",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Monopoly"
+				},
+				{
+					"lang": "en",
+					"text": "Monopoly"
+				}
+			]
+		},
+		{
+			"key": "Scrabble",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Scrabble"
+				},
+				{
+					"lang": "en",
+					"text": "Scrabble"
+				}
+			]
+		},
+		{
+			"key": "Clue",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cluedo"
+				},
+				{
+					"lang": "en",
+					"text": "Clue"
+				}
+			]
+		},
+		{
+			"key": "Risk",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Risk"
+				},
+				{
+					"lang": "en",
+					"text": "Risk"
+				}
+			]
+		},
+		{
+			"key": "Chess",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Échecs"
+				},
+				{
+					"lang": "en",
+					"text": "Chess"
+				}
+			]
+		},
+		{
+			"key": "Poker",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Poker"
+				},
+				{
+					"lang": "en",
+					"text": "Poker"
+				}
+			]
+		},
+		{
+			"key": "Blackjack",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Blackjack"
+				},
+				{
+					"lang": "en",
+					"text": "Blackjack"
+				}
+			]
+		},
+		{
+			"key": "Roulette",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Roulette"
+				},
+				{
+					"lang": "en",
+					"text": "Roulette"
+				}
+			]
+		},
+		{
+			"key": "Slots",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Machine à sous"
+				},
+				{
+					"lang": "en",
+					"text": "Slots"
+				}
+			]
+		},
+		{
+			"key": "Clown",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Clown"
+				},
+				{
+					"lang": "en",
+					"text": "Clown"
+				}
+			]
+		},
+		{
+			"key": "Acrobat",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Acrobate"
+				},
+				{
+					"lang": "en",
+					"text": "Acrobat"
+				}
+			]
+		},
+		{
+			"key": "Juggler",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jongleur"
+				},
+				{
+					"lang": "en",
+					"text": "Juggler"
+				}
+			]
+		},
+		{
+			"key": "Magician",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Magicien"
+				},
+				{
+					"lang": "en",
+					"text": "Magician"
+				}
+			]
+		},
+		{
+			"key": "Teleportation",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Téléportation"
+				},
+				{
+					"lang": "en",
+					"text": "Teleportation"
+				}
+			]
+		},
+		{
+			"key": "Portal",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Portail"
+				},
+				{
+					"lang": "en",
+					"text": "Portal"
+				}
+			]
+		},
+		{
+			"key": "Speed",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Vitesse"
+				},
+				{
+					"lang": "en",
+					"text": "Speed"
+				}
+			]
+		},
+		{
+			"key": "Invisibility",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Invisibilité"
+				},
+				{
+					"lang": "en",
+					"text": "Invisibility"
+				}
+			]
+		},
+		{
+			"key": "Camouflage",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Camouflage"
+				},
+				{
+					"lang": "en",
+					"text": "Camouflage"
+				}
+			]
+		},
+		{
+			"key": "XRay",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Rayons X"
+				},
+				{
+					"lang": "en",
+					"text": "XRay"
+				}
+			]
+		},
+		{
+			"key": "Dragon",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Dragon"
+				},
+				{
+					"lang": "en",
+					"text": "Dragon"
+				}
+			]
+		},
+		{
+			"key": "Hydra",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Hydre"
+				},
+				{
+					"lang": "en",
+					"text": "Hydra"
+				}
+			]
+		},
+		{
+			"key": "Dinosaur",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Dinosaure"
+				},
+				{
+					"lang": "en",
+					"text": "Dinosaur"
+				}
+			]
+		},
+		{
+			"key": "Monster",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Monstre"
+				},
+				{
+					"lang": "en",
+					"text": "Monster"
+				}
+			]
+		},
+		{
+			"key": "Fairy",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Fée"
+				},
+				{
+					"lang": "en",
+					"text": "Fairy"
+				}
+			]
+		},
+		{
+			"key": "Elf",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Elfe"
+				},
+				{
+					"lang": "en",
+					"text": "Elf"
+				}
+			]
+		},
+		{
+			"key": "Genie",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Génie"
+				},
+				{
+					"lang": "en",
+					"text": "Genie"
+				}
+			]
+		},
+		{
+			"key": "Knight",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chevalier"
+				},
+				{
+					"lang": "en",
+					"text": "Knight"
+				}
+			]
+		},
+		{
+			"key": "Samurai",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Samouraï"
+				},
+				{
+					"lang": "en",
+					"text": "Samurai"
+				}
+			]
+		},
+		{
+			"key": "Gladiator",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Gladiateur"
+				},
+				{
+					"lang": "en",
+					"text": "Gladiator"
+				}
+			]
+		},
+		{
+			"key": "Viking",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Viking"
+				},
+				{
+					"lang": "en",
+					"text": "Viking"
+				}
+			]
+		},
+		{
+			"key": "Emperor",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Empereur"
+				},
+				{
+					"lang": "en",
+					"text": "Emperor"
+				}
+			]
+		},
+		{
+			"key": "Pharaoh",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pharaon"
+				},
+				{
+					"lang": "en",
+					"text": "Pharaoh"
+				}
+			]
+		},
+		{
+			"key": "Dictator",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Dictateur"
+				},
+				{
+					"lang": "en",
+					"text": "Dictator"
+				}
+			]
+		},
+		{
+			"key": "President",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Président"
+				},
+				{
+					"lang": "en",
+					"text": "President"
+				}
+			]
+		},
+		{
+			"key": "Pirate",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pirate"
+				},
+				{
+					"lang": "en",
+					"text": "Pirate"
+				}
+			]
+		},
+		{
+			"key": "Sailor",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Marin"
+				},
+				{
+					"lang": "en",
+					"text": "Sailor"
+				}
+			]
+		},
+		{
+			"key": "Captain",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Capitaine"
+				},
+				{
+					"lang": "en",
+					"text": "Captain"
+				}
+			]
+		},
+		{
+			"key": "Saber",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sabre"
+				},
+				{
+					"lang": "en",
+					"text": "Saber"
+				}
+			]
+		},
+		{
+			"key": "Katana",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Katana"
+				},
+				{
+					"lang": "en",
+					"text": "Katana"
+				}
+			]
+		},
+		{
+			"key": "Shield",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bouclier"
+				},
+				{
+					"lang": "en",
+					"text": "Shield"
+				}
+			]
+		},
+		{
+			"key": "Armor",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Armure"
+				},
+				{
+					"lang": "en",
+					"text": "Armor"
+				}
+			]
+		},
+		{
+			"key": "Pyramid",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pyramide"
+				},
+				{
+					"lang": "en",
+					"text": "Pyramid"
+				}
+			]
+		},
+		{
+			"key": "Addition",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Addition"
+				},
+				{
+					"lang": "en",
+					"text": "Addition"
+				}
+			]
+		},
+		{
+			"key": "Multiplication",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Multiplication"
+				},
+				{
+					"lang": "en",
+					"text": "Multiplication"
+				}
+			]
+		},
+		{
+			"key": "Subtraction",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Soustraction"
+				},
+				{
+					"lang": "en",
+					"text": "Subtraction"
+				}
+			]
+		},
+		{
+			"key": "Microscope",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Microscope"
+				},
+				{
+					"lang": "en",
+					"text": "Microscope"
+				}
+			]
+		},
+		{
+			"key": "Telescope",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Télescope"
+				},
+				{
+					"lang": "en",
+					"text": "Telescope"
+				}
+			]
+		},
+		{
+			"key": "Binoculars",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jumelles"
+				},
+				{
+					"lang": "en",
+					"text": "Binoculars"
+				}
+			]
+		},
+		{
+			"key": "Magnifier",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Loupe"
+				},
+				{
+					"lang": "en",
+					"text": "Magnifier"
+				}
+			]
+		},
+		{
+			"key": "Gravity",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Gravité"
+				},
+				{
+					"lang": "en",
+					"text": "Gravity"
+				}
+			]
+		},
+		{
+			"key": "Magnetism",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Magnétisme"
+				},
+				{
+					"lang": "en",
+					"text": "Magnetism"
+				}
+			]
+		},
+		{
+			"key": "Force",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Force"
+				},
+				{
+					"lang": "en",
+					"text": "Force"
+				}
+			]
+		},
+		{
+			"key": "Atom",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Atome"
+				},
+				{
+					"lang": "en",
+					"text": "Atom"
+				}
+			]
+		},
+		{
+			"key": "Molecule",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Molécule"
+				},
+				{
+					"lang": "en",
+					"text": "Molecule"
+				}
+			]
+		},
+		{
+			"key": "Cell",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cellule"
+				},
+				{
+					"lang": "en",
+					"text": "Cell"
+				}
+			]
+		},
+		{
+			"key": "DNA",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "ADN"
+				},
+				{
+					"lang": "en",
+					"text": "DNA"
+				}
+			]
+		},
+		{
+			"key": "Virus",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Virus"
+				},
+				{
+					"lang": "en",
+					"text": "Virus"
+				}
+			]
+		},
+		{
+			"key": "Bacteria",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bactérie"
+				},
+				{
+					"lang": "en",
+					"text": "Bacteria"
+				}
+			]
+		},
+		{
+			"key": "Poison",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Poison"
+				},
+				{
+					"lang": "en",
+					"text": "Poison"
+				}
+			]
+		},
+		{
+			"key": "Venom",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Venin"
+				},
+				{
+					"lang": "en",
+					"text": "Venom"
+				}
+			]
+		},
+		{
+			"key": "Screw",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Vis"
+				},
+				{
+					"lang": "en",
+					"text": "Screw"
+				}
+			]
+		},
+		{
+			"key": "Nail",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Clou"
+				},
+				{
+					"lang": "en",
+					"text": "Nail"
+				}
+			]
+		},
+		{
+			"key": "Bolt",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Boulon"
+				},
+				{
+					"lang": "en",
+					"text": "Bolt"
+				}
+			]
+		},
+		{
+			"key": "Scissors",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ciseaux"
+				},
+				{
+					"lang": "en",
+					"text": "Scissors"
+				}
+			]
+		},
+		{
+			"key": "Freezer",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Congélateur"
+				},
+				{
+					"lang": "en",
+					"text": "Freezer"
+				}
+			]
+		},
+		{
+			"key": "Cooler",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Glacière"
+				},
+				{
+					"lang": "en",
+					"text": "Cooler"
+				}
+			]
+		},
+		{
+			"key": "Stove",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cuisinière"
+				},
+				{
+					"lang": "en",
+					"text": "Stove"
+				}
+			]
+		},
+		{
+			"key": "Stapler",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Agrafeuse"
+				},
+				{
+					"lang": "en",
+					"text": "Stapler"
+				}
+			]
+		},
+		{
+			"key": "Punch",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Perforatrice"
+				},
+				{
+					"lang": "en",
+					"text": "Punch"
+				}
+			]
+		},
+		{
+			"key": "Clip",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Trombone"
+				},
+				{
+					"lang": "en",
+					"text": "Clip"
+				}
+			]
+		},
+		{
+			"key": "Tape",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Scotch"
+				},
+				{
+					"lang": "en",
+					"text": "Tape"
+				}
+			]
+		},
+		{
+			"key": "Attic",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Grenier"
+				},
+				{
+					"lang": "en",
+					"text": "Attic"
+				}
+			]
+		},
+		{
+			"key": "Basement",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cave"
+				},
+				{
+					"lang": "en",
+					"text": "Basement"
+				}
+			]
+		},
+		{
+			"key": "Garage",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Garage"
+				},
+				{
+					"lang": "en",
+					"text": "Garage"
+				}
+			]
+		},
+		{
+			"key": "Shed",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Abri de jardin"
+				},
+				{
+					"lang": "en",
+					"text": "Shed"
+				}
+			]
+		},
+		{
+			"key": "Zoo",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Zoo"
+				},
+				{
+					"lang": "en",
+					"text": "Zoo"
+				}
+			]
+		},
+		{
+			"key": "Circus",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cirque"
+				},
+				{
+					"lang": "en",
+					"text": "Circus"
+				}
+			]
+		},
+		{
+			"key": "Fair",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Fête foraine"
+				},
+				{
+					"lang": "en",
+					"text": "Fair"
+				}
+			]
+		},
+		{
+			"key": "Bar",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bar"
+				},
+				{
+					"lang": "en",
+					"text": "Bar"
+				}
+			]
+		},
+		{
+			"key": "Pub",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Pub"
+				},
+				{
+					"lang": "en",
+					"text": "Pub"
+				}
+			]
+		},
+		{
+			"key": "Club",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Boîte de nuit"
+				},
+				{
+					"lang": "en",
+					"text": "Club"
+				}
+			]
+		},
+		{
+			"key": "Concert",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Concert"
+				},
+				{
+					"lang": "en",
+					"text": "Concert"
+				}
+			]
+		},
+		{
+			"key": "BusStop",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Arrêt de bus"
+				},
+				{
+					"lang": "en",
+					"text": "BusStop"
+				}
+			]
+		},
+		{
+			"key": "Station",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Gare"
+				},
+				{
+					"lang": "en",
+					"text": "Station"
+				}
+			]
+		},
+		{
+			"key": "Airport",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Aéroport"
+				},
+				{
+					"lang": "en",
+					"text": "Airport"
+				}
+			]
+		},
+		{
+			"key": "Port",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Port"
+				},
+				{
+					"lang": "en",
+					"text": "Port"
+				}
+			]
+		},
+		{
+			"key": "Solitaire",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Solitaire"
+				},
+				{
+					"lang": "en",
+					"text": "Solitaire"
+				}
+			]
+		},
+		{
+			"key": "Tarot",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tarot"
+				},
+				{
+					"lang": "en",
+					"text": "Tarot"
+				}
+			]
+		},
+		{
+			"key": "Painting",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Peinture"
+				},
+				{
+					"lang": "en",
+					"text": "Painting"
+				}
+			]
+		},
+		{
+			"key": "Drawing",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Dessin"
+				},
+				{
+					"lang": "en",
+					"text": "Drawing"
+				}
+			]
+		},
+		{
+			"key": "Sketch",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Croquis"
+				},
+				{
+					"lang": "en",
+					"text": "Sketch"
+				}
+			]
+		},
+		{
+			"key": "Statue",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Statue"
+				},
+				{
+					"lang": "en",
+					"text": "Statue"
+				}
+			]
+		},
+		{
+			"key": "Sculpture",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sculpture"
+				},
+				{
+					"lang": "en",
+					"text": "Sculpture"
+				}
+			]
+		},
+		{
+			"key": "Pottery",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Poterie"
+				},
+				{
+					"lang": "en",
+					"text": "Pottery"
+				}
+			]
+		},
+		{
+			"key": "Ballet",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ballet"
+				},
+				{
+					"lang": "en",
+					"text": "Ballet"
+				}
+			]
+		},
+		{
+			"key": "Whisper",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chuchotement"
+				},
+				{
+					"lang": "en",
+					"text": "Whisper"
+				}
+			]
+		},
+		{
+			"key": "Secret",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Secret"
+				},
+				{
+					"lang": "en",
+					"text": "Secret"
+				}
+			]
+		},
+		{
+			"key": "Silence",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Silence"
+				},
+				{
+					"lang": "en",
+					"text": "Silence"
+				}
+			]
+		},
+		{
+			"key": "Dream",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Rêve"
+				},
+				{
+					"lang": "en",
+					"text": "Dream"
+				}
+			]
+		},
+		{
+			"key": "Nightmare",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cauchemar"
+				},
+				{
+					"lang": "en",
+					"text": "Nightmare"
+				}
+			]
+		},
+		{
+			"key": "Nap",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sieste"
+				},
+				{
+					"lang": "en",
+					"text": "Nap"
+				}
+			]
+		},
+		{
+			"key": "Burning",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Brûlant"
+				},
+				{
+					"lang": "en",
+					"text": "Burning"
+				}
+			]
+		},
+		{
+			"key": "Boiling",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Bouillant"
+				},
+				{
+					"lang": "en",
+					"text": "Boiling"
+				}
+			]
+		},
+		{
+			"key": "Wet",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Mouillé"
+				},
+				{
+					"lang": "en",
+					"text": "Wet"
+				}
+			]
+		},
+		{
+			"key": "Damp",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Humide"
+				},
+				{
+					"lang": "en",
+					"text": "Damp"
+				}
+			]
+		},
+		{
+			"key": "Soaked",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Trempé"
+				},
+				{
+					"lang": "en",
+					"text": "Soaked"
+				}
+			]
+		},
+		{
+			"key": "Smile",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sourire"
+				},
+				{
+					"lang": "en",
+					"text": "Smile"
+				}
+			]
+		},
+		{
+			"key": "Laugh",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Rire"
+				},
+				{
+					"lang": "en",
+					"text": "Laugh"
+				}
+			]
+		},
+		{
+			"key": "Joy",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Joie"
+				},
+				{
+					"lang": "en",
+					"text": "Joy"
+				}
+			]
+		},
+		{
+			"key": "Walk",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Marcher"
+				},
+				{
+					"lang": "en",
+					"text": "Walk"
+				}
+			]
+		},
+		{
+			"key": "Run",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Courir"
+				},
+				{
+					"lang": "en",
+					"text": "Run"
+				}
+			]
+		},
+		{
+			"key": "Jog",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jogging"
+				},
+				{
+					"lang": "en",
+					"text": "Jog"
+				}
+			]
+		},
+		{
+			"key": "Hike",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Randonnée"
+				},
+				{
+					"lang": "en",
+					"text": "Hike"
+				}
+			]
+		},
+		{
+			"key": "Swim",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Nager"
+				},
+				{
+					"lang": "en",
+					"text": "Swim"
+				}
+			]
+		},
+		{
+			"key": "Dive",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Plonger"
+				},
+				{
+					"lang": "en",
+					"text": "Dive"
+				}
+			]
+		},
+		{
+			"key": "Float",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Flotter"
+				},
+				{
+					"lang": "en",
+					"text": "Float"
+				}
+			]
+		},
+		{
+			"key": "Look",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Regarder"
+				},
+				{
+					"lang": "en",
+					"text": "Look"
+				}
+			]
+		},
+		{
+			"key": "See",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Voir"
+				},
+				{
+					"lang": "en",
+					"text": "See"
+				}
+			]
+		},
+		{
+			"key": "Stare",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Fixer"
+				},
+				{
+					"lang": "en",
+					"text": "Stare"
+				}
+			]
+		},
+		{
+			"key": "Observe",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Observer"
+				},
+				{
+					"lang": "en",
+					"text": "Observe"
+				}
+			]
+		},
+		{
+			"key": "Listen",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Écouter"
+				},
+				{
+					"lang": "en",
+					"text": "Listen"
+				}
+			]
+		},
+		{
+			"key": "Hear",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Entendre"
+				},
+				{
+					"lang": "en",
+					"text": "Hear"
+				}
+			]
+		},
+		{
+			"key": "Eat",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Manger"
+				},
+				{
+					"lang": "en",
+					"text": "Eat"
+				}
+			]
+		},
+		{
+			"key": "Devour",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Dévorer"
+				},
+				{
+					"lang": "en",
+					"text": "Devour"
+				}
+			]
+		},
+		{
+			"key": "Chew",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Mâcher"
+				},
+				{
+					"lang": "en",
+					"text": "Chew"
+				}
+			]
+		},
+		{
+			"key": "Swallow",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Avaler"
+				},
+				{
+					"lang": "en",
+					"text": "Swallow"
+				}
+			]
+		},
+		{
+			"key": "Speak",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Parler"
+				},
+				{
+					"lang": "en",
+					"text": "Speak"
+				}
+			]
+		},
+		{
+			"key": "Shout",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Crier"
+				},
+				{
+					"lang": "en",
+					"text": "Shout"
+				}
+			]
+		},
+		{
+			"key": "Sing",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chanter"
+				},
+				{
+					"lang": "en",
+					"text": "Sing"
+				}
+			]
+		},
+		{
+			"key": "Write",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Écrire"
+				},
+				{
+					"lang": "en",
+					"text": "Write"
+				}
+			]
+		},
+		{
+			"key": "Draw",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Dessiner"
+				},
+				{
+					"lang": "en",
+					"text": "Draw"
+				}
+			]
+		},
+		{
+			"key": "Paint",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Peindre"
+				},
+				{
+					"lang": "en",
+					"text": "Paint"
+				}
+			]
+		},
+		{
+			"key": "Scribble",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Griffonner"
+				},
+				{
+					"lang": "en",
+					"text": "Scribble"
+				}
+			]
+		},
+		{
+			"key": "Build",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Construire"
+				},
+				{
+					"lang": "en",
+					"text": "Build"
+				}
+			]
+		},
+		{
+			"key": "Repair",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Réparer"
+				},
+				{
+					"lang": "en",
+					"text": "Repair"
+				}
+			]
+		},
+		{
+			"key": "Destroy",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Détruire"
+				},
+				{
+					"lang": "en",
+					"text": "Destroy"
+				}
+			]
+		},
+		{
+			"key": "Break",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Casser"
+				},
+				{
+					"lang": "en",
+					"text": "Break"
+				}
+			]
+		},
+		{
+			"key": "Quick",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Vif"
+				},
+				{
+					"lang": "en",
+					"text": "Quick"
+				}
+			]
+		},
+		{
+			"key": "Heavy",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Lourd"
+				},
+				{
+					"lang": "en",
+					"text": "Heavy"
+				}
+			]
+		},
+		{
+			"key": "Light",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Léger"
+				},
+				{
+					"lang": "en",
+					"text": "Light"
+				}
+			]
+		},
+		{
+			"key": "Massive",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Massif"
+				},
+				{
+					"lang": "en",
+					"text": "Massive"
+				}
+			]
+		},
+		{
+			"key": "Frozen",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Gelé"
+				},
+				{
+					"lang": "en",
+					"text": "Frozen"
+				}
+			]
+		},
+		{
+			"key": "Bright",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Lumineux"
+				},
+				{
+					"lang": "en",
+					"text": "Bright"
+				}
+			]
+		},
+		{
+			"key": "Dark",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Sombre"
+				},
+				{
+					"lang": "en",
+					"text": "Dark"
+				}
+			]
+		},
+		{
+			"key": "Shiny",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Brillant"
+				},
+				{
+					"lang": "en",
+					"text": "Shiny"
+				}
+			]
+		},
+		{
+			"key": "Dim",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tamisé"
+				},
+				{
+					"lang": "en",
+					"text": "Dim"
+				}
+			]
+		},
+		{
+			"key": "Rough",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Rugueux"
+				},
+				{
+					"lang": "en",
+					"text": "Rough"
+				}
+			]
+		},
+		{
+			"key": "Smooth",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Lisse"
+				},
+				{
+					"lang": "en",
+					"text": "Smooth"
+				}
+			]
+		},
+		{
+			"key": "Soft",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Doux"
+				},
+				{
+					"lang": "en",
+					"text": "Soft"
+				}
+			]
+		},
+		{
+			"key": "Hard",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Dur"
+				},
+				{
+					"lang": "en",
+					"text": "Hard"
+				}
+			]
+		},
+		{
+			"key": "Easy",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Facile"
+				},
+				{
+					"lang": "en",
+					"text": "Easy"
+				}
+			]
+		},
+		{
+			"key": "Complex",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Complexe"
+				},
+				{
+					"lang": "en",
+					"text": "Complex"
+				}
+			]
+		},
+		{
+			"key": "Simple",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Simple"
+				},
+				{
+					"lang": "en",
+					"text": "Simple"
+				}
+			]
+		},
+		{
+			"key": "Large",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Large"
+				},
+				{
+					"lang": "en",
+					"text": "Large"
+				}
+			]
+		},
+		{
+			"key": "Old",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Vieux"
+				},
+				{
+					"lang": "en",
+					"text": "Old"
+				}
+			]
+		},
+		{
+			"key": "Young",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jeune"
+				},
+				{
+					"lang": "en",
+					"text": "Young"
+				}
+			]
+		},
+		{
+			"key": "New",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Nouveau"
+				},
+				{
+					"lang": "en",
+					"text": "New"
+				}
+			]
+		},
+		{
+			"key": "Ancient",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ancien"
+				},
+				{
+					"lang": "en",
+					"text": "Ancient"
+				}
+			]
+		},
+		{
+			"key": "Headphones",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Casque audio"
+				},
+				{
+					"lang": "en",
+					"text": "Headphones"
+				}
+			]
+		},
+		{
+			"key": "Earphones",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Écouteurs"
+				},
+				{
+					"lang": "en",
+					"text": "Earphones"
+				}
+			]
+		},
+		{
+			"key": "Charger",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Chargeur"
+				},
+				{
+					"lang": "en",
+					"text": "Charger"
+				}
+			]
+		},
+		{
+			"key": "Battery",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Batterie"
+				},
+				{
+					"lang": "en",
+					"text": "Battery"
+				}
+			]
+		},
+		{
+			"key": "Cable",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Câble"
+				},
+				{
+					"lang": "en",
+					"text": "Cable"
+				}
+			]
+		},
+		{
+			"key": "Socket",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Prise"
+				},
+				{
+					"lang": "en",
+					"text": "Socket"
+				}
+			]
+		},
+		{
+			"key": "Camera",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Appareil photo"
+				},
+				{
+					"lang": "en",
+					"text": "Camera"
+				}
+			]
+		},
+		{
+			"key": "Lens",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Objectif"
+				},
+				{
+					"lang": "en",
+					"text": "Lens"
+				}
+			]
+		},
+		{
+			"key": "Flash",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Flash"
+				},
+				{
+					"lang": "en",
+					"text": "Flash"
+				}
+			]
+		},
+		{
+			"key": "Selfie",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Selfie"
+				},
+				{
+					"lang": "en",
+					"text": "Selfie"
+				}
+			]
+		},
+		{
+			"key": "USB",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Clé USB"
+				},
+				{
+					"lang": "en",
+					"text": "USB"
+				}
+			]
+		},
+		{
+			"key": "HardDrive",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Disque Dur"
+				},
+				{
+					"lang": "en",
+					"text": "HardDrive"
+				}
+			]
+		},
+		{
+			"key": "Cloud",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Nuage (Cloud)"
+				},
+				{
+					"lang": "en",
+					"text": "Cloud"
+				}
+			]
+		},
+		{
+			"key": "CD",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "CD"
+				},
+				{
+					"lang": "en",
+					"text": "CD"
+				}
+			]
+		},
+		{
+			"key": "Morning",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Matin"
+				},
+				{
+					"lang": "en",
+					"text": "Morning"
+				}
+			]
+		},
+		{
+			"key": "Afternoon",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Après-midi"
+				},
+				{
+					"lang": "en",
+					"text": "Afternoon"
+				}
+			]
+		},
+		{
+			"key": "Evening",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Soir"
+				},
+				{
+					"lang": "en",
+					"text": "Evening"
+				}
+			]
+		},
+		{
+			"key": "Night",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Nuit"
+				},
+				{
+					"lang": "en",
+					"text": "Night"
+				}
+			]
+		},
+		{
+			"key": "Moment",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Instant"
+				},
+				{
+					"lang": "en",
+					"text": "Moment"
+				}
+			]
+		},
+		{
+			"key": "Century",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Siècle"
+				},
+				{
+					"lang": "en",
+					"text": "Century"
+				}
+			]
+		},
+		{
+			"key": "Decade",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Décennie"
+				},
+				{
+					"lang": "en",
+					"text": "Decade"
+				}
+			]
+		},
+		{
+			"key": "Era",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Ère"
+				},
+				{
+					"lang": "en",
+					"text": "Era"
+				}
+			]
+		},
+		{
+			"key": "Always",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Toujours"
+				},
+				{
+					"lang": "en",
+					"text": "Always"
+				}
+			]
+		},
+		{
+			"key": "Never",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Jamais"
+				},
+				{
+					"lang": "en",
+					"text": "Never"
+				}
+			]
+		},
+		{
+			"key": "Often",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Souvent"
+				},
+				{
+					"lang": "en",
+					"text": "Often"
+				}
+			]
+		},
+		{
+			"key": "Sometimes",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Parfois"
+				},
+				{
+					"lang": "en",
+					"text": "Sometimes"
+				}
+			]
+		},
+		{
+			"key": "Earthquake",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Séisme"
+				},
+				{
+					"lang": "en",
+					"text": "Earthquake"
+				}
+			]
+		},
+		{
+			"key": "Tsunami",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Tsunami"
+				},
+				{
+					"lang": "en",
+					"text": "Tsunami"
+				}
+			]
+		},
+		{
+			"key": "Volcano",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Volcan"
+				},
+				{
+					"lang": "en",
+					"text": "Volcano"
+				}
+			]
+		},
+		{
+			"key": "Flood",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Inondation"
+				},
+				{
+					"lang": "en",
+					"text": "Flood"
+				}
+			]
+		},
+		{
+			"key": "Galaxy",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Galaxie"
+				},
+				{
+					"lang": "en",
+					"text": "Galaxy"
+				}
+			]
+		},
+		{
+			"key": "Universe",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Univers"
+				},
+				{
+					"lang": "en",
+					"text": "Universe"
+				}
+			]
+		},
+		{
+			"key": "Nebula",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Nébuleuse"
+				},
+				{
+					"lang": "en",
+					"text": "Nebula"
+				}
+			]
+		},
+		{
+			"key": "BlackHole",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Trou Noir"
+				},
+				{
+					"lang": "en",
+					"text": "BlackHole"
+				}
+			]
+		},
+		{
+			"key": "Ruby",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Rubis"
+				},
+				{
+					"lang": "en",
+					"text": "Ruby"
+				}
+			]
+		},
+		{
+			"key": "Sapphire",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Saphir"
+				},
+				{
+					"lang": "en",
+					"text": "Sapphire"
+				}
+			]
+		},
+		{
+			"key": "Emerald",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Émeraude"
+				},
+				{
+					"lang": "en",
+					"text": "Emerald"
+				}
+			]
+		},
+		{
+			"key": "Steel",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Acier"
+				},
+				{
+					"lang": "en",
+					"text": "Steel"
+				}
+			]
+		},
+		{
+			"key": "Copper",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Cuivre"
+				},
+				{
+					"lang": "en",
+					"text": "Copper"
+				}
+			]
+		},
+		{
+			"key": "Aluminium",
+			"ecritures": [
+				{
+					"lang": "fr",
+					"text": "Aluminium"
+				},
+				{
+					"lang": "en",
+					"text": "Aluminium"
+				}
+			]
+		}
+	],
+	"families": [
+		{
+			"key": "HotDrinks",
+			"wordKeys": ["Coffee", "Tea", "Cocoa", "HerbalTea"]
+		},
+		{
+			"key": "Alcohol",
+			"wordKeys": ["Beer", "Wine", "Cider", "Champagne", "Whiskey", "Vodka"]
+		},
+		{
+			"key": "Cutlery",
+			"wordKeys": ["Fork", "Spoon", "Knife", "Chopsticks"]
+		},
+		{
+			"key": "Insects",
+			"wordKeys": ["Bee", "Wasp", "Mosquito", "Fly", "Ant"]
+		},
+		{
+			"key": "Amphibians",
+			"wordKeys": ["Frog", "Toad"]
+		},
+		{
+			"key": "Reptiles",
+			"wordKeys": ["Crocodile", "Alligator", "Turtle", "Tortoise"]
+		},
+		{
+			"key": "StringInst",
+			"wordKeys": ["Guitar", "Ukulele", "Violin", "Cello", "Harp"]
+		},
+		{
+			"key": "Writing",
+			"wordKeys": ["Pen", "Pencil", "Marker", "Quill"]
+		},
+		{
+			"key": "Bedding",
+			"wordKeys": ["Pillow", "Cushion", "Blanket", "Duvet"]
+		},
+		{
+			"key": "Bath",
+			"wordKeys": ["Soap", "ShowerGel", "Shampoo"]
+		},
+		{
+			"key": "Sky",
+			"wordKeys": ["Sun", "Moon", "Star", "Planet", "Comet"]
+		},
+		{
+			"key": "Vehicles",
+			"wordKeys": ["Car", "Truck", "Bus", "Van"]
+		},
+		{
+			"key": "TwoWheels",
+			"wordKeys": ["Motorcycle", "Scooter", "Bicycle"]
+		},
+		{
+			"key": "Monsters",
+			"wordKeys": ["Vampire", "Werewolf", "Zombie", "Ghost"]
+		},
+		{
+			"key": "Magic",
+			"wordKeys": ["Wizard", "Witch", "Mage"]
+		},
+		{
+			"key": "Heroes",
+			"wordKeys": ["Superman", "Batman", "Spiderman", "Ironman"]
+		},
+		{
+			"key": "Venues",
+			"wordKeys": ["Cinema", "Theater", "Opera"]
+		},
+		{
+			"key": "School",
+			"wordKeys": ["School", "University", "College"]
+		},
+		{
+			"key": "SportsBall",
+			"wordKeys": ["Soccer", "Rugby", "Handball", "Basketball"]
+		},
+		{
+			"key": "SportsRacket",
+			"wordKeys": ["Tennis", "PingPong", "Badminton", "Squash"]
+		},
+		{
+			"key": "RedFruits",
+			"wordKeys": ["Strawberry", "Raspberry", "Cherry", "Currant"]
+		},
+		{
+			"key": "Citrus",
+			"wordKeys": ["Orange", "Lemon", "Lime", "Grapefruit", "Clementine"]
+		},
+		{
+			"key": "Jewelry",
+			"wordKeys": ["Ring", "Necklace", "Bracelet", "Earring"]
+		},
+		{
+			"key": "Royalty",
+			"wordKeys": ["King", "Queen", "Prince", "Princess", "Duke"]
+		},
+		{
+			"key": "Feelings",
+			"wordKeys": ["Love", "Friendship", "Hate", "Jealousy"]
+		},
+		{
+			"key": "Computers",
+			"wordKeys": ["Laptop", "Desktop", "Tablet"]
+		},
+		{
+			"key": "ClothesTop",
+			"wordKeys": ["TShirt", "Sweater", "Shirt", "Blouse"]
+		},
+		{
+			"key": "ClothesBot",
+			"wordKeys": ["Pants", "Jeans", "Shorts"]
+		},
+		{
+			"key": "Footwear",
+			"wordKeys": ["Shoe", "Boot", "Sneaker", "Sandal", "Slipper"]
+		},
+		{
+			"key": "Time",
+			"wordKeys": ["Second", "Minute", "Hour"]
+		},
+		{
+			"key": "Calendar",
+			"wordKeys": ["Day", "Week", "Month", "Year"]
+		},
+		{
+			"key": "SeasonCold",
+			"wordKeys": ["Winter", "Autumn"]
+		},
+		{
+			"key": "SeasonHot",
+			"wordKeys": ["Summer", "Spring"]
+		},
+		{
+			"key": "WeatherWet",
+			"wordKeys": ["Rain", "Hail", "Snow"]
+		},
+		{
+			"key": "WeatherWind",
+			"wordKeys": ["Wind", "Storm", "Hurricane", "Tornado"]
+		},
+		{
+			"key": "BodyHand",
+			"wordKeys": ["Hand", "Palm", "Wrist"]
+		},
+		{
+			"key": "BodyFoot",
+			"wordKeys": ["Foot", "Ankle", "Heel"]
+		},
+		{
+			"key": "Face",
+			"wordKeys": ["Eye", "Ear", "Nose", "Mouth"]
+		},
+		{
+			"key": "Organs",
+			"wordKeys": ["Heart", "Lung", "Stomach", "Liver", "Brain"]
+		},
+		{
+			"key": "FamilyParents",
+			"wordKeys": ["Mother", "Father"]
+		},
+		{
+			"key": "FamilyKids",
+			"wordKeys": ["Son", "Daughter"]
+		},
+		{
+			"key": "FamilySiblings",
+			"wordKeys": ["Brother", "Sister"]
+		},
+		{
+			"key": "ColorsBasic",
+			"wordKeys": ["Red", "Blue", "Yellow", "Green"]
+		},
+		{
+			"key": "ColorsDark",
+			"wordKeys": ["Black", "Grey", "Brown"]
+		},
+		{
+			"key": "ColorsLight",
+			"wordKeys": ["White", "Beige", "Pink"]
+		},
+		{
+			"key": "Tableware",
+			"wordKeys": ["Plate", "Bowl", "Cup", "Glass", "Mug"]
+		},
+		{
+			"key": "FurnitureSit",
+			"wordKeys": ["Chair", "Armchair", "Stool", "Sofa"]
+		},
+		{
+			"key": "FurnitureStore",
+			"wordKeys": ["Cupboard", "Wardrobe", "Shelf", "Drawer"]
+		},
+		{
+			"key": "VegetablesRoot",
+			"wordKeys": ["Carrot", "Potato", "Radish", "Turnip"]
+		},
+		{
+			"key": "VegetablesGreen",
+			"wordKeys": ["Spinach", "Lettuce", "Cabbage", "Broccoli"]
+		},
+		{
+			"key": "Meat",
+			"wordKeys": ["Beef", "Pork", "Lamb", "Chicken", "Duck"]
+		},
+		{
+			"key": "Seafood",
+			"wordKeys": ["Fish", "Shrimp", "Crab", "Lobster", "Oyster"]
+		},
+		{
+			"key": "Bread",
+			"wordKeys": ["Baguette", "Loaf", "Toast", "Bun"]
+		},
+		{
+			"key": "Dessert",
+			"wordKeys": ["Cake", "Pie", "Brownie", "Cookie", "Donut"]
+		},
+		{
+			"key": "JobsHealth",
+			"wordKeys": ["Doctor", "Nurse", "Surgeon", "Dentist"]
+		},
+		{
+			"key": "JobsLaw",
+			"wordKeys": ["Lawyer", "Judge", "Police", "Detective"]
+		},
+		{
+			"key": "JobsArt",
+			"wordKeys": ["Painter", "Sculptor", "Writer", "Actor"]
+		},
+		{
+			"key": "JobsManual",
+			"wordKeys": ["Plumber", "Electrician", "Carpenter", "Mechanic"]
+		},
+		{
+			"key": "TransportSea",
+			"wordKeys": ["Boat", "Ship", "Submarine", "Yacht"]
+		},
+		{
+			"key": "TransportRail",
+			"wordKeys": ["Train", "Tram", "Metro"]
+		},
+		{
+			"key": "NatureWater",
+			"wordKeys": ["River", "Stream", "Lake", "Pond", "Sea", "Ocean"]
+		},
+		{
+			"key": "NatureLand",
+			"wordKeys": ["Mountain", "Hill", "Valley", "Canyon"]
+		},
+		{
+			"key": "NatureGreen",
+			"wordKeys": ["Forest", "Jungle", "Park", "Garden"]
+		},
+		{
+			"key": "MaterialsHard",
+			"wordKeys": ["Wood", "Stone", "Metal", "GlassMat"]
+		},
+		{
+			"key": "MaterialsSoft",
+			"wordKeys": ["Cotton", "Wool", "Silk", "Velvet"]
+		},
+		{
+			"key": "Money",
+			"wordKeys": ["Coin", "Bill", "Check", "Card"]
+		},
+		{
+			"key": "Building",
+			"wordKeys": ["House", "Apartment", "Castle", "Palace", "Cottage"]
+		},
+		{
+			"key": "RoomWork",
+			"wordKeys": ["Office", "Workshop", "Studio"]
+		},
+		{
+			"key": "RoomLiving",
+			"wordKeys": ["LivingRoom", "Bedroom", "Kitchen", "Bathroom"]
+		},
+		{
+			"key": "Tools",
+			"wordKeys": ["Hammer", "Screwdriver", "Wrench", "Saw", "Drill"]
+		},
+		{
+			"key": "WeaponsCold",
+			"wordKeys": ["Sword", "Dagger", "Axe", "Spear"]
+		},
+		{
+			"key": "WeaponsRange",
+			"wordKeys": ["Bow", "Crossbow", "Gun", "Rifle"]
+		},
+		{
+			"key": "EmotionsPositive",
+			"wordKeys": ["Happy", "Joyful", "Excited"]
+		},
+		{
+			"key": "EmotionsNegative",
+			"wordKeys": ["Sad", "Angry", "Scared", "Anxious"]
+		},
+		{
+			"key": "Sens",
+			"wordKeys": ["Sight", "Hearing", "Smell", "Taste", "Touch"]
+		},
+		{
+			"key": "Elements",
+			"wordKeys": ["Fire", "Water", "Earth", "Air"]
+		},
+		{
+			"key": "Directions",
+			"wordKeys": ["Left", "Right"]
+		},
+		{
+			"key": "DirectionsCard",
+			"wordKeys": ["North", "South", "East", "West"]
+		},
+		{
+			"key": "Light",
+			"wordKeys": ["Lamp", "Candle", "Torch", "Bulb"]
+		},
+		{
+			"key": "Paper",
+			"wordKeys": ["Book", "Magazine", "Newspaper", "Letter"]
+		},
+		{
+			"key": "Gaming",
+			"wordKeys": ["Console", "Computer", "Controller"]
+		},
+		{
+			"key": "Shapes",
+			"wordKeys": ["Circle", "Square", "Triangle", "Rectangle"]
+		},
+		{
+			"key": "Sizes",
+			"wordKeys": ["Big", "Huge", "Giant"]
+		},
+		{
+			"key": "SizesSmall",
+			"wordKeys": ["Small", "Tiny"]
+		},
+		{
+			"key": "Speeds",
+			"wordKeys": ["Fast", "Slow"]
+		},
+		{
+			"key": "Temperatures",
+			"wordKeys": ["Hot", "Cold", "Warm"]
+		},
+		{
+			"key": "FruitsExotic",
+			"wordKeys": ["Avocado", "Mango", "Papaya"]
+		},
+		{
+			"key": "JusticeSystem",
+			"wordKeys": ["Lawyer", "Judge", "Prosecutor"]
+		},
+		{
+			"key": "Cleaning",
+			"wordKeys": ["Broom", "Mop", "Vacuum"]
+		},
+		{
+			"key": "CardGames",
+			"wordKeys": ["Card", "Dice", "Chip"]
+		},
+		{
+			"key": "Navigation",
+			"wordKeys": ["Map", "Compass", "GPS"]
+		},
+		{
+			"key": "Flight",
+			"wordKeys": ["Flight", "Landing", "Takeoff"]
+		},
+		{
+			"key": "Crime",
+			"wordKeys": ["Theft", "Burglary", "Fraud"]
+		},
+		{
+			"key": "TextureSoft",
+			"wordKeys": ["Moss", "Velvet", "Silk"]
+		},
+		{
+			"key": "BathTime",
+			"wordKeys": ["Foam", "Bubble", "Soap"]
+		},
+		{
+			"key": "TimeFlow",
+			"wordKeys": ["Time", "Duration", "Period"]
+		},
+		{
+			"key": "WeatherGrey",
+			"wordKeys": ["Fog", "Mist", "Smog"]
+		},
+		{
+			"key": "FarmBirds",
+			"wordKeys": ["Chicken", "Rooster", "Hen", "Duck", "Turkey", "Goose"]
+		},
+		{
+			"key": "FarmMammals",
+			"wordKeys": ["Cow", "Bull", "Sheep", "Goat", "Pig", "Horse", "Donkey"]
+		},
+		{
+			"key": "WildCats",
+			"wordKeys": [
+				"Lion",
+				"Tiger",
+				"Leopard",
+				"Jaguar",
+				"Panther",
+				"Cheetah",
+				"Cougar"
+			]
+		},
+		{
+			"key": "ForestAnimals",
+			"wordKeys": ["Bear", "Wolf", "Fox", "Deer", "Boar", "Squirrel"]
+		},
+		{
+			"key": "Savanna",
+			"wordKeys": ["Elephant", "Rhinoceros", "Hippo", "Giraffe", "Zebra"]
+		},
+		{
+			"key": "SeaMammals",
+			"wordKeys": ["Whale", "Dolphin", "Orca", "Seal", "Walrus"]
+		},
+		{
+			"key": "SeaFish",
+			"wordKeys": ["Shark", "Tuna", "Salmon", "Clownfish"]
+		},
+		{
+			"key": "SeaOddities",
+			"wordKeys": [
+				"Octopus",
+				"Squid",
+				"Jellyfish",
+				"Starfish",
+				"Crab",
+				"Lobster"
+			]
+		},
+		{
+			"key": "Pets",
+			"wordKeys": ["Dog", "Cat", "Hamster", "Rabbit", "GuineaPig", "Goldfish"]
+		},
+		{
+			"key": "BirdsPrey",
+			"wordKeys": ["Eagle", "Falcon", "Hawk", "Owl", "Vulture"]
+		},
+		{
+			"key": "BirdsCity",
+			"wordKeys": ["Pigeon", "Crow", "Sparrow", "Seagull"]
+		},
+		{
+			"key": "KitchenElec",
+			"wordKeys": ["Toaster", "Microwave", "Oven", "Blender", "Fridge"]
+		},
+		{
+			"key": "KitchenTools",
+			"wordKeys": ["Pot", "Pan", "Wok", "Strainer", "Grater"]
+		},
+		{
+			"key": "Containers",
+			"wordKeys": ["Bottle", "Flask", "Jar", "Can", "Box"]
+		},
+		{
+			"key": "CleaningTools",
+			"wordKeys": ["Sponge", "Rag", "Bucket", "Brush"]
+		},
+		{
+			"key": "Laundry",
+			"wordKeys": ["WashingMachine", "Dryer", "Iron"]
+		},
+		{
+			"key": "Continents",
+			"wordKeys": ["Europe", "Asia", "Africa", "America", "Oceania"]
+		},
+		{
+			"key": "CountriesEu",
+			"wordKeys": ["France", "Spain", "Italy", "Germany", "UK"]
+		},
+		{
+			"key": "CountriesWorld",
+			"wordKeys": ["USA", "Canada", "China", "Japan", "Brazil", "Russia"]
+		},
+		{
+			"key": "CityInfra",
+			"wordKeys": ["Bridge", "Tunnel", "Road", "Street", "Avenue", "Square"]
+		},
+		{
+			"key": "NatureBiomes",
+			"wordKeys": ["Desert", "Jungle", "Tundra", "Savanna", "Forest"]
+		},
+		{
+			"key": "WaterBodies",
+			"wordKeys": ["Ocean", "Sea", "Lake", "River", "Pond", "Pool"]
+		},
+		{
+			"key": "Head",
+			"wordKeys": ["Face", "Cheek", "Chin", "Forehead"]
+		},
+		{
+			"key": "Hair",
+			"wordKeys": ["Hair", "Beard", "Mustache", "Eyebrow"]
+		},
+		{
+			"key": "Torso",
+			"wordKeys": ["Chest", "Belly", "Back", "Shoulder"]
+		},
+		{
+			"key": "Limbs",
+			"wordKeys": ["Arm", "Leg", "Elbow", "Knee"]
+		},
+		{
+			"key": "InnerBody",
+			"wordKeys": ["Bone", "Muscle", "Blood", "Skin"]
+		},
+		{
+			"key": "Sickness",
+			"wordKeys": ["Cold", "Flu", "Fever", "Cough"]
+		},
+		{
+			"key": "WinterWear",
+			"wordKeys": ["Scarf", "Gloves", "Beanie", "Mittens"]
+		},
+		{
+			"key": "FormalWear",
+			"wordKeys": ["Suit", "Tie", "Bowtie", "Dress", "Skirt"]
+		},
+		{
+			"key": "Accessories",
+			"wordKeys": ["Belt", "Watch", "Glasses", "Sunglasses", "Wallet"]
+		},
+		{
+			"key": "Headwear",
+			"wordKeys": ["Hat", "Cap", "Helmet", "Crown"]
+		},
+		{
+			"key": "BuildingMat",
+			"wordKeys": ["Brick", "Concrete", "Cement", "Plaster"]
+		},
+		{
+			"key": "Fabric",
+			"wordKeys": ["Cotton", "Wool", "Linen", "Silk", "Leather", "Denim"]
+		},
+		{
+			"key": "Precious",
+			"wordKeys": ["Gold", "Silver", "Platinum", "Diamond", "Pearl"]
+		},
+		{
+			"key": "ComputerParts",
+			"wordKeys": ["Screen", "Keyboard", "Mouse", "Speaker"]
+		},
+		{
+			"key": "Internet",
+			"wordKeys": ["Wifi", "Bluetooth", "Email", "Website"]
+		},
+		{
+			"key": "SocialMedia",
+			"wordKeys": ["Post", "Like", "Comment", "Share", "Story"]
+		},
+		{
+			"key": "MusicGenres",
+			"wordKeys": ["Rock", "Pop", "Jazz", "Rap", "Classical", "Electro"]
+		},
+		{
+			"key": "FilmGenres",
+			"wordKeys": ["Comedy", "Horror", "Action", "Drama", "SciFi"]
+		},
+		{
+			"key": "LifeStages",
+			"wordKeys": ["Baby", "Child", "Teenager", "Adult", "Senior"]
+		},
+		{
+			"key": "TimeUnits",
+			"wordKeys": ["Second", "Minute", "Hour", "Day", "Week", "Month", "Year"]
+		},
+		{
+			"key": "Geometry",
+			"wordKeys": [
+				"Circle",
+				"Square",
+				"Triangle",
+				"Rectangle",
+				"Sphere",
+				"Cube"
+			]
+		},
+		{
+			"key": "ColorsNuance",
+			"wordKeys": ["Cyan", "Turquoise", "Indigo", "Violet"]
+		},
+		{
+			"key": "Temperament",
+			"wordKeys": ["Calm", "Nervous", "Shy", "Bold"]
+		},
+		{
+			"key": "SizesAbstract",
+			"wordKeys": ["Height", "Width", "Depth", "Length"]
+		},
+		{
+			"key": "MoneyTypes",
+			"wordKeys": ["Cash", "Credit", "Debt", "Savings", "Tax"]
+		},
+		{
+			"key": "FastFood",
+			"wordKeys": ["Burger", "Pizza", "Fries", "HotDog", "Kebab", "Taco"]
+		},
+		{
+			"key": "Dairy",
+			"wordKeys": ["Milk", "Cheese", "Yogurt", "Cream", "Butter"]
+		},
+		{
+			"key": "Carbs",
+			"wordKeys": ["Pasta", "Rice", "Potato", "Quinoa", "Semolina"]
+		},
+		{
+			"key": "Snacks",
+			"wordKeys": ["Chips", "Popcorn", "Nuts", "Candy", "Chocolate"]
+		},
+		{
+			"key": "VegetablesSalad",
+			"wordKeys": ["Lettuce", "Spinach", "Arugula", "Cabbage"]
+		},
+		{
+			"key": "VegetablesRed",
+			"wordKeys": ["Tomato", "Pepper", "Chili", "Beet"]
+		},
+		{
+			"key": "FruitsYellow",
+			"wordKeys": ["Banana", "Lemon", "Pineapple", "Mango"]
+		},
+		{
+			"key": "FruitsGreen",
+			"wordKeys": ["Apple", "Pear", "Kiwi", "Grape", "Lime"]
+		},
+		{
+			"key": "Medical",
+			"wordKeys": ["Doctor", "Nurse", "Pharmacist", "Vet"]
+		},
+		{
+			"key": "Emergency",
+			"wordKeys": ["Firefighter", "Police", "Soldier", "Paramedic"]
+		},
+		{
+			"key": "Creative",
+			"wordKeys": ["Artist", "Designer", "Photographer", "Writer"]
+		},
+		{
+			"key": "TechJobs",
+			"wordKeys": ["Developer", "Engineer", "Hacker", "DataScientist"]
+		},
+		{
+			"key": "Service",
+			"wordKeys": ["Waiter", "Bartender", "Cook", "Hairdresser"]
+		},
+		{
+			"key": "Manual",
+			"wordKeys": ["Mechanic", "Plumber", "Electrician", "Gardener"]
+		},
+		{
+			"key": "GamesMascots",
+			"wordKeys": [
+				"Mario",
+				"Luigi",
+				"Sonic",
+				"Pikachu",
+				"Link",
+				"CrashBandicoot"
+			]
+		},
+		{
+			"key": "GamesFPS",
+			"wordKeys": [
+				"CallOfDuty",
+				"Battlefield",
+				"Fortnite",
+				"ApexLegends",
+				"Overwatch"
+			]
+		},
+		{
+			"key": "GamesBlocks",
+			"wordKeys": ["Minecraft", "Roblox", "Lego", "Tetris"]
+		},
+		{
+			"key": "GamesNintendo",
+			"wordKeys": ["Zelda", "Peach", "Toad", "Bowser", "Yoshi"]
+		},
+		{
+			"key": "GamesConsole",
+			"wordKeys": ["Playstation", "Xbox", "Switch", "GameBoy", "DS"]
+		},
+		{
+			"key": "SciFiSagas",
+			"wordKeys": ["StarWars", "StarTrek", "Avatar", "Matrix"]
+		},
+		{
+			"key": "ForceUsers",
+			"wordKeys": ["Jedi", "Sith", "Yoda", "DarthVader", "Skywalker"]
+		},
+		{
+			"key": "WizardsSchool",
+			"wordKeys": ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"]
+		},
+		{
+			"key": "HeroesTeams",
+			"wordKeys": ["Avengers", "JusticeLeague", "XMen", "Guardians"]
+		},
+		{
+			"key": "AnimationStudio",
+			"wordKeys": ["Disney", "Pixar", "Dreamworks", "Ghibli"]
+		},
+		{
+			"key": "Streaming",
+			"wordKeys": ["Netflix", "DisneyPlus", "AmazonPrime", "YouTube"]
+		},
+		{
+			"key": "SodaWars",
+			"wordKeys": [
+				"CocaCola",
+				"Pepsi",
+				"DrPepper",
+				"Orangina",
+				"Sprite",
+				"Fanta"
+			]
+		},
+		{
+			"key": "FastFoodWars",
+			"wordKeys": ["McDonalds", "BurgerKing", "KFC", "Subway", "PizzaHut"]
+		},
+		{
+			"key": "SportBrands",
+			"wordKeys": ["Nike", "Adidas", "Puma", "Reebok", "UnderArmour"]
+		},
+		{
+			"key": "TechBrands",
+			"wordKeys": ["AppleBrand", "Samsung", "Microsoft", "Google", "Sony"]
+		},
+		{
+			"key": "LuxuryCars",
+			"wordKeys": [
+				"Ferrari",
+				"Lamborghini",
+				"Porsche",
+				"Bugatti",
+				"AstonMartin"
+			]
+		},
+		{
+			"key": "EconomyCars",
+			"wordKeys": ["Toyota", "Honda", "Ford", "Renault", "Peugeot"]
+		},
+		{
+			"key": "LuxuryFashion",
+			"wordKeys": ["Gucci", "Chanel", "LouisVuitton", "Prada", "Dior", "Hermes"]
+		},
+		{
+			"key": "Detectives",
+			"wordKeys": ["SherlockHolmes", "Watson", "Poirot", "Columbo"]
+		},
+		{
+			"key": "Billionaires",
+			"wordKeys": ["ElonMusk", "JeffBezos", "BillGates", "MarkZuckerberg"]
+		},
+		{
+			"key": "Painters",
+			"wordKeys": ["Picasso", "VanGogh", "DaVinci", "Dali", "Monet"]
+		},
+		{
+			"key": "MusiciansClassical",
+			"wordKeys": ["Mozart", "Beethoven", "Bach", "Chopin", "Vivaldi"]
+		},
+		{
+			"key": "PopStars",
+			"wordKeys": ["MichaelJackson", "Madonna", "Beyonce", "TaylorSwift"]
+		},
+		{
+			"key": "Rappers",
+			"wordKeys": ["Eminem", "Drake", "JayZ", "KanyeWest", "SnoopDogg"]
+		},
+		{
+			"key": "MonumentsParis",
+			"wordKeys": ["EiffelTower", "Louvre", "NotreDame", "ArcDeTriomphe"]
+		},
+		{
+			"key": "MonumentsUSA",
+			"wordKeys": ["LibertyStatue", "EmpireState", "WhiteHouse"]
+		},
+		{
+			"key": "Wonders",
+			"wordKeys": [
+				"Pyramids",
+				"GreatWall",
+				"Colosseum",
+				"TajMahal",
+				"MachuPicchu"
+			]
+		},
+		{
+			"key": "CitiesFashion",
+			"wordKeys": ["Paris", "Milan", "NewYork", "London", "Tokyo"]
+		},
+		{
+			"key": "CitiesLove",
+			"wordKeys": ["Venice", "Rome", "Paris"]
+		},
+		{
+			"key": "BoardGames",
+			"wordKeys": ["Monopoly", "Scrabble", "Clue", "Risk", "Chess"]
+		},
+		{
+			"key": "Casino",
+			"wordKeys": ["Poker", "Blackjack", "Roulette", "Slots"]
+		},
+		{
+			"key": "Circus",
+			"wordKeys": ["Clown", "Acrobat", "Juggler", "Magician"]
+		},
+		{
+			"key": "PowersMove",
+			"wordKeys": ["Teleportation", "Portal", "Speed", "Flight"]
+		},
+		{
+			"key": "PowersSight",
+			"wordKeys": ["Invisibility", "Camouflage", "XRay"]
+		},
+		{
+			"key": "MythicBeasts",
+			"wordKeys": ["Dragon", "Hydra", "Dinosaur", "Monster"]
+		},
+		{
+			"key": "MagicUsers",
+			"wordKeys": ["Witch", "Fairy", "Elf", "Genie"]
+		},
+		{
+			"key": "WarriorsBlade",
+			"wordKeys": ["Knight", "Samurai", "Gladiator", "Viking"]
+		},
+		{
+			"key": "Leaders",
+			"wordKeys": ["King", "Emperor", "Pharaoh", "Dictator", "President"]
+		},
+		{
+			"key": "Pirates",
+			"wordKeys": ["Pirate", "Sailor", "Captain"]
+		},
+		{
+			"key": "OldWeapons",
+			"wordKeys": ["Sword", "Saber", "Katana", "Dagger"]
+		},
+		{
+			"key": "Armor",
+			"wordKeys": ["Shield", "Armor", "Helmet"]
+		},
+		{
+			"key": "MathShapes",
+			"wordKeys": ["Square", "Rectangle", "Cube", "Pyramid"]
+		},
+		{
+			"key": "MathOps",
+			"wordKeys": ["Addition", "Multiplication", "Subtraction"]
+		},
+		{
+			"key": "LabTools",
+			"wordKeys": ["Microscope", "Telescope", "Binoculars", "Magnifier"]
+		},
+		{
+			"key": "SpaceForce",
+			"wordKeys": ["Gravity", "Magnetism", "Force"]
+		},
+		{
+			"key": "ScienceTiny",
+			"wordKeys": ["Atom", "Molecule", "Cell", "DNA"]
+		},
+		{
+			"key": "BioThreats",
+			"wordKeys": ["Virus", "Bacteria", "Poison", "Venom"]
+		},
+		{
+			"key": "CleaningFloor",
+			"wordKeys": ["Broom", "Mop", "Vacuum", "Brush"]
+		},
+		{
+			"key": "Fixing",
+			"wordKeys": ["Screw", "Nail", "Bolt"]
+		},
+		{
+			"key": "ToolsCut",
+			"wordKeys": ["Saw", "Axe", "Knife", "Scissors"]
+		},
+		{
+			"key": "AppliancesCold",
+			"wordKeys": ["Fridge", "Freezer", "Cooler"]
+		},
+		{
+			"key": "AppliancesHot",
+			"wordKeys": ["Oven", "Microwave", "Stove"]
+		},
+		{
+			"key": "OfficePaper",
+			"wordKeys": ["Stapler", "Punch", "Clip", "Tape"]
+		},
+		{
+			"key": "DarkPlaces",
+			"wordKeys": ["Attic", "Basement", "Garage", "Shed"]
+		},
+		{
+			"key": "FunPlaces",
+			"wordKeys": ["Zoo", "Circus", "Park", "Fair"]
+		},
+		{
+			"key": "NightOut",
+			"wordKeys": ["Bar", "Pub", "Club", "Concert"]
+		},
+		{
+			"key": "PublicTrans",
+			"wordKeys": ["BusStop", "Station", "Airport", "Port"]
+		},
+		{
+			"key": "CardGamesPlay",
+			"wordKeys": ["Poker", "Bridge", "Solitaire", "Tarot"]
+		},
+		{
+			"key": "ArtDoing",
+			"wordKeys": ["Painting", "Drawing", "Sketch"]
+		},
+		{
+			"key": "ArtResult",
+			"wordKeys": ["Statue", "Sculpture", "Pottery"]
+		},
+		{
+			"key": "Dance",
+			"wordKeys": ["Ballet", "Opera", "Theater"]
+		},
+		{
+			"key": "Hearing",
+			"wordKeys": ["Whisper", "Secret", "Silence"]
+		},
+		{
+			"key": "Sleep",
+			"wordKeys": ["Dream", "Nightmare", "Nap"]
+		},
+		{
+			"key": "Temperature",
+			"wordKeys": ["Hot", "Burning", "Boiling"]
+		},
+		{
+			"key": "Wetness",
+			"wordKeys": ["Wet", "Damp", "Soaked"]
+		},
+		{
+			"key": "Happiness",
+			"wordKeys": ["Smile", "Laugh", "Joy"]
+		},
+		{
+			"key": "MovementLegs",
+			"wordKeys": ["Walk", "Run", "Jog", "Hike"]
+		},
+		{
+			"key": "MovementWater",
+			"wordKeys": ["Swim", "Dive", "Float"]
+		},
+		{
+			"key": "PerceptionEye",
+			"wordKeys": ["Look", "See", "Stare", "Observe"]
+		},
+		{
+			"key": "PerceptionEar",
+			"wordKeys": ["Listen", "Hear"]
+		},
+		{
+			"key": "MouthActions",
+			"wordKeys": ["Eat", "Devour", "Chew", "Swallow"]
+		},
+		{
+			"key": "Vocal",
+			"wordKeys": ["Speak", "Shout", "Whisper", "Sing"]
+		},
+		{
+			"key": "HandActions",
+			"wordKeys": ["Write", "Draw", "Paint", "Scribble"]
+		},
+		{
+			"key": "Create",
+			"wordKeys": ["Build", "Repair", "Destroy", "Break"]
+		},
+		{
+			"key": "Speed",
+			"wordKeys": ["Fast", "Slow", "Quick"]
+		},
+		{
+			"key": "Weight",
+			"wordKeys": ["Heavy", "Light", "Massive"]
+		},
+		{
+			"key": "TemperatureAdj",
+			"wordKeys": ["Hot", "Cold", "Warm", "Frozen"]
+		},
+		{
+			"key": "Brightness",
+			"wordKeys": ["Bright", "Dark", "Shiny", "Dim"]
+		},
+		{
+			"key": "Texture",
+			"wordKeys": ["Rough", "Smooth", "Soft", "Hard"]
+		},
+		{
+			"key": "Difficulty",
+			"wordKeys": ["Easy", "Hard", "Complex", "Simple"]
+		},
+		{
+			"key": "SizeAdj",
+			"wordKeys": ["Big", "Large", "Small", "Tiny"]
+		},
+		{
+			"key": "Age",
+			"wordKeys": ["Old", "Young", "New", "Ancient"]
+		},
+		{
+			"key": "AudioGear",
+			"wordKeys": ["Headphones", "Earphones", "Speaker"]
+		},
+		{
+			"key": "Power",
+			"wordKeys": ["Charger", "Battery", "Cable", "Socket"]
+		},
+		{
+			"key": "Photography",
+			"wordKeys": ["Camera", "Lens", "Flash", "Selfie"]
+		},
+		{
+			"key": "Storage",
+			"wordKeys": ["USB", "HardDrive", "Cloud", "CD"]
+		},
+		{
+			"key": "DayParts",
+			"wordKeys": ["Morning", "Afternoon", "Evening", "Night"]
+		},
+		{
+			"key": "TimeUnitsShort",
+			"wordKeys": ["Second", "Minute", "Moment"]
+		},
+		{
+			"key": "TimeUnitsLong",
+			"wordKeys": ["Year", "Century", "Decade", "Era"]
+		},
+		{
+			"key": "Frequency",
+			"wordKeys": ["Always", "Never", "Often", "Sometimes"]
+		},
+		{
+			"key": "NaturalDisaster",
+			"wordKeys": ["Earthquake", "Tsunami", "Volcano", "Flood"]
+		},
+		{
+			"key": "Cosmic",
+			"wordKeys": ["Galaxy", "Universe", "Nebula", "BlackHole"]
+		},
+		{
+			"key": "PreciousStones",
+			"wordKeys": ["Diamond", "Ruby", "Sapphire", "Emerald"]
+		},
+		{
+			"key": "Metals",
+			"wordKeys": ["Iron", "Steel", "Copper", "Aluminium"]
+		}
+	]
+}

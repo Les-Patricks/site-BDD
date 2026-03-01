@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<title>Bluffers-bdd</title>
+	</head>
+	<body>
+		<h1>Bluffers</h1>
+		<!-- Tab links -->
+		<div class="tab">
+			<button class="toggle-button">Famille de mots</button>
+			<button class="toggle-button">Mots</button>
+			<button class="toggle-button">Langues</button>
+		</div>
+
+		<!-- Tab content -->
+		<div id="Famille de mots" class="tabcontent">
+			<h3>Famille de mots</h3>
+			<div class="accordion-container container"></div>
+		</div>
+
+		<!-- Tab des Mots  -->
+		<div id="Mots" class="tabcontent">
+			<h3>Mots</h3>
+			<div class="word-container container">
+				<button type="button" class="add-btn" id="add-word-btn">+</button>
+				<label for="add-word-btn" class="add-btn-label">Ajouter un mot</label>
+				<input
+					type="text"
+					placeholder="Votre Key"
+					class="add-word-input"
+					id="add-word-input"
+					name="add-word-input"
+				/>
+				<button type="button" class="submit-btn">Submit</button>
+			</div>
+		</div>
+
+		<!-- Tab des Langues  -->
+		<div id="Langues" class="tabcontent">
+			<h3>Langues</h3>
+			<div class="language-container container"></div>
+		</div>
+
+		<!-- Templates  -->
+		<template id="template-list">
+			<div class="accordion-item">
+				<button class="accordion-btn">Sous-section A2</button>
+				<div class="panel">
+					<div class="panel-inner">
+						<button type="button" class="add-btn">+</button>
+						<label for="add-language-btn" class="add-btn-label"
+							>Ajouter une nouvelle langue</label
+						>
+						<input
+							type="text"
+							placeholder="La Langue"
+							class="add-word-input language-input"
+							name="add-word-input"
+						/>
+						<input
+							type="text"
+							placeholder="Le Mot"
+							class="add-word-input word-input"
+							name="add-word-input"
+						/>
+						<button type="button" class="submit-btn">Confirmer</button>
+					</div>
+				</div>
+			</div>
+		</template>
+
+		<script src="./js/main.js"></script>
+	</body>
+</html>
