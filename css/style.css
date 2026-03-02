@@ -57,7 +57,7 @@ label:hover {
 	grid-template-rows: 1fr;
 }
 
-.accordion__panel {
+.accordion__content {
 	min-height: 0;
 	padding-left: 15px;
 }
@@ -68,13 +68,57 @@ label:hover {
 }
 
 .add-panel__inputs {
-	display: inline;
-	margin: 5px;
+	/* display: inline; */
+	/* margin: 5px; */
 }
 
 .add-panel__input {
 	margin-left: 5px;
 	margin-right: 5px;
+}
+
+.add-panel__inputs,
+.tab-panel__input,
+.add-panel__submit-button,
+.tab-panel__submit-button,
+.tab-panel__button--hidden,
+.tab-panel__label--hidden,
+.add-panel__button--hidden,
+.add-panel__label--hidden,
+.accordion__btn--hidden,
+.modal,
+.document-panel {
+	display: none;
+}
+
+.add-panel__inputs--visible,
+.tab-panel__input--visible,
+.tab-panel__input--visible,
+.tab-panel__submit-button--visible,
+.add-panel__submit-button--visible,
+.add-panel__input--visible,
+.modal--visible,
+.document-panel--visible {
+	display: inline;
+}
+
+.modal {
+	background: red;
+	height: 100px;
+	width: 200px;
+	border-radius: 10px;
+	box-shadow: 8px 15px 10px 0 #551919;
+	position: absolute;
+	inset-inline-start: 0px;
+	inset-block-start: 0px;
+	z-index: 2;
+}
+
+.document-panel {
+	position: fixed;
+	inset: 0;
+	/* background: red; */
+	z-index: 1;
 }
 
 /* .add-btn {
