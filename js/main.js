@@ -16,8 +16,8 @@ const allTabs = document.querySelectorAll(".tab-panel");
 
 // Contents
 const wordFamilyContent = wordFamilyTab.querySelector(".tab-panel__content");
-const wordContent = wordTab.querySelector(".tab-panel__content");
-const languageContent = languageTab.querySelector(".tab-panel__content");
+let wordContent = wordTab.querySelector(".tab-panel__content");
+let languageContent = languageTab.querySelector(".tab-panel__content");
 
 // Word tab related stuff
 const addWordBtn = wordTab.querySelector(".tab-panel__button");
@@ -34,10 +34,17 @@ const closePanel = document.querySelector(".document-panel");
 const wordKeys = new Set();
 const familyKeys = new Set();
 const languageKeys = new Set(["en", "fr"]);
+const traductions = {};
 
 wordFamilyBtn.addEventListener("click", () => openTab(wordFamilyTab));
-wordBtn.addEventListener("click", () => openTab(wordTab));
-languagesBtn.addEventListener("click", () => openTab(languageTab));
+wordBtn.addEventListener("click", () => {
+	openTab(wordTab);
+	updateWords();
+});
+languagesBtn.addEventListener("click", () => {
+	openTab(languageTab);
+	updateLanguages();
+});
 
 function openTab(currentTab) {
 	currentTab.classList.add("tab-panel--open");
@@ -56,7 +63,9 @@ const createDOMElement = function (parent, index, tagName, content, className) {
 	} else {
 		element.innerHTML = content;
 	}
-	element.classList.add(className);
+	if (className) {
+		element.classList.add(className);
+	}
 	insertElementAt(element, index, parent);
 	return element;
 };
@@ -142,32 +151,32 @@ const createAddSystem = function (
 
 const insertElementAt = function (element, index, parent) {
 	const directChildren = parent.children;
-	// console.log(index);
-	if (directChildren.length == 0 || index == -1) {
+	if (directChildren.length == 0) {
 		parent.appendChild(element);
 	} else {
-		const selectedDirectChild = parent.children[index];
+		if (index < 0) {
+			index = directChildren.length + index + 1;
+		}
+		const selectedDirectChild = directChildren[index];
 		if (selectedDirectChild) {
 			parent.insertBefore(element, selectedDirectChild);
+		} else {
+			parent.appendChild(element);
 		}
 	}
 };
 
-const callModal = function (position) {
+const callModal = function (position, renameEvent, removeEvent) {
 	toggleModal(true);
 	modal.style.insetInlineStart = position.x + "px";
-	modal.style.insetBlockStart = position.y + "px";
+	modal.style.insetBlockStart = position.y - modal.offsetHeight + "px";
 	modalRenameBtn.addEventListener("click", () => {
-		toggleEditionThings();
-		editInput.select();
-		editInput.focus();
+		renameEvent();
 		toggleModal(false);
 	});
 	modalDeleteBtn.addEventListener("click", () => {
-		removeWord(accordionBtn.innerHTML);
 		toggleModal();
-		console.log(accordion);
-		accordion.remove();
+		removeEvent();
 	});
 };
 
@@ -205,41 +214,36 @@ const createAccordionElement = function (parent, listName) {
 	const content = clonedList.querySelector(".accordion__content");
 	accordionBtn.innerHTML = listName;
 
-	const toggleEditionThings = function () {
-		editInput.classList.toggle("accordion__edit-input--visible");
-		accordionBtn.classList.toggle("accordion__button--hidden");
-		submitEditBtn.classList.toggle("accordion__submit-edit-button--visible");
-		editInput.value = accordionBtn.innerHTML;
-		editBtn.classList.toggle("accordion__edit-button--hidden");
-	};
+	// const toggleEditionThings = function () {
+	// 	editInput.classList.toggle("accordion__edit-input--visible");
+	// 	accordionBtn.classList.toggle("accordion__button--hidden");
+	// 	submitEditBtn.classList.toggle("accordion__submit-edit-button--visible");
+	// 	editInput.value = accordionBtn.innerHTML;
+	// 	editBtn.classList.toggle("accordion__edit-button--hidden");
+	// };
 
-	submitEditBtn.addEventListener("click", () => {
-		replaceWord(accordionBtn.innerHTML, editInput.value, () => {
-			accordionBtn.innerHTML = editInput.value;
-		});
-		toggleEditionThings();
-	});
+	// submitEditBtn.addEventListener("click", () => {
+	// 	replaceWord(accordionBtn.innerHTML, editInput.value, () => {
+	// 		accordionBtn.innerHTML = editInput.value;
+	// 	});
+	// 	toggleEditionThings();
+	// });
 
-	editBtn.addEventListener("click", () => {
-		toggleModal(true);
-		const rect = editBtn.getBoundingClientRect();
-		modal.style.insetInlineStart = rect.right + "px";
-		modal.style.insetBlockStart = rect.top - modal.offsetHeight + "px";
-		console.log("adding new event listener");
-		console.log(modalRenameBtn);
-		modalRenameBtn.addEventListener("click", () => {
-			toggleEditionThings();
-			editInput.select();
-			editInput.focus();
-			toggleModal(false);
-		});
-		modalDeleteBtn.addEventListener("click", () => {
-			removeWord(accordionBtn.innerHTML);
-			toggleModal();
-			console.log(accordion);
-			accordion.remove();
-		});
-	});
+	// editBtn.addEventListener("click", () => {
+	// 	const rect = editBtn.getBoundingClientRect();
+	// 	callModal(
+	// 		{ x: rect.right, y: rect.top },
+	// 		() => {
+	// 			toggleEditionThings();
+	// 			editInput.select();
+	// 			editInput.focus();
+	// 		},
+	// 		() => {
+	// 			removeWord(accordionBtn.innerHTML);
+	// 			accordion.remove();
+	// 		},
+	// 	);
+	// });
 	insertElementAt(clonedList, 0, parent);
 	addEventToButton(accordionBtn);
 	return content;
@@ -268,7 +272,7 @@ const replaceWord = function (wordToReplace, wordToReplaceBy, successEvent) {
 // Spawn a word in the parent list and set its content
 const createTextElement = function (parentList, wordContent) {
 	if (wordContent !== "") {
-		const para = document.createElement("p");
+		const para = document.createElement("span");
 		const node = document.createTextNode(wordContent);
 		para.appendChild(node);
 		insertElementAt(para, -1, parentList);
@@ -300,15 +304,78 @@ const toggleAddSystem = function () {
 	addWordInput.value = "";
 };
 
+const addWord = function (value) {
+	const listObject = createAccordionElement(wordContent, value, 0);
+	const accordion =
+		listObject.parentNode.parentNode.querySelector(".accordion");
+	const accordionBtn =
+		listObject.parentNode.parentNode.querySelector(".accordion__button");
+	createEditBtn(
+		listObject.parentNode.parentNode,
+		1,
+		accordionBtn.innerHTML,
+		() => {
+			accordionBtn.classList.toggle("accordion__button--hidden");
+		},
+		() => {
+			removeWord(accordionBtn.innerHTML);
+			accordion.remove();
+		},
+		(submitValue) => {
+			replaceWord(accordionBtn.innerHTML, submitValue, () => {
+				accordionBtn.innerHTML = submitValue;
+			});
+		},
+	);
+	if (!traductions[value]) {
+		traductions[value] = {};
+		console.log("nnuked");
+	}
+	languageKeys.forEach((language) => {
+		if (!traductions[value][language]) {
+			traductions[value][language] = "null";
+		}
+		const div = createDOMElement(listObject, 1, "div", "", "");
+		const textElement = createTextElement(div, `${language} : `);
+		const textValue = createDOMElement(
+			textElement,
+			-1,
+			"text",
+			traductions[value][language],
+			"accordion__value",
+		);
+		createEditBtn(
+			textElement,
+			1,
+			textValue.innerHTML,
+			() => {
+				textValue.classList.toggle("accordion__value--hidden");
+			},
+			() => {
+				textValue.innerHTML = traductions[value][language];
+			},
+			(submitValue) => {
+				textValue.innerHTML = submitValue;
+				traductions[value][language] = submitValue;
+			},
+		);
+	});
+};
+
+const updateWords = function () {
+	const newWordContent = wordContent.cloneNode();
+	wordContent.replaceWith(newWordContent);
+	wordContent = newWordContent;
+	wordKeys.forEach((word) => {
+		addWord(word);
+	});
+};
+
 const submitAddingWord = function () {
 	const value = addWordInput.value.trim().toLowerCase();
 	if (value) {
 		createWord(value, () => {
-			const listObject = createAccordionElement(wordContent, value, 0);
-			languageKeys.forEach((language) => {
-				const textElement = createTextElement(listObject, `${language} : `);
-				createDOMElement(textElement, -1, "input", "null", "accordion__input");
-			});
+			addWord(value);
 		});
 	}
 };
@@ -334,6 +401,93 @@ addWordInput.addEventListener("keydown", (e) => {
 		toggleAddSystem();
 	}
 });
+
+const createEditBtn = function (
+	parent,
+	editIndex,
+	editValue,
+	toggleEvent,
+	removeEvent,
+	submit,
+) {
+	const submitBtn = createDOMElement(
+		parent,
+		editIndex,
+		"button",
+		"Submit",
+		"accordion__submit-btn",
+	);
+	const editInput = createDOMElement(
+		parent,
+		editIndex,
+		"input",
+		"",
+		"accordion__input",
+	);
+
+	const editBtn = createDOMElement(
+		parent,
+		editIndex,
+		"button",
+		"Edit",
+		"accordion__edit-btn",
+	);
+	const toggleEditThings = function () {
+		editInput.classList.toggle("accordion__input--visible");
+		editBtn.classList.toggle("accordion__edit-btn--hidden");
+		submitBtn.classList.toggle("accordion__submit-btn--visible");
+		toggleEvent();
+	};
+	submitBtn.addEventListener("click", () => {
+		submit(editInput.value);
+		toggleEditThings();
+	});
+	const rect = editBtn.getBoundingClientRect();
+	editBtn.addEventListener("click", () => {
+		callModal(
+			{ x: rect.right, y: rect.top },
+			() => {
+				editInput.value = editValue;
+				toggleEditThings();
+				editInput.focus();
+				editInput.select();
+			},
+			removeEvent,
+		);
+	});
+};
+
+// Language tab
+const updateLanguages = function () {
+	const newContent = languageContent.cloneNode();
+	languageContent.replaceWith(newContent);
+	languageContent = newContent;
+	languageKeys.forEach((language) => {
+		const div = createDOMElement(languageContent, 0, "div", "", "");
+		const languageElement = createTextElement(div, language);
+		createEditBtn(
+			div,
+			1,
+			languageElement.innerHTML,
+			() => {
+				languageElement.classList.toggle("word--hidden");
+			},
+			() => {
+				languageKeys.delete(language);
+				div.remove();
+			},
+			(value) => {
+				languageKeys.delete(language);
+				languageKeys.add(value);
+				wordKeys.forEach((word) => {
+					traductions[word][value] = traductions[word][language];
+					traductions[word][language] = undefined;
+				});
+				languageElement.innerHTML = value;
+			},
+		);
+	});
+};
 
 updateBtns();
 
