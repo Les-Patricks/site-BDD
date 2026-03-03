@@ -11,7 +11,7 @@ export async function fetchWords() {
         .from('words')
         .select('key');
     if (error) {
-        console.error("Erreur lors de la récupération des mots:", error);
+        console.error("Error while fetching words:", error);
         return [];
     }
     return data.map(row => row.key);
@@ -24,7 +24,7 @@ export async function addWordToDB(wordKey) {
         .select();
 
     if (error) {
-        console.error("Erreur lors de l'ajout du mot:", error);
+        console.error("Error while adding word:", error);
         return false;
     }
     return true;
@@ -37,7 +37,7 @@ export async function deleteWordFromDB(wordKey) {
         .match({ key: wordKey });
 
     if (error) {
-        console.error("Erreur lors de la suppression:", error);
+        console.error("Error while deleting word:", error);
         return false;
     }
     return true;
