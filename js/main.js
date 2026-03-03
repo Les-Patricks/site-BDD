@@ -26,6 +26,8 @@ const addWordInput = document.getElementById("addWordInput");
 const submitBtn = wordTab.querySelector(".tab-panel__submit-button");
 // ==========
 const modal = document.querySelector(".modal");
+let modalRenameBtn = document.getElementById("modalRenameBtn");
+let modalDeleteBtn = document.getElementById("modalDeleteBtn");
 const closePanel = document.querySelector(".document-panel");
 
 // Conteneur
@@ -151,41 +153,116 @@ const insertElementAt = function (element, index, parent) {
 	}
 };
 
+const callModal = function (position) {
+	toggleModal(true);
+	modal.style.insetInlineStart = position.x + "px";
+	modal.style.insetBlockStart = position.y + "px";
+	modalRenameBtn.addEventListener("click", () => {
+		toggleEditionThings();
+		editInput.select();
+		editInput.focus();
+		toggleModal(false);
+	});
+	modalDeleteBtn.addEventListener("click", () => {
+		removeWord(accordionBtn.innerHTML);
+		toggleModal();
+		console.log(accordion);
+		accordion.remove();
+	});
+};
+
+const toggleModal = function (state) {
+	if (state) {
+		modal.classList.add("modal--visible");
+		closePanel.classList.add("document-panel--visible");
+	} else {
+		console.log("nuked");
+		modal.classList.remove("modal--visible");
+		closePanel.classList.remove("document-panel--visible");
+		const newRenameBtn = modalRenameBtn.cloneNode(true);
+		modalRenameBtn.replaceWith(newRenameBtn);
+		modalRenameBtn = newRenameBtn;
+
+		const newDeleteBtn = modalDeleteBtn.cloneNode(true);
+		modalDeleteBtn.replaceWith(newDeleteBtn);
+		modalDeleteBtn = newDeleteBtn;
+	}
+};
+closePanel.addEventListener("click", () => {
+	toggleModal(false);
+});
+
 // Spawn a list and set its name
 const createAccordionElement = function (parent, listName) {
 	const clonedList = listTemplate.content.cloneNode(true);
+	const accordion = clonedList.querySelector(".accordion");
 	const accordionBtn = clonedList.querySelector(".accordion__button");
 	const editBtn = clonedList.querySelector(".accordion__edit-button");
+	const editInput = clonedList.querySelector(".accordion__edit-input");
+	const submitEditBtn = clonedList.querySelector(
+		".accordion__submit-edit-button",
+	);
 	const content = clonedList.querySelector(".accordion__content");
 	accordionBtn.innerHTML = listName;
-	const toggle = function () {
-		modal.classList.toggle("modal--visible");
-		closePanel.classList.toggle("document-panel--visible");
-	};
-	const hide = function () {
-		toggle();
 
-		closePanel.removeEventListener("click", hide);
+	const toggleEditionThings = function () {
+		editInput.classList.toggle("accordion__edit-input--visible");
+		accordionBtn.classList.toggle("accordion__button--hidden");
+		submitEditBtn.classList.toggle("accordion__submit-edit-button--visible");
+		editInput.value = accordionBtn.innerHTML;
+		editBtn.classList.toggle("accordion__edit-button--hidden");
 	};
+
+	submitEditBtn.addEventListener("click", () => {
+		replaceWord(accordionBtn.innerHTML, editInput.value, () => {
+			accordionBtn.innerHTML = editInput.value;
+		});
+		toggleEditionThings();
+	});
 
 	editBtn.addEventListener("click", () => {
-		closePanel.addEventListener("click", hide);
-		toggle();
+		toggleModal(true);
 		const rect = editBtn.getBoundingClientRect();
 		modal.style.insetInlineStart = rect.right + "px";
 		modal.style.insetBlockStart = rect.top - modal.offsetHeight + "px";
+		console.log("adding new event listener");
+		console.log(modalRenameBtn);
+		modalRenameBtn.addEventListener("click", () => {
+			toggleEditionThings();
+			editInput.select();
+			editInput.focus();
+			toggleModal(false);
+		});
+		modalDeleteBtn.addEventListener("click", () => {
+			removeWord(accordionBtn.innerHTML);
+			toggleModal();
+			console.log(accordion);
+			accordion.remove();
+		});
 	});
 	insertElementAt(clonedList, 0, parent);
-	// wordObjects.set(content, []);
 	addEventToButton(accordionBtn);
 	return content;
 };
 
 // Adds a new word to the wordKeys and return if it was added or not
-const createWord = function (wordContent) {
+const createWord = function (wordContent, successEvent) {
 	const added = !wordKeys.has(wordContent);
 	wordKeys.add(wordContent);
-	return added;
+	if (added) {
+		successEvent();
+	} else {
+		alert("The key already exist");
+	}
+};
+
+const removeWord = function (word) {
+	wordKeys.delete(word);
+};
+
+const replaceWord = function (wordToReplace, wordToReplaceBy, successEvent) {
+	wordKeys.delete(wordToReplace);
+	createWord(wordToReplaceBy, successEvent);
 };
 
 // Spawn a word in the parent list and set its content
@@ -226,15 +303,13 @@ const toggleAddSystem = function () {
 const submitAddingWord = function () {
 	const value = addWordInput.value.trim().toLowerCase();
 	if (value) {
-		if (!createWord(value)) {
-			alert("The key already exist");
-		} else {
+		createWord(value, () => {
 			const listObject = createAccordionElement(wordContent, value, 0);
 			languageKeys.forEach((language) => {
 				const textElement = createTextElement(listObject, `${language} : `);
 				createDOMElement(textElement, -1, "input", "null", "accordion__input");
 			});
-		}
+		});
 	}
 };
 

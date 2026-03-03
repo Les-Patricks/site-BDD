@@ -85,9 +85,12 @@ label:hover {
 .tab-panel__label--hidden,
 .add-panel__button--hidden,
 .add-panel__label--hidden,
-.accordion__btn--hidden,
+.accordion__button--hidden,
 .modal,
-.document-panel {
+.document-panel,
+.accordion__edit-input,
+.accordion__submit-edit-button,
+.accordion__edit-button--hidden {
 	display: none;
 }
 
@@ -98,20 +101,27 @@ label:hover {
 .add-panel__submit-button--visible,
 .add-panel__input--visible,
 .modal--visible,
-.document-panel--visible {
+.document-panel--visible,
+.accordion__edit-input--visible,
+.accordion__submit-edit-button--visible {
 	display: inline;
 }
 
 .modal {
-	background: red;
-	height: 100px;
-	width: 200px;
-	border-radius: 10px;
-	box-shadow: 8px 15px 10px 0 #551919;
+	height: 50px;
+	width: 120px;
+	box-shadow: 3px 3px 7px 0 #7c7c7c;
 	position: absolute;
-	inset-inline-start: 0px;
-	inset-block-start: 0px;
 	z-index: 2;
+}
+
+.modal__content {
+	display: grid;
+	height: 100%;
+}
+
+.modal__button {
+	grid-template-rows: 1fr;
 }
 
 .document-panel {
