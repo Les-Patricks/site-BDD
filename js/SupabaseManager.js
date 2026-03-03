@@ -1,8 +1,8 @@
 import { createClient } from '@supabase/supabase-js'
 
 // Create a single supabase client for interacting with your database
-const supabaseUrl = 'https://kywafnfxmugjwhykwiae.supabase.co';
-const supabaseKey = 'sb_publishable_TP4XKscxru5L9s1_NdZLag_9X-q-z3E';
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const DEFAULT_LIMIT = 1000;
