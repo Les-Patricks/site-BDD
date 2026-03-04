@@ -1,8 +1,6 @@
 //import { createClient } from '@supabase/supabase-js'
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
-
-// Create a single supabase client for interacting with your database
 const supabaseUrl = "https://kywafnfxmugjwhykwiae.supabase.co";
 const supabaseKey = "sb_publishable_TP4XKscxru5L9s1_NdZLag_9X-q-z3E";
 const supabase = createClient(supabaseUrl, supabaseKey);
