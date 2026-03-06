@@ -1,10 +1,17 @@
-import { addWordToAutocomplete } from "./dom.js";
+import { addWordToAutocomplete, removeWordFromAutocomplete } from "./dom.js";
+import { addInTable } from "./SupabaseManager.js";
 
 export const wordKeys = new Set();
 export const familyKeys = new Set();
-export const languageKeys = new Set(["en", "fr"]);
+export const languageKeys = new Set();
 export const traductions = {};
 export const families = {};
+
+//Things to delete
+export const wordToDelete = [];
+export const languageToDelete = [];
+export const familyToDelete = [];
+export const traductionToDelete = [];
 
 // Adds a new word to the wordKeys and return if it was added or not
 export const addWord = function (wordContent, successEvent) {
@@ -44,6 +51,11 @@ export const addLanguage = function (languageContent, successEvent) {
 export const removeWord = function (word) {
 	wordKeys.delete(word);
 	removeWordFromAutocomplete(word);
+	wordToDelete.push(word);
+	traductionToDelete.push(word);
+	if (traductions[word]) {
+		delete traductions[word];
+	}
 	if (traductions[word]) {
 		delete traductions[word];
 	}
@@ -77,9 +89,17 @@ export const replaceLanguage = function (
 
 export const removeLanguage = function (oldLanguage) {
 	languageKeys.delete(oldLanguage);
+	languageToDelete.push(oldLanguage);
+	for (const word of wordKeys) {
+		removeTraduction(word, oldLanguage);
+	}
+	for (const traduction in traductions) {
+		delete traductions[traduction][oldLanguage];
+	}
 };
 
 export const updateTraduction = function (word, language, traduction) {
+	console.log(traductions[word]);
 	if (traductions[word]) {
 		traductions[word][language] = traduction;
 	}
@@ -109,16 +129,21 @@ export const addFamily = function (familyContent, successEvent) {
 
 export const removeFamily = function (family) {
 	familyKeys.delete(family);
+	familyToDelete.push(family);
 	if (families[family]) {
 		delete families[family];
 	}
 };
 
 export const addWordToFamily = function (word, family, successEvent) {
-	if (families[family] && !families[family].includes(word)) {
-		families[family].push(word);
-		successEvent();
+	if (families[family]) {
+		if (!families[family].includes(word)) {
+			families[family].push(word);
+			successEvent();
+		} else {
+			alert("The word is already in the family");
+		}
 	} else {
-		alert("The word is already in the family");
+		alert("The family doesn't exist");
 	}
 };
