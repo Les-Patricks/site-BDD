@@ -13,6 +13,7 @@ import {
 	toggleAddSystem,
 	bindTabAddSystem,
 } from "../dom.js";
+import { addLanguageInTable } from "../SupabaseManager.js";
 
 const languageContent = document.getElementById("languageTabPanelContent");
 const addLanguageBtn = document.getElementById("addLanguageBtn");
