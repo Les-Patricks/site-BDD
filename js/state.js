@@ -30,7 +30,6 @@ export const addWord = function (wordContent, successEvent) {
 };
 
 export const addLanguage = function (languageContent, successEvent) {
-	console.log(traductions);
 	const added = !languageKeys.has(languageContent);
 	languageKeys.add(languageContent);
 
@@ -99,7 +98,6 @@ export const removeLanguage = function (oldLanguage) {
 };
 
 export const updateTraduction = function (word, language, traduction) {
-	console.log(traductions[word]);
 	if (traductions[word]) {
 		traductions[word][language] = traduction;
 	}
@@ -110,7 +108,6 @@ export const removeTraduction = function (word, language) {
 };
 
 const transferTraductions = function (fromWord, toWord) {
-	console.log(traductions);
 	Object.keys(traductions[fromWord]).forEach((language) => {
 		traductions[toWord][language] = traductions[fromWord][language];
 	});

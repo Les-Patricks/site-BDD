@@ -96,7 +96,6 @@ export async function addLanguagesInTable(languages) {
 		ignoreDuplicates: false,
 	});
 	await executeQuery(rq);
-	console.log("Languages added to table:", languages);
 }
 
 export async function addFamilyInTable(family) {
@@ -137,7 +136,6 @@ export async function addWordsInFamilyInTable(words, family) {
 		onConflict: "word_id, word_family_id",
 		ignoreDuplicates: false,
 	});
-	console.log("Words added to family in table:", words, "Family:", family);
 	await executeQuery(rq);
 }
 
@@ -145,7 +143,6 @@ export async function addWordsInDataBase(words) {
 	words.forEach(async (wordData) => {
 		const word = wordData.word;
 		const traductions = wordData.traductions;
-		console.log("Adding traduction for word:", word);
 		await addInTable("words", { word_id: word }, "word_id");
 		Object.entries(traductions).forEach(async ([language_id, value]) => {
 			await addInTable(

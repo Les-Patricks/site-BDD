@@ -19,7 +19,6 @@
 	</head>
 	<body>
 		<h1>Bluffers</h1>
-		<button type="button" class="save-btn" id="saveBtn">Save</button>
 		<!--
 			Tab navigation bar.
 			Each button is wired in main.js to call openTab(), which adds
@@ -215,6 +214,19 @@
 					Supprimer
 				</button>
 			</div>
+		</div>
+
+		<button type="button" class="save-btn" id="saveBtn">Save</button>
+
+		<button type="button" id="publishBtn" class="publish__btn">Publish</button>
+		<div id="publishConfirmPopup" class="publish__popup">
+			<p>T'es sûr tu veux publier la base de données?</p>
+			<button type="button" id="confirmPublishBtn" class="publish__confirm-btn">
+				Bah oui, j'suis sûr
+			</button>
+			<button type="button" id="cancelPublishBtn" class="publish__cancel-btn">
+				Euh non, annule
+			</button>
 		</div>
 
 		<script type="module" src="js/main.js"></script>

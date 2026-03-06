@@ -28,6 +28,7 @@ import {
 	wordKeys,
 	wordToDelete,
 } from "./state.js";
+import {} from "./publish.js";
 //#region DOM Setup
 // Tabs buttons
 const wordFamilyBtn = document.getElementById("wordFamilyBtn");
@@ -122,7 +123,6 @@ async function fetchData() {
 			const language = traductionData.language_id;
 			const value = traductionData.value;
 			updateTraduction(word, language, value);
-			console.log("fetch traduction", word, language, value);
 		});
 	});
 	await fetchFromTable("word_family").then((data) => {
