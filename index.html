@@ -1,4 +1,15 @@
 <!doctype html>
+<!--
+	Bluffers — Database Management Interface
+
+	Entry point for the Bluffers vocabulary database tool.
+	The UI is split into three mutually exclusive tab panels (word families,
+	words, languages), each rendered on demand by js/main.js.
+
+	Dependencies:
+	  - css/style.css  : BEM-based stylesheet
+	  - js/main.js     : ES-module entry point (loaded as type="module")
+-->
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -8,70 +19,203 @@
 	</head>
 	<body>
 		<h1>Bluffers</h1>
-		<!-- Tab links -->
+		<!--
+			Tab navigation bar.
+			Each button is wired in main.js to call openTab(), which adds
+			"tab-panel--open" to the target panel and removes it from all others,
+			ensuring only one panel is visible at a time.
+		-->
 		<div class="tab">
-			<button class="toggle-button">Famille de mots</button>
-			<button class="toggle-button">Mots</button>
-			<button class="toggle-button">Langues</button>
+			<button class="tab__button" id="wordFamilyBtn">Famille de mots</button>
+			<button class="tab__button" id="wordBtn">Mots</button>
+			<button class="tab__button" id="languagesBtn">Langues</button>
 		</div>
 
-		<!-- Tab content -->
-		<div id="Famille de mots" class="tabcontent">
+		<!-- ═══════════════════════════ Tab Panels ═══════════════════════════ -->
+		<!--
+			All panels share the "tab-panel" class and are hidden by default.
+			Visibility is controlled exclusively via the "tab-panel--open" modifier
+			class toggled by openTab() in main.js — no inline styles are used.
+		-->
+
+		<div class="tab-panel" id="wordFamilyTab">
 			<h3>Famille de mots</h3>
-			<div class="accordion-container container"></div>
+			<button type="button" class="tab-panel__button" id="addFamilyBtn">
+				+
+			</button>
+			<label for="addFamilyBtn" class="tab-panel__label" id="addFamilyLabel"
+				>Ajouter une famille</label
+			>
+			<input
+				type="text"
+				placeholder="Votre Key"
+				class="tab-panel__input"
+				id="addFamilyInput"
+				name="addFamilyInput"
+			/>
+			<button
+				type="button"
+				class="tab-panel__submit-button"
+				id="addFamilySubmitBtn"
+			>
+				Submit
+			</button>
+			<div class="tab-panel__content" id="familyTabPanelContent"></div>
 		</div>
 
-		<!-- Tab des Mots  -->
-		<div id="Mots" class="tabcontent">
+		<!--
+			Words panel.
+			Provides an inline add-word form (button → input → submit) and a
+			scrollable content area populated by updateWords() in wordTab.js.
+			Each rendered word entry is an accordion cloned from #listTemplate.
+		-->
+		<div class="tab-panel" id="wordTab">
 			<h3>Mots</h3>
-			<div class="word-container container">
-				<button type="button" class="add-btn" id="add-word-btn">+</button>
-				<label for="add-word-btn" class="add-btn-label">Ajouter un mot</label>
-				<input
-					type="text"
-					placeholder="Votre Key"
-					class="add-word-input"
-					id="add-word-input"
-					name="add-word-input"
-				/>
-				<button type="button" class="submit-btn">Submit</button>
-			</div>
+			<button type="button" class="tab-panel__button" id="addWordButton">
+				+
+			</button>
+			<label for="addWordButton" class="tab-panel__label" id="addWordLabel"
+				>Ajouter un mot</label
+			>
+			<input
+				type="text"
+				placeholder="Votre Key"
+				class="tab-panel__input"
+				id="addWordInput"
+				name="addWordInput"
+			/>
+			<button
+				type="button"
+				class="tab-panel__submit-button"
+				id="addWordSubmitBtn"
+			>
+				Submit
+			</button>
+			<!-- Dynamically populated by wordTab.js -->
+			<div class="tab-panel__content" id="wordTabPanelContent"></div>
 		</div>
 
-		<!-- Tab des Langues  -->
-		<div id="Langues" class="tabcontent">
+		<!--
+			Languages panel.
+			Same structure as the words panel. Content is populated by
+			updateLanguages() in languageTab.js.
+			Note: the label is intentionally placed after the submit button in
+			the source order; visual positioning is handled by CSS.
+		-->
+		<div class="tab-panel" id="languageTab">
 			<h3>Langues</h3>
-			<div class="language-container container"></div>
+			<button type="button" class="tab-panel__button" id="addLanguageBtn">
+				+
+			</button>
+			<input
+				type="text"
+				placeholder="Votre Key"
+				class="tab-panel__input"
+				id="addLanguageInput"
+				name="addLanguageInput"
+			/>
+			<button
+				type="button"
+				class="tab-panel__submit-button"
+				id="addLanguageSubmitBtn"
+			>
+				Submit
+			</button>
+			<label for="addLanguageBtn" class="tab-panel__label" id="addLanguageLabel"
+				>Ajouter une langue</label
+			>
+			<!-- Dynamically populated by languageTab.js -->
+			<div class="tab-panel__content" id="languageTabPanelContent"></div>
 		</div>
 
-		<!-- Templates  -->
-		<template id="template-list">
-			<div class="accordion-item">
-				<button class="accordion-btn">Sous-section A2</button>
-				<div class="panel">
-					<div class="panel-inner">
-						<button type="button" class="add-btn">+</button>
-						<label for="add-language-btn" class="add-btn-label"
-							>Ajouter une nouvelle langue</label
-						>
-						<input
-							type="text"
-							placeholder="La Langue"
-							class="add-word-input language-input"
-							name="add-word-input"
-						/>
-						<input
-							type="text"
-							placeholder="Le Mot"
-							class="add-word-input word-input"
-							name="add-word-input"
-						/>
-						<button type="button" class="submit-btn">Confirmer</button>
-					</div>
+		<!-- ════════════════════════════ Templates ════════════════════════════ -->
+		<!--
+			<template> elements are inert — their content is not rendered and
+			not part of the live DOM until cloned via cloneNode() in JavaScript.
+		-->
+
+		<!--
+			Accordion item template — #listTemplate
+			Cloned by createAccordionElement() in accordion.js to stamp out
+			each collapsible list entry. The button text and content area are
+			populated after cloning; the static "Accordion Button" text here
+			is only a placeholder and is never shown to the user.
+		-->
+		<template id="listTemplate">
+			<div class="accordion">
+				<button class="accordion__button">Accordion Button</button>
+				<div class="accordion__panel">
+					<div class="accordion__content"></div>
 				</div>
 			</div>
 		</template>
 
-		<script src="./js/main.js"></script>
+		<!--
+			Reusable add-form template — #addSystemTemplate
+			Cloned by createAddSystem() in addSystem.js wherever an inline
+			"add" workflow is needed (e.g., adding a translation inside a word
+			accordion). After cloning, createAddSystem() assigns a runtime-
+			generated unique ID to #addButton so that multiple instances on the
+			page do not share the same id, keeping label associations valid.
+			Input fields are injected dynamically into .add-panel__inputs.
+		-->
+		<template id="addSystemTemplate">
+			<div class="add-panel">
+				<button type="button" class="add-panel__button" id="addButton">
+					+
+				</button>
+				<label for="addButton" class="add-panel__label"> Ajouter </label>
+				<div class="add-panel__inputs"></div>
+				<button type="button" class="add-panel__submit-button">
+					Confirmer
+				</button>
+			</div>
+		</template>
+
+		<!--
+			Modal backdrop — .document-panel
+			A full-viewport transparent overlay. Made visible by toggleModal()
+			in modal.js (via "document-panel--visible") at the same time as the
+			context menu so that any click outside the menu dismisses it.
+			Placing this before .modal in the DOM ensures the modal renders
+			on top of the overlay without requiring extra z-index management.
+		-->
+		<div class="document-panel"></div>
+
+		<!--
+			Context menu modal — .modal
+			A floating action menu triggered on right-click (or equivalent) of
+			an accordion entry. Its position is set in callModal() (modal.js)
+			using CSS logical properties (inset-inline-start / inset-block-start)
+			so it appears adjacent to the pointer. Event listeners for rename
+			and delete are attached and detached dynamically by callModal() /
+			toggleModal() to prevent stale handler accumulation across openings.
+		-->
+		<div class="modal">
+			<div class="modal__content">
+				<button type="button" class="modal__button" id="modalRenameBtn">
+					Renommer
+				</button>
+				<button type="button" class="modal__button" id="modalDeleteBtn">
+					Supprimer
+				</button>
+			</div>
+		</div>
+
+		<div class="modal" id="familyModal">
+			<div class="modal__content">
+				<button type="button" class="modal__button" id="modalRenameBtn">
+					Renommer
+				</button>
+				<button type="button" class="modal__button" id="modalAddWordBtn">
+					Ajouter mot
+				</button>
+				<button type="button" class="modal__button" id="modalDeleteBtn">
+					Supprimer
+				</button>
+			</div>
+		</div>
+
+		<script type="module" src="js/main.js"></script>
 	</body>
 </html>

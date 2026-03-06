@@ -1,0 +1,124 @@
+import { addWordToAutocomplete } from "./dom.js";
+
+export const wordKeys = new Set();
+export const familyKeys = new Set();
+export const languageKeys = new Set(["en", "fr"]);
+export const traductions = {};
+export const families = {};
+
+// Adds a new word to the wordKeys and return if it was added or not
+export const addWord = function (wordContent, successEvent) {
+	const added = !wordKeys.has(wordContent);
+	if (added) {
+		wordKeys.add(wordContent);
+		traductions[wordContent] = {};
+		languageKeys.forEach((language) => {
+			traductions[wordContent][language] = "null";
+		});
+		addWordToAutocomplete(wordContent);
+		successEvent();
+	} else {
+		alert("The key already exist");
+	}
+};
+
+export const addLanguage = function (languageContent, successEvent) {
+	console.log(traductions);
+	const added = !languageKeys.has(languageContent);
+	languageKeys.add(languageContent);
+
+	if (added) {
+		wordKeys.forEach((word) => {
+			if (traductions[word]) {
+				traductions[word][languageContent] = "null";
+			} else {
+				traductions[word] = {};
+			}
+		});
+		successEvent();
+	} else {
+		alert("The key already exist");
+	}
+};
+
+export const removeWord = function (word) {
+	wordKeys.delete(word);
+	removeWordFromAutocomplete(word);
+	if (traductions[word]) {
+		delete traductions[word];
+	}
+};
+
+export const replaceWord = function (
+	wordToReplace,
+	wordToReplaceBy,
+	successEvent,
+) {
+	addWord(wordToReplaceBy, () => {
+		transferTraductions(wordToReplace, wordToReplaceBy);
+		removeWord(wordToReplace);
+		successEvent();
+	});
+};
+
+export const replaceLanguage = function (
+	languageToReplace,
+	languageToReplaceBy,
+	successEvent,
+) {
+	languageKeys.delete(languageToReplace);
+	wordKeys.forEach((word) => {
+		traductions[word][languageToReplaceBy] =
+			traductions[word][languageToReplace];
+		delete traductions[word][languageToReplace];
+	});
+	addLanguage(languageToReplaceBy, successEvent);
+};
+
+export const removeLanguage = function (oldLanguage) {
+	languageKeys.delete(oldLanguage);
+};
+
+export const updateTraduction = function (word, language, traduction) {
+	if (traductions[word]) {
+		traductions[word][language] = traduction;
+	}
+};
+
+export const removeTraduction = function (word, language) {
+	traductions[word][language] = "null";
+};
+
+const transferTraductions = function (fromWord, toWord) {
+	console.log(traductions);
+	Object.keys(traductions[fromWord]).forEach((language) => {
+		traductions[toWord][language] = traductions[fromWord][language];
+	});
+};
+
+export const addFamily = function (familyContent, successEvent) {
+	const added = !familyKeys.has(familyContent);
+	if (added) {
+		familyKeys.add(familyContent);
+		families[familyContent] = [];
+		successEvent();
+	} else {
+		alert("The key already exist");
+	}
+};
+
+export const removeFamily = function (family) {
+	familyKeys.delete(family);
+	if (families[family]) {
+		delete families[family];
+	}
+};
+
+export const addWordToFamily = function (word, family, successEvent) {
+	if (families[family] && !families[family].includes(word)) {
+		families[family].push(word);
+		successEvent();
+	} else {
+		alert("The word is already in the family");
+	}
+};

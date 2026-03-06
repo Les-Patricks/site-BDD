@@ -6,7 +6,7 @@
 }
 
 /* Style the buttons that are used to open the tab content */
-.tab button {
+.tab__button {
 	background-color: inherit;
 	border: none;
 	outline: none;
@@ -16,90 +16,143 @@
 }
 
 /* Change background color of buttons on hover */
-.tab button:hover {
+.tab__button:hover {
 	background-color: #ddd;
 }
 
 /* Create an active/current tablink class */
-.tab button.active {
+.tab__button--active {
 	background-color: #ccc;
 }
 
 /* Style the tab content */
-.tabcontent {
+.tab-panel {
 	padding: 6px 12px;
 	border: 1px solid #ccc;
 	border-top: none;
+	display: none;
+}
+.tab-panel--open {
+	display: block;
 }
 
 .word {
-	/* background: red; */
 	margin: auto;
 	padding: 0;
 }
 
-.accordion-btn:hover {
+button:hover,
+label:hover {
 	cursor: pointer;
 }
 
-.panel {
+.accordion__panel {
 	display: grid;
 	grid-template-rows: 0fr;
 	transition: grid-template-rows 0.3s ease;
 	overflow: hidden;
 }
 
-.panel.open {
+.accordion__panel--open {
 	grid-template-rows: 1fr;
 }
 
-.panel-inner {
-	min-height: 0;
+.accordion__content {
+	overflow: hidden;
 	padding-left: 15px;
 }
 
-.container {
+.tab-panel__content {
 	border-top: solid;
 	padding-top: 10px;
 }
 
-.add-btn {
-	border-radius: 100px;
-	border-width: 1px;
+.add-panel__input {
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
-.add-btn,
-.add-btn-label {
-	margin-bottom: 5px;
-	cursor: pointer;
+.add-panel__inputs,
+.tab-panel__input,
+.add-panel__submit-button,
+.tab-panel__submit-button,
+.tab-panel__button--hidden,
+.tab-panel__label--hidden,
+.add-panel__button--hidden,
+.add-panel__label--hidden,
+.accordion__button--hidden,
+.modal,
+.document-panel,
+.accordion__edit-input,
+.accordion__submit-edit-button,
+.accordion__edit-button--hidden,
+.accordion__input,
+.accordion__value--hidden,
+.accordion__edit-btn--hidden,
+.accordion__submit-btn,
+.word--hidden {
+	display: none;
 }
 
-.add-btn:hover {
-	background: #b1b1b1;
-}
-
-.add-word-input.clicked {
+.add-panel__inputs--visible,
+.tab-panel__input--visible,
+.tab-panel__input--visible,
+.tab-panel__submit-button--visible,
+.add-panel__submit-button--visible,
+.add-panel__input--visible,
+.modal--visible,
+.document-panel--visible,
+.accordion__edit-input--visible,
+.accordion__submit-edit-button--visible,
+.accordion__input--visible,
+.accordion__submit-btn--visible {
 	display: inline;
 }
 
-.add-btn-label.clicked,
-.add-btn.clicked {
-	display: none;
+.modal {
+	height: 50px;
+	width: 120px;
+	box-shadow: 3px 3px 7px 0 #7c7c7c;
+	position: absolute;
+	z-index: 2;
 }
 
-.add-word-input {
-	display: none;
+#familyModal {
+	height: 75px;
 }
 
-.submit-btn {
-	margin-left: 10px;
-	display: none;
+.modal__content {
+	display: grid;
+	height: 100%;
 }
 
-.submit-btn.clicked {
-	display: inline;
+.modal__button {
+	grid-template-rows: 1fr;
+}
+
+.document-panel {
+	position: fixed;
+	inset: 0;
+	z-index: 1;
 }
 
 button {
+	cursor: pointer;
+}
+
+.accordion__autocomplete-list {
+	position: absolute;
+	background-color: white;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+.accordion__autocomplete-list li {
+	padding: 8px 12px;
+}
+.accordion__autocomplete-list li:hover {
+	background-color: #ddd;
 	cursor: pointer;
 }
