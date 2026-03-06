@@ -1,3 +1,9 @@
+body {
+	font-family: Arial, sans-serif;
+	/* Gradient purple color  */
+	background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+}
+
 /* Style the tab */
 .tab {
 	display: flex;
@@ -90,7 +96,8 @@ label:hover {
 .accordion__value--hidden,
 .accordion__edit-btn--hidden,
 .accordion__submit-btn,
-.word--hidden {
+.word--hidden,
+.publish__popup {
 	display: none;
 }
 
@@ -105,7 +112,8 @@ label:hover {
 .accordion__edit-input--visible,
 .accordion__submit-edit-button--visible,
 .accordion__input--visible,
-.accordion__submit-btn--visible {
+.accordion__submit-btn--visible,
+.publish__popup--visible {
 	display: inline;
 }
 
@@ -174,5 +182,58 @@ button {
 }
 .save-btn:hover {
 	background-color: #45a049;
+	transform: scale(1.05);
+}
+
+.publish__popup {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	padding: 20px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+	z-index: 1000;
+	background: linear-gradient(135deg, #d5abfd, #6eb6ff);
+	border-radius: 10px;
+	border: 1px solid #ccc;
+}
+.publish__popup button {
+	margin: 5px;
+}
+
+.publish__btn {
+	position: fixed;
+	bottom: 20px;
+	right: 100px;
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+	z-index: 1000;
+	transition:
+		background-color 0.3s ease,
+		transform 0.3s ease;
+}
+.publish__btn:hover {
+	background-color: #0056b3;
+	transform: scale(1.05);
+}
+.publish__cancel-btn,
+.publish__confirm-btn {
+	margin: 5px;
+	border: none;
+	border-radius: 5px;
+	transition:
+		background-color 0.3s ease,
+		transform 0.2s ease;
+	/* blue buttons */
+}
+.publish__cancel-btn:hover,
+.publish__confirm-btn:hover {
+	background-color: #ccc;
+	color: black;
 	transform: scale(1.05);
 }
