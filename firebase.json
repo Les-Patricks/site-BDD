@@ -33,12 +33,12 @@
 	},
 	"hosting": {
 		"site": "bluffers-backoffice",
-		"public": "public",
+		"public": ".",
 		"ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
 		"rewrites": [
 			{
 				"source": "**",
-				"destination": "../index.html"
+				"destination": "/index.html"
 			}
 		]
 	},
