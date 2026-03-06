@@ -58,18 +58,13 @@ label:hover {
 }
 
 .accordion__content {
-	min-height: 0;
+	overflow: hidden;
 	padding-left: 15px;
 }
 
 .tab-panel__content {
 	border-top: solid;
 	padding-top: 10px;
-}
-
-.add-panel__inputs {
-	/* display: inline; */
-	/* margin: 5px; */
 }
 
 .add-panel__input {
@@ -122,6 +117,10 @@ label:hover {
 	z-index: 2;
 }
 
+#familyModal {
+	height: 75px;
+}
+
 .modal__content {
 	display: grid;
 	height: 100%;
@@ -134,47 +133,26 @@ label:hover {
 .document-panel {
 	position: fixed;
 	inset: 0;
-	/* background: red; */
 	z-index: 1;
 }
 
-/* .add-btn {
-	border-radius: 100px;
-	border-width: 1px;
-}
-
-.add-btn,
-.add-btn-label {
-	margin-bottom: 5px;
+button {
 	cursor: pointer;
 }
 
-.add-btn:hover {
-	background: #b1b1b1;
+.accordion__autocomplete-list {
+	position: absolute;
+	background-color: white;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
 }
-
-.add-word-input.clicked {
-	display: inline;
+.accordion__autocomplete-list li {
+	padding: 8px 12px;
 }
-
-.add-btn-label.clicked,
-.add-btn.clicked {
-	display: none;
-}
-
-.add-word-input {
-	display: none;
-}
-
-.submit-btn {
-	margin-left: 10px;
-	display: none;
-}
-
-.submit-btn.clicked {
-	display: inline;
-} */
-
-button {
+.accordion__autocomplete-list li:hover {
+	background-color: #ddd;
 	cursor: pointer;
 }
