@@ -1,27 +1,18 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-const firebaseConfig = {
-	apiKey: "AIzaSyASZFPEEZfd78Rnm5yAkN12HHZYsAUYk-4",
-	authDomain: "bluffers-74d8a.firebaseapp.com",
-	databaseURL:
-		"https://bluffers-74d8a-default-rtdb.europe-west1.firebasedatabase.app",
-	projectId: "bluffers-74d8a",
-	storageBucket: "bluffers-74d8a.firebasestorage.app",
-	messagingSenderId: "612549310180",
-	appId: "1:612549310180:web:8b288cd0ceed08648d5ef1",
-	measurementId: "G-ZR3NM68F0V",
-};
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-const analytics = getAnalytics(app);
+const supabase = createClient(
+	"https://kywafnfxmugjwhykwiae.supabase.co",
+	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt5d2FmbmZ4bXVnandoeWt3aWFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1MjU0NDUsImV4cCI6MjA4ODEwMTQ0NX0.jjDuqAzsoiAdLXFVxM9xjBesnXfNa-8K9SGCNzDjHNQ",
+);
 
 export const publishDatabase = async function () {
 	console.log("Publishing database...");
+	const { data, error } = await supabase.functions.invoke(
+		"publish-to-firebase",
+	);
+	if (error) {
+		console.error("Error publishing database:", error);
+	} else {
+		console.log("Database published successfully:", data);
+	}
 };
