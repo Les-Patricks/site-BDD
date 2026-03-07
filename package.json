@@ -1,9 +1,12 @@
 {
-  "dependencies": {
-    "@supabase/supabase-js": "^2.98.0",
-    "firebase": "^12.10.0"
-  },
-  "devDependencies": {
-    "vitest": "^4.0.18"
-  }
+	"dependencies": {
+		"@supabase/supabase-js": "^2.98.0",
+		"firebase": "^12.10.0"
+	},
+	"devDependencies": {
+		"vitest": "^4.0.18"
+	},
+	"scripts": {
+		"deploy:publish": "supabase functions deploy publish-to-firebase --project-ref kywafnfxmugjwhykwiae --no-verify-jwt"
+	}
 }
