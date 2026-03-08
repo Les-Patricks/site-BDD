@@ -51,6 +51,13 @@ export const removeWord = function (word) {
 	wordKeys.delete(word);
 	removeWordFromAutocomplete(word);
 	wordToDelete.push(word);
+	// Suppression de du mot dans la famille
+	for (const family in families) {
+		const index = families[family].indexOf(word);
+		if (index !== -1) {
+			families[family].splice(index, 1);
+		}
+	}
 	traductionToDelete.push(word);
 	if (traductions[word]) {
 		delete traductions[word];
