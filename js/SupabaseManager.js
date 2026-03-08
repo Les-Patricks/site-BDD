@@ -3,7 +3,7 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 
 const supabaseUrl = "https://kywafnfxmugjwhykwiae.supabase.co";
 const supabaseKey = "sb_publishable_TP4XKscxru5L9s1_NdZLag_9X-q-z3E";
-const supabase = createClient(supabaseUrl, supabaseKey);
+export const supabase = createClient(supabaseUrl, supabaseKey);
 
 const DEFAULT_LIMIT = 1000;
 
@@ -144,7 +144,7 @@ export async function addWordsInDataBase(words) {
 		const word = wordData.word;
 		const traductions = wordData.traductions;
 		await addInTable("words", { word_id: word }, "word_id");
-		Object.entries(traductions).forEach(async ([language_id, value]) => {
+		for (const [language_id, value] of Object.entries(traductions)) {
 			await addInTable(
 				"word_translation",
 				{
@@ -154,7 +154,7 @@ export async function addWordsInDataBase(words) {
 				},
 				"word_id, language_id",
 			);
-		});
+		}
 	});
 }
 

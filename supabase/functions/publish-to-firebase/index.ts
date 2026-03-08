@@ -7,16 +7,15 @@ console.log("Hello from Functions!");
 Deno.serve(async (req) => {
 	const origin = req.headers.get("Origin");
 	const allowedOrigins = [
-		"bluffers-backoffice.web.app",
-		"bluffers-backoffice.firebaseapp.com",
-		"site-bdd-97h.pages.dev",
+		"https://bluffers-backoffice.web.app",
+		"https://bluffers-backoffice.firebaseapp.com",
+		"https://site-bdd-97h.pages.dev",
 		"http://127.0.0.1:5500",
 	];
-	console.log(`Requête reçue de l'origine: ${origin}`);
 
 	const allowOrigin = allowedOrigins.includes(origin)
 		? origin
-		: "bluffers-backoffice.web.app";
+		: "https://bluffers-backoffice.web.app";
 
 	const corsHeaders = {
 		"Access-Control-Allow-Origin": allowOrigin,
