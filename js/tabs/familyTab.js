@@ -5,6 +5,7 @@ import {
 	createTextElement,
 	createEditBtn,
 	createFamilyEditBtn,
+	displaySaveBtn,
 } from "../dom.js";
 import {
 	addFamily,
@@ -28,6 +29,7 @@ export const submitAddingFamily = function () {
 	if (value) {
 		addFamily(value, () => {
 			renderFamily(value, []);
+			displaySaveBtn();
 		});
 	}
 };

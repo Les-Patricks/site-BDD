@@ -97,7 +97,9 @@ label:hover {
 .accordion__edit-btn--hidden,
 .accordion__submit-btn,
 .word--hidden,
-.publish__popup {
+.publish__popup,
+.save-btn,
+.publish__btn {
 	display: none;
 }
 
@@ -113,7 +115,9 @@ label:hover {
 .accordion__submit-edit-button--visible,
 .accordion__input--visible,
 .accordion__submit-btn--visible,
-.publish__popup--visible {
+.publish__popup--visible,
+.save-btn--visible,
+.publish__btn--visible {
 	display: inline;
 }
 
@@ -165,26 +169,6 @@ button {
 	cursor: pointer;
 }
 
-.save-btn {
-	position: fixed;
-	bottom: 20px;
-	right: 20px;
-	padding: 10px 20px;
-	background-color: #4caf50;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	transition:
-		background-color 0.3s ease,
-		transform 0.2s ease;
-	z-index: 1000;
-}
-.save-btn:hover {
-	background-color: #45a049;
-	transform: scale(1.05);
-}
-
 .publish__popup {
 	position: fixed;
 	top: 50%;
@@ -204,8 +188,9 @@ button {
 
 .publish__btn {
 	position: fixed;
+	width: 120px;
 	bottom: 20px;
-	right: 100px;
+	right: 20px;
 	padding: 10px 20px;
 	background-color: #007bff;
 	color: white;
@@ -236,4 +221,42 @@ button {
 	background-color: #ccc;
 	color: black;
 	transform: scale(1.05);
+}
+
+.save-btn {
+	width: 120px;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	padding: 10px 20px;
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: 0.3s ease;
+	z-index: 1000;
+}
+
+.save-btn__saving,
+.publish__btn--saving {
+	background: linear-gradient(90deg, #c0c0c0, #4e4e4e, #c0c0c0);
+	animation: gradientMove 2s ease infinite;
+	background-size: 200% 100%;
+}
+.save-btn:hover {
+	background-color: #45a049;
+	transform: scale(1.05);
+}
+
+@keyframes gradientMove {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }

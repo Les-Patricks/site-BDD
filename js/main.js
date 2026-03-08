@@ -28,7 +28,7 @@ import {
 	wordKeys,
 	wordToDelete,
 } from "./state.js";
-import {} from "./publish.js";
+import { displayPublishBtn } from "./publish.js";
 //#region DOM Setup
 // Tabs buttons
 const wordFamilyBtn = document.getElementById("wordFamilyBtn");
@@ -45,6 +45,9 @@ const allTabs = document.querySelectorAll(".tab-panel");
 const saveBtn = document.getElementById("saveBtn");
 
 saveBtn.addEventListener("click", async () => {
+	saveBtn.classList.add("save-btn__saving");
+	const originalText = saveBtn.innerHTML;
+	saveBtn.innerHTML = "Saving...";
 	const words = Object.entries(traductions).map(([word, traductions]) => {
 		return {
 			word,
@@ -101,6 +104,10 @@ saveBtn.addEventListener("click", async () => {
 		});
 	}
 	familyToDelete.length = 0;
+
+	saveBtn.classList.remove("save-btn__saving");
+	saveBtn.innerHTML = originalText;
+	displayPublishBtn();
 });
 
 // Fetch data from Supabase and update the state
