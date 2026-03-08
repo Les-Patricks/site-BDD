@@ -1,7 +1,7 @@
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
 const supabaseUrl = "https://kywafnfxmugjwhykwiae.supabase.co";
-const supabaseKey = "sb_publishable_TP4XKscxru5L9s1_NdZLag_9X-q-z3E";
+const supabaseKey = Deno.env.get("SERVICE_KEY")!;
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
 const DEFAULT_LIMIT = 1000;
@@ -35,17 +35,17 @@ function addCondition(conditions, rq) {
 }
 
 export async function fetchFromTable(
-  table,
-  select = "*",
-  limit = DEFAULT_LIMIT,
-  ...conditions
+	table,
+	select = "*",
+	limit = DEFAULT_LIMIT,
+	...conditions
 ) {
-  if (!table) throw new Error("fetchFromTable: 'table' est requis.");
-  let rq = supabase.from(table).select(select).limit(limit);
+	if (!table) throw new Error("fetchFromTable: 'table' est requis.");
+	let rq = supabase.from(table).select(select).limit(limit);
 
-  rq = addCondition(conditions, rq);
+	rq = addCondition(conditions, rq);
 
-  return await executeQuery(rq);
+	return await executeQuery(rq);
 }
 
 async function executeQuery(queryPromise) {

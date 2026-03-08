@@ -18,6 +18,24 @@
 		<title>Bluffers-bdd</title>
 	</head>
 	<body>
+		<script type="module">
+			import { supabase } from "./js/SupabaseManager.js"; // Importez le chemin correct
+
+			async function checkAuth() {
+				// On demande à Supabase de récupérer la session actuelle de l'utilisateur
+				const {
+					data: { session },
+				} = await supabase.auth.getSession();
+
+				// S'il n'y a pas de session valide, on le renvoie dehors
+				if (!session) {
+					window.location.href = "login.html";
+				}
+			}
+
+			// On exécute la vérification en arrivant sur la page
+			checkAuth();
+		</script>
 		<h1>Bluffers</h1>
 		<!--
 			Tab navigation bar.
