@@ -14,6 +14,7 @@ import {
 	createDOMElement,
 	createTextElement,
 	bindTabAddSystem,
+	displaySaveBtn,
 } from "../dom.js";
 import { createAccordionElement } from "../components/accordion.js";
 
@@ -85,6 +86,7 @@ export const submitAddingWord = function () {
 	if (value) {
 		addWord(value, () => {
 			renderWord(value);
+			displaySaveBtn();
 		});
 	}
 };

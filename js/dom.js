@@ -1,5 +1,17 @@
 import { callModal, callFamilyModal } from "./modal.js";
+import { hidePublishBtn } from "./publish.js";
 const autocompleteWords = [];
+
+const saveBtn = document.getElementById("saveBtn");
+
+export const displaySaveBtn = function () {
+	saveBtn.classList.add("save-btn--visible");
+	hidePublishBtn();
+};
+
+export const hideSaveBtn = function () {
+	saveBtn.classList.remove("save-btn--visible");
+};
 
 export const addWordToAutocomplete = function (word) {
 	if (!autocompleteWords.includes(word)) {

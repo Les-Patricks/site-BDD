@@ -26,6 +26,7 @@ export const submitAddingLanguage = function () {
 	if (value) {
 		addLanguage(value, () => {
 			renderLanguage(value);
+			displaySaveBtn();
 		});
 	}
 };
