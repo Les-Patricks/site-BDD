@@ -216,7 +216,6 @@ export const createTextElement = function (parentList, wordContent) {
 		const node = document.createTextNode(wordContent);
 		para.appendChild(node);
 		insertElementAt(para, -1, parentList);
-		para.className += "word";
 		return para;
 	}
 };

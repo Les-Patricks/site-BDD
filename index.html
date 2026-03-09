@@ -57,27 +57,34 @@
 		-->
 
 		<div class="tab-panel" id="wordFamilyTab">
-			<h3>Famille de mots</h3>
-			<button type="button" class="tab-panel__button" id="addFamilyBtn">
-				+
-			</button>
-			<label for="addFamilyBtn" class="tab-panel__label" id="addFamilyLabel"
-				>Ajouter une famille</label
-			>
-			<input
-				type="text"
-				placeholder="Votre Key"
-				class="tab-panel__input"
-				id="addFamilyInput"
-				name="addFamilyInput"
-			/>
-			<button
-				type="button"
-				class="tab-panel__submit-button"
-				id="addFamilySubmitBtn"
-			>
-				Submit
-			</button>
+			<div class="tab-panel__header">
+				<button type="button" class="tab-panel__button" id="addFamilyBtn">
+					+
+				</button>
+				<label for="addFamilyBtn" class="tab-panel__label" id="addFamilyLabel"
+					>Ajouter une famille</label
+				>
+				<input
+					type="text"
+					placeholder="Votre Key"
+					class="tab-panel__input"
+					id="addFamilyInput"
+					name="addFamilyInput"
+				/>
+				<button
+					type="button"
+					class="tab-panel__submit-button"
+					id="addFamilySubmitBtn"
+				>
+					Submit
+				</button>
+				<button type="button" class="tab-panel-order">Trier par V</button>
+			</div>
+			<div class="tab-panel__header--secondary">
+				<span>Nom</span>
+				<span>Nb de mot</span>
+				<span>Date de modif</span>
+			</div>
 			<div class="tab-panel__content" id="familyTabPanelContent"></div>
 		</div>
 
@@ -88,27 +95,33 @@
 			Each rendered word entry is an accordion cloned from #listTemplate.
 		-->
 		<div class="tab-panel" id="wordTab">
-			<h3>Mots</h3>
-			<button type="button" class="tab-panel__button" id="addWordButton">
-				+
-			</button>
-			<label for="addWordButton" class="tab-panel__label" id="addWordLabel"
-				>Ajouter un mot</label
-			>
-			<input
-				type="text"
-				placeholder="Votre Key"
-				class="tab-panel__input"
-				id="addWordInput"
-				name="addWordInput"
-			/>
-			<button
-				type="button"
-				class="tab-panel__submit-button"
-				id="addWordSubmitBtn"
-			>
-				Submit
-			</button>
+			<div class="tab-panel__header">
+				<button type="button" class="tab-panel__button" id="addWordButton">
+					+
+				</button>
+				<label for="addWordButton" class="tab-panel__label" id="addWordLabel"
+					>Ajouter un mot</label
+				>
+				<input
+					type="text"
+					placeholder="Votre Key"
+					class="tab-panel__input"
+					id="addWordInput"
+					name="addWordInput"
+				/>
+				<button
+					type="button"
+					class="tab-panel__submit-button"
+					id="addWordSubmitBtn"
+				>
+					Submit
+				</button>
+				<button type="button" class="tab-panel-order">Trier par V</button>
+			</div>
+			<div class="tab-panel__header--secondary">
+				<span>Nom</span>
+				<span>Date de modif</span>
+			</div>
 			<!-- Dynamically populated by wordTab.js -->
 			<div class="tab-panel__content" id="wordTabPanelContent"></div>
 		</div>
@@ -121,27 +134,37 @@
 			the source order; visual positioning is handled by CSS.
 		-->
 		<div class="tab-panel" id="languageTab">
-			<h3>Langues</h3>
-			<button type="button" class="tab-panel__button" id="addLanguageBtn">
-				+
-			</button>
-			<input
-				type="text"
-				placeholder="Votre Key"
-				class="tab-panel__input"
-				id="addLanguageInput"
-				name="addLanguageInput"
-			/>
-			<button
-				type="button"
-				class="tab-panel__submit-button"
-				id="addLanguageSubmitBtn"
-			>
-				Submit
-			</button>
-			<label for="addLanguageBtn" class="tab-panel__label" id="addLanguageLabel"
-				>Ajouter une langue</label
-			>
+			<div class="tab-panel__header">
+				<button type="button" class="tab-panel__button" id="addLanguageBtn">
+					+
+				</button>
+				<input
+					type="text"
+					placeholder="Votre Key"
+					class="tab-panel__input"
+					id="addLanguageInput"
+					name="addLanguageInput"
+				/>
+				<button
+					type="button"
+					class="tab-panel__submit-button"
+					id="addLanguageSubmitBtn"
+				>
+					Submit
+				</button>
+				<label
+					for="addLanguageBtn"
+					class="tab-panel__label"
+					id="addLanguageLabel"
+					>Ajouter une langue</label
+				>
+				<button type="button" class="tab-panel-order">Trier par V</button>
+			</div>
+			<div class="tab-panel__header--secondary">
+				<span>Nom</span>
+				<span>Date de modif</span>
+			</div>
+
 			<!-- Dynamically populated by languageTab.js -->
 			<div class="tab-panel__content" id="languageTabPanelContent"></div>
 		</div>
@@ -161,7 +184,11 @@
 		-->
 		<template id="listTemplate">
 			<div class="accordion">
-				<button class="accordion__button">Accordion Button</button>
+				<div class="accordion__header">
+					<span class="accordion__actions">
+						<button class="accordion__button">Accordion Button</button>
+					</span>
+				</div>
 				<div class="accordion__panel">
 					<div class="accordion__content"></div>
 				</div>

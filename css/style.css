@@ -2,26 +2,34 @@ body {
 	font-family: Arial, sans-serif;
 }
 
+h1 {
+	margin: 10px 1px 10px 40px;
+}
+
 /* Style the tab */
 .tab {
 	display: flex;
-	border: 1px solid #ccc;
-	background-color: #f1f1f1;
+	margin: 1px 1px 1px 80px;
 }
 
 /* Style the buttons that are used to open the tab content */
 .tab__button {
-	background-color: inherit;
+	width: 12%;
+	height: 45px;
+	background-color: #d9d9d9;
 	border: none;
 	outline: none;
 	cursor: pointer;
-	padding: 14px 16px;
 	transition: 0.3s;
+}
+
+.tab__button--active {
+	background-color: #a4a4a4;
 }
 
 /* Change background color of buttons on hover */
 .tab__button:hover {
-	background-color: #ddd;
+	background-color: #8c8c8c;
 }
 
 /* Create an active/current tablink class */
@@ -31,11 +39,32 @@ body {
 
 /* Style the tab content */
 .tab-panel {
-	padding: 6px 12px;
-	border: 1px solid #ccc;
+	padding: 20px 120px;
+	/* border: 1px solid #ccc; */
+	/* background: gray; */
 	border-top: none;
 	display: none;
 }
+
+.tab-panel__header {
+	background: #a2a2a2;
+	display: flex;
+	align-items: center;
+}
+
+.tab-panel__header--secondary {
+	padding: 10px 0px 0px 0px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.tab-panel-order {
+	margin-left: auto;
+	margin-right: 10px;
+	background: none;
+	border: none;
+}
+
 .tab-panel--open {
 	display: block;
 }
@@ -43,11 +72,37 @@ body {
 .word {
 	margin: auto;
 	padding: 0;
+	display: flex;
+	justify-content: space-between;
 }
 
 button:hover,
 label:hover {
 	cursor: pointer;
+}
+
+.accordion__button {
+	background: none;
+	border: none;
+	text-align: left;
+	justify-content: flex-start;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding-left: 10px;
+}
+
+/* Header - chaque colonne prend 1/3 de la largeur */
+.tab-panel__header--secondary {
+	padding: 10px 0px 0px 0px;
+	display: flex;
+	/* supprimer justify-content: space-between */
+}
+.accordion__header {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .accordion__panel {
@@ -64,6 +119,7 @@ label:hover {
 .accordion__content {
 	overflow: hidden;
 	padding-left: 15px;
+	padding-right: 15px;
 }
 
 .tab-panel__content {
@@ -74,6 +130,11 @@ label:hover {
 .add-panel__input {
 	margin-left: 5px;
 	margin-right: 5px;
+}
+.tab-panel__button {
+	background: none;
+	border: none;
+	font-size: 1.5em;
 }
 
 .add-panel__inputs,
