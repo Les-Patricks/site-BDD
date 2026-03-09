@@ -8,15 +8,10 @@ import {
 	removeWord,
 	removeTraduction,
 } from "../state.js";
-import {
-	toggleAddSystem,
-	createEditBtn,
-	createDOMElement,
-	createTextElement,
-	bindTabAddSystem,
-	displaySaveBtn,
-} from "../dom.js";
+import { createEditBtn, createDOMElement, createTextElement } from "../dom.js";
 import { createAccordionElement } from "../components/accordion.js";
+import { bindTabAddSystem } from "../ui/tabAddSystem.js";
+import { displaySaveBtn } from "../ui/saveBtn.js";
 
 const wordContent = document.getElementById("wordTabPanelContent");
 const addWordBtn = document.getElementById("addWordButton");
@@ -44,6 +39,7 @@ export const createWordElement = function (wordToRender, container) {
 				wordToRender = submitValue;
 				accordionBtn.innerHTML = submitValue;
 			});
+			displaySaveBtn();
 		},
 	);
 	languageKeys.forEach((language) => {
@@ -67,6 +63,7 @@ export const createWordElement = function (wordToRender, container) {
 			(submitValue) => {
 				textValue.innerHTML = submitValue;
 				updateTraduction(wordToRender, language, submitValue);
+				displaySaveBtn();
 			},
 		);
 	});
@@ -90,15 +87,6 @@ export const submitAddingWord = function () {
 		});
 	}
 };
-
-// addWordInput.addEventListener("keydown", (e) => {
-// 	if (e.key === "Enter") {
-// 		submitAddingWord();
-// 		toggleAddSystem(addWordBtn, addWordLabel, addWordInput, submitWordBtn);
-// 	} else if (e.key === "Escape") {
-// 		toggleAddSystem(addWordBtn, addWordLabel, addWordInput, submitWordBtn);
-// 	}
-// });
 
 bindTabAddSystem(
 	addWordBtn,

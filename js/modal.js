@@ -1,3 +1,5 @@
+import { displaySaveBtn } from "./ui/saveBtn.js";
+
 const modal = document.querySelector(".modal");
 let modalRenameBtn = document.getElementById("modalRenameBtn");
 let modalDeleteBtn = document.getElementById("modalDeleteBtn");
@@ -6,9 +8,13 @@ let currentRenameEvent = null;
 let currentDeleteEvent = null;
 
 const familyModal = document.getElementById("familyModal");
-const familyModalRenameBtn = document.querySelector("#familyModal #modalRenameBtn");
+const familyModalRenameBtn = document.querySelector(
+	"#familyModal #modalRenameBtn",
+);
 const familyModalAddWordBtn = document.getElementById("modalAddWordBtn");
-const familyModalDeleteBtn = document.querySelector("#familyModal #modalDeleteBtn");
+const familyModalDeleteBtn = document.querySelector(
+	"#familyModal #modalDeleteBtn",
+);
 let currentFamilyRenameEvent = null;
 let currentFamilyAddWordEvent = null;
 let currentFamilyDeleteEvent = null;
@@ -45,10 +51,16 @@ closePanel.addEventListener("click", () => {
 	toggleFamilyModal(false);
 });
 
-export const callFamilyModal = function (position, renameEvent, addWordEvent, removeEvent) {
+export const callFamilyModal = function (
+	position,
+	renameEvent,
+	addWordEvent,
+	removeEvent,
+) {
 	toggleFamilyModal(true);
 	familyModal.style.insetInlineStart = position.x + "px";
-	familyModal.style.insetBlockStart = position.y - familyModal.offsetHeight + "px";
+	familyModal.style.insetBlockStart =
+		position.y - familyModal.offsetHeight + "px";
 	currentFamilyRenameEvent = () => {
 		renameEvent();
 		toggleFamilyModal(false);
@@ -74,7 +86,10 @@ export const toggleFamilyModal = function (state) {
 		familyModal.classList.remove("modal--visible");
 		closePanel.classList.remove("document-panel--visible");
 		familyModalRenameBtn.removeEventListener("click", currentFamilyRenameEvent);
-		familyModalAddWordBtn.removeEventListener("click", currentFamilyAddWordEvent);
+		familyModalAddWordBtn.removeEventListener(
+			"click",
+			currentFamilyAddWordEvent,
+		);
 		familyModalDeleteBtn.removeEventListener("click", currentFamilyDeleteEvent);
 	}
 };

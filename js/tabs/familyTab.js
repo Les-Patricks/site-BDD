@@ -1,12 +1,5 @@
 import { createAccordionElement } from "../components/accordion.js";
-import {
-	bindTabAddSystem,
-	createDOMElement,
-	createTextElement,
-	createEditBtn,
-	createFamilyEditBtn,
-	displaySaveBtn,
-} from "../dom.js";
+import { createDOMElement, createFamilyEditBtn } from "../dom.js";
 import {
 	addFamily,
 	addWord,
@@ -16,7 +9,9 @@ import {
 	removeFamily,
 	wordKeys,
 } from "../state.js";
-import { createWordElement, renderWord } from "./wordTab.js";
+import { bindTabAddSystem } from "../ui/tabAddSystem.js";
+import { createWordElement } from "./wordTab.js";
+import { displaySaveBtn } from "../ui/saveBtn.js";
 
 const addFamilyBtn = document.getElementById("addFamilyBtn");
 const addFamilyLabel = document.getElementById("addFamilyLabel");
