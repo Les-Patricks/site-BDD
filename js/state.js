@@ -1,5 +1,7 @@
-import { addWordToAutocomplete, removeWordFromAutocomplete } from "./dom.js";
-import { addInTable } from "./SupabaseManager.js";
+import {
+	addWordToAutocomplete,
+	removeWordFromAutocomplete,
+} from "./ui/autocomplete.js";
 
 export const wordKeys = new Set();
 export const familyKeys = new Set();
@@ -7,11 +9,12 @@ export const languageKeys = new Set();
 export const traductions = {};
 export const families = {};
 
+export const autocompleteWords = [];
 //Things to delete
-export const wordToDelete = [];
-export const languageToDelete = [];
-export const familyToDelete = [];
-export const traductionToDelete = [];
+export const wordToDelete = new Set();
+export const languageToDelete = new Set();
+export const familyToDelete = new Set();
+export const traductionToDelete = new Set();
 
 // Adds a new word to the wordKeys and return if it was added or not
 export const addWord = function (wordContent, successEvent) {
@@ -50,7 +53,7 @@ export const addLanguage = function (languageContent, successEvent) {
 export const removeWord = function (word) {
 	wordKeys.delete(word);
 	removeWordFromAutocomplete(word);
-	wordToDelete.push(word);
+	wordToDelete.add(word);
 	// Suppression de du mot dans la famille
 	for (const family in families) {
 		const index = families[family].indexOf(word);
@@ -58,10 +61,7 @@ export const removeWord = function (word) {
 			families[family].splice(index, 1);
 		}
 	}
-	traductionToDelete.push(word);
-	if (traductions[word]) {
-		delete traductions[word];
-	}
+	traductionToDelete.add(word);
 	if (traductions[word]) {
 		delete traductions[word];
 	}
@@ -72,11 +72,17 @@ export const replaceWord = function (
 	wordToReplaceBy,
 	successEvent,
 ) {
-	addWord(wordToReplaceBy, () => {
-		transferTraductions(wordToReplace, wordToReplaceBy);
-		removeWord(wordToReplace);
-		successEvent();
-	});
+	if (wordKeys.has(wordToReplace) && !wordKeys.has(wordToReplaceBy)) {
+		addWord(wordToReplaceBy, () => {
+			transferTraductions(wordToReplace, wordToReplaceBy);
+			removeWord(wordToReplace);
+			successEvent();
+		});
+	} else {
+		alert(
+			"The word to replace does not exist or the replacement word already exists",
+		);
+	}
 };
 
 export const replaceLanguage = function (
@@ -84,23 +90,33 @@ export const replaceLanguage = function (
 	languageToReplaceBy,
 	successEvent,
 ) {
-	languageKeys.delete(languageToReplace);
-	wordKeys.forEach((word) => {
-		traductions[word][languageToReplaceBy] =
-			traductions[word][languageToReplace];
-		delete traductions[word][languageToReplace];
-	});
-	addLanguage(languageToReplaceBy, successEvent);
+	if (
+		languageToReplace !== languageToReplaceBy &&
+		languageKeys.has(languageToReplace) &&
+		!languageKeys.has(languageToReplaceBy)
+	) {
+		languageKeys.delete(languageToReplace);
+		wordKeys.forEach((word) => {
+			traductions[word][languageToReplaceBy] =
+				traductions[word][languageToReplace];
+			delete traductions[word][languageToReplace];
+		});
+
+		languageKeys.add(languageToReplaceBy);
+		successEvent();
+	}
 };
 
 export const removeLanguage = function (oldLanguage) {
-	languageKeys.delete(oldLanguage);
-	languageToDelete.push(oldLanguage);
-	for (const word of wordKeys) {
-		removeTraduction(word, oldLanguage);
-	}
-	for (const traduction in traductions) {
-		delete traductions[traduction][oldLanguage];
+	if (languageKeys.has(oldLanguage)) {
+		languageKeys.delete(oldLanguage);
+		languageToDelete.add(oldLanguage);
+		for (const word of wordKeys) {
+			removeTraduction(word, oldLanguage);
+		}
+		for (const traduction in traductions) {
+			delete traductions[traduction][oldLanguage];
+		}
 	}
 };
 
@@ -111,7 +127,9 @@ export const updateTraduction = function (word, language, traduction) {
 };
 
 export const removeTraduction = function (word, language) {
-	traductions[word][language] = "null";
+	if (traductions[word]) {
+		traductions[word][language] = "null";
+	}
 };
 
 const transferTraductions = function (fromWord, toWord) {
@@ -133,7 +151,7 @@ export const addFamily = function (familyContent, successEvent) {
 
 export const removeFamily = function (family) {
 	familyKeys.delete(family);
-	familyToDelete.push(family);
+	familyToDelete.add(family);
 	if (families[family]) {
 		delete families[family];
 	}

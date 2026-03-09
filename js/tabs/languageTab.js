@@ -1,19 +1,14 @@
 import {
 	languageKeys,
-	wordKeys,
-	traductions,
 	addLanguage,
 	replaceLanguage,
 	removeLanguage,
 } from "../state.js";
-import {
-	createDOMElement,
-	createTextElement,
-	createEditBtn,
-	toggleAddSystem,
-	bindTabAddSystem,
-} from "../dom.js";
-import { addLanguageInTable } from "../SupabaseManager.js";
+import { createDOMElement, createTextElement, createEditBtn } from "../dom.js";
+
+import { bindTabAddSystem } from "../ui/tabAddSystem.js";
+
+import { displaySaveBtn } from "../ui/saveBtn.js";
 
 const languageContent = document.getElementById("languageTabPanelContent");
 const addLanguageBtn = document.getElementById("addLanguageBtn");
@@ -50,6 +45,7 @@ const renderLanguage = function (language) {
 				language = value;
 				languageElement.innerHTML = value;
 			});
+			displaySaveBtn();
 		},
 	);
 };

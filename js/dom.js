@@ -1,30 +1,5 @@
 import { callModal, callFamilyModal } from "./modal.js";
-import { hidePublishBtn } from "./publish.js";
-const autocompleteWords = [];
-
-const saveBtn = document.getElementById("saveBtn");
-
-export const displaySaveBtn = function () {
-	saveBtn.classList.add("save-btn--visible");
-	hidePublishBtn();
-};
-
-export const hideSaveBtn = function () {
-	saveBtn.classList.remove("save-btn--visible");
-};
-
-export const addWordToAutocomplete = function (word) {
-	if (!autocompleteWords.includes(word)) {
-		autocompleteWords.push(word);
-	}
-};
-
-export const removeWordFromAutocomplete = function (word) {
-	const index = autocompleteWords.indexOf(word);
-	if (index > -1) {
-		autocompleteWords.splice(index, 1);
-	}
-};
+import { autocompleteWords } from "./state.js";
 
 export const createDOMElement = function (
 	parent,
@@ -246,51 +221,4 @@ export const createTextElement = function (parentList, wordContent) {
 	}
 };
 
-export const addEventToButton = function (btn) {
-	btn.addEventListener("click", function (e) {
-		e.stopPropagation();
-		const panel = btn.parentNode.querySelector(".accordion__panel");
-		panel.classList.toggle("accordion__panel--open");
-	});
-};
-
 // Add event listners to all button spawned in the DOM
-export const updateBtns = function () {
-	document.querySelectorAll(".accordion__button").forEach((btn) => {
-		addEventToButton(btn);
-	});
-};
-
-export const toggleAddSystem = function (
-	addBtn,
-	addLabel,
-	addInput,
-	submitBtn,
-) {
-	addBtn.classList.toggle("tab-panel__button--hidden");
-	addLabel.classList.toggle("tab-panel__label--hidden");
-	addInput.classList.toggle("tab-panel__input--visible");
-	submitBtn.classList.toggle("tab-panel__submit-button--visible");
-	addInput.value = "";
-};
-
-export const bindTabAddSystem = function (
-	addBtn,
-	addLabel,
-	addInput,
-	submitBtn,
-	submitFn,
-) {
-	addBtn.addEventListener("click", (e) => {
-		e.stopPropagation();
-		toggleAddSystem(addBtn, addLabel, addInput, submitBtn);
-		addInput.focus();
-		addInput.select();
-	});
-
-	submitBtn.addEventListener("click", (e) => {
-		e.stopPropagation();
-		submitFn();
-		toggleAddSystem(addBtn, addLabel, addInput, submitBtn);
-	});
-};

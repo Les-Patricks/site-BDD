@@ -1,7 +1,5 @@
 body {
 	font-family: Arial, sans-serif;
-	/* Gradient purple color  */
-	background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
 }
 
 /* Style the tab */
@@ -178,12 +176,8 @@ button {
 	padding: 20px;
 	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 	z-index: 1000;
-	background: linear-gradient(135deg, #d5abfd, #6eb6ff);
 	border-radius: 10px;
 	border: 1px solid #ccc;
-}
-.publish__popup button {
-	margin: 5px;
 }
 
 .publish__btn {
@@ -192,7 +186,7 @@ button {
 	bottom: 20px;
 	right: 20px;
 	padding: 10px 20px;
-	background-color: #007bff;
+	background-color: #929292;
 	color: white;
 	border: none;
 	border-radius: 5px;
@@ -203,18 +197,17 @@ button {
 		transform 0.3s ease;
 }
 .publish__btn:hover {
-	background-color: #0056b3;
+	background-color: #636363;
 	transform: scale(1.05);
 }
 .publish__cancel-btn,
 .publish__confirm-btn {
-	margin: 5px;
+	padding: 10px 20px;
 	border: none;
 	border-radius: 5px;
 	transition:
 		background-color 0.3s ease,
 		transform 0.2s ease;
-	/* blue buttons */
 }
 .publish__cancel-btn:hover,
 .publish__confirm-btn:hover {
@@ -229,7 +222,7 @@ button {
 	bottom: 20px;
 	right: 20px;
 	padding: 10px 20px;
-	background-color: #4caf50;
+	background-color: #929292;
 	color: white;
 	border: none;
 	border-radius: 5px;
@@ -245,7 +238,7 @@ button {
 	background-size: 200% 100%;
 }
 .save-btn:hover {
-	background-color: #45a049;
+	background-color: #636363;
 	transform: scale(1.05);
 }
 

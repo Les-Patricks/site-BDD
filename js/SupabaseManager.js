@@ -140,7 +140,7 @@ export async function addWordsInFamilyInTable(words, family) {
 }
 
 export async function addWordsInDataBase(words) {
-	words.forEach(async (wordData) => {
+	for (const wordData of words) {
 		const word = wordData.word;
 		const traductions = wordData.traductions;
 		await addInTable("words", { word_id: word }, "word_id");
@@ -155,7 +155,7 @@ export async function addWordsInDataBase(words) {
 				"word_id, language_id",
 			);
 		}
-	});
+	}
 }
 
 export async function updateWordInTraduction(word, newTraductions) {

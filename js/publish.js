@@ -1,5 +1,5 @@
 import { publishDatabase } from "./databaseTransfer.js";
-import { hideSaveBtn } from "./dom.js";
+import { hideSaveBtn } from "./ui/saveBtn.js";
 
 const publishBtn = document.getElementById("publishBtn");
 const publishConfirmPopup = document.getElementById("publishConfirmPopup");
@@ -14,8 +14,11 @@ cancelPublishBtn.addEventListener("click", () => {
 confirmPublishBtn.addEventListener("click", async () => {
 	publishConfirmPopup.classList.remove("publish__popup--visible");
 	publishBtn.classList.add("publish__btn--saving");
+	const originalText = publishBtn.innerHTML;
+	publishBtn.innerHTML = "Publishing...";
 	await publishDatabase();
 	publishBtn.classList.remove("publish__btn--saving");
+	publishBtn.innerHTML = originalText;
 	hidePublishBtn();
 });
 

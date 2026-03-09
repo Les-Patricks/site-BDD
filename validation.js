@@ -1,8 +1,8 @@
+import { supabase } from "./js/SupabaseManager.js";
 const form = document.getElementById("loginForm");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const errorMessage = document.getElementById("errorMessage");
-import { supabase } from "./js/SupabaseManager.js";
 
 form.addEventListener("submit", async function (event) {
 	event.preventDefault();

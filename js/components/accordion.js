@@ -1,5 +1,7 @@
-import { insertElementAt, addEventToButton } from "../dom.js";
+import { insertElementAt } from "../dom.js";
+import { addEventToButton } from "../ui/AccordionView.js";
 
+const listTemplate = document.getElementById("listTemplate");
 // Spawn a list and set its name
 export const createAccordionElement = function (parent, listName) {
 	const clonedList = listTemplate.content.cloneNode(true);
