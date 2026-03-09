@@ -1,7 +1,8 @@
 export const addEventToButton = function (btn) {
 	btn.addEventListener("click", function (e) {
 		e.stopPropagation();
-		const panel = btn.parentNode.querySelector(".accordion__panel");
+		const panel =
+			btn.parentNode.parentNode.parentNode.querySelector(".accordion__panel");
 		panel.classList.toggle("accordion__panel--open");
 	});
 };

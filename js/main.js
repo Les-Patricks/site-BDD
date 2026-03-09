@@ -65,17 +65,31 @@ async function fetchData() {
 
 await fetchData();
 
+const allBtns = document.querySelectorAll(".tab__button");
+
+const activateBtn = (btn) => {
+	for (const button of allBtns) {
+		if (button !== btn) {
+			button.classList.remove("tab__button--active");
+		}
+	}
+	btn.classList.add("tab__button--active");
+};
+
 // Main buttons
 wordFamilyBtn.addEventListener("click", () => {
+	activateBtn(wordFamilyBtn);
 	openTab(wordFamilyTab);
 	updateFamilies();
 });
 
 wordBtn.addEventListener("click", () => {
+	activateBtn(wordBtn);
 	openTab(wordTab);
 	updateWords();
 });
 languagesBtn.addEventListener("click", () => {
+	activateBtn(languagesBtn);
 	openTab(languageTab);
 	updateLanguages();
 });

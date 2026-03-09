@@ -23,8 +23,10 @@ export const createWordElement = function (wordToRender, container) {
 	const listObject = createAccordionElement(container, wordToRender, 0);
 	const accordion = listObject.parentNode.parentNode;
 	const accordionBtn = accordion.querySelector(".accordion__button");
+
+	const header = accordion.querySelector(".accordion__header");
 	createEditBtn(
-		accordion,
+		header,
 		1,
 		wordToRender,
 		() => {
@@ -44,14 +46,17 @@ export const createWordElement = function (wordToRender, container) {
 	);
 	languageKeys.forEach((language) => {
 		const div = createDOMElement(listObject, 1, "div", "", "");
-		const textElement = createTextElement(div, `${language} : `);
+		div.className += "word";
+		const span = createDOMElement(div, 1, "span", "", "");
+		console.log(span);
+		createTextElement(span, `${language} : `);
 		const textValue = createTextElement(
-			textElement,
+			span,
 			traductions[wordToRender][language],
 		);
 		createEditBtn(
-			textElement,
-			1,
+			div,
+			2,
 			textValue.innerHTML,
 			() => {
 				textValue.classList.toggle("accordion__value--hidden");

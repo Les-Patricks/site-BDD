@@ -39,8 +39,9 @@ export const renderFamily = function (familyToRender, wordsToRender) {
 	const div = createDOMElement(familyContent, 0, "div", "", "");
 	const familyElement = createAccordionElement(div, familyToRender);
 	const accordion = familyElement.parentNode.parentNode;
+	const header = accordion.querySelector(".accordion__header");
 	createFamilyEditBtn(
-		accordion,
+		header,
 		1,
 		familyToRender,
 		() => {
