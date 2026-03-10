@@ -78,9 +78,7 @@ label:hover {
 }
 
 .tab-panel__header--secondary {
-	padding: 10px 0px 0px 0px;
-	display: flex;
-	justify-content: space-between;
+	padding-top: 10px;
 }
 
 .tab-panel__content {
@@ -150,18 +148,15 @@ label:hover {
 
 .accordion__content {
 	overflow: hidden;
-	padding-left: 15px;
-	padding-right: 15px;
+	padding-left: 30px;
+	padding-right: 40px;
+	padding-bottom: 10px;
 }
 
 .accordion__open-label {
 	display: inline-block;
 	transform: rotate(0deg);
 	transition: transform 0.3s ease;
-}
-
-.accordion__open-label--open {
-	transform: rotate(90deg);
 }
 
 /* ==========================================================================
@@ -331,7 +326,8 @@ label:hover {
 .word--hidden,
 .publish__popup,
 .save-btn,
-.publish__btn {
+.publish__btn,
+.hidden {
 	display: none;
 }
 
@@ -367,4 +363,51 @@ label:hover {
 	100% {
 		background-position: 0% 50%;
 	}
+}
+
+/* Nouveau systeme d'accordion à ranger plus tard  */
+
+.row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	margin: 0 auto;
+	background: none;
+	border: none;
+	font-size: 1em;
+}
+
+.left-group {
+	text-align: left;
+	display: flex;
+	flex: 1 1 0%;
+}
+
+.right-group {
+	text-align: right;
+	flex: 1 1 0%;
+}
+
+.expand-icon {
+	transition: transform 0.3s ease;
+}
+.expand-icon--open {
+	transform: rotate(90deg);
+}
+.accordion-item {
+	position: relative;
+}
+
+.accordion__edit-btn {
+	position: absolute;
+	right: -30px;
+	top: 0%;
+	border: 2px solid transparent;
+	background: none;
+}
+
+.row-content,
+.accordion__edit-btn {
+	cursor: pointer;
 }

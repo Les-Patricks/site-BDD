@@ -80,10 +80,10 @@
 				</button>
 				<button type="button" class="tab-panel-order">Trier par V</button>
 			</div>
-			<div class="tab-panel__header--secondary">
-				<span>Nom</span>
+			<div class="tab-panel__header--secondary row">
+				<span class="left-group">Nom</span>
 				<span>Nb de mot</span>
-				<span>Date de modif</span>
+				<span class="right-group">Date de modif</span>
 			</div>
 			<div class="tab-panel__content" id="familyTabPanelContent"></div>
 		</div>
@@ -182,11 +182,11 @@
 			populated after cloning; the static "Accordion Button" text here
 			is only a placeholder and is never shown to the user.
 		-->
-		<template id="listTemplate">
+		<!-- <template id="listTemplate">
 			<div class="accordion">
 				<div class="accordion__header">
 					<span class="accordion__actions">
-						<span
+						<span CLASS="accordion__toggle"
 							><label for="accordionBtn" class="accordion__open-label">></label>
 							<button class="accordion__button" id="accordionBtn">
 								Accordion Button
@@ -195,6 +195,28 @@
 						<span>2026/01/01</span>
 					</span>
 				</div>
+				<div class="accordion__panel">
+					<div class="accordion__content"></div>
+				</div>
+			</div>
+		</template> -->
+
+		<template id="accordion">
+			<div class="accordion-item">
+				<span class="row-content row">
+					<span class="title-group left-group">
+						<span class="expand-icon">></span>
+						<span class="accordion__button">Family Name</span>
+						<span class="edit-group hidden">
+							<input type="text" class="edit-input" />
+							<span class="validate-btn">✅</span>
+						</span>
+					</span>
+					<span class="word-count">8</span>
+					<span class="creation-date right-group">2023/01/01</span>
+					<button type="button" class="accordion__add-btn hidden">+</button>
+					<button type="button" class="accordion__edit-btn hidden">✏️</button>
+				</span>
 				<div class="accordion__panel">
 					<div class="accordion__content"></div>
 				</div>
@@ -219,6 +241,27 @@
 				<div class="add-panel__inputs"></div>
 				<button type="button" class="add-panel__submit-button">
 					Confirmer
+				</button>
+			</div>
+		</template>
+
+		<template id="editSystemTemplate">
+			<div class="edit-system">
+				<button
+					type="button"
+					class="edit-system__edit-btn"
+					aria-label="Modifier"
+				>
+					✏️
+				</button>
+				<input type="text" class="edit-system__input" />
+				<button type="button" class="edit-system__submit-btn">✓</button>
+				<button
+					type="button"
+					class="edit-system__delete-btn"
+					aria-label="Supprimer"
+				>
+					🗑
 				</button>
 			</div>
 		</template>

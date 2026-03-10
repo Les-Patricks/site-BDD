@@ -20,18 +20,15 @@ const addWordInput = document.getElementById("addWordInput");
 const submitWordBtn = document.getElementById("addWordSubmitBtn");
 
 export const createWordElement = function (wordToRender, container) {
-	const listObject = createAccordionElement(container, wordToRender, 0);
+	const listObject = createAccordionElement(container, wordToRender);
 	const accordion = listObject.parentNode.parentNode;
 	const accordionBtn = accordion.querySelector(".accordion__button");
+	const accordionContent = listObject.querySelector(".accordion__content");
 
 	const header = accordion.querySelector(".accordion__header");
 	createEditBtn(
-		header,
-		1,
+		accordionContent,
 		wordToRender,
-		() => {
-			accordionBtn.classList.toggle("accordion__button--hidden");
-		},
 		() => {
 			removeWord(wordToRender);
 			accordion.remove();
@@ -45,10 +42,9 @@ export const createWordElement = function (wordToRender, container) {
 		},
 	);
 	languageKeys.forEach((language) => {
-		const div = createDOMElement(listObject, 1, "div", "", "");
+		const div = createDOMElement(accordionContent, 1, "div", "", "");
 		div.className += "word";
 		const span = createDOMElement(div, 1, "span", "", "");
-		console.log(span);
 		createTextElement(span, `${language} : `);
 		const textValue = createTextElement(
 			span,
@@ -56,11 +52,7 @@ export const createWordElement = function (wordToRender, container) {
 		);
 		createEditBtn(
 			div,
-			2,
 			textValue.innerHTML,
-			() => {
-				textValue.classList.toggle("accordion__value--hidden");
-			},
 			() => {
 				removeTraduction(wordToRender, language);
 				textValue.innerHTML = traductions[wordToRender][language];

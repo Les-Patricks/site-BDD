@@ -1,5 +1,5 @@
 import { createAccordionElement } from "../components/accordion.js";
-import { createDOMElement, createFamilyEditBtn } from "../dom.js";
+import { createDOMElement, createEditBtn } from "../dom.js";
 import {
 	addFamily,
 	addWord,
@@ -37,40 +37,28 @@ bindTabAddSystem(
 );
 export const renderFamily = function (familyToRender, wordsToRender) {
 	const div = createDOMElement(familyContent, 0, "div", "", "");
-	const familyElement = createAccordionElement(div, familyToRender);
-	const accordion = familyElement.parentNode.parentNode;
-	const header = accordion.querySelector(".accordion__header");
-	createFamilyEditBtn(
-		header,
-		1,
+	const familyElement = createAccordionElement(
+		div,
 		familyToRender,
-		() => {
-			familyElement.classList.toggle("word--hidden");
-		},
-		() => {
-			removeFamily(familyToRender);
-			div.remove();
-		},
-		(value) => {
-			familyToRender = value;
-			familyElement.innerHTML = value;
-		},
-		(word) => {
-			if (!wordKeys.has(word)) {
-				addWord(word, () => {
-					addWordToFamily(word, familyToRender, () => {
-						createWordElement(word, familyElement);
-					});
-				});
-			} else {
-				addWordToFamily(word, familyToRender, () => {
-					createWordElement(word, familyElement);
-				});
-			}
-		},
+		wordsToRender.length,
+		"2023/01/01",
 	);
+	const content = familyElement.querySelector(".accordion__content");
+
+	// createEditBtn(
+	// 	accordionToggle,
+	// 	familyToRender,
+	// 	() => {
+	// 		removeFamily(familyToRender);
+	// 		div.remove();
+	// 	},
+	// 	(value) => {
+	// 		familyToRender = value;
+	// 		accordionBtn.innerHTML = value;
+	// 	},
+	// );
 	wordsToRender.forEach((word) => {
-		createWordElement(word, familyElement);
+		createWordElement(word, content);
 	});
 };
 

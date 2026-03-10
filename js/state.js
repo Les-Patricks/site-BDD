@@ -169,3 +169,5 @@ export const addWordToFamily = function (word, family, successEvent) {
 		alert("The family doesn't exist");
 	}
 };
+
+//TODO: faire une fonction pour renommer une famille donc avec tous les trucs chiants qui vont avec (genre le déplacements des mots d'une famille à une autre ect) et l'utiliser dans familyTab.js

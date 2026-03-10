@@ -38,176 +38,34 @@ export const insertElementAt = function (element, index, parent) {
 	}
 };
 
-export const createEditBtn = function (
-	parent,
-	editIndex,
-	editValue,
-	toggleEvent,
-	removeEvent,
-	submit,
-) {
-	const submitBtn = createDOMElement(
-		parent,
-		editIndex,
-		"button",
-		"Submit",
-		"accordion__submit-btn",
-	);
-	const editInput = createDOMElement(
-		parent,
-		editIndex,
-		"input",
-		"",
-		"accordion__input",
-	);
-	const editBtn = createDOMElement(
-		parent,
-		editIndex,
-		"button",
-		"Edit",
-		"accordion__edit-btn",
-	);
-	const toggleEditThings = function () {
-		editInput.classList.toggle("accordion__input--visible");
-		editBtn.classList.toggle("accordion__edit-btn--hidden");
-		submitBtn.classList.toggle("accordion__submit-btn--visible");
-		toggleEvent();
-	};
-	submitBtn.addEventListener("click", () => {
-		submit(editInput.value);
-		toggleEditThings();
-	});
-	editBtn.addEventListener("click", () => {
-		const rect = editBtn.getBoundingClientRect();
-		callModal(
-			{ x: rect.right, y: rect.top },
-			() => {
-				editInput.value = editValue;
-				toggleEditThings();
-				editInput.focus();
-				editInput.select();
-			},
-			removeEvent,
-		);
-	});
+export const createEditBtn = function (parent, editValue, removeEvent, submit) {
+	// const template = document.getElementById("editSystemTemplate");
+	// const clone = template.content.cloneNode(true);
+	// const editBtn = clone.querySelector(".edit-system__edit-btn");
+	// const input = clone.querySelector(".edit-system__input");
+	// const submitBtn = clone.querySelector(".edit-system__submit-btn");
+	// const deleteBtn = clone.querySelector(".edit-system__delete-btn");
+	// input.hidden = true;
+	// submitBtn.hidden = true;
+	// editBtn.addEventListener("click", () => {
+	// 	input.value = editValue;
+	// 	editBtn.hidden = true;
+	// 	input.hidden = false;
+	// 	submitBtn.hidden = false;
+	// 	input.focus();
+	// });
+	// submitBtn.addEventListener("click", () => {
+	// 	submit(input.value);
+	// 	// reset UI
+	// 	editBtn.hidden = false;
+	// 	input.hidden = true;
+	// 	submitBtn.hidden = true;
+	// });
+	// deleteBtn.addEventListener("click", removeEvent);
+	// parent.appendChild(clone);
 };
 
-export const createFamilyEditBtn = function (
-	parent,
-	editIndex,
-	editValue,
-	toggleEvent,
-	removeEvent,
-	submit,
-	addWordEvent,
-) {
-	const submitBtn = createDOMElement(
-		parent,
-		editIndex,
-		"button",
-		"Submit",
-		"accordion__submit-btn",
-	);
-	const editInput = createDOMElement(
-		parent,
-		editIndex,
-		"input",
-		"",
-		"accordion__input",
-	);
-	const addWordSubmitBtn = createDOMElement(
-		parent,
-		editIndex,
-		"button",
-		"Submit",
-		"accordion__submit-btn",
-	);
-	const addWordInput = createDOMElement(
-		parent,
-		editIndex,
-		"input",
-		"",
-		"accordion__input",
-	);
-	const autoCompleteList = createDOMElement(
-		parent,
-		editIndex,
-		"ul",
-		"",
-		"accordion__autocomplete-list",
-	);
-	const editBtn = createDOMElement(
-		parent,
-		editIndex,
-		"button",
-		"Edit",
-		"accordion__edit-btn",
-	);
-	addWordInput.addEventListener("keyup", () => {
-		const value = addWordInput.value.trim().toLowerCase();
-		autoCompleteList.innerHTML = "";
-		if (value) {
-			autocompleteWords.forEach((word) => {
-				if (word.includes(value)) {
-					const li = createDOMElement(
-						autoCompleteList,
-						-1,
-						"li",
-						word,
-						"accordion__autocomplete-list-item",
-					);
-					//Width of the autocomplete list should be the same as the input
-					autoCompleteList.style.width = addWordInput.offsetWidth + "px";
-					autoCompleteList.style.left = addWordInput.offsetLeft + "px";
-					li.addEventListener("click", () => {
-						addWordInput.value = word;
-						autoCompleteList.innerHTML = "";
-						addWordInput.focus();
-						addWordInput.select();
-					});
-				}
-			});
-		}
-	});
-	const toggleEditThings = function () {
-		editInput.classList.toggle("accordion__input--visible");
-		editBtn.classList.toggle("accordion__edit-btn--hidden");
-		submitBtn.classList.toggle("accordion__submit-btn--visible");
-		toggleEvent();
-	};
-	const toggleAddWordThings = function () {
-		addWordInput.classList.toggle("accordion__input--visible");
-		editBtn.classList.toggle("accordion__edit-btn--hidden");
-		addWordSubmitBtn.classList.toggle("accordion__submit-btn--visible");
-		toggleEvent();
-	};
-	submitBtn.addEventListener("click", () => {
-		submit(editInput.value);
-		toggleEditThings();
-	});
-	addWordSubmitBtn.addEventListener("click", () => {
-		addWordEvent(addWordInput.value);
-		toggleAddWordThings();
-	});
-	editBtn.addEventListener("click", () => {
-		const rect = editBtn.getBoundingClientRect();
-		callFamilyModal(
-			{ x: rect.right, y: rect.top },
-			() => {
-				editInput.value = editValue;
-				toggleEditThings();
-				editInput.focus();
-				editInput.select();
-			},
-			() => {
-				addWordInput.value = "";
-				toggleAddWordThings();
-				addWordInput.focus();
-			},
-			removeEvent,
-		);
-	});
-};
+// Creer une fonction pour ajouter un bouton pour ajouter un mot à une famille
 
 // Spawn a word in the parent list and set its content
 export const createTextElement = function (parentList, wordContent) {
