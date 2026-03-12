@@ -1,6 +1,11 @@
 import { callModal, callFamilyModal } from "./modal.js";
 import { autocompleteWords } from "./state.js";
 
+const languageItemTemplate = document.getElementById("languageItemTemplate");
+const traductionItemTemplate = document.getElementById(
+	"traductionItemTemplate",
+);
+
 export const createDOMElement = function (
 	parent,
 	index,
@@ -38,34 +43,68 @@ export const insertElementAt = function (element, index, parent) {
 	}
 };
 
-export const createEditBtn = function (parent, editValue, removeEvent, submit) {
-	// const template = document.getElementById("editSystemTemplate");
-	// const clone = template.content.cloneNode(true);
-	// const editBtn = clone.querySelector(".edit-system__edit-btn");
-	// const input = clone.querySelector(".edit-system__input");
-	// const submitBtn = clone.querySelector(".edit-system__submit-btn");
-	// const deleteBtn = clone.querySelector(".edit-system__delete-btn");
-	// input.hidden = true;
-	// submitBtn.hidden = true;
-	// editBtn.addEventListener("click", () => {
-	// 	input.value = editValue;
-	// 	editBtn.hidden = true;
-	// 	input.hidden = false;
-	// 	submitBtn.hidden = false;
-	// 	input.focus();
-	// });
-	// submitBtn.addEventListener("click", () => {
-	// 	submit(input.value);
-	// 	// reset UI
-	// 	editBtn.hidden = false;
-	// 	input.hidden = true;
-	// 	submitBtn.hidden = true;
-	// });
-	// deleteBtn.addEventListener("click", removeEvent);
-	// parent.appendChild(clone);
+export const bindInlineEdit = function (item, displayEl, onSave) {
+	const editBtn = item.querySelector(".accordion__edit-btn");
+	const editInput = item.querySelector(".edit-input");
+	const editGroup = item.querySelector(".edit-group");
+	const validateBtn = item.querySelector(".validate-btn");
+
+	item.addEventListener("mouseenter", () => editBtn.classList.remove("hidden"));
+	item.addEventListener("mouseleave", () => editBtn.classList.add("hidden"));
+
+	editBtn.addEventListener("click", (e) => {
+		e.stopPropagation();
+		editGroup.classList.toggle("hidden");
+		displayEl.classList.toggle("hidden");
+		editInput.value = displayEl.textContent;
+		editInput.focus();
+	});
+
+	validateBtn.addEventListener("click", (e) => {
+		e.stopPropagation();
+		const newValue = editInput.value;
+		editGroup.classList.add("hidden");
+		displayEl.classList.remove("hidden");
+		displayEl.textContent = newValue;
+		onSave(newValue);
+	});
 };
 
-// Creer une fonction pour ajouter un bouton pour ajouter un mot à une famille
+export const createLanguageItem = function (
+	parent,
+	languageName,
+	onSave = () => {},
+	creationDate = "",
+) {
+	const item = languageItemTemplate.content
+		.cloneNode(true)
+		.querySelector(".language-item");
+	const nameEl = item.querySelector(".language-item__name");
+	const dateEl = item.querySelector(".creation-date");
+	nameEl.textContent = languageName;
+	dateEl.textContent = creationDate;
+	bindInlineEdit(item, nameEl, onSave);
+	parent.appendChild(item);
+	return { item, nameEl };
+};
+
+export const createTraductionItem = function (
+	parent,
+	language,
+	value,
+	onSave = () => {},
+) {
+	const item = traductionItemTemplate.content
+		.cloneNode(true)
+		.querySelector(".language-item");
+	const labelEl = item.querySelector(".language-item__label");
+	const valueEl = item.querySelector(".language-item__value");
+	labelEl.textContent = `${language} : `;
+	valueEl.textContent = value;
+	bindInlineEdit(item, valueEl, onSave);
+	parent.appendChild(item);
+	return { item, labelEl, valueEl };
+};
 
 // Spawn a word in the parent list and set its content
 export const createTextElement = function (parentList, wordContent) {

@@ -120,9 +120,15 @@ export const removeLanguage = function (oldLanguage) {
 	}
 };
 
-export const updateTraduction = function (word, language, traduction) {
+export const updateTraduction = function (
+	word,
+	language,
+	traduction,
+	successEvent = () => {},
+) {
 	if (traductions[word]) {
 		traductions[word][language] = traduction;
+		successEvent();
 	}
 };
 

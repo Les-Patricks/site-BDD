@@ -1,5 +1,5 @@
 import { createAccordionElement } from "../components/accordion.js";
-import { createDOMElement, createEditBtn } from "../dom.js";
+import { createDOMElement } from "../dom.js";
 import {
 	addFamily,
 	addWord,
@@ -42,21 +42,22 @@ export const renderFamily = function (familyToRender, wordsToRender) {
 		familyToRender,
 		wordsToRender.length,
 		"2023/01/01",
+		(value, done) => {
+			const addAndRender = () => {
+				addWordToFamily(value, familyToRender, () => {
+					createWordElement(value, content);
+					displaySaveBtn();
+					done();
+				});
+			};
+			if (!wordKeys.has(value)) {
+				addWord(value, addAndRender);
+			} else {
+				addAndRender();
+			}
+		},
 	);
 	const content = familyElement.querySelector(".accordion__content");
-
-	// createEditBtn(
-	// 	accordionToggle,
-	// 	familyToRender,
-	// 	() => {
-	// 		removeFamily(familyToRender);
-	// 		div.remove();
-	// 	},
-	// 	(value) => {
-	// 		familyToRender = value;
-	// 		accordionBtn.innerHTML = value;
-	// 	},
-	// );
 	wordsToRender.forEach((word) => {
 		createWordElement(word, content);
 	});

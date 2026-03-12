@@ -57,6 +57,10 @@
 		-->
 
 		<div class="tab-panel" id="wordFamilyTab">
+			<div class="tab-panel__search-header">
+				<input class="tab-panel__search-bar" placeholder="Rechercher" />
+				<button type="button" class="tab-panel__search-btn">🔍</button>
+			</div>
 			<div class="tab-panel__header">
 				<button type="button" class="tab-panel__button" id="addFamilyBtn">
 					+
@@ -95,6 +99,10 @@
 			Each rendered word entry is an accordion cloned from #listTemplate.
 		-->
 		<div class="tab-panel" id="wordTab">
+			<div class="tab-panel__search-header">
+				<input class="tab-panel__search-bar" placeholder="Rechercher" />
+				<button type="button" class="tab-panel__search-btn">🔍</button>
+			</div>
 			<div class="tab-panel__header">
 				<button type="button" class="tab-panel__button" id="addWordButton">
 					+
@@ -118,7 +126,7 @@
 				</button>
 				<button type="button" class="tab-panel-order">Trier par V</button>
 			</div>
-			<div class="tab-panel__header--secondary">
+			<div class="tab-panel__header--secondary row">
 				<span>Nom</span>
 				<span>Date de modif</span>
 			</div>
@@ -160,7 +168,7 @@
 				>
 				<button type="button" class="tab-panel-order">Trier par V</button>
 			</div>
-			<div class="tab-panel__header--secondary">
+			<div class="tab-panel__header--secondary row">
 				<span>Nom</span>
 				<span>Date de modif</span>
 			</div>
@@ -214,6 +222,7 @@
 					</span>
 					<span class="word-count">8</span>
 					<span class="creation-date right-group">2023/01/01</span>
+
 					<button type="button" class="accordion__add-btn hidden">+</button>
 					<button type="button" class="accordion__edit-btn hidden">✏️</button>
 				</span>
@@ -232,6 +241,62 @@
 			page do not share the same id, keeping label associations valid.
 			Input fields are injected dynamically into .add-panel__inputs.
 		-->
+		<!--
+			Inline add-word form — #accordionAddForm
+			Cloned by createAccordionElement() when an onAdd callback is provided.
+			Toggled visible by the "+" button on the accordion header.
+		-->
+		<datalist id="autocomplete-datalist"></datalist>
+		<template id="accordionAddForm">
+			<span class="accordion__add-form hidden">
+				<input
+					type="text"
+					class="accordion__add-input"
+					list="autocomplete-datalist"
+					placeholder="Ajouter un mot..."
+				/>
+				<span class="accordion__add-submit">✅</span>
+			</span>
+		</template>
+
+		<!--
+			Language item template — #languageItemTemplate
+			Cloned by createLanguageItem() in dom.js to render a language entry
+			in the language tab. The name span is populated after cloning.
+		-->
+		<template id="languageItemTemplate">
+			<div class="language-item row">
+				<span class="language-item__name"></span>
+				<span class="edit-group hidden">
+					<input type="text" class="edit-input" />
+					<span class="validate-btn">✅</span>
+				</span>
+				<span class="creation-date">23/12/2023</span>
+				<button type="button" class="accordion__add-btn hidden">+</button>
+				<button type="button" class="accordion__edit-btn hidden">✏️</button>
+			</div>
+		</template>
+
+		<!--
+			Traduction item template — #traductionItemTemplate
+			Cloned by createTraductionItem() in dom.js to render a language+translation
+			pair inside a word accordion. Both spans are populated after cloning.
+		-->
+		<template id="traductionItemTemplate">
+			<div class="language-item row">
+				<span>
+					<span class="language-item__label"></span>
+					<span class="language-item__value"></span>
+					<span class="edit-group hidden">
+						<input type="text" class="edit-input" />
+						<span class="validate-btn">✅</span>
+					</span>
+				</span>
+
+				<button type="button" class="accordion__edit-btn hidden">✏️</button>
+			</div>
+		</template>
+
 		<template id="addSystemTemplate">
 			<div class="add-panel">
 				<button type="button" class="add-panel__button" id="addButton">
@@ -322,6 +387,18 @@
 				Euh non, annule
 			</button>
 		</div>
+
+		<template id="customContextMenuTemplate">
+			<div class="custom-context-menu">
+				<ul class="custom-context-menu__list"></ul>
+			</div>
+		</template>
+
+		<template id="customContextItemTemplate">
+			<li class="custom-context-menu__item">
+				<button class="custom-context-menu__btn">Renommer</button>
+			</li>
+		</template>
 
 		<script type="module" src="js/main.js"></script>
 	</body>

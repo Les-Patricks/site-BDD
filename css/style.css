@@ -83,7 +83,6 @@ label:hover {
 
 .tab-panel__content {
 	border-top: solid;
-	padding-top: 10px;
 }
 
 .tab-panel__button {
@@ -149,7 +148,7 @@ label:hover {
 .accordion__content {
 	overflow: hidden;
 	padding-left: 30px;
-	padding-right: 40px;
+	padding-right: 50px;
 	padding-bottom: 10px;
 }
 
@@ -188,6 +187,22 @@ label:hover {
 	position: fixed;
 	inset: 0;
 	z-index: 1;
+}
+
+.language-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 1em;
+	padding-top: 2px;
+}
+
+.language-item .edit-system {
+	visibility: hidden;
+}
+
+.language-item:hover .edit-system {
+	visibility: visible;
 }
 
 /* ==========================================================================
@@ -376,6 +391,7 @@ label:hover {
 	background: none;
 	border: none;
 	font-size: 1em;
+	position: relative;
 }
 
 .left-group {
@@ -395,19 +411,98 @@ label:hover {
 .expand-icon--open {
 	transform: rotate(90deg);
 }
-.accordion-item {
-	position: relative;
+.accordion-item:not(.accordion__panel .accordion-item),
+.language-item:not(.accordion__panel .language-item) {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 5px;
+	padding-top: 5px;
 }
-
 .accordion__edit-btn {
 	position: absolute;
 	right: -30px;
-	top: 0%;
+	top: 50%;
+	transform: translateY(-50%);
 	border: 2px solid transparent;
 	background: none;
 }
 
+.accordion__add-btn {
+	position: absolute;
+	right: -50px;
+	top: 50%;
+	transform: translateY(-50%);
+	border: 2px solid rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	background: none;
+}
+
 .row-content,
-.accordion__edit-btn {
+.accordion__edit-btn,
+.accordion__add-submit {
 	cursor: pointer;
+}
+
+.tab-panel__search-bar {
+	background: #d9d9d9;
+	width: 170px;
+	height: 25px;
+	border: none;
+	font-size: 1.2em;
+	padding: 0;
+	padding-left: 5px;
+	margin: 0;
+}
+.tab-panel__search-btn {
+	background: none;
+	border: none;
+	font-size: 1.2em;
+	background: #d9d9d9;
+	height: 25px;
+	margin: 0;
+}
+.tab-panel__search-bar:focus {
+	outline: none;
+}
+
+.tab-panel__search-bar::placeholder {
+	text-align: right;
+}
+
+.tab-panel__search-header {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.validate-btn {
+	cursor: pointer;
+}
+
+.custom-context-menu {
+	background: gray;
+	position: absolute;
+	border-radius: 10px;
+	box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.2);
+}
+
+.custom-context-menu__list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.custom-context-menu__btn {
+	background: none;
+	border: none;
+	color: white;
+	font-size: 0.7em;
+	padding: 10px 40px;
+}
+
+.custom-context-menu__item:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.custom-context-menu__item:not(:last-child) {
+	border-bottom: rgb(208, 208, 208) solid 1px;
 }

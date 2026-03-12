@@ -4,7 +4,7 @@ import {
 	replaceLanguage,
 	removeLanguage,
 } from "../state.js";
-import { createDOMElement, createTextElement, createEditBtn } from "../dom.js";
+import { createLanguageItem } from "../dom.js";
 
 import { bindTabAddSystem } from "../ui/tabAddSystem.js";
 
@@ -27,26 +27,17 @@ export const submitAddingLanguage = function () {
 };
 
 const renderLanguage = function (language) {
-	const div = createDOMElement(languageContent, 0, "div", "", "");
-	const languageElement = createTextElement(div, language);
-	createEditBtn(
-		div,
-		1,
-		language,
-		() => {
-			languageElement.classList.toggle("word--hidden");
-		},
-		() => {
-			removeLanguage(language);
-			div.remove();
-		},
-		(value) => {
-			replaceLanguage(language, value, () => {
-				language = value;
-				languageElement.innerHTML = value;
+	let currentName = language;
+	createLanguageItem(
+		languageContent,
+		currentName,
+		(newName) => {
+			replaceLanguage(currentName, newName, () => {
+				currentName = newName;
+				displaySaveBtn();
 			});
-			displaySaveBtn();
 		},
+		"02/02/2023",
 	);
 };
 
