@@ -1,10 +1,9 @@
-import {} from "./saveManager.js";
 import { updateLanguages } from "./tabs/languageTab.js";
 import { updateWords } from "./tabs/wordTab.js";
-import "./tabs/familyTab.js";
 import { updateFamilies } from "./tabs/familyTab.js";
 import { fetchFromTable } from "./SupabaseManager.js";
 import { updateBtns } from "./ui/AccordionView.js";
+import "./saveManager.js";
 import {
 	addFamily,
 	addLanguage,

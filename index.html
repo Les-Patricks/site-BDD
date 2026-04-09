@@ -29,7 +29,7 @@
 
 				// S'il n'y a pas de session valide, on le renvoie dehors
 				if (!session) {
-					window.location.href = "login.html";
+					globalThis.location.href = "login.html";
 				}
 			}
 
@@ -334,13 +334,13 @@
 
 		<div class="modal" id="familyModal">
 			<div class="modal__content">
-				<button type="button" class="modal__button" id="modalRenameBtn">
+				<button type="button" class="modal__button" id="familyModalRenameBtn">
 					Renommer
 				</button>
-				<button type="button" class="modal__button" id="modalAddWordBtn">
+				<button type="button" class="modal__button" id="familyModalAddWordBtn">
 					Ajouter mot
 				</button>
-				<button type="button" class="modal__button" id="modalDeleteBtn">
+				<button type="button" class="modal__button" id="familyModalDeleteBtn">
 					Supprimer
 				</button>
 			</div>

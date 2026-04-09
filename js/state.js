@@ -242,16 +242,14 @@ export const addWordToFamily = function (
 	triggerSave = true,
 ) {
 	if (families[family]) {
-		if (!families[family].includes(word)) {
+		if (families[family].includes(word)) {
+			alert("The word is already in the family");
+		} else {
 			families[family].push(word);
 			successEvent();
 			triggerSaveBtnIfNeeded(triggerSave);
-		} else {
-			alert("The word is already in the family");
 		}
 	} else {
 		alert("The family doesn't exist");
 	}
 };
-
-//TODO: faire une fonction pour renommer une famille donc avec tous les trucs chiants qui vont avec (genre le déplacements des mots d'une famille à une autre ect) et l'utiliser dans familyTab.js
