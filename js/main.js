@@ -31,13 +31,13 @@ async function fetchData() {
 	await fetchFromTable("language").then((data) => {
 		data.forEach((languageData) => {
 			const language = languageData.language_id;
-			addLanguage(language, () => {});
+			addLanguage(language, () => {}, false);
 		});
 	});
 	await fetchFromTable("words").then((data) => {
 		data.forEach((wordData) => {
 			const word = wordData.word_id;
-			addWord(word, () => {});
+			addWord(word, () => {}, false);
 		});
 	});
 	await fetchFromTable("word_translation").then((data) => {
@@ -45,20 +45,20 @@ async function fetchData() {
 			const word = traductionData.word_id;
 			const language = traductionData.language_id;
 			const value = traductionData.value;
-			updateTraduction(word, language, value);
+			updateTraduction(word, language, value, () => {}, false);
 		});
 	});
 	await fetchFromTable("word_family").then((data) => {
 		data.forEach((familyData) => {
 			const family = familyData.word_family_id;
-			addFamily(family, () => {});
+			addFamily(family, () => {}, false);
 		});
 	});
 	await fetchFromTable("word_family_association").then((data) => {
 		data.forEach((associationData) => {
 			const word = associationData.word_id;
 			const family = associationData.word_family_id;
-			addWordToFamily(word, family, () => {});
+			addWordToFamily(word, family, () => {}, false);
 		});
 	});
 }
@@ -104,3 +104,4 @@ function openTab(currentTab) {
 }
 
 updateBtns();
+wordFamilyBtn.click();

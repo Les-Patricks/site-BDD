@@ -38,7 +38,7 @@ import {
 	addInTable,
 	updateInTable,
 	deleteFromTable,
-} from "./SupabaseManager.js";
+} from "../SupabaseManager.js";
 
 beforeEach(() => {
 	mockResult = { data: [], error: null };

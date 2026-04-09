@@ -2,7 +2,8 @@
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
 const supabaseUrl = "https://kywafnfxmugjwhykwiae.supabase.co";
-const supabaseKey = "sb_publishable_TP4XKscxru5L9s1_NdZLag_9X-q-z3E";
+const supabaseKey =
+	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt5d2FmbmZ4bXVnandoeWt3aWFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1MjU0NDUsImV4cCI6MjA4ODEwMTQ0NX0.jjDuqAzsoiAdLXFVxM9xjBesnXfNa-8K9SGCNzDjHNQ";
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
 const DEFAULT_LIMIT = 1000;
@@ -76,20 +77,28 @@ export async function addInTable(table, valuesDict, primaryKey = null) {
 	await executeQuery(rq);
 }
 
-export async function addLanguageInTable(language, name) {
-	const rq = supabase
-		.from("language")
-		.upsert([{ language_id: language, name: name }], {
+export async function addLanguageInTable(language, name, modification_date) {
+	const rq = supabase.from("language").upsert(
+		[
+			{
+				language_id: language,
+				name: name,
+				modification_date: modification_date,
+			},
+		],
+		{
 			onConflict: "language_id",
 			ignoreDuplicates: false,
-		});
+		},
+	);
 	await executeQuery(rq);
 }
 
 export async function addLanguagesInTable(languages) {
-	const valuesArray = languages.map(([language, name]) => ({
+	const valuesArray = languages.map(([language, name, modification_date]) => ({
 		language_id: language,
 		name: name,
+		modification_date: modification_date,
 	}));
 	const rq = supabase.from("language").upsert(valuesArray, {
 		onConflict: "language_id",
@@ -143,7 +152,12 @@ export async function addWordsInDataBase(words) {
 	for (const wordData of words) {
 		const word = wordData.word;
 		const traductions = wordData.traductions;
-		await addInTable("words", { word_id: word }, "word_id");
+		const date = wordData.date;
+		await addInTable(
+			"words",
+			{ word_id: word, modification_date: date },
+			"word_id",
+		);
 		for (const [language_id, value] of Object.entries(traductions)) {
 			await addInTable(
 				"word_translation",
@@ -183,88 +197,4 @@ export async function updateInTable(table, updatedValuesDict, ...conditions) {
 	rq = addCondition(conditions, rq);
 
 	await executeQuery(rq);
-}
-
-// ─────────────────────────────────────────────────────────────n
-
-// exemple func
-export async function testFunc() {
-	console.log("test");
-	console.log(...(await fetchFromTable("words", "*")));
-
-	// word add -> update -> delete
-	await addInTable("words", { word_id: "Test" });
-	console.log(...(await fetchFromTable("words", "*", 10)));
-	await updateInTable(
-		"words",
-		{ word_id: `Test${Math.floor(Math.random() * 100)}` },
-		{ where: "eq", col: "word_id", value: "Test" },
-	);
-	console.log(...(await fetchFromTable("words", "*")));
-	await updateInTable(
-		"words",
-		{ word_id: "Test" },
-		{ where: "ilike", col: "word_id", value: "Test%" },
-	);
-	console.log("test match");
-	console.log(
-		...(await fetchFromTable("words", "*", 10, {
-			where: "match",
-			value: { word_id: "Test" },
-		})),
-	);
-	await deleteFromTable("words", {
-		where: "eq",
-		col: "word_id",
-		value: "Test",
-	});
-	console.log(...(await fetchFromTable("words", "*")));
-
-	// family association add -> delete
-	await addInTable("word_family_association", {
-		word_id: "chat",
-		word_family_id: 0,
-	});
-	console.log(...(await fetchFromTable("word_family_association", "*")));
-	await deleteFromTable(
-		"word_family_association",
-		{ where: "eq", col: "word_id", value: "chat" },
-		{ where: "eq", col: "word_family_id", value: 0 },
-	);
-	console.log(...(await fetchFromTable("word_family_association", "*")));
-
-	// word translation add -> delete
-	await addInTable("word_translation", {
-		word_id: "chat",
-		language_id: "fr",
-		value: "chat",
-	});
-	await addInTable("word_translation", {
-		word_id: "chat",
-		language_id: "en",
-		value: "cat",
-	});
-	console.log(...(await fetchFromTable("word_translation", "*")));
-	await deleteFromTable(
-		"word_translation",
-		{ where: "eq", col: "word_id", value: "chat" },
-		{ where: "eq", col: "language_id", value: "en" },
-	);
-	await deleteFromTable(
-		"word_translation",
-		{ where: "eq", col: "word_id", value: "chat" },
-		{ where: "eq", col: "language_id", value: "fr" },
-	);
-	console.log(...(await fetchFromTable("word_translation", "*")));
-
-	// language add -> delete
-	console.log(...(await fetchFromTable("language", "*")));
-	await addInTable("language", { language_id: "te", name: "test" });
-	console.log(...(await fetchFromTable("language", "*")));
-	await deleteFromTable("language", {
-		where: "eq",
-		col: "language_id",
-		value: "te",
-	});
-	console.log(...(await fetchFromTable("language", "*")));
 }

@@ -6,12 +6,13 @@ import {
 	addWordToFamily,
 	families,
 	familyKeys,
+	familyModifTime,
 	removeFamily,
+	replaceFamily,
 	wordKeys,
 } from "../state.js";
 import { bindTabAddSystem } from "../ui/tabAddSystem.js";
 import { createWordElement } from "./wordTab.js";
-import { displaySaveBtn } from "../ui/saveBtn.js";
 
 const addFamilyBtn = document.getElementById("addFamilyBtn");
 const addFamilyLabel = document.getElementById("addFamilyLabel");
@@ -23,8 +24,7 @@ export const submitAddingFamily = function () {
 	const value = addFamilyInput.value.trim().toLowerCase();
 	if (value) {
 		addFamily(value, () => {
-			renderFamily(value, []);
-			displaySaveBtn();
+			renderFamily(value, Date.now(), []);
 		});
 	}
 };
@@ -35,18 +35,31 @@ bindTabAddSystem(
 	submitFamilyBtn,
 	submitAddingFamily,
 );
-export const renderFamily = function (familyToRender, wordsToRender) {
+export const renderFamily = function (
+	familyToRender,
+	modificationDate,
+	wordsToRender,
+) {
+	let currentFamilyName = familyToRender;
 	const div = createDOMElement(familyContent, 0, "div", "", "");
 	const familyElement = createAccordionElement(
 		div,
-		familyToRender,
+		currentFamilyName,
 		wordsToRender.length,
-		"2023/01/01",
+		new Date(modificationDate).toLocaleDateString(),
+		() => {
+			removeFamily(currentFamilyName);
+		},
+		(newName, done) => {
+			replaceFamily(currentFamilyName, newName, () => {
+				currentFamilyName = newName;
+				done();
+			});
+		},
 		(value, done) => {
 			const addAndRender = () => {
-				addWordToFamily(value, familyToRender, () => {
+				addWordToFamily(value, currentFamilyName, () => {
 					createWordElement(value, content);
-					displaySaveBtn();
 					done();
 				});
 			};
@@ -64,8 +77,8 @@ export const renderFamily = function (familyToRender, wordsToRender) {
 };
 
 export const updateFamilies = function () {
-	familyContent.innerHTML = "";
+	familyContent.textContent = "";
 	familyKeys.forEach((family) => {
-		renderFamily(family, families[family]);
+		renderFamily(family, familyModifTime[family], families[family]);
 	});
 };

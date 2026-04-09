@@ -2,9 +2,13 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 
 // ─── Mocks ────────────────────────────────────────────────
 
-vi.mock("./ui/autocomplete.js", () => ({
+vi.mock("../ui/autocomplete.js", () => ({
 	addWordToAutocomplete: vi.fn(),
 	removeWordFromAutocomplete: vi.fn(),
+}));
+
+vi.mock("../ui/saveBtn.js", () => ({
+	displaySaveBtn: vi.fn(),
 }));
 
 // `alert` n'existe pas dans Node.js — on le stubber globalement
@@ -32,12 +36,12 @@ import {
 	addFamily,
 	removeFamily,
 	addWordToFamily,
-} from "./state.js";
+} from "../state.js";
 
 import {
 	addWordToAutocomplete,
 	removeWordFromAutocomplete,
-} from "./ui/autocomplete.js";
+} from "../ui/autocomplete.js";
 
 // ─── Reset state before each test ────────────────────────
 

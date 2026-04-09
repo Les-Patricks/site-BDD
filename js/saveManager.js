@@ -1,4 +1,9 @@
-import { traductions } from "./state.js";
+import {
+	familyModifTime,
+	languageModifTime,
+	traductions,
+	wordModifTime,
+} from "./state.js";
 import { addLanguagesInTable } from "./SupabaseManager.js";
 import { addWordsInDataBase } from "./SupabaseManager.js";
 import { addInTable, deleteFromTable } from "./SupabaseManager.js";
@@ -15,24 +20,30 @@ import { displayPublishBtn } from "./publish.js";
 const saveBtn = document.getElementById("saveBtn");
 
 saveBtn.addEventListener("click", async () => {
-	const originalText = saveBtn.innerHTML;
+	const originalText = saveBtn.textContent;
 	try {
 		saveBtn.classList.add("save-btn__saving");
-		saveBtn.innerHTML = "Saving...";
+		saveBtn.textContent = "Saving...";
 		const words = Object.entries(traductions).map(([word, traductions]) => {
+			const date = new Date(wordModifTime[word]).toISOString();
 			return {
 				word,
 				traductions,
+				date,
 			};
 		});
 		await addLanguagesInTable(
-			Array.from(languageKeys).map((language) => [language, language]),
+			Array.from(languageKeys).map((language) => {
+				const date = new Date(languageModifTime[language]).toISOString();
+				return [language, language, date];
+			}),
 		);
 		await addWordsInDataBase(words);
 		for (const [familyKey, words] of Object.entries(families)) {
+			const date = new Date(familyModifTime[familyKey]).toISOString();
 			await addInTable(
 				"word_family",
-				{ word_family_id: familyKey },
+				{ word_family_id: familyKey, modification_date: date },
 				"word_family_id",
 			);
 			await addWordsInFamilyInTable(words, familyKey);
@@ -77,11 +88,11 @@ saveBtn.addEventListener("click", async () => {
 		familyToDelete.length = 0;
 
 		saveBtn.classList.remove("save-btn__saving");
-		saveBtn.innerHTML = originalText;
+		saveBtn.textContent = originalText;
 		displayPublishBtn();
 	} catch (error) {
 		console.error("Error saving data:", error);
 		saveBtn.classList.remove("save-btn__saving");
-		saveBtn.innerHTML = originalText;
+		saveBtn.textContent = originalText;
 	}
 });

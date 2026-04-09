@@ -334,7 +334,6 @@ label:hover {
 .accordion__edit-input,
 .accordion__submit-edit-button,
 .accordion__edit-button--hidden,
-.accordion__input,
 .accordion__value--hidden,
 .accordion__edit-btn--hidden,
 .accordion__submit-btn,
@@ -475,13 +474,13 @@ label:hover {
 	margin-bottom: 10px;
 }
 
-.validate-btn {
+.validate-btn,
+.accordion__submit {
 	cursor: pointer;
 }
 
 .custom-context-menu {
 	background: gray;
-	position: absolute;
 	border-radius: 10px;
 	box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.2);
 }
@@ -497,6 +496,9 @@ label:hover {
 	color: white;
 	font-size: 0.7em;
 	padding: 10px 40px;
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }
 
 .custom-context-menu__item:hover {
@@ -505,4 +507,15 @@ label:hover {
 
 .custom-context-menu__item:not(:last-child) {
 	border-bottom: rgb(208, 208, 208) solid 1px;
+}
+
+.close-panel {
+	position: fixed;
+	inset: 0;
+	z-index: 1;
+	background: red;
+}
+
+#customContextMenuTemplate {
+	position: absolute;
 }

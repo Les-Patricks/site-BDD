@@ -1,7 +1,7 @@
-import { insertElementAt, bindInlineEdit } from "../dom.js";
+import { insertElementAt } from "../dom.js";
 import { addEventToButton } from "../ui/AccordionView.js";
 import { autocompleteWords } from "../state.js";
-import { renderContextMenu } from "../ui/customContextMenu.js";
+import { bindContextMenu } from "../ui/customContextMenu.js";
 
 const addFormTemplate = document.getElementById("accordionAddForm");
 
@@ -12,6 +12,8 @@ export const createAccordionElement = function (
 	listName,
 	numberOfElements = "",
 	creationDate = "",
+	onDelete = null,
+	onRename = null,
 	onAdd = null,
 ) {
 	const accordionItem = listTemplate.content
@@ -23,79 +25,98 @@ export const createAccordionElement = function (
 	const accordionName = parent.querySelector(".accordion__button");
 	const wordCount = parent.querySelector(".word-count");
 	const creationDateElement = parent.querySelector(".creation-date");
-	const addBtn = parent.querySelector(".accordion__add-btn");
 	const accordionPanel = parent.querySelector(".accordion__panel");
 	const accordionContent = parent.querySelector(".accordion__content");
-	creationDateElement.innerHTML = creationDate;
-	accordionName.innerHTML = listName;
-	wordCount.innerHTML = numberOfElements;
+	creationDateElement.textContent = creationDate;
+	accordionName.textContent = listName;
+	wordCount.textContent = numberOfElements;
 	btn.addEventListener("click", (e) => {
 		e.stopPropagation();
 		expandIcon.classList.toggle("expand-icon--open");
 	});
 	addEventToButton(btn);
-	accordionItem.addEventListener("contextmenu", (e) => {
-		e.preventDefault(); // bloque le menu natif du navigateur
-
-		renderContextMenu([
-			"Supprimer",
-			() => {
-				accordionItem.remove();
-			},
-		]);
-	});
-	bindInlineEdit(accordionItem, accordionName, () => {});
-
 	// Inline add form (visible only when onAdd callback is provided)
-	let addForm = null;
+	const form = addFormTemplate.content
+		.cloneNode(true)
+		.querySelector(".accordion__add-form");
+	const input = form.querySelector(".accordion__input");
+	const submitBtn = form.querySelector(".accordion__submit");
 	if (onAdd) {
-		addForm = addFormTemplate.content
-			.cloneNode(true)
-			.querySelector(".accordion__add-form");
-		const addWordInput = addForm.querySelector(".accordion__add-input");
-		const submitBtn = addForm.querySelector(".accordion__add-submit");
-
-		const doSubmit = () => {
-			const value = addWordInput.value.trim().toLowerCase();
-			if (value) {
-				onAdd(value, () => {
-					addForm.classList.add("hidden");
-					addWordInput.value = "";
-				});
-			}
-		};
-
-		submitBtn.addEventListener("click", doSubmit);
-		addWordInput.addEventListener("keydown", (e) => {
-			if (e.key === "Enter") doSubmit();
-		});
-
-		accordionPanel.insertBefore(addForm, accordionContent);
+		accordionPanel.insertBefore(form, accordionContent);
 	}
 
-	addBtn.addEventListener("click", (e) => {
-		e.stopPropagation();
-		if (addForm) {
-			// Refresh the shared datalist with current words
-			let datalist = document.getElementById("autocomplete-datalist");
-			if (!datalist) {
-				datalist = document.createElement("datalist");
-				datalist.id = "autocomplete-datalist";
-				document.body.appendChild(datalist);
-			}
-			datalist.innerHTML = "";
-			autocompleteWords.forEach((word) => {
-				const option = document.createElement("option");
-				option.value = word;
-				datalist.appendChild(option);
-			});
+	const editGroup = btn.querySelector(".edit-group");
+	const validateBtn = btn.querySelector(".validate-btn");
+	const editInput = btn.querySelector(".edit-input");
 
-			addForm.classList.toggle("hidden");
-			if (!addForm.classList.contains("hidden")) {
-				addForm.querySelector("input").value = "";
-				addForm.querySelector("input").focus();
-			}
+	const handleRenameSubmit = (e) => {
+		e.stopPropagation();
+		const newValue = editInput.value;
+		onRename(newValue, () => {
+			editGroup.classList.add("hidden");
+			accordionName.classList.remove("hidden");
+			accordionName.textContent = newValue;
+		});
+	};
+
+	const handleAddSubmit = () => {
+		const value = input.value.trim().toLowerCase();
+		if (value) {
+			onAdd(value, () => {
+				form.classList.add("hidden");
+				input.value = "";
+			});
 		}
+	};
+	validateBtn.addEventListener("click", handleRenameSubmit);
+	submitBtn.addEventListener("click", handleAddSubmit);
+
+	bindContextMenu(btn, () => {
+		const contextData = [];
+		if (onDelete) {
+			contextData.push([
+				"Supprimer",
+				() => {
+					onDelete(accordionItem);
+					accordionItem.remove();
+				},
+			]);
+		}
+		if (onRename) {
+			contextData.push([
+				"Renommer",
+				() => {
+					editGroup.classList.remove("hidden");
+					accordionName.classList.add("hidden");
+					editInput.value = accordionName.textContent;
+					editInput.focus();
+				},
+			]);
+		}
+		if (onAdd) {
+			contextData.push([
+				"Ajouter un mot",
+				() => {
+					let datalist = document.getElementById("autocomplete-datalist");
+					if (!datalist) {
+						datalist = document.createElement("datalist");
+						datalist.id = "autocomplete-datalist";
+						document.body.appendChild(datalist);
+					}
+					datalist.textContent = "";
+					autocompleteWords.forEach((word) => {
+						const option = document.createElement("option");
+						option.value = word;
+						datalist.appendChild(option);
+					});
+
+					form.classList.remove("hidden");
+					form.querySelector("input").value = "";
+					form.querySelector("input").focus();
+				},
+			]);
+		}
+		return contextData;
 	});
 
 	return accordionItem;

@@ -222,9 +222,6 @@
 					</span>
 					<span class="word-count">8</span>
 					<span class="creation-date right-group">2023/01/01</span>
-
-					<button type="button" class="accordion__add-btn hidden">+</button>
-					<button type="button" class="accordion__edit-btn hidden">✏️</button>
 				</span>
 				<div class="accordion__panel">
 					<div class="accordion__content"></div>
@@ -251,11 +248,11 @@
 			<span class="accordion__add-form hidden">
 				<input
 					type="text"
-					class="accordion__add-input"
+					class="accordion__input"
 					list="autocomplete-datalist"
 					placeholder="Ajouter un mot..."
 				/>
-				<span class="accordion__add-submit">✅</span>
+				<span class="accordion__submit">✅</span>
 			</span>
 		</template>
 
@@ -388,11 +385,11 @@
 			</button>
 		</div>
 
-		<template id="customContextMenuTemplate">
+		<div id="customContextMenuTemplate" class="hidden">
 			<div class="custom-context-menu">
 				<ul class="custom-context-menu__list"></ul>
 			</div>
-		</template>
+		</div>
 
 		<template id="customContextItemTemplate">
 			<li class="custom-context-menu__item">

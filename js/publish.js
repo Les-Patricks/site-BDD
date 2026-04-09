@@ -14,11 +14,11 @@ cancelPublishBtn.addEventListener("click", () => {
 confirmPublishBtn.addEventListener("click", async () => {
 	publishConfirmPopup.classList.remove("publish__popup--visible");
 	publishBtn.classList.add("publish__btn--saving");
-	const originalText = publishBtn.innerHTML;
-	publishBtn.innerHTML = "Publishing...";
+	const originalText = publishBtn.textContent;
+	publishBtn.textContent = "Publishing...";
 	await publishDatabase();
 	publishBtn.classList.remove("publish__btn--saving");
-	publishBtn.innerHTML = originalText;
+	publishBtn.textContent = originalText;
 	hidePublishBtn();
 });
 

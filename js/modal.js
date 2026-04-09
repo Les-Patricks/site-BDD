@@ -1,5 +1,3 @@
-import { displaySaveBtn } from "./ui/saveBtn.js";
-
 const modal = document.querySelector(".modal");
 let modalRenameBtn = document.getElementById("modalRenameBtn");
 let modalDeleteBtn = document.getElementById("modalDeleteBtn");

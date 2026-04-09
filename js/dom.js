@@ -1,5 +1,4 @@
-import { callModal, callFamilyModal } from "./modal.js";
-import { autocompleteWords } from "./state.js";
+import { bindContextMenu } from "./ui/customContextMenu.js";
 
 const languageItemTemplate = document.getElementById("languageItemTemplate");
 const traductionItemTemplate = document.getElementById(
@@ -17,7 +16,7 @@ export const createDOMElement = function (
 	if (tagName === "input") {
 		element.placeholder = content;
 	} else {
-		element.innerHTML = content;
+		element.textContent = content;
 	}
 	if (className) {
 		element.classList.add(className);
@@ -43,47 +42,78 @@ export const insertElementAt = function (element, index, parent) {
 	}
 };
 
-export const bindInlineEdit = function (item, displayEl, onSave) {
-	const editBtn = item.querySelector(".accordion__edit-btn");
-	const editInput = item.querySelector(".edit-input");
+const bindEditableItemContextMenu = function (
+	item,
+	displayEl,
+	onDelete = null,
+	onRename = null,
+	removeOnDelete = false,
+) {
 	const editGroup = item.querySelector(".edit-group");
 	const validateBtn = item.querySelector(".validate-btn");
+	const editInput = item.querySelector(".edit-input");
 
-	item.addEventListener("mouseenter", () => editBtn.classList.remove("hidden"));
-	item.addEventListener("mouseleave", () => editBtn.classList.add("hidden"));
-
-	editBtn.addEventListener("click", (e) => {
-		e.stopPropagation();
-		editGroup.classList.toggle("hidden");
-		displayEl.classList.toggle("hidden");
-		editInput.value = displayEl.textContent;
-		editInput.focus();
-	});
-
-	validateBtn.addEventListener("click", (e) => {
+	const handleRenameSubmit = (e) => {
 		e.stopPropagation();
 		const newValue = editInput.value;
-		editGroup.classList.add("hidden");
-		displayEl.classList.remove("hidden");
-		displayEl.textContent = newValue;
-		onSave(newValue);
+		onRename(newValue, () => {
+			editGroup.classList.add("hidden");
+			displayEl.classList.remove("hidden");
+			displayEl.textContent = newValue;
+		});
+	};
+
+	bindContextMenu(item, () => {
+		const contextData = [];
+		if (onDelete) {
+			contextData.push([
+				"Supprimer",
+				() => {
+					onDelete(item);
+					if (removeOnDelete) {
+						item.remove();
+					} else {
+						displayEl.textContent = "null";
+					}
+				},
+			]);
+		}
+		if (onRename) {
+			contextData.push([
+				"Renommer",
+				() => {
+					editGroup.classList.toggle("hidden");
+					displayEl.classList.toggle("hidden");
+					editInput.value = displayEl.textContent;
+					editInput.focus();
+					validateBtn.removeEventListener("click", handleRenameSubmit);
+					validateBtn.addEventListener("click", handleRenameSubmit, {
+						once: true,
+					});
+				},
+			]);
+		}
+		return contextData;
 	});
 };
 
 export const createLanguageItem = function (
 	parent,
 	languageName,
-	onSave = () => {},
 	creationDate = "",
+	onDelete = null,
+	onRename = null,
 ) {
 	const item = languageItemTemplate.content
 		.cloneNode(true)
 		.querySelector(".language-item");
 	const nameEl = item.querySelector(".language-item__name");
 	const dateEl = item.querySelector(".creation-date");
+
 	nameEl.textContent = languageName;
 	dateEl.textContent = creationDate;
-	bindInlineEdit(item, nameEl, onSave);
+
+	bindEditableItemContextMenu(item, nameEl, onDelete, onRename, true);
 	parent.appendChild(item);
 	return { item, nameEl };
 };
@@ -92,7 +122,8 @@ export const createTraductionItem = function (
 	parent,
 	language,
 	value,
-	onSave = () => {},
+	onDelete = null,
+	onRename = null,
 ) {
 	const item = traductionItemTemplate.content
 		.cloneNode(true)
@@ -101,7 +132,8 @@ export const createTraductionItem = function (
 	const valueEl = item.querySelector(".language-item__value");
 	labelEl.textContent = `${language} : `;
 	valueEl.textContent = value;
-	bindInlineEdit(item, valueEl, onSave);
+
+	bindEditableItemContextMenu(item, valueEl, onDelete, onRename, false);
 	parent.appendChild(item);
 	return { item, labelEl, valueEl };
 };

@@ -3,12 +3,11 @@ import {
 	addLanguage,
 	replaceLanguage,
 	removeLanguage,
+	languageModifTime,
 } from "../state.js";
 import { createLanguageItem } from "../dom.js";
 
 import { bindTabAddSystem } from "../ui/tabAddSystem.js";
-
-import { displaySaveBtn } from "../ui/saveBtn.js";
 
 const languageContent = document.getElementById("languageTabPanelContent");
 const addLanguageBtn = document.getElementById("addLanguageBtn");
@@ -20,30 +19,34 @@ export const submitAddingLanguage = function () {
 	const value = addLanguageInput.value.trim().toLowerCase();
 	if (value) {
 		addLanguage(value, () => {
-			renderLanguage(value);
-			displaySaveBtn();
+			renderLanguage(value, Date.now());
 		});
 	}
 };
 
-const renderLanguage = function (language) {
+const renderLanguage = function (language, modificationDate) {
 	let currentName = language;
 	createLanguageItem(
 		languageContent,
 		currentName,
-		(newName) => {
+		new Date(modificationDate).toLocaleDateString(),
+		() => {
+			removeLanguage(currentName);
+		},
+		(newName, done) => {
 			replaceLanguage(currentName, newName, () => {
 				currentName = newName;
-				displaySaveBtn();
+				done();
 			});
 		},
-		"02/02/2023",
 	);
 };
 
 export const updateLanguages = function () {
-	languageContent.innerHTML = "";
-	languageKeys.forEach(renderLanguage);
+	languageContent.textContent = "";
+	languageKeys.forEach((language) => {
+		renderLanguage(language, languageModifTime[language]);
+	});
 };
 
 bindTabAddSystem(
