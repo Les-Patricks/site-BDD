@@ -12,7 +12,7 @@ form.addEventListener("submit", async function (event) {
 		return;
 	}
 
-	const { data, error } = await supabase.auth.signInWithPassword({
+	const { error } = await supabase.auth.signInWithPassword({
 		email: emailInput.value,
 		password: passwordInput.value,
 	});
@@ -29,7 +29,7 @@ form.addEventListener("submit", async function (event) {
 		// Facultatif : plus besoin du localStorage manuel, Supabase gère l'état de session tout seul !
 
 		// 2. On redirige vers l'index.html
-		window.location.href = "index.html";
+		globalThis.location.href = "index.html";
 	}
 });
 
