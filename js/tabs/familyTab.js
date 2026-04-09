@@ -63,10 +63,10 @@ export const renderFamily = function (
 					done();
 				});
 			};
-			if (!wordKeys.has(value)) {
-				addWord(value, addAndRender);
-			} else {
+			if (wordKeys.has(value)) {
 				addAndRender();
+			} else {
+				addWord(value, addAndRender);
 			}
 		},
 	);

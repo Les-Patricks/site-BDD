@@ -6,13 +6,9 @@ let currentRenameEvent = null;
 let currentDeleteEvent = null;
 
 const familyModal = document.getElementById("familyModal");
-const familyModalRenameBtn = document.querySelector(
-	"#familyModal #modalRenameBtn",
-);
-const familyModalAddWordBtn = document.getElementById("modalAddWordBtn");
-const familyModalDeleteBtn = document.querySelector(
-	"#familyModal #modalDeleteBtn",
-);
+const familyModalRenameBtn = document.getElementById("familyModalRenameBtn");
+const familyModalAddWordBtn = document.getElementById("familyModalAddWordBtn");
+const familyModalDeleteBtn = document.getElementById("familyModalDeleteBtn");
 let currentFamilyRenameEvent = null;
 let currentFamilyAddWordEvent = null;
 let currentFamilyDeleteEvent = null;

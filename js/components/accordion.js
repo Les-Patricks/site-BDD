@@ -25,7 +25,6 @@ export const createAccordionElement = function (
 	const accordionName = parent.querySelector(".accordion__button");
 	const wordCount = parent.querySelector(".word-count");
 	const creationDateElement = parent.querySelector(".creation-date");
-	const accordionPanel = parent.querySelector(".accordion__panel");
 	const accordionContent = parent.querySelector(".accordion__content");
 	creationDateElement.textContent = creationDate;
 	accordionName.textContent = listName;
@@ -42,7 +41,7 @@ export const createAccordionElement = function (
 	const input = form.querySelector(".accordion__input");
 	const submitBtn = form.querySelector(".accordion__submit");
 	if (onAdd) {
-		accordionPanel.insertBefore(form, accordionContent);
+		accordionContent.before(form);
 	}
 
 	const editGroup = btn.querySelector(".edit-group");

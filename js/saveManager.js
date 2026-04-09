@@ -1,14 +1,15 @@
 import {
+	addLanguagesInTable,
+	addWordsInDataBase,
+	addInTable,
+	deleteFromTable,
+	addWordsInFamilyInTable,
+} from "./SupabaseManager.js";
+import {
 	familyModifTime,
 	languageModifTime,
 	traductions,
 	wordModifTime,
-} from "./state.js";
-import { addLanguagesInTable } from "./SupabaseManager.js";
-import { addWordsInDataBase } from "./SupabaseManager.js";
-import { addInTable, deleteFromTable } from "./SupabaseManager.js";
-import { addWordsInFamilyInTable } from "./SupabaseManager.js";
-import {
 	languageKeys,
 	families,
 	wordToDelete,
@@ -20,6 +21,7 @@ import { displayPublishBtn } from "./publish.js";
 const saveBtn = document.getElementById("saveBtn");
 
 saveBtn.addEventListener("click", async () => {
+	console.log("Saving data...");
 	const originalText = saveBtn.textContent;
 	try {
 		saveBtn.classList.add("save-btn__saving");
