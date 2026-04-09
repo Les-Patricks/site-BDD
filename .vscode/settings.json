@@ -19,5 +19,9 @@
 	"[typescript]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"deno.enable": true
+	"deno.enable": true,
+	"sonarlint.connectedMode.project": {
+		"connectionId": "les-partricks",
+		"projectKey": "Les-Patricks_site-BDD"
+	}
 }
