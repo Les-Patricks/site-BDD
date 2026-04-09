@@ -4,10 +4,11 @@
 		"firebase": "^12.10.0"
 	},
 	"devDependencies": {
-		"vitest": "^4.0.18"
+		"vitest": "^4.0.18",
+		"@vitest/coverage-v8": "latest"
 	},
 	"scripts": {
-		"test": "vitest run",
+		"test": "vitest run --coverage",
 		"test:watch": "vitest",
 		"deploy:publish": "supabase functions deploy publish-to-firebase --project-ref kywafnfxmugjwhykwiae --no-verify-jwt"
 	}
