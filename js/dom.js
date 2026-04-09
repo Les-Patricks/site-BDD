@@ -35,7 +35,7 @@ export const insertElementAt = function (element, index, parent) {
 		}
 		const selectedDirectChild = directChildren[index];
 		if (selectedDirectChild) {
-			parent.insertBefore(element, selectedDirectChild);
+			selectedDirectChild.before(element);
 		} else {
 			parent.appendChild(element);
 		}
