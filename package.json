@@ -7,6 +7,8 @@
 		"vitest": "^4.0.18"
 	},
 	"scripts": {
+		"test": "vitest run",
+		"test:watch": "vitest",
 		"deploy:publish": "supabase functions deploy publish-to-firebase --project-ref kywafnfxmugjwhykwiae --no-verify-jwt"
 	}
 }

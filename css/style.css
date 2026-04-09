@@ -1,55 +1,137 @@
+/* ==========================================================================
+   TABLE DES MATIERES
+   1. BASE
+   2. TABS
+   3. ACCORDION
+   4. MODAL
+   5. AUTOCOMPLETE
+   6. PUBLISH
+   7. SAVE BUTTON
+   8. UTILITAIRES (visibilite)
+   9. ANIMATIONS
+   ========================================================================== */
+
+/* ==========================================================================
+   1. BASE
+   ========================================================================== */
+
 body {
 	font-family: Arial, sans-serif;
-	/* Gradient purple color  */
-	background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
 }
 
-/* Style the tab */
-.tab {
-	display: flex;
-	border: 1px solid #ccc;
-	background-color: #f1f1f1;
+h1 {
+	margin: 10px 1px 10px 40px;
 }
 
-/* Style the buttons that are used to open the tab content */
-.tab__button {
-	background-color: inherit;
-	border: none;
-	outline: none;
+button {
 	cursor: pointer;
-	padding: 14px 16px;
-	transition: 0.3s;
-}
-
-/* Change background color of buttons on hover */
-.tab__button:hover {
-	background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab__button--active {
-	background-color: #ccc;
-}
-
-/* Style the tab content */
-.tab-panel {
-	padding: 6px 12px;
-	border: 1px solid #ccc;
-	border-top: none;
-	display: none;
-}
-.tab-panel--open {
-	display: block;
-}
-
-.word {
-	margin: auto;
-	padding: 0;
 }
 
 button:hover,
 label:hover {
 	cursor: pointer;
+}
+
+/* ==========================================================================
+   2. TABS
+   ========================================================================== */
+
+.tab {
+	display: flex;
+	margin: 1px 1px 1px 80px;
+}
+
+.tab__button {
+	width: 12%;
+	height: 45px;
+	background-color: #d9d9d9;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.tab__button:hover {
+	background-color: #8c8c8c;
+}
+
+.tab__button--active {
+	background-color: #ccc;
+}
+
+/* --- Tab panel --- */
+
+.tab-panel {
+	padding: 20px 120px;
+	border-top: none;
+	display: none;
+}
+
+.tab-panel--open {
+	display: block;
+}
+
+.tab-panel__header {
+	background: #a2a2a2;
+	display: flex;
+	align-items: center;
+}
+
+.tab-panel__header--secondary {
+	padding-top: 10px;
+}
+
+.tab-panel__content {
+	border-top: solid;
+}
+
+.tab-panel__button {
+	background: none;
+	border: none;
+	font-size: 1.5em;
+}
+
+.tab-panel-order {
+	margin-left: auto;
+	margin-right: 10px;
+	background: none;
+	border: none;
+}
+
+/* --- Add panel --- */
+
+.add-panel__input {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+/* --- Word row --- */
+
+.word {
+	margin: auto;
+	padding: 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+/* ==========================================================================
+   3. ACCORDION
+   ========================================================================== */
+
+.accordion__actions {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.accordion__button {
+	background: none;
+	border: none;
+	text-align: left;
+	justify-content: flex-start;
+	align-items: center;
+	padding-left: 0px;
 }
 
 .accordion__panel {
@@ -65,57 +147,20 @@ label:hover {
 
 .accordion__content {
 	overflow: hidden;
-	padding-left: 15px;
+	padding-left: 30px;
+	padding-right: 50px;
+	padding-bottom: 10px;
 }
 
-.tab-panel__content {
-	border-top: solid;
-	padding-top: 10px;
+.accordion__open-label {
+	display: inline-block;
+	transform: rotate(0deg);
+	transition: transform 0.3s ease;
 }
 
-.add-panel__input {
-	margin-left: 5px;
-	margin-right: 5px;
-}
-
-.add-panel__inputs,
-.tab-panel__input,
-.add-panel__submit-button,
-.tab-panel__submit-button,
-.tab-panel__button--hidden,
-.tab-panel__label--hidden,
-.add-panel__button--hidden,
-.add-panel__label--hidden,
-.accordion__button--hidden,
-.modal,
-.document-panel,
-.accordion__edit-input,
-.accordion__submit-edit-button,
-.accordion__edit-button--hidden,
-.accordion__input,
-.accordion__value--hidden,
-.accordion__edit-btn--hidden,
-.accordion__submit-btn,
-.word--hidden,
-.publish__popup {
-	display: none;
-}
-
-.add-panel__inputs--visible,
-.tab-panel__input--visible,
-.tab-panel__input--visible,
-.tab-panel__submit-button--visible,
-.add-panel__submit-button--visible,
-.add-panel__input--visible,
-.modal--visible,
-.document-panel--visible,
-.accordion__edit-input--visible,
-.accordion__submit-edit-button--visible,
-.accordion__input--visible,
-.accordion__submit-btn--visible,
-.publish__popup--visible {
-	display: inline;
-}
+/* ==========================================================================
+   4. MODAL
+   ========================================================================== */
 
 .modal {
 	height: 50px;
@@ -144,9 +189,25 @@ label:hover {
 	z-index: 1;
 }
 
-button {
-	cursor: pointer;
+.language-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 1em;
+	padding-top: 2px;
 }
+
+.language-item .edit-system {
+	visibility: hidden;
+}
+
+.language-item:hover .edit-system {
+	visibility: visible;
+}
+
+/* ==========================================================================
+   5. AUTOCOMPLETE
+   ========================================================================== */
 
 .accordion__autocomplete-list {
 	position: absolute;
@@ -157,33 +218,19 @@ button {
 	padding: 0;
 	margin: 0;
 }
+
 .accordion__autocomplete-list li {
 	padding: 8px 12px;
 }
+
 .accordion__autocomplete-list li:hover {
 	background-color: #ddd;
 	cursor: pointer;
 }
 
-.save-btn {
-	position: fixed;
-	bottom: 20px;
-	right: 20px;
-	padding: 10px 20px;
-	background-color: #4caf50;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	transition:
-		background-color 0.3s ease,
-		transform 0.2s ease;
-	z-index: 1000;
-}
-.save-btn:hover {
-	background-color: #45a049;
-	transform: scale(1.05);
-}
+/* ==========================================================================
+   6. PUBLISH
+   ========================================================================== */
 
 .publish__popup {
 	position: fixed;
@@ -194,20 +241,17 @@ button {
 	padding: 20px;
 	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 	z-index: 1000;
-	background: linear-gradient(135deg, #d5abfd, #6eb6ff);
 	border-radius: 10px;
 	border: 1px solid #ccc;
-}
-.publish__popup button {
-	margin: 5px;
 }
 
 .publish__btn {
 	position: fixed;
+	width: 120px;
 	bottom: 20px;
-	right: 100px;
+	right: 20px;
 	padding: 10px 20px;
-	background-color: #007bff;
+	background-color: #929292;
 	color: white;
 	border: none;
 	border-radius: 5px;
@@ -217,23 +261,261 @@ button {
 		background-color 0.3s ease,
 		transform 0.3s ease;
 }
+
 .publish__btn:hover {
-	background-color: #0056b3;
+	background-color: #636363;
 	transform: scale(1.05);
 }
+
 .publish__cancel-btn,
 .publish__confirm-btn {
-	margin: 5px;
+	padding: 10px 20px;
 	border: none;
 	border-radius: 5px;
 	transition:
 		background-color 0.3s ease,
 		transform 0.2s ease;
-	/* blue buttons */
 }
+
 .publish__cancel-btn:hover,
 .publish__confirm-btn:hover {
 	background-color: #ccc;
 	color: black;
 	transform: scale(1.05);
+}
+
+.save-btn__saving,
+.publish__btn--saving {
+	background: linear-gradient(90deg, #c0c0c0, #4e4e4e, #c0c0c0);
+	animation: gradientMove 2s ease infinite;
+	background-size: 200% 100%;
+}
+
+/* ==========================================================================
+   7. SAVE BUTTON
+   ========================================================================== */
+
+.save-btn {
+	width: 120px;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	padding: 10px 20px;
+	background-color: #929292;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: 0.3s ease;
+	z-index: 1000;
+}
+
+.save-btn:hover {
+	background-color: #636363;
+	transform: scale(1.05);
+}
+
+/* ==========================================================================
+   8. UTILITAIRES - visibilite
+   ========================================================================== */
+
+/* Etat cache (display: none) */
+.add-panel__inputs,
+.tab-panel__input,
+.add-panel__submit-button,
+.tab-panel__submit-button,
+.tab-panel__button--hidden,
+.tab-panel__label--hidden,
+.add-panel__button--hidden,
+.add-panel__label--hidden,
+.accordion__button--hidden,
+.modal,
+.document-panel,
+.accordion__edit-input,
+.accordion__submit-edit-button,
+.accordion__edit-button--hidden,
+.accordion__value--hidden,
+.accordion__edit-btn--hidden,
+.accordion__submit-btn,
+.word--hidden,
+.publish__popup,
+.save-btn,
+.publish__btn,
+.hidden {
+	display: none;
+}
+
+/* Etat visible (display: inline) */
+.add-panel__inputs--visible,
+.tab-panel__input--visible,
+.tab-panel__submit-button--visible,
+.add-panel__submit-button--visible,
+.add-panel__input--visible,
+.modal--visible,
+.document-panel--visible,
+.accordion__edit-input--visible,
+.accordion__submit-edit-button--visible,
+.accordion__input--visible,
+.accordion__submit-btn--visible,
+.publish__popup--visible,
+.save-btn--visible,
+.publish__btn--visible {
+	display: inline;
+}
+
+/* ==========================================================================
+   9. ANIMATIONS
+   ========================================================================== */
+
+@keyframes gradientMove {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* Nouveau systeme d'accordion à ranger plus tard  */
+
+.row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	margin: 0 auto;
+	background: none;
+	border: none;
+	font-size: 1em;
+	position: relative;
+}
+
+.left-group {
+	text-align: left;
+	display: flex;
+	flex: 1 1 0%;
+}
+
+.right-group {
+	text-align: right;
+	flex: 1 1 0%;
+}
+
+.expand-icon {
+	transition: transform 0.3s ease;
+}
+.expand-icon--open {
+	transform: rotate(90deg);
+}
+.accordion-item:not(.accordion__panel .accordion-item),
+.language-item:not(.accordion__panel .language-item) {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+.accordion__edit-btn {
+	position: absolute;
+	right: -30px;
+	top: 50%;
+	transform: translateY(-50%);
+	border: 2px solid transparent;
+	background: none;
+}
+
+.accordion__add-btn {
+	position: absolute;
+	right: -50px;
+	top: 50%;
+	transform: translateY(-50%);
+	border: 2px solid rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	background: none;
+}
+
+.row-content,
+.accordion__edit-btn,
+.accordion__add-submit {
+	cursor: pointer;
+}
+
+.tab-panel__search-bar {
+	background: #d9d9d9;
+	width: 170px;
+	height: 25px;
+	border: none;
+	font-size: 1.2em;
+	padding: 0;
+	padding-left: 5px;
+	margin: 0;
+}
+.tab-panel__search-btn {
+	background: none;
+	border: none;
+	font-size: 1.2em;
+	background: #d9d9d9;
+	height: 25px;
+	margin: 0;
+}
+.tab-panel__search-bar:focus {
+	outline: none;
+}
+
+.tab-panel__search-bar::placeholder {
+	text-align: right;
+}
+
+.tab-panel__search-header {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.validate-btn,
+.accordion__submit {
+	cursor: pointer;
+}
+
+.custom-context-menu {
+	background: gray;
+	border-radius: 10px;
+	box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.2);
+}
+
+.custom-context-menu__list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.custom-context-menu__btn {
+	background: none;
+	border: none;
+	color: white;
+	font-size: 0.7em;
+	padding: 10px 40px;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.custom-context-menu__item:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.custom-context-menu__item:not(:last-child) {
+	border-bottom: rgb(208, 208, 208) solid 1px;
+}
+
+.close-panel {
+	position: fixed;
+	inset: 0;
+	z-index: 1;
+	background: red;
+}
+
+#customContextMenuTemplate {
+	position: absolute;
 }

@@ -1,19 +1,13 @@
 import {
 	languageKeys,
-	wordKeys,
-	traductions,
 	addLanguage,
 	replaceLanguage,
 	removeLanguage,
+	languageModifTime,
 } from "../state.js";
-import {
-	createDOMElement,
-	createTextElement,
-	createEditBtn,
-	toggleAddSystem,
-	bindTabAddSystem,
-} from "../dom.js";
-import { addLanguageInTable } from "../SupabaseManager.js";
+import { createLanguageItem } from "../dom.js";
+
+import { bindTabAddSystem } from "../ui/tabAddSystem.js";
 
 const languageContent = document.getElementById("languageTabPanelContent");
 const addLanguageBtn = document.getElementById("addLanguageBtn");
@@ -25,37 +19,34 @@ export const submitAddingLanguage = function () {
 	const value = addLanguageInput.value.trim().toLowerCase();
 	if (value) {
 		addLanguage(value, () => {
-			renderLanguage(value);
+			renderLanguage(value, Date.now());
 		});
 	}
 };
 
-const renderLanguage = function (language) {
-	const div = createDOMElement(languageContent, 0, "div", "", "");
-	const languageElement = createTextElement(div, language);
-	createEditBtn(
-		div,
-		1,
-		language,
+const renderLanguage = function (language, modificationDate) {
+	let currentName = language;
+	createLanguageItem(
+		languageContent,
+		currentName,
+		new Date(modificationDate).toLocaleDateString(),
 		() => {
-			languageElement.classList.toggle("word--hidden");
+			removeLanguage(currentName);
 		},
-		() => {
-			removeLanguage(language);
-			div.remove();
-		},
-		(value) => {
-			replaceLanguage(language, value, () => {
-				language = value;
-				languageElement.innerHTML = value;
+		(newName, done) => {
+			replaceLanguage(currentName, newName, () => {
+				currentName = newName;
+				done();
 			});
 		},
 	);
 };
 
 export const updateLanguages = function () {
-	languageContent.innerHTML = "";
-	languageKeys.forEach(renderLanguage);
+	languageContent.textContent = "";
+	languageKeys.forEach((language) => {
+		renderLanguage(language, languageModifTime[language]);
+	});
 };
 
 bindTabAddSystem(
