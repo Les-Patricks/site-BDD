@@ -1,9 +1,8 @@
 import {
-	languageKeys,
 	addLanguage,
-	replaceLanguage,
-	removeLanguage,
-	languageModifTime,
+	deleteLanguage,
+	getAllLanguages,
+	modifyLanguage,
 } from "../state.js";
 import { createLanguageItem } from "../dom.js";
 
@@ -18,34 +17,37 @@ const submitLanguageBtn = document.getElementById("addLanguageSubmitBtn");
 export const submitAddingLanguage = function () {
 	const value = addLanguageInput.value.trim().toLowerCase();
 	if (value) {
-		addLanguage(value, () => {
-			renderLanguage(value, Date.now());
-		});
+		const languageId = addLanguage(value);
+		if (languageId) {
+			renderLanguage(languageId);
+		}
 	}
 };
 
-const renderLanguage = function (language, modificationDate) {
-	let currentName = language;
+const renderLanguage = function (languageId, modificationDate = Date.now()) {
+	const language = getAllLanguages()[languageId];
+	if (!language) {
+		return;
+	}
 	createLanguageItem(
 		languageContent,
-		currentName,
+		language.displayName,
 		new Date(modificationDate).toLocaleDateString(),
 		() => {
-			removeLanguage(currentName);
+			deleteLanguage(languageId);
 		},
 		(newName, done) => {
-			replaceLanguage(currentName, newName, () => {
-				currentName = newName;
+			if (modifyLanguage(languageId, newName)) {
 				done();
-			});
+			}
 		},
 	);
 };
 
 export const updateLanguages = function () {
 	languageContent.textContent = "";
-	languageKeys.forEach((language) => {
-		renderLanguage(language, languageModifTime[language]);
+	Object.keys(getAllLanguages()).forEach((languageId) => {
+		renderLanguage(languageId);
 	});
 };
 

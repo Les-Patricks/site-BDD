@@ -5,11 +5,7 @@ import { fetchFromTable } from "./SupabaseManager.js";
 import { updateBtns } from "./ui/AccordionView.js";
 import "./saveManager.js";
 import {
-	addFamily,
-	addLanguage,
-	addWord,
-	addWordToFamily,
-	updateTraduction,
+	hydrateStore,
 } from "./state.js";
 //#region DOM Setup
 // Tabs buttons
@@ -27,39 +23,67 @@ const allTabs = document.querySelectorAll(".tab-panel");
 
 // Fetch data from Supabase and update the state
 async function fetchData() {
-	await fetchFromTable("language").then((data) => {
-		data.forEach((languageData) => {
-			const language = languageData.language_id;
-			addLanguage(language, () => {}, false);
-		});
+	const [languages, words, translations, families, associations] = await Promise.all([
+		fetchFromTable("language"),
+		fetchFromTable("words"),
+		fetchFromTable("word_translation"),
+		fetchFromTable("word_family"),
+		fetchFromTable("word_family_association"),
+	]);
+
+	const snapshot = {
+		languages: {},
+		words: {},
+		families: {},
+	};
+
+	languages.forEach((languageData) => {
+		const languageId = languageData.language_id;
+		snapshot.languages[languageId] = {
+			displayName: languageData.display_name || languageId,
+		};
 	});
-	await fetchFromTable("words").then((data) => {
-		data.forEach((wordData) => {
-			const word = wordData.word_id;
-			addWord(word, () => {}, false);
-		});
+
+	words.forEach((wordData) => {
+		const wordId = wordData.word_id;
+		snapshot.words[wordId] = {
+			displayName: wordData.display_name || wordId,
+			translations: {},
+		};
 	});
-	await fetchFromTable("word_translation").then((data) => {
-		data.forEach((traductionData) => {
-			const word = traductionData.word_id;
-			const language = traductionData.language_id;
-			const value = traductionData.value;
-			updateTraduction(word, language, value, () => {}, false);
-		});
+
+	translations.forEach((translationData) => {
+		const wordId = translationData.word_id;
+		const languageId = translationData.language_id;
+		if (!snapshot.words[wordId]) {
+			snapshot.words[wordId] = { displayName: wordId, translations: {} };
+		}
+		snapshot.words[wordId].translations[languageId] = translationData.value;
 	});
-	await fetchFromTable("word_family").then((data) => {
-		data.forEach((familyData) => {
-			const family = familyData.word_family_id;
-			addFamily(family, () => {}, false);
-		});
+
+	families.forEach((familyData) => {
+		const familyId = familyData.word_family_id;
+		snapshot.families[familyId] = {
+			displayName: familyData.display_name || familyId,
+			wordsKeys: [],
+		};
 	});
-	await fetchFromTable("word_family_association").then((data) => {
-		data.forEach((associationData) => {
-			const word = associationData.word_id;
-			const family = associationData.word_family_id;
-			addWordToFamily(word, family, () => {}, false);
-		});
+
+	associations.forEach((associationData) => {
+		const familyId = associationData.word_family_id;
+		const wordId = associationData.word_id;
+		if (!snapshot.families[familyId]) {
+			snapshot.families[familyId] = {
+				displayName: familyId,
+				wordsKeys: [],
+			};
+		}
+		if (!snapshot.families[familyId].wordsKeys.includes(wordId)) {
+			snapshot.families[familyId].wordsKeys.push(wordId);
+		}
 	});
+
+	hydrateStore(snapshot);
 }
 
 await fetchData();
