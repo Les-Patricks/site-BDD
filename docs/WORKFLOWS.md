@@ -27,7 +27,8 @@ Les tabs (`js/tabs/*.js`) rendent l'etat courant et deleguent les actions a `sta
 
 `js/saveManager.js`:
 - ecoute le clic sur `#saveBtn`
-- applique upsert/delete vers tables Supabase
+- appelle `save()` de `state.js`, qui invoque l'Edge Function `admin-save`
+- `admin-save` orchestre la persistence et applique l'ecriture atomique globale (`languages`, `words`, `word_translation`, `word_family`, `word_family_association`, suppressions)
 - affiche ensuite le bouton Publish
 
 ## 5) Publish vers Firebase
