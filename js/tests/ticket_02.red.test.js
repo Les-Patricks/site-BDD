@@ -15,8 +15,8 @@ describe("Ticket 02 - Batterie RED (mini-spec)", () => {
 		});
 
 		it("T-002 [CA-002] save() delegue la persistance a admin-save", async () => {
-			const saveManagerSource = await readSource("js/saveManager.js");
-			expect(saveManagerSource).toContain('functions.invoke("admin-save"');
+			const stateSource = await readSource("js/state.js");
+			expect(stateSource).toContain('functions.invoke("admin-save"');
 		});
 
 		it("T-003 [CA-003] publish() conserve l'invocation de publish-to-firebase", async () => {
@@ -30,32 +30,32 @@ describe("Ticket 02 - Batterie RED (mini-spec)", () => {
 	describe("Alternatifs", () => {
 		it("T-004 [CA-004] navigation tabs + save passe par la couche metier", async () => {
 			const mainSource = await readSource("js/main.js");
-			const saveManagerSource = await readSource("js/saveManager.js");
+			const stateSource = await readSource("js/state.js");
 
 			expect(mainSource).toContain("wordFamilyBtn.addEventListener");
 			expect(mainSource).toContain("wordBtn.addEventListener");
 			expect(mainSource).toContain("languagesBtn.addEventListener");
-			expect(saveManagerSource).toContain('functions.invoke("admin-save"');
+			expect(stateSource).toContain('functions.invoke("admin-save"');
 		});
 	});
 
 	describe("Limites", () => {
 		it("T-005 [CA-005] save no-op ne depend pas des helpers CRUD table", async () => {
-			const saveManagerSource = await readSource("js/saveManager.js");
-			expect(saveManagerSource).not.toContain("addInTable(");
-			expect(saveManagerSource).not.toContain("deleteFromTable(");
+			const stateSource = await readSource("js/state.js");
+			expect(stateSource).not.toContain("addInTable(");
+			expect(stateSource).not.toContain("deleteFromTable(");
 		});
 	});
 
 	describe("Erreur", () => {
 		it("T-006 [CA-006] aucun fallback CRUD direct en cas d'erreur endpoint", async () => {
 			const mainSource = await readSource("js/main.js");
-			const saveManagerSource = await readSource("js/saveManager.js");
+			const stateSource = await readSource("js/state.js");
 
 			expect(mainSource).not.toContain("fetchFromTable(");
-			expect(saveManagerSource).not.toContain("addWordsInDataBase(");
-			expect(saveManagerSource).not.toContain("addLanguagesInTable(");
-			expect(saveManagerSource).not.toContain("deleteFromTable(");
+			expect(stateSource).not.toContain("addWordsInDataBase(");
+			expect(stateSource).not.toContain("addLanguagesInTable(");
+			expect(stateSource).not.toContain("deleteFromTable(");
 		});
 	});
 

@@ -7,6 +7,7 @@ const updateWordsMock = vi.fn();
 const updateFamiliesMock = vi.fn();
 const updateBtnsMock = vi.fn();
 const hideSaveBtnMock = vi.fn();
+const displaySaveBtnMock = vi.fn();
 
 vi.mock("../SupabaseManager.js", () => ({
 	supabase: {
@@ -25,7 +26,10 @@ vi.mock("../tabs/languageTab.js", () => ({ updateLanguages: updateLanguagesMock 
 vi.mock("../tabs/wordTab.js", () => ({ updateWords: updateWordsMock }));
 vi.mock("../tabs/familyTab.js", () => ({ updateFamilies: updateFamiliesMock }));
 vi.mock("../ui/AccordionView.js", () => ({ updateBtns: updateBtnsMock }));
-vi.mock("../ui/saveBtn.js", () => ({ hideSaveBtn: hideSaveBtnMock }));
+vi.mock("../ui/saveBtn.js", () => ({
+	hideSaveBtn: hideSaveBtnMock,
+	displaySaveBtn: displaySaveBtnMock,
+}));
 
 const listeners = {};
 
@@ -93,25 +97,12 @@ beforeEach(async () => {
 describe("Ticket 02 - Integration contracts", () => {
 	it("T-067 [CA-002] save() envoie un payload metier via admin-save", async () => {
 		const state = await import("../state.js");
-		state.languageKeys.clear();
-		state.wordKeys.clear();
-		for (const key of Object.keys(state.traductions)) delete state.traductions[key];
-		for (const key of Object.keys(state.wordModifTime)) delete state.wordModifTime[key];
-		for (const key of Object.keys(state.languageModifTime))
-			delete state.languageModifTime[key];
-		for (const key of Object.keys(state.families)) delete state.families[key];
-		for (const key of Object.keys(state.familyModifTime)) delete state.familyModifTime[key];
-		state.wordToDelete.clear();
-		state.languageToDelete.clear();
-		state.familyToDelete.clear();
-		state.traductionToDelete.clear();
-
-		state.languageKeys.add("fr");
-		state.languageModifTime.fr = Date.now();
-		state.traductions.chat = { fr: "cat" };
-		state.wordModifTime.chat = Date.now();
-		state.families.animaux = ["chat"];
-		state.familyModifTime.animaux = Date.now();
+		state.hydrateStore({ languages: {}, words: {}, families: {} });
+		const languageId = state.addLanguage("Francais");
+		const wordId = state.addWord("chat");
+		state.addTranslation(wordId, languageId, "cat");
+		const familyId = state.addFamily("Animaux");
+		state.addWordToFamily(wordId, familyId);
 
 		invokeMock.mockResolvedValue({ error: null });
 		await import("../saveManager.js");
@@ -132,23 +123,23 @@ describe("Ticket 02 - Integration contracts", () => {
 
 	it("T-068 [CA-006] save() conserve les sets de suppression en cas d'erreur", async () => {
 		const state = await import("../state.js");
-		state.wordToDelete.clear();
-		state.wordToDelete.add("chat");
+		state.hydrateStore({
+			languages: {},
+			words: { chat: { displayName: "chat", translations: {} } },
+			families: {},
+		});
+		state.deleteWord("chat");
 
 		invokeMock.mockResolvedValue({ error: new Error("boom") });
 		await import("../saveManager.js");
 		await listeners.click();
 
-		expect(state.wordToDelete.has("chat")).toBe(true);
+		expect(state.storeChanges.deleted.words.has("chat")).toBe(true);
 	});
 
 	it("T-069 [CA-001] main hydrate le state depuis admin-bootstrap", async () => {
 		const state = await import("../state.js");
-		const addLanguageSpy = vi.spyOn(state, "addLanguage");
-		const addWordSpy = vi.spyOn(state, "addWord");
-		const addFamilySpy = vi.spyOn(state, "addFamily");
-		const addWordToFamilySpy = vi.spyOn(state, "addWordToFamily");
-		const updateTraductionSpy = vi.spyOn(state, "updateTraduction");
+		const hydrateStoreSpy = vi.spyOn(state, "hydrateStore");
 
 		invokeMock.mockResolvedValue({
 			error: null,
@@ -164,10 +155,12 @@ describe("Ticket 02 - Integration contracts", () => {
 		await import("../main.js");
 
 		expect(invokeMock).toHaveBeenCalledWith("admin-bootstrap");
-		expect(addLanguageSpy).toHaveBeenCalled();
-		expect(addWordSpy).toHaveBeenCalled();
-		expect(updateTraductionSpy).toHaveBeenCalled();
-		expect(addFamilySpy).toHaveBeenCalled();
-		expect(addWordToFamilySpy).toHaveBeenCalled();
+		expect(hydrateStoreSpy).toHaveBeenCalledWith(
+			expect.objectContaining({
+				languages: expect.any(Object),
+				words: expect.any(Object),
+				families: expect.any(Object),
+			}),
+		);
 	});
 });
