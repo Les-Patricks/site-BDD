@@ -489,3 +489,7 @@ secrets.json
 .env.local
 .env.production
 
+# Build and test artifacts
+coverage/
+dist/
+

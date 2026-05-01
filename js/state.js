@@ -3,253 +3,502 @@ import {
 	removeWordFromAutocomplete,
 } from "./ui/autocomplete.js";
 import { displaySaveBtn } from "./ui/saveBtn.js";
+import { addInTable, deleteFromTable } from "./SupabaseManager.js";
+import { publishDatabase } from "./databaseTransfer.js";
 
-const triggerSaveBtnIfNeeded = function (triggerSave = true) {
-	if (triggerSave) {
+export const store = {
+	languages: {},
+	words: {},
+	families: {},
+};
+
+export const autocompleteWords = [];
+
+export const storeChanges = {
+	created: {
+		languages: new Set(),
+		words: new Set(),
+		families: new Set(),
+		translations: new Set(),
+	},
+	modified: {
+		languages: new Set(),
+		words: new Set(),
+		families: new Set(),
+		translations: new Set(),
+	},
+	deleted: {
+		languages: new Set(),
+		words: new Set(),
+		families: new Set(),
+		translations: new Set(),
+	},
+};
+
+let shouldTrackDirty = true;
+
+const markDirty = function () {
+	if (shouldTrackDirty) {
 		displaySaveBtn();
 	}
 };
 
-export const wordKeys = new Set();
-export const wordModifTime = {};
-export const familyKeys = new Set();
-export const familyModifTime = {};
-export const languageKeys = new Set();
-export const languageModifTime = {};
-export const traductions = {};
-export const families = {};
-
-export const autocompleteWords = [];
-//Things to delete
-export const wordToDelete = new Set();
-export const languageToDelete = new Set();
-export const familyToDelete = new Set();
-export const traductionToDelete = new Set();
-
-// Adds a new word to the wordKeys and return if it was added or not
-export const addWord = function (
-	wordContent,
-	successEvent,
-	triggerSave = true,
-) {
-	const added = !wordKeys.has(wordContent);
-	if (added) {
-		wordKeys.add(wordContent);
-		wordModifTime[wordContent] = Date.now();
-		traductions[wordContent] = {};
-		languageKeys.forEach((language) => {
-			traductions[wordContent][language] = "null";
-		});
-		addWordToAutocomplete(wordContent);
-		successEvent();
-		triggerSaveBtnIfNeeded(triggerSave);
-	} else {
-		alert("The key already exist");
+const generateEntityId = function (prefix) {
+	// Use UUIDs in production to avoid collisions across fast consecutive writes.
+	if (globalThis.crypto?.randomUUID) {
+		return `${prefix}_${globalThis.crypto.randomUUID()}`;
 	}
+	// Fallback kept for environments where crypto.randomUUID is unavailable.
+	return `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 };
 
-export const addLanguage = function (
-	languageContent,
-	successEvent,
-	triggerSave = true,
-) {
-	const added = !languageKeys.has(languageContent);
-	languageKeys.add(languageContent);
-	languageModifTime[languageContent] = Date.now();
+const createLanguageId = function () {
+	return generateEntityId("language");
+};
 
-	if (added) {
-		wordKeys.forEach((word) => {
-			if (traductions[word]) {
-				traductions[word][languageContent] = "null";
-			} else {
-				traductions[word] = {};
+const createWordId = function () {
+	return generateEntityId("word");
+};
+
+const createFamilyId = function () {
+	return generateEntityId("family");
+};
+
+export const clearStoreChanges = function () {
+	storeChanges.created.languages.clear();
+	storeChanges.created.words.clear();
+	storeChanges.created.families.clear();
+	storeChanges.created.translations.clear();
+	storeChanges.modified.languages.clear();
+	storeChanges.modified.words.clear();
+	storeChanges.modified.families.clear();
+	storeChanges.modified.translations.clear();
+	storeChanges.deleted.languages.clear();
+	storeChanges.deleted.words.clear();
+	storeChanges.deleted.families.clear();
+	storeChanges.deleted.translations.clear();
+};
+
+export const getAllLanguages = function () {
+	return store.languages;
+};
+
+export const getAllWords = function () {
+	return store.words;
+};
+
+export const getAllFamilies = function () {
+	return store.families;
+};
+
+export const getLanguage = function (languageId) {
+	return store.languages[languageId];
+};
+
+export const getWord = function (wordId) {
+	return store.words[wordId];
+};
+
+export const getFamily = function (familyId) {
+	return store.families[familyId];
+};
+
+export const getTranslationsForWord = function (wordId) {
+	return store.words[wordId]?.translations || {};
+};
+
+export const getWordsInFamily = function (familyId) {
+	const family = store.families[familyId];
+	if (!family) {
+		return [];
+	}
+	return family.wordsKeys
+		.map((wordId) => {
+			const word = store.words[wordId];
+			if (!word) {
+				// Filter stale references if a word was deleted but a family still references it.
+				return null;
 			}
-		});
-		successEvent();
-		triggerSaveBtnIfNeeded(triggerSave);
-	} else {
-		alert("The key already exist");
-	}
+			return {
+				id: wordId,
+				displayName: word.displayName,
+				translations: { ...word.translations },
+			};
+		})
+		.filter(Boolean);
 };
 
-export const removeWord = function (word, triggerSave = true) {
-	wordKeys.delete(word);
-	wordModifTime[word] = Date.now();
-	removeWordFromAutocomplete(word);
-	wordToDelete.add(word);
-	// Suppression de du mot dans la famille
-	for (const family in families) {
-		const index = families[family].indexOf(word);
-		if (index !== -1) {
-			families[family].splice(index, 1);
+export const addLanguage = function (displayName) {
+	const existingIds = getIdsByDisplayName("languages", displayName);
+	if (existingIds.length > 0) {
+		return null;
+	}
+	const newLanguageId = createLanguageId();
+	store.languages[newLanguageId] = { displayName };
+	storeChanges.created.languages.add(newLanguageId);
+	markDirty();
+	return newLanguageId;
+};
+
+export const modifyLanguage = function (languageId, newDisplayName) {
+	if (store.languages[languageId]) {
+		const conflictIds = getIdsByDisplayName("languages", newDisplayName).filter(
+			(id) => id !== languageId,
+		);
+		if (conflictIds.length > 0) {
+			return false;
 		}
+		store.languages[languageId].displayName = newDisplayName;
+		storeChanges.modified.languages.add(languageId);
+		markDirty();
+		return true;
 	}
-	traductionToDelete.add(word);
-	if (traductions[word]) {
-		delete traductions[word];
-		triggerSaveBtnIfNeeded(triggerSave);
-	}
+	return false;
 };
 
-export const replaceWord = function (
-	wordToReplace,
-	wordToReplaceBy,
-	successEvent,
-	triggerSave = true,
-) {
-	if (wordKeys.has(wordToReplace) && !wordKeys.has(wordToReplaceBy)) {
-		addWord(
-			wordToReplaceBy,
-			() => {
-				transferTraductions(wordToReplace, wordToReplaceBy);
-				removeWord(wordToReplace, false);
-				successEvent();
-				triggerSaveBtnIfNeeded(triggerSave);
-			},
-			false,
-		);
-	} else {
-		alert(
-			"The word to replace does not exist or the replacement word already exists",
-		);
-	}
-};
-
-export const replaceLanguage = function (
-	languageToReplace,
-	languageToReplaceBy,
-	successEvent,
-	triggerSave = true,
-) {
-	if (
-		languageToReplace !== languageToReplaceBy &&
-		languageKeys.has(languageToReplace) &&
-		!languageKeys.has(languageToReplaceBy)
-	) {
-		languageKeys.delete(languageToReplace);
-		wordKeys.forEach((word) => {
-			traductions[word][languageToReplaceBy] =
-				traductions[word][languageToReplace];
-			delete traductions[word][languageToReplace];
-		});
-
-		languageKeys.add(languageToReplaceBy);
-		languageModifTime[languageToReplaceBy] = Date.now();
-
-		successEvent();
-		triggerSaveBtnIfNeeded(triggerSave);
-	}
-};
-
-export const removeLanguage = function (oldLanguage, triggerSave = true) {
-	if (languageKeys.has(oldLanguage)) {
-		languageKeys.delete(oldLanguage);
-		languageToDelete.add(oldLanguage);
-		for (const word of wordKeys) {
-			removeTraduction(word, oldLanguage, false);
-		}
-		for (const traduction in traductions) {
-			delete traductions[traduction][oldLanguage];
-		}
-		languageModifTime[oldLanguage] = Date.now();
-		triggerSaveBtnIfNeeded(triggerSave);
-	}
-};
-
-export const updateTraduction = function (
-	word,
-	language,
-	traduction,
-	successEvent = () => {},
-	triggerSave = true,
-) {
-	if (traductions[word]) {
-		traductions[word][language] = traduction;
-		wordModifTime[word] = Date.now();
-		successEvent();
-		triggerSaveBtnIfNeeded(triggerSave);
-	}
-};
-
-export const removeTraduction = function (word, language, triggerSave = true) {
-	if (traductions[word]) {
-		traductions[word][language] = "null";
-		triggerSaveBtnIfNeeded(triggerSave);
-	}
-};
-
-const transferTraductions = function (fromWord, toWord) {
-	Object.keys(traductions[fromWord]).forEach((language) => {
-		traductions[toWord][language] = traductions[fromWord][language];
-	});
-};
-
-export const addFamily = function (
-	familyContent,
-	successEvent,
-	triggerSave = true,
-) {
-	const added = !familyKeys.has(familyContent);
-	if (added) {
-		familyKeys.add(familyContent);
-		familyModifTime[familyContent] = Date.now();
-		families[familyContent] = [];
-		successEvent();
-		triggerSaveBtnIfNeeded(triggerSave);
-	} else {
-		alert("The key already exist");
-	}
-};
-
-export const removeFamily = function (family, triggerSave = true) {
-	familyKeys.delete(family);
-	familyToDelete.add(family);
-	if (families[family]) {
-		delete families[family];
-		triggerSaveBtnIfNeeded(triggerSave);
-	}
-};
-
-export const replaceFamily = function (
-	familyToReplace,
-	familyToReplaceBy,
-	successEvent,
-	triggerSave = true,
-) {
-	if (familyKeys.has(familyToReplace) && !familyKeys.has(familyToReplaceBy)) {
-		const familyWords = families[familyToReplace];
-		removeFamily(familyToReplace, false);
-		addFamily(
-			familyToReplaceBy,
-			() => {
-				families[familyToReplaceBy] = familyWords;
-				successEvent();
-				triggerSaveBtnIfNeeded(triggerSave);
-			},
-			false,
-		);
-	} else {
-		alert(
-			"The family to replace does not exist or the replacement family already exists",
-		);
-	}
-};
-
-export const addWordToFamily = function (
-	word,
-	family,
-	successEvent,
-	triggerSave = true,
-) {
-	if (families[family]) {
-		if (families[family].includes(word)) {
-			alert("The word is already in the family");
+export const deleteLanguage = function (languageId) {
+	if (store.languages[languageId]) {
+		delete store.languages[languageId];
+		if (storeChanges.created.languages.has(languageId)) {
+			storeChanges.created.languages.delete(languageId);
 		} else {
-			families[family].push(word);
-			successEvent();
-			triggerSaveBtnIfNeeded(triggerSave);
+			storeChanges.deleted.languages.add(languageId);
 		}
-	} else {
-		alert("The family doesn't exist");
+		for (const wordId of Object.keys(store.words)) {
+			const translationKey = `${wordId}:${languageId}`;
+			if (store.words[wordId].translations[languageId] !== undefined) {
+				if (storeChanges.created.translations.has(translationKey)) {
+					storeChanges.created.translations.delete(translationKey);
+					storeChanges.modified.translations.delete(translationKey);
+				} else {
+					storeChanges.deleted.translations.add(translationKey);
+				}
+			}
+			delete store.words[wordId].translations[languageId];
+			storeChanges.modified.words.add(wordId);
+		}
+		markDirty();
 	}
+};
+
+export const addWord = function (displayName) {
+	const existingIds = getIdsByDisplayName("words", displayName);
+	if (existingIds.length > 0) {
+		return null;
+	}
+	const newWordId = createWordId();
+	store.words[newWordId] = { displayName, translations: {} };
+	storeChanges.created.words.add(newWordId);
+	addWordToAutocomplete(displayName);
+	markDirty();
+	return newWordId;
+};
+
+export const changeWord = function (wordId, newDisplayName) {
+	if (store.words[wordId]) {
+		const conflictIds = getIdsByDisplayName("words", newDisplayName).filter(
+			(id) => id !== wordId,
+		);
+		if (conflictIds.length > 0) {
+			return false;
+		}
+		removeWordFromAutocomplete(store.words[wordId].displayName);
+		store.words[wordId].displayName = newDisplayName;
+		storeChanges.modified.words.add(wordId);
+		addWordToAutocomplete(newDisplayName);
+		markDirty();
+		return true;
+	}
+	return false;
+};
+
+export const deleteWord = function (wordId) {
+	if (store.words[wordId]) {
+		const deletedDisplayName = store.words[wordId].displayName;
+		const existingTranslations = { ...store.words[wordId].translations };
+		for (const languageId of Object.keys(existingTranslations)) {
+			const translationKey = `${wordId}:${languageId}`;
+			if (storeChanges.created.translations.has(translationKey)) {
+				storeChanges.created.translations.delete(translationKey);
+				storeChanges.modified.translations.delete(translationKey);
+			} else {
+				storeChanges.deleted.translations.add(translationKey);
+			}
+		}
+		delete store.words[wordId];
+		if (storeChanges.created.words.has(wordId)) {
+			storeChanges.created.words.delete(wordId);
+		} else {
+			storeChanges.deleted.words.add(wordId);
+		}
+		for (const familyId of Object.keys(store.families)) {
+			store.families[familyId].wordsKeys = store.families[familyId].wordsKeys.filter(
+				(id) => id !== wordId,
+			);
+			storeChanges.modified.families.add(familyId);
+		}
+		removeWordFromAutocomplete(deletedDisplayName);
+		markDirty();
+	}
+};
+
+export const addTranslation = function (wordId, languageId, translation) {
+	if (store.words[wordId] && store.languages[languageId]) {
+		const translationKey = `${wordId}:${languageId}`;
+		const hadTranslation = store.words[wordId].translations[languageId] !== undefined;
+		store.words[wordId].translations[languageId] = translation;
+		if (!hadTranslation) {
+			storeChanges.created.translations.add(translationKey);
+		} else {
+			storeChanges.modified.translations.add(translationKey);
+		}
+		storeChanges.deleted.translations.delete(translationKey);
+		storeChanges.modified.words.add(wordId);
+		markDirty();
+	}
+};
+
+export const removeTranslation = function (wordId, languageId) {
+	if (store.words[wordId] && store.languages[languageId]) {
+		const translationKey = `${wordId}:${languageId}`;
+		delete store.words[wordId].translations[languageId];
+		if (storeChanges.created.translations.has(translationKey)) {
+			storeChanges.created.translations.delete(translationKey);
+			storeChanges.modified.translations.delete(translationKey);
+		} else {
+			storeChanges.deleted.translations.add(translationKey);
+		}
+		storeChanges.modified.words.add(wordId);
+		markDirty();
+	}
+};
+
+export const addFamily = function (displayName) {
+	const existingIds = getIdsByDisplayName("families", displayName);
+	if (existingIds.length > 0) {
+		return null;
+	}
+	const familyId = createFamilyId();
+	store.families[familyId] = { displayName, wordsKeys: [] };
+	storeChanges.created.families.add(familyId);
+	markDirty();
+	return familyId;
+};
+
+export const modifyFamily = function (familyId, newDisplayName) {
+	if (store.families[familyId]) {
+		const conflictIds = getIdsByDisplayName("families", newDisplayName).filter(
+			(id) => id !== familyId,
+		);
+		if (conflictIds.length > 0) {
+			return false;
+		}
+		store.families[familyId].displayName = newDisplayName;
+		storeChanges.modified.families.add(familyId);
+		markDirty();
+		return true;
+	}
+	return false;
+};
+
+export const removeFamily = function (familyId) {
+	if (store.families[familyId]) {
+		delete store.families[familyId];
+		if (storeChanges.created.families.has(familyId)) {
+			storeChanges.created.families.delete(familyId);
+		} else {
+			storeChanges.deleted.families.add(familyId);
+		}
+		markDirty();
+	}
+};
+
+export const addWordToFamily = function (wordId, familyId) {
+	if (store.words[wordId] && store.families[familyId]) {
+		if (!store.families[familyId].wordsKeys.includes(wordId)) {
+			store.families[familyId].wordsKeys.push(wordId);
+			storeChanges.modified.families.add(familyId);
+			markDirty();
+		}
+	}
+};
+
+export const removeWordFromFamily = function (wordId, familyId) {
+	if (store.families[familyId]) {
+		store.families[familyId].wordsKeys = store.families[
+			familyId
+		].wordsKeys.filter((id) => id !== wordId);
+		storeChanges.modified.families.add(familyId);
+		markDirty();
+	}
+};
+
+export const getIdsByDisplayName = function (scope, displayName) {
+	const collection = store[scope];
+	if (!collection) {
+		return [];
+	}
+	return Object.entries(collection)
+		.filter(([, entity]) => entity?.displayName === displayName)
+		.map(([id]) => id);
+};
+
+export const hydrateStore = function (snapshot) {
+	// Hydration must not trigger "unsaved changes" UI state.
+	shouldTrackDirty = false;
+	store.languages = snapshot.languages || {};
+	store.words = snapshot.words || {};
+	store.families = snapshot.families || {};
+	clearStoreChanges();
+	shouldTrackDirty = true;
+};
+
+export const save = async function () {
+	const modificationDate = new Date().toISOString();
+
+	// Persist languages first so translation upserts always reference existing IDs.
+	for (const [languageId, language] of Object.entries(store.languages)) {
+		await addInTable(
+			"language",
+			{
+				language_id: languageId,
+				display_name: language.displayName,
+				modification_date: modificationDate,
+			},
+			"language_id",
+		);
+	}
+
+	for (const languageId of storeChanges.deleted.languages) {
+		await deleteFromTable("word_translation", {
+			where: "eq",
+			col: "language_id",
+			value: languageId,
+		});
+		await deleteFromTable("language", {
+			where: "eq",
+			col: "language_id",
+			value: languageId,
+		});
+	}
+
+	// Persist words metadata; translations are persisted through translation deltas.
+	for (const [wordId, word] of Object.entries(store.words)) {
+		await addInTable(
+			"words",
+			{
+				word_id: wordId,
+				display_name: word.displayName,
+				modification_date: modificationDate,
+			},
+			"word_id",
+		);
+	}
+
+	// Translation persistence is now delta-based and driven by storeChanges.translations.
+	for (const translationKey of storeChanges.deleted.translations) {
+		const [wordId, languageId] = translationKey.split(":");
+		await deleteFromTable(
+			"word_translation",
+			{ where: "eq", col: "word_id", value: wordId },
+			{ where: "eq", col: "language_id", value: languageId },
+		);
+	}
+
+	const translationUpsertKeys = new Set([
+		...storeChanges.created.translations,
+		...storeChanges.modified.translations,
+	]);
+
+	for (const translationKey of translationUpsertKeys) {
+		const [wordId, languageId] = translationKey.split(":");
+		const translationValue = store.words[wordId]?.translations?.[languageId];
+		if (translationValue === undefined) {
+			await deleteFromTable(
+				"word_translation",
+				{ where: "eq", col: "word_id", value: wordId },
+				{ where: "eq", col: "language_id", value: languageId },
+			);
+			continue;
+		}
+		await addInTable(
+			"word_translation",
+			{
+				word_id: wordId,
+				language_id: languageId,
+				value: translationValue,
+			},
+			"word_id, language_id",
+		);
+	}
+
+	for (const wordId of storeChanges.deleted.words) {
+		await deleteFromTable("word_family_association", {
+			where: "eq",
+			col: "word_id",
+			value: wordId,
+		});
+		await deleteFromTable("word_translation", {
+			where: "eq",
+			col: "word_id",
+			value: wordId,
+		});
+		await deleteFromTable("words", {
+			where: "eq",
+			col: "word_id",
+			value: wordId,
+		});
+	}
+
+	// Persist families and fully sync associations.
+	for (const [familyId, family] of Object.entries(store.families)) {
+		await addInTable(
+			"word_family",
+			{
+				word_family_id: familyId,
+				display_name: family.displayName,
+				modification_date: modificationDate,
+			},
+			"word_family_id",
+		);
+
+		await deleteFromTable("word_family_association", {
+			where: "eq",
+			col: "word_family_id",
+			value: familyId,
+		});
+
+		// Full replacement avoids drift between stored links and current family.wordsKeys.
+		for (const wordId of family.wordsKeys) {
+			await addInTable(
+				"word_family_association",
+				{
+					word_id: wordId,
+					word_family_id: familyId,
+				},
+				"word_id, word_family_id",
+			);
+		}
+	}
+
+	for (const familyId of storeChanges.deleted.families) {
+		await deleteFromTable("word_family_association", {
+			where: "eq",
+			col: "word_family_id",
+			value: familyId,
+		});
+		await deleteFromTable("word_family", {
+			where: "eq",
+			col: "word_family_id",
+			value: familyId,
+		});
+	}
+
+	clearStoreChanges();
+	return true;
+};
+
+export const publish = async function () {
+	await publishDatabase();
+	return true;
 };

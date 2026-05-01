@@ -4,12 +4,12 @@ import {
 	addFamily,
 	addWord,
 	addWordToFamily,
-	families,
-	familyKeys,
-	familyModifTime,
+	getAllFamilies,
+	getFamily,
+	getIdsByDisplayName,
+	getWord,
+	modifyFamily,
 	removeFamily,
-	replaceFamily,
-	wordKeys,
 } from "../state.js";
 import { bindTabAddSystem } from "../ui/tabAddSystem.js";
 import { createWordElement } from "./wordTab.js";
@@ -23,9 +23,10 @@ const familyContent = document.getElementById("familyTabPanelContent");
 export const submitAddingFamily = function () {
 	const value = addFamilyInput.value.trim().toLowerCase();
 	if (value) {
-		addFamily(value, () => {
-			renderFamily(value, Date.now(), []);
-		});
+		const familyId = addFamily(value);
+		if (familyId) {
+			renderFamily(familyId, Date.now(), []);
+		}
 	}
 };
 bindTabAddSystem(
@@ -36,49 +37,53 @@ bindTabAddSystem(
 	submitAddingFamily,
 );
 export const renderFamily = function (
-	familyToRender,
+	familyId,
 	modificationDate,
 	wordsToRender,
 ) {
-	let currentFamilyName = familyToRender;
+	let currentFamilyId = familyId;
+	const family = getFamily(currentFamilyId);
+	if (!family) {
+		return;
+	}
 	const div = createDOMElement(familyContent, 0, "div", "", "");
 	const familyElement = createAccordionElement(
 		div,
-		currentFamilyName,
+		family.displayName,
 		wordsToRender.length,
 		new Date(modificationDate).toLocaleDateString(),
 		() => {
-			removeFamily(currentFamilyName);
+			removeFamily(currentFamilyId);
 		},
 		(newName, done) => {
-			replaceFamily(currentFamilyName, newName, () => {
-				currentFamilyName = newName;
+			if (modifyFamily(currentFamilyId, newName)) {
 				done();
-			});
+			}
 		},
 		(value, done) => {
-			const addAndRender = () => {
-				addWordToFamily(value, currentFamilyName, () => {
-					createWordElement(value, content);
-					done();
-				});
-			};
-			if (wordKeys.has(value)) {
-				addAndRender();
+			let wordId = getIdsByDisplayName("words", value)[0];
+			if (!wordId) {
+				wordId = addWord(value);
+			}
+			if (getWord(wordId)) {
+				addWordToFamily(wordId, currentFamilyId);
+				createWordElement(wordId, content);
+				done();
 			} else {
-				addWord(value, addAndRender);
+				done();
 			}
 		},
 	);
 	const content = familyElement.querySelector(".accordion__content");
-	wordsToRender.forEach((word) => {
-		createWordElement(word, content);
+	wordsToRender.forEach((wordId) => {
+		createWordElement(wordId, content);
 	});
 };
 
 export const updateFamilies = function () {
 	familyContent.textContent = "";
-	familyKeys.forEach((family) => {
-		renderFamily(family, familyModifTime[family], families[family]);
+	Object.keys(getAllFamilies()).forEach((familyId) => {
+		const family = getFamily(familyId);
+		renderFamily(familyId, Date.now(), family.wordsKeys);
 	});
 };

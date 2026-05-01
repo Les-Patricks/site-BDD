@@ -1,13 +1,13 @@
 import {
-	wordKeys,
-	updateTraduction,
 	addWord,
-	removeWord,
-	replaceWord,
-	traductions,
-	languageKeys,
-	removeTraduction,
-	wordModifTime,
+	addTranslation,
+	changeWord,
+	deleteWord,
+	getAllLanguages,
+	getAllWords,
+	getLanguage,
+	getWord,
+	removeTranslation,
 } from "../state.js";
 import { createTraductionItem } from "../dom.js";
 import { createAccordionElement } from "../components/accordion.js";
@@ -19,61 +19,64 @@ const addWordLabel = document.getElementById("addWordLabel");
 const addWordInput = document.getElementById("addWordInput");
 const submitWordBtn = document.getElementById("addWordSubmitBtn");
 
-export const createWordElement = function (wordToRender, container, date = "") {
-	let currentWordName = wordToRender;
+export const createWordElement = function (wordId, container, date = "") {
+	let currentWordId = wordId;
+	let currentWord = getWord(currentWordId);
+	if (!currentWord) {
+		return;
+	}
 	const listObject = createAccordionElement(
 		container,
-		currentWordName,
+		currentWord.displayName,
 		"",
 		date,
 		() => {
-			removeWord(currentWordName);
+			deleteWord(currentWordId);
 		},
 		(newName, done) => {
-			replaceWord(currentWordName, newName, () => {
-				currentWordName = newName;
+			if (changeWord(currentWordId, newName)) {
 				done();
-			});
+			}
 		},
-		null, // Un mot n'a pas l'option "Ajouter un mot" à l'intérieur
+		null,
 	);
 	const accordionContent = listObject.querySelector(".accordion__content");
-	languageKeys.forEach((language) => {
+	Object.keys(getAllLanguages()).forEach((languageId) => {
+		currentWord = getWord(currentWordId);
+		const language = getLanguage(languageId);
 		createTraductionItem(
 			accordionContent,
-			language,
-			traductions[currentWordName][language],
+			language?.displayName || languageId,
+			currentWord?.translations?.[languageId] ?? "",
 			() => {
-				removeTraduction(currentWordName, language);
+				removeTranslation(currentWordId, languageId);
 			},
 			(newValue, done) => {
-				updateTraduction(currentWordName, language, newValue, () => {
-					done();
-				});
+				addTranslation(currentWordId, languageId, newValue);
+				done();
 			},
 		);
 	});
 };
 
-export const renderWord = function (wordToRender, date) {
-	createWordElement(wordToRender, wordContent, date);
+export const renderWord = function (wordId, date = "") {
+	createWordElement(wordId, wordContent, date);
 };
 
 export const updateWords = function () {
 	wordContent.textContent = "";
-	wordKeys.forEach((word) => {
-		const date = new Date(wordModifTime[word]);
-		renderWord(word, date.toLocaleDateString());
+	Object.keys(getAllWords()).forEach((wordId) => {
+		renderWord(wordId);
 	});
 };
 
 export const submitAddingWord = function () {
 	const value = addWordInput.value.trim().toLowerCase();
 	if (value) {
-		addWord(value, () => {
-			const date = new Date(wordModifTime[value]);
-			renderWord(value, date.toLocaleDateString());
-		});
+		const wordId = addWord(value);
+		if (wordId) {
+			renderWord(wordId);
+		}
 	}
 };
 
