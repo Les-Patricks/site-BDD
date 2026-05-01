@@ -104,7 +104,10 @@ describe("Ticket 02 - Integration contracts", () => {
 		const familyId = state.addFamily("Animaux");
 		state.addWordToFamily(wordId, familyId);
 
-		invokeMock.mockResolvedValue({ error: null });
+		invokeMock.mockResolvedValue({
+			data: { ok: true, code: "SAVE_OK" },
+			error: null,
+		});
 		await import("../saveManager.js");
 		await listeners.click();
 
