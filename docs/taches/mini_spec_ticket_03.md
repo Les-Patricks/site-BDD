@@ -1,42 +1,39 @@
 # Mini-spec - Ticket 03
 
 ## Contexte
-Le flux actuel enchaine des upserts mot puis traductions sans transaction serveur explicite. En cas d'echec en cours de route, une partie des donnees peut etre ecrite, ce qui cree un etat incoherent.
-
-## Objectif
-Garantir une ecriture atomique "mot + traductions" cote serveur: soit tout est persiste, soit rien n'est persiste.
+Le flux de sauvegarde actuel ecrit encore les entites via des operations sequentielles. En cas d'erreur au milieu du traitement, une persistance partielle peut rester en base.
 
 ## Probleme a resoudre
-- Eviter toute ecriture partielle lors d'une sauvegarde.
-- Retourner au front un resultat metier explicite (succes/echec) pour piloter l'UI.
+Garantir une ecriture atomique globale de la sauvegarde cote serveur pour supprimer tout risque d'etat partiel.
 
-## Portee (in-scope)
-- Ajouter/adapter un endpoint metier serveur dedie a l'ecriture atomique mot+traductions.
-- Executer l'ecriture dans une seule unite transactionnelle.
-- Exposer un contrat de reponse clair consommable par le front.
-- Adapter le front pour appeler ce chemin atomique sur ce cas metier.
-- Ajouter au moins un test couvrant un rollback complet.
+## Objectif fonctionnel
+Pour le cas metier cible, une sauvegarde doit:
+- soit reussir completement (languages, words, traductions, families et associations/suppressions coherents),
+- soit echouer completement (aucune ecriture conservee).
 
-## Hors perimetre (out-of-scope)
-- Refonte complete du schema SQL.
-- Re-ecriture complete de `publish-to-firebase`.
-- Optimisations batch non necessaires au besoin transactionnel.
+## Scope
+- Inclut:
+  - endpoint/metier serveur transactionnel pour la sauvegarde globale;
+  - integration du front sur ce nouveau chemin;
+  - contrat de retour explicite succes/erreur.
+- Exclut:
+  - refonte complete du schema SQL;
+  - re-ecriture globale du flux de publication Firebase;
+  - optimisations batch hors besoin transactionnel.
 
-## Contraintes
-- Mot et traductions doivent etre ecrits dans la meme transaction.
-- En cas d'erreur, rollback complet obligatoire.
-- Le front doit recevoir un statut explicite et exploitable.
+## Acteurs et impact
+- Utilisateur backoffice: sauvegardes plus fiables, moins d'incoherences.
+- Equipe technique: point d'entree metier clair et testable pour la persistance atomique globale.
 
-## Risques
-- Couplage avec le modele d'etat mixte (`js/state.js`) et references legacy (`js/saveManager.js`).
-- Regressions possibles sur les flux de sauvegarde existants si le contrat de reponse change.
+## Criteres d'acceptation cibles
+1. Une sauvegarde complete utilise un endpoint transactionnel unique.
+2. En cas d'erreur forcee pendant la transaction, aucun changement n'est persiste.
+3. Le front recoit un statut clair (`ok` / `erreur`) avec message exploitable.
+4. Un test couvre explicitement le scenario de rollback global.
 
-## Criteres d'acceptation (version mini-spec)
-- [ ] Un endpoint metier realise l'ecriture atomique mot+traductions.
-- [ ] Une erreur provoque l'absence d'ecriture partielle constatee.
-- [ ] Un test automatise valide un scenario de rollback.
-- [ ] Le front utilise cet endpoint pour la sauvegarde cible.
-- [ ] Le front affiche un resultat clair en succes et en echec.
+## Definition of Done
+- Endpoint atomique disponible et branche sur le flux cible.
+- Aucune ecriture partielle observee en cas d'echec.
+- Tests rollback et succes au vert.
+- Documentation technique du flux de sauvegarde mise a jour.
 
-## Validation attendue
-Si cette mini-spec est validee, l'etape suivante sera le plan technique local (fichiers touches, strategie de test RED/GREEN, et sequence d'implementation).

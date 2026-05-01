@@ -1,16 +1,16 @@
 # Plan technique local - Ticket 03
 
 ## Objectif technique
-Mettre en place un chemin d'ecriture atomique "mot + traductions" cote serveur, consomme par le front, avec rollback complet garanti en cas d'erreur.
+Mettre en place un chemin d'ecriture atomique globale de sauvegarde cote serveur (languages, words, traductions, families, associations et suppressions), consomme par le front, avec rollback complet garanti en cas d'erreur.
 
 ## Strategie retenue
 - Introduire une operation transactionnelle unique cote base via une fonction SQL (RPC Supabase) ou equivalent serveur transactionnel.
-- Faire appeler cette operation metier par le front au lieu des upserts series pour ce cas.
+- Faire appeler cette operation metier par le front au lieu des upserts/deletes series pour tout le flux save.
 - Uniformiser la reponse en contrat explicite: succes/erreur + message exploitable.
 
 ## Fichiers cibles (previsionnels)
 - `supabase/migrations/*`  
-  Creation d'une fonction SQL transactionnelle (insert/update mot + synchronisation traductions).
+  Creation d'une fonction SQL transactionnelle globale (insert/update/delete languages, words, traductions, families et associations) dans une seule transaction.
 - `js/SupabaseManager.js`  
   Ajout d'une methode cliente dediee appelant la RPC atomique.
 - `js/saveManager.js`  
@@ -24,12 +24,12 @@ Mettre en place un chemin d'ecriture atomique "mot + traductions" cote serveur, 
 
 ## Conception transactionnelle (niveau local)
 1. Entrants:
-   - Payload mot (id, champs metier requis).
-   - Tableau traductions associees.
+   - Payload global de sauvegarde (`languages`, `words` + `traductions`, `families`, `toDelete`).
+   - Champs metier requis pour chaque entite du payload.
 2. Transaction:
-   - Verrou logique sur l'identifiant metier du mot cible.
-   - Upsert mot.
-   - Synchronisation traductions dans la meme transaction (insert/update/delete selon payload).
+   - Traitement des upserts languages, words, traductions, families et associations dans la meme transaction.
+   - Traitement des suppressions (`toDelete`) dans la meme transaction.
+   - Respect des contraintes relationnelles via un ordre d'execution deterministic.
 3. Echec:
    - Toute exception provoque `ROLLBACK`.
 4. Sortie:
@@ -37,7 +37,7 @@ Mettre en place un chemin d'ecriture atomique "mot + traductions" cote serveur, 
 
 ## Strategie de tests (RED -> GREEN)
 ### RED (d'abord)
-- Ecrire un test qui simule une erreur apres ecriture du mot et avant finalisation traductions.
+- Ecrire un test qui simule une erreur intermediaire pendant la sauvegarde globale.
 - Attendu RED: aucune persistance partielle apres echec.
 - Ecrire un test du contrat front (statut explicite en erreur).
 
@@ -49,6 +49,7 @@ Mettre en place un chemin d'ecriture atomique "mot + traductions" cote serveur, 
 ### Non-regression minimale
 - Verifier qu'un cas nominal de sauvegarde continue de fonctionner.
 - Verifier que le message d'erreur remonte sans casser l'UI.
+- Verifier la compatibilite des donnees pour le flux `publish-to-firebase`.
 
 ## Ordre d'implementation
 1. Ajouter migration SQL (fonction transactionnelle + droits d'execution).
@@ -62,17 +63,17 @@ Mettre en place un chemin d'ecriture atomique "mot + traductions" cote serveur, 
 - Risque: divergence schema reel vs payload front.
   - Parade: valider strictement les champs en entree SQL et retourner `code` explicite.
 - Risque: coexistence legacy/nouveau flux de save.
-  - Parade: limiter le scope au cas metier cible, sans refactor global.
+  - Parade: limiter le scope a l'atomicite du save global, sans refactor hors perimetre.
 - Risque: effets de bord sur publication Firebase.
   - Parade: ne pas toucher `publish-to-firebase`; verifier shape de donnees conservee.
 
 ## Verification prevue
 - `npm run test`
 - Scenario manuel: provoquer une erreur transactionnelle et constater absence d'ecriture partielle.
-- Scenario manuel: sauvegarde nominale mot+traductions avec retour succes.
+- Scenario manuel: sauvegarde globale nominale avec retour succes.
 
 ## Definition de fait (execution)
-- Endpoint metier atomique en place et appele par le front pour ce cas.
+- Endpoint metier atomique global en place et appele par le front pour ce cas.
 - Test rollback passant.
 - Aucun etat partiel observe apres echec.
 - Documentation mise a jour.
