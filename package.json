@@ -13,6 +13,8 @@
 		"build": "npm exec vite build",
 		"test": "vitest run --coverage",
 		"test:watch": "vitest",
+		"deploy:admin-bootstrap": "supabase functions deploy admin-bootstrap --project-ref kywafnfxmugjwhykwiae --no-verify-jwt",
+		"deploy:admin-save": "supabase functions deploy admin-save --project-ref kywafnfxmugjwhykwiae --no-verify-jwt",
 		"deploy:publish": "supabase functions deploy publish-to-firebase --project-ref kywafnfxmugjwhykwiae --no-verify-jwt"
 	}
 }

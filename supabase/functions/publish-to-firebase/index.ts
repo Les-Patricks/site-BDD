@@ -1,8 +1,61 @@
 // Setup type definitions for built-in Supabase Runtime APIs
-import "@supabase/functions-js/edge-runtime.d.ts";
+import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { fetchFromTable } from "./supabaseClient.ts";
 
 console.log("Hello from Functions!");
+
+type DenoRuntime = {
+	env: { get: (name: string) => string | undefined };
+	serve: (handler: (req: Request) => Response | Promise<Response>) => void;
+};
+declare const Deno: DenoRuntime;
+
+type PublishWord = { id: string; [languageId: string]: string | null };
+type PublishFamily = { id: string; words: string[] };
+
+function validatePublishPayload(payload: { words: unknown; families: unknown }) {
+	if (!Array.isArray(payload.words) || !Array.isArray(payload.families)) {
+		throw new Error("Invalid publish payload: words/families must be arrays");
+	}
+
+	for (const word of payload.words) {
+		if (typeof word !== "object" || word === null) {
+			throw new Error("Invalid publish payload: each word must be an object");
+		}
+		if (!("id" in word) || typeof word.id !== "string") {
+			throw new Error("Invalid publish payload: each word must have a string id");
+		}
+		for (const [key, value] of Object.entries(word)) {
+			if (key === "id") continue;
+			if (typeof value !== "string" && value !== null) {
+				throw new Error(
+					"Invalid publish payload: translation values must be string or null",
+				);
+			}
+		}
+	}
+
+	for (const family of payload.families) {
+		if (typeof family !== "object" || family === null) {
+			throw new Error("Invalid publish payload: each family must be an object");
+		}
+		if (!("id" in family) || typeof family.id !== "string") {
+			throw new Error(
+				"Invalid publish payload: each family must have a string id",
+			);
+		}
+		if (!("words" in family) || !Array.isArray(family.words)) {
+			throw new Error(
+				"Invalid publish payload: each family must have a words array",
+			);
+		}
+		if (!family.words.every((wordId) => typeof wordId === "string")) {
+			throw new Error(
+				"Invalid publish payload: family words entries must be strings",
+			);
+		}
+	}
+}
 
 Deno.serve(async (req) => {
 	const origin = req.headers.get("Origin");
@@ -12,9 +65,12 @@ Deno.serve(async (req) => {
 		"https://site-bdd-97h.pages.dev",
 		"http://127.0.0.1:5500",
 	];
+	const isAllowedOrigin = (value: string | null) =>
+		value !== null && allowedOrigins.includes(value);
 
-	const allowOrigin = allowedOrigins.includes(origin)
-		? origin
+	const allowOrigin: string =
+		isAllowedOrigin(origin)
+		? origin!
 		: "https://bluffers-backoffice.web.app";
 
 	const corsHeaders = {
@@ -26,17 +82,22 @@ Deno.serve(async (req) => {
 	if (req.method === "OPTIONS") {
 		return new Response("ok", { headers: corsHeaders });
 	}
+	if (origin !== null && !isAllowedOrigin(origin)) {
+		return new Response(JSON.stringify({ error: "origin not allowed" }), {
+			status: 403,
+			headers: { ...corsHeaders, "Content-Type": "application/json" },
+		});
+	}
 	const words = await fetchFromTable("words");
-	const languages = await fetchFromTable("language");
 	const families = await fetchFromTable("word_family");
 	const wordFamilyAssociations = await fetchFromTable(
 		"word_family_association",
 	);
 	const traduction = await fetchFromTable("word_translation");
 
-	const formattedFamilies = [];
+	const formattedFamilies: PublishFamily[] = [];
 	for (const family of families) {
-		const familyObject = {
+		const familyObject: PublishFamily = {
 			id: family.word_family_id,
 			words: [],
 		};
@@ -48,9 +109,9 @@ Deno.serve(async (req) => {
 		formattedFamilies.push(familyObject);
 	}
 
-	const formattedWords = [];
+	const formattedWords: PublishWord[] = [];
 	for (const word of words) {
-		const wordObject = {
+		const wordObject: PublishWord = {
 			id: word.word_id,
 		};
 		for (const trad of traduction) {
@@ -74,10 +135,16 @@ Deno.serve(async (req) => {
 				"Content-Type": "application/json",
 				Authorization: `Bearer ${SECRET_TOKEN}`,
 			},
-			body: JSON.stringify({
-				words: formattedWords,
-				families: formattedFamilies,
-			}),
+			body: JSON.stringify(
+				(() => {
+					const payload = {
+						words: formattedWords,
+						families: formattedFamilies,
+					};
+					validatePublishPayload(payload);
+					return payload;
+				})(),
+			),
 		},
 	);
 

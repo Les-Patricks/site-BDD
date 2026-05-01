@@ -1,7 +1,16 @@
+// @ts-ignore -- URL import is resolved by Deno runtime in Supabase Edge Functions
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
+type DenoRuntime = {
+	env: { get: (name: string) => string | undefined };
+};
+declare const Deno: DenoRuntime;
+
 const supabaseUrl = "https://kywafnfxmugjwhykwiae.supabase.co";
-const supabaseKey = Deno.env.get("SERVICE_KEY")!;
+const supabaseKey = Deno.env.get("SERVICE_KEY");
+if (!supabaseKey) {
+	throw new Error("SERVICE_KEY manquant dans les variables d'environnement");
+}
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
 const DEFAULT_LIMIT = 1000;
