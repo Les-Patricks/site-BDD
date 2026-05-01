@@ -3,7 +3,7 @@ import {
 	removeWordFromAutocomplete,
 } from "./ui/autocomplete.js";
 import { displaySaveBtn } from "./ui/saveBtn.js";
-import { addInTable, deleteFromTable } from "./SupabaseManager.js";
+import { supabase } from "./SupabaseManager.js";
 import { publishDatabase } from "./databaseTransfer.js";
 
 export const store = {
@@ -355,143 +355,36 @@ export const hydrateStore = function (snapshot) {
 
 export const save = async function () {
 	const modificationDate = new Date().toISOString();
+	const deletedTranslationWordIds = new Set(
+		Array.from(storeChanges.deleted.translations).map((key) => key.split(":")[0]),
+	);
+	const payload = {
+		languages: Object.entries(store.languages).map(([languageId, language]) => ({
+			language_id: languageId,
+			name: language.displayName,
+			modification_date: modificationDate,
+		})),
+		words: Object.entries(store.words).map(([wordId, word]) => ({
+			word: wordId,
+			traductions: word.translations || {},
+			date: modificationDate,
+		})),
+		families: Object.entries(store.families).map(([familyId, family]) => ({
+			word_family_id: familyId,
+			modification_date: modificationDate,
+			words: family.wordsKeys || [],
+		})),
+		toDelete: {
+			traductions: Array.from(deletedTranslationWordIds),
+			words: Array.from(storeChanges.deleted.words),
+			languages: Array.from(storeChanges.deleted.languages),
+			families: Array.from(storeChanges.deleted.families),
+		},
+	};
 
-	// Persist languages first so translation upserts always reference existing IDs.
-	for (const [languageId, language] of Object.entries(store.languages)) {
-		await addInTable(
-			"language",
-			{
-				language_id: languageId,
-				display_name: language.displayName,
-				modification_date: modificationDate,
-			},
-			"language_id",
-		);
-	}
-
-	for (const languageId of storeChanges.deleted.languages) {
-		await deleteFromTable("word_translation", {
-			where: "eq",
-			col: "language_id",
-			value: languageId,
-		});
-		await deleteFromTable("language", {
-			where: "eq",
-			col: "language_id",
-			value: languageId,
-		});
-	}
-
-	// Persist words metadata; translations are persisted through translation deltas.
-	for (const [wordId, word] of Object.entries(store.words)) {
-		await addInTable(
-			"words",
-			{
-				word_id: wordId,
-				display_name: word.displayName,
-				modification_date: modificationDate,
-			},
-			"word_id",
-		);
-	}
-
-	// Translation persistence is now delta-based and driven by storeChanges.translations.
-	for (const translationKey of storeChanges.deleted.translations) {
-		const [wordId, languageId] = translationKey.split(":");
-		await deleteFromTable(
-			"word_translation",
-			{ where: "eq", col: "word_id", value: wordId },
-			{ where: "eq", col: "language_id", value: languageId },
-		);
-	}
-
-	const translationUpsertKeys = new Set([
-		...storeChanges.created.translations,
-		...storeChanges.modified.translations,
-	]);
-
-	for (const translationKey of translationUpsertKeys) {
-		const [wordId, languageId] = translationKey.split(":");
-		const translationValue = store.words[wordId]?.translations?.[languageId];
-		if (translationValue === undefined) {
-			await deleteFromTable(
-				"word_translation",
-				{ where: "eq", col: "word_id", value: wordId },
-				{ where: "eq", col: "language_id", value: languageId },
-			);
-			continue;
-		}
-		await addInTable(
-			"word_translation",
-			{
-				word_id: wordId,
-				language_id: languageId,
-				value: translationValue,
-			},
-			"word_id, language_id",
-		);
-	}
-
-	for (const wordId of storeChanges.deleted.words) {
-		await deleteFromTable("word_family_association", {
-			where: "eq",
-			col: "word_id",
-			value: wordId,
-		});
-		await deleteFromTable("word_translation", {
-			where: "eq",
-			col: "word_id",
-			value: wordId,
-		});
-		await deleteFromTable("words", {
-			where: "eq",
-			col: "word_id",
-			value: wordId,
-		});
-	}
-
-	// Persist families and fully sync associations.
-	for (const [familyId, family] of Object.entries(store.families)) {
-		await addInTable(
-			"word_family",
-			{
-				word_family_id: familyId,
-				display_name: family.displayName,
-				modification_date: modificationDate,
-			},
-			"word_family_id",
-		);
-
-		await deleteFromTable("word_family_association", {
-			where: "eq",
-			col: "word_family_id",
-			value: familyId,
-		});
-
-		// Full replacement avoids drift between stored links and current family.wordsKeys.
-		for (const wordId of family.wordsKeys) {
-			await addInTable(
-				"word_family_association",
-				{
-					word_id: wordId,
-					word_family_id: familyId,
-				},
-				"word_id, word_family_id",
-			);
-		}
-	}
-
-	for (const familyId of storeChanges.deleted.families) {
-		await deleteFromTable("word_family_association", {
-			where: "eq",
-			col: "word_family_id",
-			value: familyId,
-		});
-		await deleteFromTable("word_family", {
-			where: "eq",
-			col: "word_family_id",
-			value: familyId,
-		});
+	const { error } = await supabase.functions.invoke("admin-save", { body: payload });
+	if (error) {
+		throw error;
 	}
 
 	clearStoreChanges();

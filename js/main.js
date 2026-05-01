@@ -1,7 +1,7 @@
 import { updateLanguages } from "./tabs/languageTab.js";
 import { updateWords } from "./tabs/wordTab.js";
 import { updateFamilies } from "./tabs/familyTab.js";
-import { fetchFromTable } from "./SupabaseManager.js";
+import { supabase } from "./SupabaseManager.js";
 import { updateBtns } from "./ui/AccordionView.js";
 import "./saveManager.js";
 import {
@@ -21,15 +21,18 @@ const allTabs = document.querySelectorAll(".tab-panel");
 
 //#endregion
 
-// Fetch data from Supabase and update the state
+// Fetch bootstrap data via business endpoint and update state
 async function fetchData() {
-	const [languages, words, translations, families, associations] = await Promise.all([
-		fetchFromTable("language"),
-		fetchFromTable("words"),
-		fetchFromTable("word_translation"),
-		fetchFromTable("word_family"),
-		fetchFromTable("word_family_association"),
-	]);
+	const { data, error } = await supabase.functions.invoke("admin-bootstrap");
+	if (error) {
+		throw error;
+	}
+
+	const languages = data?.languages ?? [];
+	const words = data?.words ?? [];
+	const translations = data?.translations ?? [];
+	const families = data?.families ?? [];
+	const associations = data?.familyAssociations ?? [];
 
 	const snapshot = {
 		languages: {},
@@ -40,14 +43,14 @@ async function fetchData() {
 	languages.forEach((languageData) => {
 		const languageId = languageData.language_id;
 		snapshot.languages[languageId] = {
-			displayName: languageData.display_name || languageId,
+			displayName: languageData.display_name || languageData.name || languageId,
 		};
 	});
 
 	words.forEach((wordData) => {
 		const wordId = wordData.word_id;
 		snapshot.words[wordId] = {
-			displayName: wordData.display_name || wordId,
+			displayName: wordData.display_name || wordData.word || wordId,
 			translations: {},
 		};
 	});
@@ -64,7 +67,7 @@ async function fetchData() {
 	families.forEach((familyData) => {
 		const familyId = familyData.word_family_id;
 		snapshot.families[familyId] = {
-			displayName: familyData.display_name || familyId,
+			displayName: familyData.display_name || familyData.name || familyId,
 			wordsKeys: [],
 		};
 	});

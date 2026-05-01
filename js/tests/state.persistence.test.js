@@ -10,19 +10,20 @@ vi.mock("../ui/saveBtn.js", () => ({
 }));
 
 const {
-	addInTableMock,
-	deleteFromTableMock,
+	invokeMock,
 	publishDatabaseMock,
 } = vi.hoisted(() => ({
 	// Hoisted mocks are required because vi.mock factories are evaluated before imports.
-	addInTableMock: vi.fn(async () => {}),
-	deleteFromTableMock: vi.fn(async () => {}),
+	invokeMock: vi.fn(async () => ({ error: null })),
 	publishDatabaseMock: vi.fn(async () => {}),
 }));
 
 vi.mock("../SupabaseManager.js", () => ({
-	addInTable: addInTableMock,
-	deleteFromTable: deleteFromTableMock,
+	supabase: {
+		functions: {
+			invoke: invokeMock,
+		},
+	},
 }));
 
 vi.mock("../databaseTransfer.js", () => ({
@@ -60,53 +61,44 @@ beforeEach(() => {
 });
 
 describe("state persistence integration", () => {
-	it("persists current store shape across all Supabase tables", async () => {
+	it("delegates persistence to admin-save with business payload", async () => {
 		const languageId = addLanguage("Francais");
 		const wordId = addWord("chat");
 		addTranslation(wordId, languageId, "chat");
 		const familyId = addFamily("Animaux");
 		addWordToFamily(wordId, familyId);
 
-		await save(); // Integration-oriented assertion: the state module drives all table writes.
+		await save();
 
-		expect(addInTableMock).toHaveBeenCalledWith(
-			"language",
+		expect(invokeMock).toHaveBeenCalledWith(
+			"admin-save",
 			expect.objectContaining({
-				language_id: languageId,
-				display_name: "Francais",
+				body: expect.objectContaining({
+					languages: expect.arrayContaining([
+						expect.objectContaining({
+							language_id: languageId,
+							name: "Francais",
+						}),
+					]),
+					words: expect.arrayContaining([
+						expect.objectContaining({
+							word: wordId,
+							traductions: expect.objectContaining({ [languageId]: "chat" }),
+						}),
+					]),
+					families: expect.arrayContaining([
+						expect.objectContaining({
+							word_family_id: familyId,
+							words: [wordId],
+						}),
+					]),
+					toDelete: expect.any(Object),
+				}),
 			}),
-			"language_id",
-		);
-		expect(addInTableMock).toHaveBeenCalledWith(
-			"words",
-			expect.objectContaining({ word_id: wordId, display_name: "chat" }),
-			"word_id",
-		);
-		expect(addInTableMock).toHaveBeenCalledWith(
-			"word_translation",
-			expect.objectContaining({
-				word_id: wordId,
-				language_id: languageId,
-				value: "chat",
-			}),
-			"word_id, language_id",
-		);
-		expect(addInTableMock).toHaveBeenCalledWith(
-			"word_family",
-			expect.objectContaining({ word_family_id: familyId, display_name: "Animaux" }),
-			"word_family_id",
-		);
-		expect(addInTableMock).toHaveBeenCalledWith(
-			"word_family_association",
-			{
-				word_id: wordId,
-				word_family_id: familyId,
-			},
-			"word_id, word_family_id",
 		);
 	});
 
-	it("applies deletions for removed language/word/family entities", async () => {
+	it("sends deleted entities through toDelete payload", async () => {
 		hydrateStore({
 			languages: { language_existing: { displayName: "FR" } },
 			words: {
@@ -127,19 +119,19 @@ describe("state persistence integration", () => {
 		deleteWord("word_existing");
 		removeFamily("family_existing");
 
-		await save(); // Deletions are verified through expected table-level delete calls.
+		await save();
 
-		expect(deleteFromTableMock).toHaveBeenCalledWith(
-			"language",
-			expect.objectContaining({ col: "language_id", value: "language_existing" }),
-		);
-		expect(deleteFromTableMock).toHaveBeenCalledWith(
-			"words",
-			expect.objectContaining({ col: "word_id", value: "word_existing" }),
-		);
-		expect(deleteFromTableMock).toHaveBeenCalledWith(
-			"word_family",
-			expect.objectContaining({ col: "word_family_id", value: "family_existing" }),
+		expect(invokeMock).toHaveBeenCalledWith(
+			"admin-save",
+			expect.objectContaining({
+				body: expect.objectContaining({
+					toDelete: expect.objectContaining({
+						languages: expect.arrayContaining(["language_existing"]),
+						words: expect.arrayContaining(["word_existing"]),
+						families: expect.arrayContaining(["family_existing"]),
+					}),
+				}),
+			}),
 		);
 	});
 
@@ -167,23 +159,32 @@ describe("state persistence integration", () => {
 		addTranslation(wordId, languageId, "chaton");
 		await save();
 
-		expect(addInTableMock).toHaveBeenCalledWith(
-			"word_translation",
+		expect(invokeMock).toHaveBeenLastCalledWith(
+			"admin-save",
 			expect.objectContaining({
-				word_id: wordId,
-				language_id: languageId,
-				value: "chaton",
+				body: expect.objectContaining({
+					words: expect.arrayContaining([
+						expect.objectContaining({
+							word: wordId,
+							traductions: expect.objectContaining({ [languageId]: "chaton" }),
+						}),
+					]),
+				}),
 			}),
-			"word_id, language_id",
 		);
 
 		removeTranslation(wordId, languageId);
 		await save();
 
-		expect(deleteFromTableMock).toHaveBeenCalledWith(
-			"word_translation",
-			expect.objectContaining({ col: "word_id", value: wordId }),
-			expect.objectContaining({ col: "language_id", value: languageId }),
+		expect(invokeMock).toHaveBeenLastCalledWith(
+			"admin-save",
+			expect.objectContaining({
+				body: expect.objectContaining({
+					toDelete: expect.objectContaining({
+						traductions: expect.arrayContaining([wordId]),
+					}),
+				}),
+			}),
 		);
 	});
 
@@ -200,10 +201,15 @@ describe("state persistence integration", () => {
 
 		await save();
 
-		expect(deleteFromTableMock).toHaveBeenCalledWith(
-			"word_translation",
-			expect.objectContaining({ col: "word_id", value: wordId }),
-			expect.objectContaining({ col: "language_id", value: frenchId }),
+		expect(invokeMock).toHaveBeenLastCalledWith(
+			"admin-save",
+			expect.objectContaining({
+				body: expect.objectContaining({
+					toDelete: expect.objectContaining({
+						traductions: expect.arrayContaining([wordId]),
+					}),
+				}),
+			}),
 		);
 	});
 
@@ -218,11 +224,22 @@ describe("state persistence integration", () => {
 
 		await save();
 
-		expect(deleteFromTableMock).toHaveBeenCalledWith(
-			"word_translation",
-			expect.objectContaining({ col: "word_id", value: wordId }),
-			expect.objectContaining({ col: "language_id", value: languageId }),
+		expect(invokeMock).toHaveBeenLastCalledWith(
+			"admin-save",
+			expect.objectContaining({
+				body: expect.objectContaining({
+					toDelete: expect.objectContaining({
+						traductions: expect.arrayContaining([wordId]),
+					}),
+				}),
+			}),
 		);
+	});
+
+	it("propagates admin-save errors", async () => {
+		addLanguage("Francais");
+		invokeMock.mockResolvedValueOnce({ error: new Error("save failed") });
+		await expect(save()).rejects.toThrow("save failed");
 	});
 
 	it("delegates publish() to databaseTransfer", async () => {
