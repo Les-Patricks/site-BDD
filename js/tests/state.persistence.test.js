@@ -14,7 +14,7 @@ const {
 	publishDatabaseMock,
 } = vi.hoisted(() => ({
 	// Hoisted mocks are required because vi.mock factories are evaluated before imports.
-	invokeMock: vi.fn(async () => ({ error: null })),
+	invokeMock: vi.fn(async () => ({ data: { ok: true, code: "SAVE_OK" }, error: null })),
 	publishDatabaseMock: vi.fn(async () => {}),
 }));
 
@@ -240,6 +240,19 @@ describe("state persistence integration", () => {
 		addLanguage("Francais");
 		invokeMock.mockResolvedValueOnce({ error: new Error("save failed") });
 		await expect(save()).rejects.toThrow("save failed");
+	});
+
+	it("propagates explicit admin-save failure status", async () => {
+		addLanguage("Francais");
+		invokeMock.mockResolvedValueOnce({
+			data: {
+				ok: false,
+				code: "ATOMIC_WORD_SAVE_FAILED",
+				message: "atomic rollback test",
+			},
+			error: null,
+		});
+		await expect(save()).rejects.toThrow("atomic rollback test");
 	});
 
 	it("delegates publish() to databaseTransfer", async () => {

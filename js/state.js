@@ -366,11 +366,13 @@ export const save = async function () {
 		})),
 		words: Object.entries(store.words).map(([wordId, word]) => ({
 			word: wordId,
+			display_name: word.displayName,
 			traductions: word.translations || {},
 			date: modificationDate,
 		})),
 		families: Object.entries(store.families).map(([familyId, family]) => ({
 			word_family_id: familyId,
+			display_name: family.displayName,
 			modification_date: modificationDate,
 			words: family.wordsKeys || [],
 		})),
@@ -382,9 +384,14 @@ export const save = async function () {
 		},
 	};
 
-	const { error } = await supabase.functions.invoke("admin-save", { body: payload });
+	const { data, error } = await supabase.functions.invoke("admin-save", {
+		body: payload,
+	});
 	if (error) {
 		throw error;
+	}
+	if (!data?.ok) {
+		throw new Error(data?.message || "admin-save failed");
 	}
 
 	clearStoreChanges();

@@ -11,6 +11,7 @@ Tables lues/ecrites par le backoffice:
 
 - `words`
   - `word_id` (PK)
+  - `display_name`
   - `modification_date`
 
 - `word_translation`
@@ -21,6 +22,7 @@ Tables lues/ecrites par le backoffice:
 
 - `word_family`
   - `word_family_id` (PK)
+  - `display_name`
   - `modification_date`
 
 - `word_family_association`
