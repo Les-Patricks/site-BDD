@@ -48,7 +48,7 @@ npm run test
 
 - `npm run test`: execute les tests unitaires avec couverture
 - `npm run test:watch`: mode watch Vitest
-- `npm run deploy:publish`: deploy de la fonction Supabase `publish-to-firebase`
+- `npm run deploy:publish` : deploie la fonction Supabase `publish-to-firebase` (idem `deploy:admin-save`, `deploy:admin-bootstrap`). Ces endpoints exigent un JWT utilisateur valide cote appelant ; voir `docs/SETUP.md` section Supabase Edge Functions.
 
 ## Etat du code
 

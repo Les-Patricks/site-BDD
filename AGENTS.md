@@ -17,7 +17,7 @@ Maintain and evolve the Bluffers backoffice safely:
 - Local state: `js/state.js`
 - Save flow: `js/saveManager.js`
 - Publish trigger: `js/publish.js`, `js/databaseTransfer.js`
-- Supabase Edge Function: `supabase/functions/publish-to-firebase/index.ts`
+- Supabase Edge Functions: `supabase/functions/admin-bootstrap/`, `admin-save/`, `publish-to-firebase/`
 - Firebase Function: `functions/index.js`
 
 ## Critical constraints
@@ -25,6 +25,7 @@ Maintain and evolve the Bluffers backoffice safely:
 1. `js/state.js` currently contains mixed paradigms (legacy + newer store model).
 2. `js/saveManager.js` still references legacy symbols.
 3. Tests partially target legacy API.
+4. Edge Functions above are deployed **with JWT verification** (no `--no-verify-jwt` in `deploy:*` scripts). Use `supabase.functions.invoke` only with an authenticated user session, or pass a valid user `Authorization` bearer for non-browser callers. See `docs/SETUP.md`.
 
 Before deep edits:
 - read `docs/KNOWN_ISSUES.md`
