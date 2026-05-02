@@ -4,6 +4,7 @@ import { updateFamilies } from "./tabs/familyTab.js";
 import { supabase } from "./SupabaseManager.js";
 import { updateBtns } from "./ui/AccordionView.js";
 import "./saveManager.js";
+import { displayPublishBtn, hidePublishBtn } from "./publish.js";
 import {
 	hydrateStore,
 } from "./state.js";
@@ -33,6 +34,7 @@ async function fetchData() {
 	const translations = data?.translations ?? [];
 	const families = data?.families ?? [];
 	const associations = data?.familyAssociations ?? [];
+	const publishPending = data?.publishPending ?? data?.publish_pending ?? false;
 
 	const snapshot = {
 		languages: {},
@@ -87,9 +89,15 @@ async function fetchData() {
 	});
 
 	hydrateStore(snapshot);
+	return publishPending;
 }
 
-await fetchData();
+const publishPending = await fetchData();
+if (publishPending) {
+	displayPublishBtn();
+} else {
+	hidePublishBtn();
+}
 
 const allBtns = document.querySelectorAll(".tab__button");
 

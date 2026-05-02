@@ -89,7 +89,7 @@ const buildCorsHeaders = (origin: string | null) => {
 };
 
 const applySave = async (payload: SavePayload): Promise<SaveResponse> => {
-	const { error } = await supabase.rpc("admin_save_global_atomic", {
+	const { error } = await supabase.rpc("admin_save_and_mark_pending", {
 		p_payload: payload,
 	});
 	if (error) {
@@ -99,7 +99,6 @@ const applySave = async (payload: SavePayload): Promise<SaveResponse> => {
 			message: error.message,
 		};
 	}
-
 	return { ok: true, code: "SAVE_OK" };
 };
 

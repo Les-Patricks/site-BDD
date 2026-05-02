@@ -15,7 +15,11 @@ Apres connexion, chaque `supabase.functions.invoke` vers `admin-bootstrap`, `adm
 
 `js/main.js`:
 - lit `language`, `words`, `word_translation`, `word_family`, `word_family_association`
+- lit aussi l'etat global `publish_pending` (source: `public.admin_state`, cle `id='global'`) via `admin-bootstrap`
 - hydrate l'etat local via les fonctions de `state.js`
+- pilote la visibilite de `Publish`:
+  - `publish_pending=true` => bouton visible
+  - `publish_pending=false` => bouton masque
 - active la tab Families par defaut
 
 ## 3) Edition locale
@@ -32,7 +36,9 @@ Les tabs (`js/tabs/*.js`) rendent l'etat courant et deleguent les actions a `sta
 `js/saveManager.js`:
 - ecoute le clic sur `#saveBtn`
 - appelle `save()` de `state.js`, qui invoque l'Edge Function `admin-save`
-- `admin-save` orchestre la persistence et applique l'ecriture atomique globale (`languages`, `words`, `word_translation`, `word_family`, `word_family_association`, suppressions)
+- `admin-save` appelle le RPC `public.admin_save_and_mark_pending(jsonb)` qui, dans un meme flux SQL:
+  - applique l'ecriture atomique globale (`languages`, `words`, `word_translation`, `word_family`, `word_family_association`, suppressions)
+  - met `publish_pending=true`
 - affiche ensuite le bouton Publish
 
 ## 5) Publish vers Firebase
@@ -43,10 +49,19 @@ Les tabs (`js/tabs/*.js`) rendent l'etat courant et deleguent les actions a `sta
   - lit Supabase
   - reformate les donnees
   - appelle `https://us-central1-bluffers-74d8a.cloudfunctions.net/publishWords`
+  - si la publication Firebase reussit, appelle le RPC `public.admin_set_publish_pending(false)`
 - `functions/index.js`:
   - valide le bearer token (`SECRET_TOKEN`)
   - purge Firestore
   - reecrit `Words` et `WordFamilies`
+
+### Etat global de publication (`admin_state`)
+
+- La persistance de "publication en attente" est centralisee dans `public.admin_state`.
+- Ligne singleton attendue: `id='global'`.
+- Lecture via RPC `public.admin_get_publish_pending()`.
+- Ecriture via RPC `public.admin_save_and_mark_pending(jsonb)` (save + pending=true) et `public.admin_set_publish_pending(boolean)` (pending=false apres publish).
+- Aucun acces table direct depuis le code applicatif.
 
 ## 6) CI/CD — GitHub Actions et Firebase Hosting
 
