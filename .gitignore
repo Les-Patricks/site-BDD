@@ -488,6 +488,7 @@ secrets.json
 # Front HTML/CSS/JS vanilla
 .env.local
 .env.production
+js/supabase-config.js
 
 # Build and test artifacts
 coverage/
