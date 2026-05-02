@@ -36,7 +36,8 @@ Before deep edits:
 1. Change one vertical slice at a time (state + tab + save + tests).
 2. Run `npm run test`.
 3. **Merge sur branche protegee** (ex. `main`) : le check GitHub requis est en general le job **SonarCloud** du workflow `.github/workflows/sonar.yml` (tests Vitest + analyse Sonar / quality gate). Ne pas renommer ce job ni retirer `npm run test` sans mettre a jour la doc et le test de contrat `js/tests/ticket_06.sonar.workflow.contract.test.js`. Voir `docs/TESTING.md` (*Merge et branch protection*).
-4. If publish path touched, validate:
+4. **Firebase Hosting** : push `main` → canal `live`, push `dev` → canal `dev` (`.github/workflows/firebase-hosting-merge.yml`). Toute **nouvelle** origine `https://…` servie par Hosting pour le backoffice doit etre refletee dans **`allowedOrigins`** des Edge Functions (`admin-bootstrap`, `admin-save`, `publish-to-firebase`) puis redeployees. Voir `docs/WORKFLOWS.md` §6.
+5. If publish path touched, validate:
    - Edge function payload shape
    - Firebase function expected schema (`words`, `families`, `id`).
 

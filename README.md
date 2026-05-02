@@ -44,6 +44,14 @@ npm run test
 - Tests: Vitest
 - CI/CD: GitHub Actions + Firebase Hosting + SonarCloud
 
+## Deploiement (Firebase Hosting)
+
+- **Production** : push sur `main` deploie le canal Hosting **`live`** (URL habituelle `https://bluffers-backoffice.web.app` et domaine `firebaseapp.com` associe).
+- **Integration** : push sur `dev` deploie le canal nomme **`dev`** (URL du type `https://bluffers-backoffice--dev-*.web.app` ; voir sortie du workflow GitHub ou la console Firebase → Hosting → canaux).
+- **Previews** : chaque PR declenche un deploiement preview (`firebase-hosting-pull-request.yml`), URL ephemere par PR.
+
+Detail des workflows et CORS : `docs/WORKFLOWS.md` (section CI/CD).
+
 ## Scripts utiles
 
 - `npm run test`: execute les tests unitaires avec couverture

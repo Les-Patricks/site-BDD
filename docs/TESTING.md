@@ -25,6 +25,7 @@ Config: `vitest.config.js`
 - `js/tests/SupabaseManager.test.js`
 - `js/tests/ticket_04.jwt.contract.test.js` — scripts `deploy:*` sans `--no-verify-jwt`, chemins `functions.invoke` ; test distant optionnel `RUN_JWT_GATE_TEST=1` (attend **401** sans `Authorization` sur `publish-to-firebase`, `admin-save`, `admin-bootstrap` une fois JWT actif en runtime).
 - `js/tests/ticket_06.sonar.workflow.contract.test.js` — contrat `.github/workflows/sonar.yml` (job **SonarCloud**, declencheurs, ordre `npm run test` puis scan).
+- `js/tests/ticket_07.firebase.merge.workflow.contract.test.js` — contrat `.github/workflows/firebase-hosting-merge.yml` (push `main` / `dev`, canaux `live` et `dev`).
 
 ## Attention importante
 
@@ -54,6 +55,7 @@ Repartition:
 
 ## Qualite continue
 
+- **Deploiement Hosting** (independant de Sonar) : voir `docs/WORKFLOWS.md` §6 — push `main` → canal `live`, push `dev` → canal `dev` ; les previews PR utilisent un autre workflow.
 - SonarCloud lance sur push `main` et sur PR
 - Workflow: `.github/workflows/sonar.yml`
 - Job GitHub Actions: `sonarcloud` (nom du check sur la PR: **SonarCloud**)
