@@ -1,6 +1,7 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 // @ts-ignore -- URL import is resolved by Deno runtime in Supabase Edge Functions
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+import { isAllowedOrigin, resolveAllowedOrigin } from "../_shared/corsOrigins.ts";
 
 type DenoRuntime = {
 	env: { get: (name: string) => string | undefined };
@@ -78,20 +79,8 @@ if (!serviceKey) {
 }
 const supabase = createClient(supabaseUrl, serviceKey);
 
-const allowedOrigins = [
-	"https://bluffers-backoffice.web.app",
-	"https://bluffers-backoffice.firebaseapp.com",
-	"https://site-bdd-97h.pages.dev",
-	"http://127.0.0.1:5500",
-];
-
-const isAllowedOrigin = (origin: string | null) =>
-	origin !== null && allowedOrigins.includes(origin);
-
 const buildCorsHeaders = (origin: string | null) => {
-	const allowOrigin = origin && isAllowedOrigin(origin)
-		? origin
-		: "https://bluffers-backoffice.web.app";
+	const allowOrigin = resolveAllowedOrigin(origin);
 	return {
 		"Access-Control-Allow-Origin": allowOrigin,
 		"Access-Control-Allow-Headers":
