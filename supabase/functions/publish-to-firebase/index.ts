@@ -1,6 +1,7 @@
 // Setup type definitions for built-in Supabase Runtime APIs
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { fetchFromTable } from "./supabaseClient.ts";
+import { isAllowedOrigin, resolveAllowedOrigin } from "../_shared/corsOrigins.ts";
 
 console.log("Hello from Functions!");
 
@@ -59,19 +60,7 @@ function validatePublishPayload(payload: { words: unknown; families: unknown }) 
 
 Deno.serve(async (req) => {
 	const origin = req.headers.get("Origin");
-	const allowedOrigins = [
-		"https://bluffers-backoffice.web.app",
-		"https://bluffers-backoffice.firebaseapp.com",
-		"https://site-bdd-97h.pages.dev",
-		"http://127.0.0.1:5500",
-	];
-	const isAllowedOrigin = (value: string | null) =>
-		value !== null && allowedOrigins.includes(value);
-
-	const allowOrigin: string =
-		isAllowedOrigin(origin)
-		? origin!
-		: "https://bluffers-backoffice.web.app";
+	const allowOrigin: string = resolveAllowedOrigin(origin);
 
 	const corsHeaders = {
 		"Access-Control-Allow-Origin": allowOrigin,

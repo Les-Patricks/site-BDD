@@ -98,7 +98,7 @@ describe("Ticket 02 - Batterie RED (mini-spec)", () => {
 			const adminSaveSource = await readSource(
 				"supabase/functions/admin-save/index.ts",
 			);
-			expect(adminSaveSource).toContain("const isAllowedOrigin =");
+			expect(adminSaveSource).toContain("../_shared/corsOrigins.ts");
 		});
 
 		it("T-010 [CA-006] admin-bootstrap rejette explicitement les origins non autorisees", async () => {
@@ -113,7 +113,7 @@ describe("Ticket 02 - Batterie RED (mini-spec)", () => {
 			const adminBootstrapSource = await readSource(
 				"supabase/functions/admin-bootstrap/index.ts",
 			);
-			expect(adminBootstrapSource).toContain("const isAllowedOrigin =");
+			expect(adminBootstrapSource).toContain("../_shared/corsOrigins.ts");
 		});
 
 		it("T-039 [CA-006] admin-save gere explicitement la pre-requete OPTIONS", async () => {
@@ -338,7 +338,7 @@ describe("Ticket 02 - Batterie RED (mini-spec)", () => {
 			const publishFunctionSource = await readSource(
 				"supabase/functions/publish-to-firebase/index.ts",
 			);
-			expect(publishFunctionSource).toContain("const isAllowedOrigin =");
+			expect(publishFunctionSource).toContain("../_shared/corsOrigins.ts");
 		});
 
 		it("T-020 [CA-006] publish expose une erreur CORS au format JSON", async () => {

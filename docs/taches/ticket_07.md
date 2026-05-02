@@ -21,12 +21,12 @@
    - Second **projet** Firebase ou multi-site Hosting **supplementaire** (hors besoin : rester sur les canaux du meme site, **sauf** si la console Firebase ou la politique du projet impose un second site).
    - Renommer ou supprimer le check requis SonarCloud sans mettre a jour le contrat et `docs/TESTING.md`.
 7. **Definition de Termine** :
-   - [ ] Workflow(s) merge : **push `dev`** -> deploy Hosting canal **dev** ; **push `main`** -> deploy canal **live** (secrets / service account inchanges **sauf** besoin).
-   - [ ] URLs ou procedure pour retrouver l URL du canal `dev` documentee (console Firebase / sortie CI).
-   - [ ] Comportement **Deploy to Firebase Hosting on PR** documente (preview).
-   - [ ] `README.md` et `docs/WORKFLOWS.md` coherents entre eux et avec les YAML.
-   - [ ] `npm run test` vert, y compris contrats workflow si touches.
-   - [ ] Origines CORS Edge Functions a jour pour le canal Hosting `dev` (et redeploiement des trois fonctions).
+   - [x] Workflow(s) merge : **push `dev`** -> deploy Hosting canal **dev** ; **push `main`** -> deploy canal **live** (secrets / service account inchanges **sauf** besoin).
+   - [x] URLs ou procedure pour retrouver l URL du canal `dev` documentee (console Firebase / sortie CI).
+   - [x] Comportement **Deploy to Firebase Hosting on PR** documente (preview).
+   - [x] `README.md` et `docs/WORKFLOWS.md` coherents entre eux et avec les YAML.
+   - [x] `npm run test` vert, y compris contrats workflow si touches.
+   - [x] Origines CORS Edge Functions a jour pour le canal Hosting `dev` (et redeploiement des trois fonctions).
 8. **Estimation** : S-M (deux declencheurs Hosting + CORS Edge + doc + eventuel test contrat Firebase).
 
 Auto-controle :
