@@ -13,7 +13,7 @@ Maintain and evolve the Bluffers backoffice safely:
 
 - Front app entry: `index.html` and `js/main.js`
 - Auth page: `login.html` and `js/validation.js`
-- Data access: `js/SupabaseManager.js`
+- Data access: `js/SupabaseManager.js` (config: `js/supabase-config.js`, gitignored — copy from `js/supabase-config.example.js` or see `docs/SETUP.md`)
 - Local state: `js/state.js`
 - Save flow: `js/saveManager.js`
 - Publish trigger: `js/publish.js`, `js/databaseTransfer.js`

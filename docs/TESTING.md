@@ -13,6 +13,7 @@ npm run test:watch
 
 Config: `vitest.config.js`
 - alias CDN Supabase -> package npm pour les mocks
+- plugin `resolveId` : en tests, les imports de `js/supabase-config.js` sont rediriges vers `js/tests/supabase-config.stub.js` (le vrai fichier est gitignore et optionnel en local)
 - environnement `node`
 - couverture V8, sortie texte + lcov
 
