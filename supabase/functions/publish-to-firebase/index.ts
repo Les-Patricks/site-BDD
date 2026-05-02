@@ -1,6 +1,6 @@
 // Setup type definitions for built-in Supabase Runtime APIs
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
-import { fetchFromTable } from "./supabaseClient.ts";
+import { fetchFromTable, supabase } from "./supabaseClient.ts";
 import { isAllowedOrigin, resolveAllowedOrigin } from "../_shared/corsOrigins.ts";
 
 console.log("Hello from Functions!");
@@ -55,6 +55,15 @@ function validatePublishPayload(payload: { words: unknown; families: unknown }) 
 				"Invalid publish payload: family words entries must be strings",
 			);
 		}
+	}
+}
+
+async function markPublishSynced() {
+	const { error } = await supabase.rpc("admin_set_publish_pending", {
+		p_pending: false,
+	});
+	if (error) {
+		throw new Error(`Failed to mark publish synced: ${error.message}`);
 	}
 }
 
@@ -116,7 +125,7 @@ Deno.serve(async (req) => {
 		throw new Error("SECRET_TOKEN manquant dans les variables d'environnement");
 	}
 
-	await fetch(
+	const firebaseResponse = await fetch(
 		"https://us-central1-bluffers-74d8a.cloudfunctions.net/publishWords",
 		{
 			method: "POST",
@@ -136,8 +145,29 @@ Deno.serve(async (req) => {
 			),
 		},
 	);
+	if (!firebaseResponse.ok) {
+		throw new Error(
+			`publishWords failed with status ${firebaseResponse.status}`,
+		);
+	}
+	let publishPendingSynced = true;
+	try {
+		await markPublishSynced();
+	} catch (error) {
+		publishPendingSynced = false;
+		console.error(
+			"Publish succeeded but publish_pending sync failed:",
+			error instanceof Error ? error.message : String(error),
+		);
+	}
 
-	return new Response(JSON.stringify({ status: "publish triggered!" }), {
+	return new Response(
+		JSON.stringify({
+			status: "publish triggered!",
+			publishPendingSynced,
+		}),
+		{
 		headers: { ...corsHeaders, "Content-Type": "application/json" },
-	});
+		},
+	);
 });

@@ -1,27 +1,27 @@
 # Index des taches
 
-Cet index centralise les tickets de `docs/taches/` avec leur statut courant.
+Cet index centralise les tickets de `docs/taches/` et leurs documents associes.
 
-## Actif (a faire)
+## Tickets (vue rangee)
 
-1. `ticket_02.md` - Migrer le front vers une couche API metier
-2. `ticket_03.md` - Rendre atomique l'ecriture mot et traductions
-3. `ticket_04.md` - Reactiver la verification JWT stricte
-4. `ticket_05.md` - Sortir la configuration sensible du code client
-5. `ticket_06.md` - Verifier et verrouiller le quality gate CI avant merge
-6. `ticket_07.md` - Aligner la documentation de deploiement sur la branche reelle
+| Ticket | Statut | Mini-spec | Plan technique |
+| --- | --- | --- | --- |
+| `ticket_01/ticket.md` | historise | `ticket_01/mini_spec.md` | - |
+| `ticket_02/ticket.md` | historise | `ticket_02/mini_spec.md` | `ticket_02/plan_technique.md` |
+| `ticket_03/ticket.md` | historise | `ticket_03/mini_spec.md` | `ticket_03/plan_technique.md` |
+| `ticket_04/ticket.md` | historise | `ticket_04/mini_spec.md` | `ticket_04/plan_technique.md` |
+| `ticket_05/ticket.md` | historise | `ticket_05/mini_spec.md` | `ticket_05/plan_technique.md` |
+| `ticket_06/ticket.md` | historise | `ticket_06/mini_spec.md` | `ticket_06/plan_technique.md` |
+| `ticket_07/ticket.md` | historise | `ticket_07/mini_spec.md` | `ticket_07/plan_technique.md` |
+| `ticket_08/ticket.md` | actif | - | - |
+| `ticket_09/ticket.md` | actif | - | - |
 
-## Traite / historise
+## Gabarits
 
-- `ticket_01.md` - Finaliser la migration vers le store unifie (architecture cible)
+- `plan_technique_ticket_XX.md` : modele de plan technique.
 
-## Gabarits et documents de support
+## Regles de rangement
 
-- `mini_spec_ticket_01.md`
-- `plan_technique_ticket_XX.md`
-
-## Regle de mise a jour
-
-- Ajouter tout nouveau ticket actif dans la section **Actif (a faire)**.
-- Deplacer un ticket termine vers **Traite / historise** sans le supprimer.
-- Conserver l'ordre des tickets actifs selon la priorite d'implementation.
+- Un ticket = un dossier `ticket_XX/` contenant `ticket.md` et, si disponibles, `mini_spec.md` et `plan_technique.md`.
+- Un ticket actif reste dans ce tableau avec statut `actif`.
+- Quand le ticket est termine, passer son statut a `historise` sans supprimer les fichiers.

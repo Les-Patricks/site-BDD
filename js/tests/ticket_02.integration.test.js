@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const invokeMock = vi.fn();
 const displayPublishBtnMock = vi.fn();
+const hidePublishBtnMock = vi.fn();
 const updateLanguagesMock = vi.fn();
 const updateWordsMock = vi.fn();
 const updateFamiliesMock = vi.fn();
@@ -19,7 +20,7 @@ vi.mock("../SupabaseManager.js", () => ({
 
 vi.mock("../publish.js", () => ({
 	displayPublishBtn: displayPublishBtnMock,
-	hidePublishBtn: vi.fn(),
+	hidePublishBtn: hidePublishBtnMock,
 }));
 
 vi.mock("../tabs/languageTab.js", () => ({ updateLanguages: updateLanguagesMock }));
@@ -165,5 +166,62 @@ describe("Ticket 02 - Integration contracts", () => {
 				families: expect.any(Object),
 			}),
 		);
+	});
+
+	it("T-080 [CA-802] main affiche Publish si publish_pending=true", async () => {
+		invokeMock.mockResolvedValue({
+			error: null,
+			data: {
+				languages: [],
+				words: [],
+				translations: [],
+				families: [],
+				familyAssociations: [],
+				publish_pending: true,
+			},
+		});
+
+		await import("../main.js");
+
+		expect(displayPublishBtnMock).toHaveBeenCalledTimes(1);
+		expect(hidePublishBtnMock).not.toHaveBeenCalled();
+	});
+
+	it("T-081 [CA-803] main masque Publish si publish_pending=false", async () => {
+		invokeMock.mockResolvedValue({
+			error: null,
+			data: {
+				languages: [],
+				words: [],
+				translations: [],
+				families: [],
+				familyAssociations: [],
+				publish_pending: false,
+			},
+		});
+
+		await import("../main.js");
+
+		expect(hidePublishBtnMock).toHaveBeenCalledTimes(1);
+		expect(displayPublishBtnMock).not.toHaveBeenCalled();
+	});
+
+	it("T-082 [robustesse] main accepte aussi publishPending (camelCase)", async () => {
+		invokeMock.mockResolvedValue({
+			error: null,
+			data: {
+				languages: [],
+				words: [],
+				translations: [],
+				families: [],
+				familyAssociations: [],
+				publishPending: true,
+			},
+		});
+
+		await import("../main.js");
+
+		expect(displayPublishBtnMock).toHaveBeenCalledTimes(1);
+		expect(hidePublishBtnMock).not.toHaveBeenCalled();
 	});
 });

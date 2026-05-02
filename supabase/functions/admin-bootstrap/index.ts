@@ -33,6 +33,14 @@ const fetchTable = async (table: string) => {
 	return data ?? [];
 };
 
+const fetchPublishPending = async () => {
+	const { data, error } = await supabase.rpc("admin_get_publish_pending");
+	if (error) {
+		throw error;
+	}
+	return data ?? false;
+};
+
 Deno.serve(async (req) => {
 	const origin = req.headers.get("Origin");
 	const corsHeaders = buildCorsHeaders(origin);
@@ -46,13 +54,14 @@ Deno.serve(async (req) => {
 		});
 	}
 
-	const [languages, words, translations, families, familyAssociations] =
+	const [languages, words, translations, families, familyAssociations, publishPending] =
 		await Promise.all([
 			fetchTable("language"),
 			fetchTable("words"),
 			fetchTable("word_translation"),
 			fetchTable("word_family"),
 			fetchTable("word_family_association"),
+			fetchPublishPending(),
 		]);
 
 	return new Response(
@@ -62,6 +71,7 @@ Deno.serve(async (req) => {
 			translations,
 			families,
 			familyAssociations,
+			publishPending,
 		}),
 		{
 			headers: { ...corsHeaders, "Content-Type": "application/json" },
