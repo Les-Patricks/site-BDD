@@ -47,3 +47,18 @@ Les tabs (`js/tabs/*.js`) rendent l'etat courant et deleguent les actions a `sta
   - valide le bearer token (`SECRET_TOKEN`)
   - purge Firestore
   - reecrit `Words` et `WordFamilies`
+
+## 6) CI/CD — GitHub Actions et Firebase Hosting
+
+| Workflow | Declencheur | Effet |
+|----------|-------------|--------|
+| `.github/workflows/firebase-hosting-merge.yml` | `push` sur **`main`** | Deploie le site sur le canal Hosting **`live`** (production). |
+| Meme fichier | `push` sur **`dev`** | Deploie sur le canal nomme **`dev`** (integration ; URL stable une fois le canal cree). |
+| `.github/workflows/firebase-hosting-pull-request.yml` | `pull_request` (depot interne) | Preview Hosting (URL par PR). |
+| `.github/workflows/sonar.yml` | `push` sur `main`, et PR | Tests + analyse SonarCloud (quality gate). |
+
+Les etapes de build injectent `js/supabase-config.js` via `scripts/write-supabase-config.mjs` et les secrets `SUPABASE_URL` / `SUPABASE_ANON_KEY` en CI.
+
+### CORS (Edge Functions)
+
+Le front appele `admin-bootstrap`, `admin-save` et `publish-to-firebase` depuis l **origine** du navigateur (`Origin`). Chaque **nouvelle** URL Hosting (canal `dev`, preview PR, etc.) doit etre ajoutee dans le tableau **`allowedOrigins`** des trois fonctions sous `supabase/functions/`, puis les fonctions redeployees — sinon le navigateur bloque les requetes (`origin not allowed`). Les URLs `web.app` / `firebaseapp.com` de **production** sont deja listees ; apres le **premier** deploiement reussi sur le canal `dev`, copier l URL exacte depuis les logs du workflow ou Firebase Console et mettre a jour les trois fichiers de la meme facon.
