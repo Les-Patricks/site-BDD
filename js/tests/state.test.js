@@ -711,3 +711,10 @@ describe("cohérence globale — scénarios complexes", () => {
 		expect(languageKeys.has("fr")).toBe(true); // la langue reste
 	});
 });
+
+// TEMP: break CI for merge gate verification
+describe("TEMP: vérification du merge gate SonarCloud", () => {
+	it("TEMP: break CI for merge gate verification", () => {
+		expect(true).toBe(false);
+	});
+});
