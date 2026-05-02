@@ -7,6 +7,10 @@
 - En cas de succes, redirection vers `index.html`.
 - `index.html` verifie la session (`supabase.auth.getSession`) et renvoie vers `login.html` si absent.
 
+### Session et Edge Functions (JWT)
+
+Apres connexion, chaque `supabase.functions.invoke` vers `admin-bootstrap`, `admin-save` ou `publish-to-firebase` envoie automatiquement le **JWT de session** utilisateur. Ces endpoints sont deployes **avec verification JWT** cote Supabase (scripts `npm run deploy:*` sans `--no-verify-jwt` ; detail dans `docs/SETUP.md`). Un appel HTTP direct (curl, script) doit inclure `Authorization: Bearer <access_token>` obtenu via Supabase Auth.
+
 ## 2) Chargement initial
 
 `js/main.js`:

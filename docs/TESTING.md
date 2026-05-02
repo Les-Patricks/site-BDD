@@ -22,6 +22,7 @@ Config: `vitest.config.js`
 - `js/tests/state.unified.contract.test.js`
 - `js/tests/state.persistence.test.js`
 - `js/tests/SupabaseManager.test.js`
+- `js/tests/ticket_04.jwt.contract.test.js` — scripts `deploy:*` sans `--no-verify-jwt`, chemins `functions.invoke` ; test distant optionnel `RUN_JWT_GATE_TEST=1` (attend **401** sans `Authorization` sur `publish-to-firebase`, `admin-save`, `admin-bootstrap` une fois JWT actif en runtime).
 
 ## Attention importante
 

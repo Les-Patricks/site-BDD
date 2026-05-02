@@ -57,13 +57,21 @@ npm run lint
 npm run serve
 ```
 
-### Supabase Edge Function
+### Supabase Edge Functions
 
-Le repo contient `supabase/functions/publish-to-firebase/`.
-Le script racine:
+Fonctions dans `supabase/functions/` : `publish-to-firebase`, `admin-save`, `admin-bootstrap`.
+
+Scripts de deploiement (JWT verifie par la plateforme apres deploy — ne pas utiliser `--no-verify-jwt`) :
 
 ```bash
 npm run deploy:publish
+npm run deploy:admin-save
+npm run deploy:admin-bootstrap
 ```
 
-deploie cette fonction vers le projet Supabase configure.
+#### Authentification (JWT)
+
+Les invocations HTTP vers ces endpoints doivent inclure un JWT Supabase valide : en-tete `Authorization: Bearer <access_token>` (session utilisateur).
+
+- **Backoffice** : apres connexion, `supabase.functions.invoke(...)` envoie automatiquement le token de session. Les flux bootstrap, sauvegarde et publication supposent un utilisateur connecte.
+- **Appels externes** (curl, scripts, Postman) : obtenir un `access_token` via Supabase Auth puis l’envoyer dans `Authorization`. Sans JWT valide, la plateforme rejette la requete (erreur d’authentification) avant execution du handler.
