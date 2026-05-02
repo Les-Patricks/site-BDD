@@ -33,4 +33,4 @@ Deux couches de donnees:
 
 - PR: preview Firebase Hosting (`.github/workflows/firebase-hosting-pull-request.yml`) — avant deploy, ecriture de `js/supabase-config.js` depuis les secrets Actions `SUPABASE_URL` et `SUPABASE_ANON_KEY`
 - Main: deploy live Firebase Hosting (`.github/workflows/firebase-hosting-merge.yml`) — meme etape de configuration client
-- Qualite: SonarCloud + tests (`.github/workflows/sonar.yml`) — les tests Vitest n’exigent pas ce fichier (stub de config)
+- Qualite: SonarCloud + tests (`.github/workflows/sonar.yml`) — les tests Vitest n’exigent pas ce fichier (stub de config). Sur la branche protegee, le merge est en general bloque tant que le check requis **SonarCloud** (job complet : tests + scan / quality gate) est rouge ; configuration GitHub et procedure : `docs/TESTING.md` (*Merge et branch protection*).
