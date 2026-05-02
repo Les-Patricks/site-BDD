@@ -86,88 +86,110 @@ Deno.serve(async (req) => {
 			headers: { ...corsHeaders, "Content-Type": "application/json" },
 		});
 	}
-	const words = await fetchFromTable("words");
-	const families = await fetchFromTable("word_family");
-	const wordFamilyAssociations = await fetchFromTable(
-		"word_family_association",
-	);
-	const traduction = await fetchFromTable("word_translation");
-
-	const formattedFamilies: PublishFamily[] = [];
-	for (const family of families) {
-		const familyObject: PublishFamily = {
-			id: family.word_family_id,
-			words: [],
-		};
-		for (const { word_id, word_family_id } of wordFamilyAssociations) {
-			if (word_family_id === family.word_family_id) {
-				familyObject.words.push(word_id);
-			}
-		}
-		formattedFamilies.push(familyObject);
-	}
-
-	const formattedWords: PublishWord[] = [];
-	for (const word of words) {
-		const wordObject: PublishWord = {
-			id: word.word_id,
-		};
-		for (const trad of traduction) {
-			if (trad.word_id === word.word_id) {
-				wordObject[trad.language_id] = trad.value;
-			}
-		}
-		formattedWords.push(wordObject);
-	}
-
-	const SECRET_TOKEN = Deno.env.get("SECRET_TOKEN");
-	if (!SECRET_TOKEN) {
-		throw new Error("SECRET_TOKEN manquant dans les variables d'environnement");
-	}
-
-	const firebaseResponse = await fetch(
-		"https://us-central1-bluffers-74d8a.cloudfunctions.net/publishWords",
-		{
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `Bearer ${SECRET_TOKEN}`,
-			},
-			body: JSON.stringify(
-				(() => {
-					const payload = {
-						words: formattedWords,
-						families: formattedFamilies,
-					};
-					validatePublishPayload(payload);
-					return payload;
-				})(),
-			),
-		},
-	);
-	if (!firebaseResponse.ok) {
-		throw new Error(
-			`publishWords failed with status ${firebaseResponse.status}`,
-		);
-	}
-	let publishPendingSynced = true;
+	let stage = "init";
 	try {
-		await markPublishSynced();
+		stage = "fetch_supabase_rows";
+		const words = await fetchFromTable("words");
+		const families = await fetchFromTable("word_family");
+		const wordFamilyAssociations = await fetchFromTable(
+			"word_family_association",
+		);
+		const traduction = await fetchFromTable("word_translation");
+
+		stage = "format_payload";
+		const formattedFamilies: PublishFamily[] = [];
+		for (const family of families) {
+			const familyObject: PublishFamily = {
+				id: family.word_family_id,
+				words: [],
+			};
+			for (const { word_id, word_family_id } of wordFamilyAssociations) {
+				if (word_family_id === family.word_family_id) {
+					familyObject.words.push(word_id);
+				}
+			}
+			formattedFamilies.push(familyObject);
+		}
+
+		const formattedWords: PublishWord[] = [];
+		for (const word of words) {
+			const wordObject: PublishWord = {
+				id: word.word_id,
+			};
+			for (const trad of traduction) {
+				if (trad.word_id === word.word_id) {
+					wordObject[trad.language_id] = trad.value;
+				}
+			}
+			formattedWords.push(wordObject);
+		}
+
+		stage = "read_secret_token";
+		const SECRET_TOKEN = Deno.env.get("SECRET_TOKEN");
+		if (!SECRET_TOKEN) {
+			throw new Error("SECRET_TOKEN manquant dans les variables d'environnement");
+		}
+
+		stage = "call_firebase_publish";
+		const firebaseResponse = await fetch(
+			"https://publishwords-5jhqdozovq-od.a.run.app",
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${SECRET_TOKEN}`,
+				},
+				body: JSON.stringify(
+					(() => {
+						const payload = {
+							words: formattedWords,
+							families: formattedFamilies,
+						};
+						validatePublishPayload(payload);
+						return payload;
+					})(),
+				),
+			},
+		);
+		if (!firebaseResponse.ok) {
+			throw new Error(
+				`publishWords failed with status ${firebaseResponse.status}`,
+			);
+		}
+
+		stage = "sync_publish_pending_flag";
+		let publishPendingSynced = true;
+		try {
+			await markPublishSynced();
+		} catch (error) {
+			publishPendingSynced = false;
+			console.error(
+				"Publish succeeded but publish_pending sync failed:",
+				error instanceof Error ? error.message : String(error),
+			);
+		}
+
+		return new Response(
+			JSON.stringify({
+				status: "publish triggered!",
+				publishPendingSynced,
+			}),
+			{
+				headers: { ...corsHeaders, "Content-Type": "application/json" },
+			},
+		);
 	} catch (error) {
-		publishPendingSynced = false;
-		console.error(
-			"Publish succeeded but publish_pending sync failed:",
-			error instanceof Error ? error.message : String(error),
+		const message = error instanceof Error ? error.message : String(error);
+		console.error("publish-to-firebase failed", { stage, message });
+		return new Response(
+			JSON.stringify({
+				error: message,
+				stage,
+			}),
+			{
+				status: 500,
+				headers: { ...corsHeaders, "Content-Type": "application/json" },
+			},
 		);
 	}
-
-	return new Response(
-		JSON.stringify({
-			status: "publish triggered!",
-			publishPendingSynced,
-		}),
-		{
-		headers: { ...corsHeaders, "Content-Type": "application/json" },
-		},
-	);
 });

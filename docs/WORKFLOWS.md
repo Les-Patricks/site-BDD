@@ -48,12 +48,21 @@ Les tabs (`js/tabs/*.js`) rendent l'etat courant et deleguent les actions a `sta
 - `supabase/functions/publish-to-firebase/index.ts`:
   - lit Supabase
   - reformate les donnees
-  - appelle `https://us-central1-bluffers-74d8a.cloudfunctions.net/publishWords`
+  - appelle `https://publishwords-5jhqdozovq-od.a.run.app` (endpoint Firebase Cloud Run de `publishWords`)
   - si la publication Firebase reussit, appelle le RPC `public.admin_set_publish_pending(false)`
 - `functions/index.js`:
   - valide le bearer token (`SECRET_TOKEN`)
   - purge Firestore
   - reecrit `Words` et `WordFamilies`
+
+### Debug publish (erreurs detaillees)
+
+En cas d'erreur `publish`, `publish-to-firebase` retourne desormais un JSON:
+
+- `error`: message d'erreur technique
+- `stage`: etape du pipeline ou l'erreur est survenue (`fetch_supabase_rows`, `format_payload`, `read_secret_token`, `call_firebase_publish`, `sync_publish_pending_flag`)
+
+Le front (`js/databaseTransfer.js`) affiche ce detail dans l'alerte pour faciliter le diagnostic.
 
 ### Etat global de publication (`admin_state`)
 
