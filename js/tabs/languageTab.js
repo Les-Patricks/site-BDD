@@ -4,6 +4,7 @@ import {
 	getAllLanguages,
 	modifyLanguage,
 } from "../state.js";
+import { notify } from "../notify.js";
 import { createLanguageItem } from "../dom.js";
 
 import { bindTabAddSystem } from "../ui/tabAddSystem.js";
@@ -20,6 +21,9 @@ export const submitAddingLanguage = function () {
 		const languageId = addLanguage(value);
 		if (languageId) {
 			renderLanguage(languageId);
+			notify.success("Langue ajoutee.", { durationMs: 2500 });
+		} else {
+			notify.warning("Une langue avec ce nom existe deja.");
 		}
 	}
 };
@@ -35,10 +39,14 @@ const renderLanguage = function (languageId, modificationDate = Date.now()) {
 		new Date(modificationDate).toLocaleDateString(),
 		() => {
 			deleteLanguage(languageId);
+			notify.success("Langue supprimee.", { durationMs: 2500 });
 		},
 		(newName, done) => {
 			if (modifyLanguage(languageId, newName)) {
+				notify.success("Langue renommee.", { durationMs: 2500 });
 				done();
+			} else {
+				notify.warning("Ce nom est deja utilise par une autre langue.");
 			}
 		},
 	);

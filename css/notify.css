@@ -1,0 +1,71 @@
+/* Ticket 10 — toasts (BEM). Position : bas de l’ecran (decision produit). */
+
+.notify {
+	position: fixed;
+	bottom: 1rem;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: stretch;
+	gap: 0.5rem;
+	z-index: 10000;
+	max-width: min(90vw, 28rem);
+	width: max-content;
+	box-sizing: border-box;
+	pointer-events: none;
+}
+
+.notify__item {
+	pointer-events: auto;
+	display: flex;
+	align-items: flex-start;
+	gap: 0.5rem;
+	padding: 0.65rem 0.85rem;
+	border-radius: 6px;
+	font-size: 0.95rem;
+	line-height: 1.35;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.notify__message {
+	flex: 1;
+	min-width: 0;
+	word-break: break-word;
+}
+
+.notify__close {
+	flex-shrink: 0;
+	margin: -0.2rem -0.35rem -0.2rem 0;
+	padding: 0.15rem 0.45rem;
+	border: none;
+	border-radius: 4px;
+	background: transparent;
+	cursor: pointer;
+	font-size: 1.25rem;
+	line-height: 1;
+	opacity: 0.75;
+}
+
+.notify__close:hover,
+.notify__close:focus-visible {
+	opacity: 1;
+}
+
+.notify--success {
+	background: #e8f5e9;
+	color: #1b5e20;
+	border: 1px solid #a5d6a7;
+}
+
+.notify--warning {
+	background: #fff8e1;
+	color: #e65100;
+	border: 1px solid #ffcc80;
+}
+
+.notify--error {
+	background: #ffebee;
+	color: #b71c1c;
+	border: 1px solid #ef9a9a;
+}

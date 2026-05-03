@@ -1,7 +1,9 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const invokeMock = vi.fn();
-const alertMock = vi.fn();
+const notifySuccessMock = vi.fn();
+const notifyErrorMock = vi.fn();
+const notifyWarningMock = vi.fn();
 
 vi.mock("../SupabaseManager.js", () => ({
 	supabase: {
@@ -11,10 +13,19 @@ vi.mock("../SupabaseManager.js", () => ({
 	},
 }));
 
+vi.mock("../notify.js", () => ({
+	notify: {
+		success: notifySuccessMock,
+		error: notifyErrorMock,
+		warning: notifyWarningMock,
+		show: vi.fn(),
+	},
+}));
+
 describe("databaseTransfer.publishDatabase", () => {
 	beforeEach(() => {
 		vi.clearAllMocks();
-		vi.stubGlobal("alert", alertMock);
+		vi.resetModules();
 	});
 
 	it("throw en cas d'erreur publish-to-firebase", async () => {
@@ -24,7 +35,10 @@ describe("databaseTransfer.publishDatabase", () => {
 		const { publishDatabase } = await import("../databaseTransfer.js");
 
 		await expect(publishDatabase()).rejects.toThrow("boom");
-		expect(alertMock).toHaveBeenCalledWith("Error publishing database: boom");
+		expect(notifyErrorMock).toHaveBeenCalledTimes(1);
+		expect(notifyErrorMock).toHaveBeenCalledWith(
+			expect.stringMatching(/Echec de la publication.*boom/s),
+		);
 	});
 
 	it("retourne sans throw en cas de succes", async () => {
@@ -33,7 +47,10 @@ describe("databaseTransfer.publishDatabase", () => {
 		const { publishDatabase } = await import("../databaseTransfer.js");
 
 		await expect(publishDatabase()).resolves.toBeUndefined();
-		expect(alertMock).toHaveBeenCalledWith("Database published successfully!");
+		expect(notifySuccessMock).toHaveBeenCalledTimes(1);
+		expect(notifySuccessMock).toHaveBeenCalledWith(
+			expect.stringMatching(/Publication reussie/i),
+		);
 	});
 });
 

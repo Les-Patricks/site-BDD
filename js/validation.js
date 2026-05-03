@@ -1,4 +1,6 @@
 import { supabase } from "./SupabaseManager.js";
+import { notify } from "./notify.js";
+
 const form = document.getElementById("loginForm");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
@@ -8,7 +10,7 @@ form.addEventListener("submit", async function (event) {
 	event.preventDefault();
 	const errors = getErrors(emailInput.value, passwordInput.value);
 	if (errors.length > 0) {
-		errorMessage.textContent = errors.join(" ");
+		notify.warning(errors.join(" "));
 		return;
 	}
 
@@ -18,17 +20,11 @@ form.addEventListener("submit", async function (event) {
 	});
 
 	if (error) {
-		// Supabase dit non (Mauvais mot de passe ou email)
-		errorMessage.textContent = "Identifiants incorrects.";
-		errorMessage.style.color = "red";
+		notify.error("Identifiants incorrects.");
 		emailInput.parentElement.classList.add("incorrect");
 		passwordInput.parentElement.classList.add("incorrect");
 		console.error("Erreur de connexion:", error);
 	} else {
-		// Supabase dit OUI ! L'utilisateur est connecté !
-		// Facultatif : plus besoin du localStorage manuel, Supabase gère l'état de session tout seul !
-
-		// 2. On redirige vers l'index.html
 		globalThis.location.href = "index.html";
 	}
 });
@@ -36,11 +32,11 @@ form.addEventListener("submit", async function (event) {
 const getErrors = function (email, password) {
 	const errors = [];
 	if (!email || email.trim() === "") {
-		errors.push("Email is required.");
+		errors.push("L'email est requis.");
 		emailInput.parentElement.classList.add("incorrect");
 	}
 	if (!password || password.trim() === "") {
-		errors.push("Password is required.");
+		errors.push("Le mot de passe est requis.");
 		passwordInput.parentElement.classList.add("incorrect");
 	}
 	return errors;
@@ -49,6 +45,8 @@ const allInputs = [emailInput, passwordInput];
 allInputs.forEach((input) => {
 	input.addEventListener("input", function () {
 		input.parentElement.classList.remove("incorrect");
-		errorMessage.textContent = "";
+		if (errorMessage) {
+			errorMessage.textContent = "";
+		}
 	});
 });

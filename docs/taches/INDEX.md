@@ -15,6 +15,9 @@ Cet index centralise les tickets de `docs/taches/` et leurs documents associes.
 | `ticket_07/ticket.md` | historise | `ticket_07/mini_spec.md` | `ticket_07/plan_technique.md` |
 | `ticket_08/ticket.md` | actif | - | - |
 | `ticket_09/ticket.md` | actif | - | - |
+| `ticket_10/ticket.md` | historise | `ticket_10/mini_spec.md` | `ticket_10/plan_technique.md` |
+| `ticket_10_1/ticket.md` | historise | - | - |
+| `ticket_11/ticket.md` | actif | - | - |
 
 ## Gabarits
 

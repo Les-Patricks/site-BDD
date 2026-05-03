@@ -9,6 +9,7 @@ import {
 	getWord,
 	removeTranslation,
 } from "../state.js";
+import { notify } from "../notify.js";
 import { createTraductionItem } from "../dom.js";
 import { createAccordionElement } from "../components/accordion.js";
 import { bindTabAddSystem } from "../ui/tabAddSystem.js";
@@ -32,10 +33,14 @@ export const createWordElement = function (wordId, container, date = "") {
 		date,
 		() => {
 			deleteWord(currentWordId);
+			notify.success("Mot supprime.", { durationMs: 2500 });
 		},
 		(newName, done) => {
 			if (changeWord(currentWordId, newName)) {
+				notify.success("Mot renomme.", { durationMs: 2500 });
 				done();
+			} else {
+				notify.warning("Ce nom est deja utilise par un autre mot.");
 			}
 		},
 		null,
@@ -50,9 +55,11 @@ export const createWordElement = function (wordId, container, date = "") {
 			currentWord?.translations?.[languageId] ?? "",
 			() => {
 				removeTranslation(currentWordId, languageId);
+				notify.success("Traduction supprimee.", { durationMs: 2500 });
 			},
 			(newValue, done) => {
 				addTranslation(currentWordId, languageId, newValue);
+				notify.success("Traduction enregistree.", { durationMs: 2500 });
 				done();
 			},
 		);
@@ -76,6 +83,9 @@ export const submitAddingWord = function () {
 		const wordId = addWord(value);
 		if (wordId) {
 			renderWord(wordId);
+			notify.success("Mot ajoute.", { durationMs: 2500 });
+		} else {
+			notify.warning("Un mot avec ce nom existe deja.");
 		}
 	}
 };
