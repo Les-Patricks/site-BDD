@@ -14,9 +14,10 @@ Deux couches de donnees:
 - `login.html`: ecran de connexion Supabase
 - `js/main.js`: point d'entree, chargement initial des donnees et orchestration des tabs
 - `js/state.js`: etat local en memoire et operations CRUD/logique metier
-- `js/tabs/*`: rendu des sections Families / Words / Languages
+- `js/tabs/*`: rendu des sections Families / Words / Languages ; actions CRUD locales (ajout, renommage, suppression, traductions dans l’accordeon mot) declenchent aussi `notify` (ticket 10.1, voir `docs/NOTIFICATIONS.md`)
 - `js/SupabaseManager.js`: acces data Supabase (query helpers) ; URL et cle **anon** lues depuis `js/supabase-config.js` (non versionne ; copie de `js/supabase-config.example.js` en local, ou fichier genere en CI avant deploy Hosting — voir `docs/SETUP.md`)
 - `js/saveManager.js`: persistance des modifications vers Supabase
+- `js/notify.js` + `css/notify.css`: toasts non bloquants (save, publish, login, erreurs bootstrap) ; voir `docs/NOTIFICATIONS.md`
 - `js/publish.js` + `js/databaseTransfer.js`: publication de Supabase vers Firebase via Edge Function
 - `functions/index.js`: Cloud Function Firebase `publishWords` qui ecrit Firestore
 - `supabase/functions/publish-to-firebase/index.ts`: Edge Function qui lit Supabase et appelle Firebase Function

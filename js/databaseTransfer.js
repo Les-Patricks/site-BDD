@@ -1,4 +1,5 @@
 import { supabase } from "./SupabaseManager.js";
+import { notify } from "./notify.js";
 
 export const publishDatabase = async function () {
 	console.log("Publishing database...");
@@ -21,9 +22,9 @@ export const publishDatabase = async function () {
 				// Keep the original message when response body is not JSON.
 			}
 		}
-		alert("Error publishing database: " + detailedMessage);
+		notify.error("Echec de la publication : " + detailedMessage);
 		throw new Error(detailedMessage);
 	} else {
-		alert("Database published successfully!");
+		notify.success("Publication reussie.");
 	}
 };

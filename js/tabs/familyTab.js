@@ -11,6 +11,7 @@ import {
 	modifyFamily,
 	removeFamily,
 } from "../state.js";
+import { notify } from "../notify.js";
 import { bindTabAddSystem } from "../ui/tabAddSystem.js";
 import { createWordElement } from "./wordTab.js";
 
@@ -26,6 +27,9 @@ export const submitAddingFamily = function () {
 		const familyId = addFamily(value);
 		if (familyId) {
 			renderFamily(familyId, Date.now(), []);
+			notify.success("Famille ajoutee.", { durationMs: 2500 });
+		} else {
+			notify.warning("Une famille avec ce nom existe deja.");
 		}
 	}
 };
@@ -54,10 +58,14 @@ export const renderFamily = function (
 		new Date(modificationDate).toLocaleDateString(),
 		() => {
 			removeFamily(currentFamilyId);
+			notify.success("Famille supprimee.", { durationMs: 2500 });
 		},
 		(newName, done) => {
 			if (modifyFamily(currentFamilyId, newName)) {
+				notify.success("Famille renommee.", { durationMs: 2500 });
 				done();
+			} else {
+				notify.warning("Ce nom est deja utilise par une autre famille.");
 			}
 		},
 		(value, done) => {
@@ -68,8 +76,12 @@ export const renderFamily = function (
 			if (getWord(wordId)) {
 				addWordToFamily(wordId, currentFamilyId);
 				createWordElement(wordId, content);
+				notify.success("Mot associe a la famille.", { durationMs: 2500 });
 				done();
 			} else {
+				notify.warning(
+					"Impossible d'ajouter ce mot : nom deja utilise ou invalide.",
+				);
 				done();
 			}
 		},

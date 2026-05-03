@@ -17,6 +17,7 @@ Maintain and evolve the Bluffers backoffice safely:
 - Local state: `js/state.js`
 - Save flow: `js/saveManager.js`
 - Publish trigger: `js/publish.js`, `js/databaseTransfer.js`
+- Toasts / notifications UI: `js/notify.js`, `css/notify.css`, reference `docs/NOTIFICATIONS.md`
 - Supabase Edge Functions: `supabase/functions/admin-bootstrap/`, `admin-save/`, `publish-to-firebase/`
 - Firebase Function: `functions/index.js`
 

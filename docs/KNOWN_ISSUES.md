@@ -27,13 +27,14 @@ Les tests `state` sont alignes sur le contrat unifie (`js/tests/state.test.js`, 
 3. Mettre a jour les tests pour qu'ils decrivent ce modele unique
 4. Ajouter des tests d'integration pour le flux save/publish
 
-## Feedback UX a traiter plus tard
+## Feedback utilisateur (notifications)
 
-Statut: **a planifier**.
+Statut: **partiellement resolu**.
 
-Quand une action est refusee par les regles metier (ex: ajout de mot duplique, renommage vers un nom deja utilise), l'UI ne donne pas encore de feedback utilisateur explicite.
+- **Ticket 10** (historise) : flux critiques (save global, publish, login, echec bootstrap) passent par le module **`notify`** (`js/notify.js`) ; plus d’`alert` sur ce perimetre. Voir `docs/NOTIFICATIONS.md` et `docs/taches/ticket_10/strategie_notifications.md`.
 
-Amelioration attendue:
-- afficher un message clair a l'utilisateur (inline, toast, ou modal) quand une action est rejetee;
-- harmoniser le comportement sur les tabs languages/words/families;
-- couvrir ces retours UX avec des tests UI/integration.
+## Feedback UX sur les actions CRUD des onglets
+
+Statut: **partiellement resolu** (ticket **10.1** : `docs/taches/ticket_10_1/ticket.md`).
+
+Les **ajouts**, **renommages** (succes / conflit de nom) et **suppressions** via les formulaires et accordéons des onglets Mots / Familles / Langues (y compris lignes de traduction dans l’accordéon mot) declenchent des toasts `notify` (succes court `durationMs: 2500`, warning si doublon / impossible). Voir `docs/NOTIFICATIONS.md` § ticket 10.1.

@@ -5,6 +5,7 @@ import { supabase } from "./SupabaseManager.js";
 import { updateBtns } from "./ui/AccordionView.js";
 import "./saveManager.js";
 import { displayPublishBtn, hidePublishBtn } from "./publish.js";
+import { notify } from "./notify.js";
 import {
 	hydrateStore,
 } from "./state.js";
@@ -92,11 +93,64 @@ async function fetchData() {
 	return publishPending;
 }
 
-const publishPending = await fetchData();
-if (publishPending) {
-	displayPublishBtn();
-} else {
+let publishPending = false;
+let bootstrapOk = false;
+try {
+	publishPending = await fetchData();
+	bootstrapOk = true;
+} catch (err) {
+	const detail = err?.message ?? String(err);
+	notify.error(
+		`Impossible de charger les donnees.${detail ? ` (${detail})` : ""}`,
+	);
+
+	const banner = document.createElement("div");
+	banner.className = "bootstrap-error-banner";
+	banner.setAttribute("role", "alert");
+	const p = document.createElement("p");
+	p.className = "bootstrap-error-banner__text";
+	p.textContent =
+		"Les donnees n'ont pas pu etre chargees. Verifiez la connexion ou rechargez la page.";
+	banner.appendChild(p);
+	const reloadBtn = document.createElement("button");
+	reloadBtn.type = "button";
+	reloadBtn.className = "bootstrap-error-banner__reload";
+	reloadBtn.textContent = "Recharger la page";
+	reloadBtn.addEventListener("click", () => {
+		globalThis.location.reload();
+	});
+	banner.appendChild(reloadBtn);
+
+	const anchor = document.querySelector("h1");
+	if (anchor?.insertAdjacentElement) {
+		anchor.insertAdjacentElement("afterend", banner);
+	} else if (document.body) {
+		document.body.prepend(banner);
+	}
+
+	for (const id of [
+		"wordFamilyBtn",
+		"wordBtn",
+		"languagesBtn",
+		"saveBtn",
+		"publishBtn",
+		"confirmPublishBtn",
+		"cancelPublishBtn",
+	]) {
+		const el = document.getElementById(id);
+		if (el) {
+			el.disabled = true;
+		}
+	}
 	hidePublishBtn();
+}
+
+if (bootstrapOk) {
+	if (publishPending) {
+		displayPublishBtn();
+	} else {
+		hidePublishBtn();
+	}
 }
 
 const allBtns = document.querySelectorAll(".tab__button");
@@ -137,5 +191,7 @@ function openTab(currentTab) {
 	});
 }
 
-updateBtns();
-wordFamilyBtn.click();
+if (bootstrapOk) {
+	updateBtns();
+	wordFamilyBtn.click();
+}
