@@ -29,6 +29,7 @@ Config: `vitest.config.js`
 - `js/tests/ticket_10.notify.test.js` — module `js/notify.js` (durees, error persistant + bouton Fermer, pas d’`alert`). Reference comportementale : `docs/NOTIFICATIONS.md`.
 - `js/tests/ticket_10.saveManager.notify.test.js` — branchement `saveManager` → `notify` (succes 2,5 s, erreur).
 - `js/tests/ticket_10.main.bootstrap.test.js` — echec `admin-bootstrap` : `notify.error`, banniere, boutons desactives, pas d’hydratation ni premier clic onglet.
+- `js/tests/ticket_11.bootstrap.loading.red.test.js` — indicateur de chargement bootstrap : retrait du loader en succes/erreur, non-regression sur l'etat `Publish`, robustesse si `#bootstrapLoadingRoot` est absent.
 - `js/tests/ticket_10_1.tabAdd.notify.contract.test.js` — ticket 10.1 : appels `notify` dans les onglets (ajout, renommage, suppression) + contrat `durationMs: 2500` sur les succès courts (lecture source).
 
 ## Attention importante

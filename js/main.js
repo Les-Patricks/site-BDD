@@ -20,6 +20,15 @@ const wordFamilyTab = document.getElementById("wordFamilyTab");
 const wordTab = document.getElementById("wordTab");
 const languageTab = document.getElementById("languageTab");
 const allTabs = document.querySelectorAll(".tab-panel");
+const bootstrapLoadingRoot = document.getElementById("bootstrapLoadingRoot");
+
+function hideBootstrapLoading() {
+	if (!bootstrapLoadingRoot) {
+		return;
+	}
+	bootstrapLoadingRoot.classList.add("bootstrap-loading--hidden");
+	bootstrapLoadingRoot.setAttribute("aria-busy", "false");
+}
 
 //#endregion
 
@@ -98,7 +107,9 @@ let bootstrapOk = false;
 try {
 	publishPending = await fetchData();
 	bootstrapOk = true;
+	hideBootstrapLoading();
 } catch (err) {
+	hideBootstrapLoading();
 	const detail = err?.message ?? String(err);
 	notify.error(
 		`Impossible de charger les donnees.${detail ? ` (${detail})` : ""}`,
