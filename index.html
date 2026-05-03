@@ -38,6 +38,18 @@
 			checkAuth();
 		</script>
 		<h1>Bluffers</h1>
+		<div
+			id="bootstrapLoadingRoot"
+			class="bootstrap-loading"
+			role="status"
+			aria-live="polite"
+			aria-busy="true"
+		>
+			<div class="bootstrap-loading__content">
+				<div class="bootstrap-loading__spinner" aria-hidden="true"></div>
+				<p class="bootstrap-loading__text">Chargement des donnees...</p>
+			</div>
+		</div>
 		<!--
 			Tab navigation bar.
 			Each button is wired in main.js to call openTab(), which adds
