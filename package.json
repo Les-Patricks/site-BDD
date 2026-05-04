@@ -5,6 +5,7 @@
 	},
 	"devDependencies": {
 		"@vitest/coverage-v8": "^4.0.18",
+		"jsdom": "^26.1.0",
 		"vitest": "^4.0.18"
 	},
 	"scripts": {
