@@ -87,6 +87,7 @@ Repartition:
 - Workflow: `.github/workflows/sonar.yml`
 - Job GitHub Actions: `sonarcloud` (nom du check sur la PR: **SonarCloud**)
 - Etapes dans ce job: install dependances, `npm run test` (couverture), scan SonarCloud (quality gate et regles selon le projet SonarCloud)
+- Exclusions de couverture cote Sonar (`sonar.coverage.exclusions` dans `sonar-project.properties`) : gabarit `supabase-config.example.js` et stub Vitest `supabase-config.stub.js` ne comptent pas dans la couverture « new code ». Le rapport `npm run test` local peut encore les afficher a 0 %.
 
 ### Merge et branch protection (Ticket 06)
 
