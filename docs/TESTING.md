@@ -14,7 +14,7 @@ npm run test:watch
 Config: `vitest.config.js`
 - alias CDN Supabase -> package npm pour les mocks
 - plugin `resolveId` : en tests, les imports de `js/supabase-config.js` sont rediriges vers `js/tests/supabase-config.stub.js` (le vrai fichier est gitignore et optionnel en local)
-- environnement `node` par défaut ; un fichier peut forcer **jsdom** avec `/** @vitest-environment jsdom */` en tête (ex. `js/tests/ticket_13.tab-search.test.js`)
+- environnement `node` par défaut ; un fichier peut forcer **jsdom** avec `/** @vitest-environment jsdom */` en tête (ex. `ticket_13.tab-search.test.js`, `modal.test.js`, `dom.helpers.test.js`, `validation.dom.test.js`)
 - couverture V8, sortie texte + lcov
 
 ## Suites actuelles
@@ -32,6 +32,7 @@ Config: `vitest.config.js`
 - `js/tests/ticket_11.bootstrap.loading.red.test.js` — indicateur de chargement bootstrap : retrait du loader en succes/erreur, non-regression sur l'etat `Publish`, robustesse si `#bootstrapLoadingRoot` est absent.
 - `js/tests/ticket_10_1.tabAdd.notify.contract.test.js` — ticket 10.1 : appels `notify` dans les onglets (ajout, renommage, suppression) + contrat `durationMs: 2500` sur les succès courts (lecture source).
 - `js/tests/ticket_13.tab-search.test.js` — ticket 13 : filtre client-side des barres de recherche Mots / Familles (`computeFilterState`, libellé racine accordéon via `getRowSearchLabel`). Fichier en environnement **jsdom** (directive `@vitest-environment jsdom`).
+- `js/tests/tabAddSystem.test.js`, `saveBtn.test.js`, `customContextMenu.test.js`, `modal.test.js`, `dom.helpers.test.js`, `accordion.component.test.js` — **jsdom** : formulaires d’ajout d’onglet, bouton Save, menu contextuel, modales mot/famille, helpers `dom.js`, creation d’accordéon (chemins delete / onAdd). `loginValidation.test.js` / `validation.dom.test.js` : validation login.
 
 ## Verification manuelle (ticket 13 — recherche onglets)
 

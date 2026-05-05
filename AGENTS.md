@@ -12,13 +12,15 @@ Maintain and evolve the Bluffers backoffice safely:
 ## Repository map
 
 - Front app entry: `index.html` and `js/main.js`
-- Auth page: `login.html` and `js/validation.js`
+- Auth page: `login.html`, `js/validation.js` (DOM + Supabase sign-in), `js/loginValidation.js` (pure field rules; unit-tested without a browser)
 - Data access: `js/SupabaseManager.js` (config: `js/supabase-config.js`, gitignored — copy from `js/supabase-config.example.js` or see `docs/SETUP.md`)
 - Local state: `js/state.js`
 - Save flow: `js/saveManager.js`
 - Publish trigger: `js/publish.js`, `js/databaseTransfer.js`
 - Toasts / notifications UI: `js/notify.js`, `css/notify.css`, reference `docs/NOTIFICATIONS.md`
 - Tab search (Familles / Mots): `js/ui/tabSearch.js` (init in `js/main.js`; `refreshTabSearch` from `js/tabs/familyTab.js` and `js/tabs/wordTab.js` after list changes). Manual checklist: `docs/TESTING.md` (ticket 13).
+- Modals & context menu: `js/modal.js`, `js/ui/customContextMenu.js`; shared DOM helpers: `js/dom.js`; accordion list UI: `js/components/accordion.js`; tab inline add controls: `js/ui/tabAddSystem.js`; save button visibility: `js/ui/saveBtn.js`. Vitest **jsdom** coverage for these is listed under *Suites actuelles* in `docs/TESTING.md`.
+- Sonar coverage scope: `sonar-project.properties` sets `sonar.coverage.exclusions` for `supabase-config.example.js` and `supabase-config.stub.js` (template / test stub only). See `docs/TESTING.md` (*Qualite continue*).
 - Supabase Edge Functions: `supabase/functions/admin-bootstrap/`, `admin-save/`, `publish-to-firebase/`
 - Firebase Function: `functions/index.js`
 
