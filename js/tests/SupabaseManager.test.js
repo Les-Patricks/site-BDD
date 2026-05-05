@@ -38,6 +38,14 @@ import {
 	addInTable,
 	updateInTable,
 	deleteFromTable,
+	addLanguageInTable,
+	addLanguagesInTable,
+	addFamilyInTable,
+	addFamiliesInTable,
+	addWordInFamilyInTable,
+	addWordsInFamilyInTable,
+	addWordsInDataBase,
+	updateWordInTraduction,
 } from "../SupabaseManager.js";
 
 beforeEach(() => {
@@ -368,5 +376,111 @@ describe("updateInTable", () => {
 				{ where: "eq", col: "word_id", value: "Test" },
 			),
 		).rejects.toThrow("Update error");
+	});
+});
+
+// ─── Table upsert helpers (language / family / association / batch) ──
+
+describe("addLanguageInTable", () => {
+	it("upserts one language row", async () => {
+		await addLanguageInTable("lang1", "French", "2025-01-01");
+		expect(queryMock.upsert).toHaveBeenCalledWith(
+			[
+				{
+					language_id: "lang1",
+					name: "French",
+					modification_date: "2025-01-01",
+				},
+			],
+			{ onConflict: "language_id", ignoreDuplicates: false },
+		);
+	});
+});
+
+describe("addLanguagesInTable", () => {
+	it("maps tuples to upsert payload", async () => {
+		await addLanguagesInTable([
+			["a", "A", "d1"],
+			["b", "B", "d2"],
+		]);
+		expect(queryMock.upsert).toHaveBeenCalledWith(
+			[
+				{ language_id: "a", name: "A", modification_date: "d1" },
+				{ language_id: "b", name: "B", modification_date: "d2" },
+			],
+			{ onConflict: "language_id", ignoreDuplicates: false },
+		);
+	});
+});
+
+describe("addFamilyInTable", () => {
+	it("upserts one family id", async () => {
+		await addFamilyInTable("fam1");
+		expect(queryMock.upsert).toHaveBeenCalledWith(
+			[{ word_family_id: "fam1" }],
+			{ onConflict: "word_family_id", ignoreDuplicates: false },
+		);
+	});
+});
+
+describe("addFamiliesInTable", () => {
+	it("maps id list to upsert rows", async () => {
+		await addFamiliesInTable(["f1", "f2"]);
+		expect(queryMock.upsert).toHaveBeenCalledWith(
+			[{ word_family_id: "f1" }, { word_family_id: "f2" }],
+			{ onConflict: "word_family_id", ignoreDuplicates: false },
+		);
+	});
+});
+
+describe("addWordInFamilyInTable", () => {
+	it("upserts association row", async () => {
+		await addWordInFamilyInTable("w1", "f1");
+		expect(queryMock.upsert).toHaveBeenCalledWith(
+			[{ word_id: "w1", word_family_id: "f1" }],
+			{
+				onConflict: "word_id, word_family_id",
+				ignoreDuplicates: false,
+			},
+		);
+	});
+});
+
+describe("addWordsInFamilyInTable", () => {
+	it("maps word ids for one family", async () => {
+		await addWordsInFamilyInTable(["w1", "w2"], "f9");
+		expect(queryMock.upsert).toHaveBeenCalledWith(
+			[
+				{ word_id: "w1", word_family_id: "f9" },
+				{ word_id: "w2", word_family_id: "f9" },
+			],
+			{
+				onConflict: "word_id, word_family_id",
+				ignoreDuplicates: false,
+			},
+		);
+	});
+});
+
+describe("addWordsInDataBase", () => {
+	it("inserts word row then each translation", async () => {
+		await addWordsInDataBase([
+			{
+				word: "w1",
+				date: "d0",
+				traductions: { L1: "a", L2: "b" },
+			},
+		]);
+		expect(queryMock.upsert.mock.calls.length).toBeGreaterThanOrEqual(3);
+	});
+});
+
+describe("updateWordInTraduction", () => {
+	it("deletes old translations then inserts new ones", async () => {
+		await updateWordInTraduction("w1", [
+			{ language_id: "L1", value: "x" },
+		]);
+		expect(queryMock.delete).toHaveBeenCalled();
+		expect(queryMock.upsert).toHaveBeenCalled();
 	});
 });
