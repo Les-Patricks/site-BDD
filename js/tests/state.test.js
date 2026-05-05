@@ -23,11 +23,14 @@ import {
 	getAllFamilies,
 	getAllLanguages,
 	getAllWords,
+	getIdsByDisplayName,
 	getTranslationsForWord,
 	getWord,
+	getWordsInFamily,
 	hydrateStore,
 	modifyFamily,
 	modifyLanguage,
+	removeFamily,
 	removeWordFromFamily,
 	removeTranslation,
 	store,
@@ -111,6 +114,44 @@ describe("state unified api", () => {
 		expect(modifyFamily(secondFamilyId, "Animaux")).toBe(false);
 		expect(store.families[firstFamilyId].displayName).toBe("Animaux");
 		expect(store.families[secondFamilyId].displayName).toBe("Cuisine");
+	});
+
+	it("renames a family when the new displayName is free", () => {
+		const familyId = addFamily("Animaux");
+		expect(modifyFamily(familyId, "Nature")).toBe(true);
+		expect(store.families[familyId].displayName).toBe("Nature");
+		expect(storeChanges.modified.families.has(familyId)).toBe(true);
+	});
+
+	it("returns false when modifying an unknown family", () => {
+		expect(modifyFamily("family_missing", "X")).toBe(false);
+	});
+
+	it("removeFamily drops a newly created family from created set", () => {
+		const familyId = addFamily("Temp");
+		expect(storeChanges.created.families.has(familyId)).toBe(true);
+		removeFamily(familyId);
+		expect(store.families[familyId]).toBeUndefined();
+		expect(storeChanges.created.families.has(familyId)).toBe(false);
+	});
+
+	it("getIdsByDisplayName returns empty array for unknown store scope", () => {
+		expect(getIdsByDisplayName("not_a_scope", "x")).toEqual([]);
+	});
+
+	it("getWordsInFamily returns empty for missing family", () => {
+		expect(getWordsInFamily("missing_family")).toEqual([]);
+	});
+
+	it("getWordsInFamily omits stale word keys not present in store", () => {
+		hydrateStore({
+			languages: {},
+			words: {},
+			families: {
+				f1: { displayName: "Solo", wordsKeys: ["ghost_word_id"] },
+			},
+		});
+		expect(getWordsInFamily("f1")).toEqual([]);
 	});
 
 	it("cleans family links when deleting a word", () => {

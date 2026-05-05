@@ -43,13 +43,25 @@ const markDirty = function () {
 	}
 };
 
+let entityIdFallbackSeq = 0;
+
 const generateEntityId = function (prefix) {
 	// Use UUIDs in production to avoid collisions across fast consecutive writes.
-	if (globalThis.crypto?.randomUUID) {
-		return `${prefix}_${globalThis.crypto.randomUUID()}`;
+	const cryptoRef = globalThis.crypto;
+	if (typeof cryptoRef?.randomUUID === "function") {
+		return `${prefix}_${cryptoRef.randomUUID()}`;
 	}
-	// Fallback kept for environments where crypto.randomUUID is unavailable.
-	return `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+	if (typeof cryptoRef?.getRandomValues === "function") {
+		const bytes = new Uint8Array(16);
+		cryptoRef.getRandomValues(bytes);
+		const suffix = [...bytes]
+			.map((byte) => byte.toString(16).padStart(2, "0"))
+			.join("");
+		return `${prefix}_${suffix}`;
+	}
+	// Last resort: no Web Crypto (very old runtimes). Uniqueness via time + monotonic counter.
+	entityIdFallbackSeq += 1;
+	return `${prefix}_${Date.now()}_${entityIdFallbackSeq}`;
 };
 
 const createLanguageId = function () {
