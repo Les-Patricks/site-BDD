@@ -14,7 +14,7 @@ npm run test:watch
 Config: `vitest.config.js`
 - alias CDN Supabase -> package npm pour les mocks
 - plugin `resolveId` : en tests, les imports de `js/supabase-config.js` sont rediriges vers `js/tests/supabase-config.stub.js` (le vrai fichier est gitignore et optionnel en local)
-- environnement `node`
+- environnement `node` par défaut ; un fichier peut forcer **jsdom** avec `/** @vitest-environment jsdom */` en tête (ex. `js/tests/ticket_13.tab-search.test.js`)
 - couverture V8, sortie texte + lcov
 
 ## Suites actuelles
@@ -31,6 +31,18 @@ Config: `vitest.config.js`
 - `js/tests/ticket_10.main.bootstrap.test.js` — echec `admin-bootstrap` : `notify.error`, banniere, boutons desactives, pas d’hydratation ni premier clic onglet.
 - `js/tests/ticket_11.bootstrap.loading.red.test.js` — indicateur de chargement bootstrap : retrait du loader en succes/erreur, non-regression sur l'etat `Publish`, robustesse si `#bootstrapLoadingRoot` est absent.
 - `js/tests/ticket_10_1.tabAdd.notify.contract.test.js` — ticket 10.1 : appels `notify` dans les onglets (ajout, renommage, suppression) + contrat `durationMs: 2500` sur les succès courts (lecture source).
+- `js/tests/ticket_13.tab-search.test.js` — ticket 13 : filtre client-side des barres de recherche Mots / Familles (`computeFilterState`, libellé racine accordéon via `getRowSearchLabel`). Fichier en environnement **jsdom** (directive `@vitest-environment jsdom`).
+
+## Verification manuelle (ticket 13 — recherche onglets)
+
+Onglets **Famille de mots** et **Mots** uniquement (pas de barre sur Langues).
+
+1. Saisir une sous-chaîne du nom affiché d’une ligne : les lignes non correspondantes disparaissent.
+2. Effacer le champ : toutes les lignes réapparaissent ; plus de message « Aucun resultat ».
+3. Saisir une requête sans aucun match : message « Aucun resultat » sous la liste.
+4. Bouton loupe et touche Entrée : même filtre ; la vue se repositionne sur la première ligne encore visible.
+5. Basculer entre Familles et Mots : la recherche d’un onglet ne filtre pas l’autre.
+6. Avec une recherche active, ajouter une famille ou un mot : la nouvelle ligne doit respecter le filtre (masquée si elle ne matche pas) sans avoir besoin de retaper la requête.
 
 ## Attention importante
 
@@ -54,7 +66,7 @@ Repartition:
 
 ## Exclusions justifiees
 
-- UI rendering detail (`tabs/*`, classes CSS, labels) n'est pas teste ici: hors contrat metier de Ticket 01, couvert par verification manuelle et tests d'integration UI ulterieurs.
+- UI rendering detail (`tabs/*`, classes CSS, labels) n'est pas teste ici: hors contrat metier de Ticket 01, couvert par verification manuelle et tests d'integration UI ulterieurs (exception ciblee : recherche onglets ticket 13 via `ticket_13.tab-search.test.js`).
 - Reseau réel Supabase/Firebase non teste en CI unitaire: volontairement mocke pour determinisme, cout et fiabilite.
 - Performance/load tests exclus: hors perimetre fonctionnel de la migration store unifie.
 

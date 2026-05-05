@@ -18,6 +18,7 @@ Maintain and evolve the Bluffers backoffice safely:
 - Save flow: `js/saveManager.js`
 - Publish trigger: `js/publish.js`, `js/databaseTransfer.js`
 - Toasts / notifications UI: `js/notify.js`, `css/notify.css`, reference `docs/NOTIFICATIONS.md`
+- Tab search (Familles / Mots): `js/ui/tabSearch.js` (init in `js/main.js`; `refreshTabSearch` from `js/tabs/familyTab.js` and `js/tabs/wordTab.js` after list changes). Manual checklist: `docs/TESTING.md` (ticket 13).
 - Supabase Edge Functions: `supabase/functions/admin-bootstrap/`, `admin-save/`, `publish-to-firebase/`
 - Firebase Function: `functions/index.js`
 

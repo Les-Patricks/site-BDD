@@ -350,6 +350,14 @@ export const hydrateStore = function (snapshot) {
 	store.words = snapshot.words || {};
 	store.families = snapshot.families || {};
 	clearStoreChanges();
+	// Bootstrap loads words into `store` without calling `addWord`; keep datalist source in sync.
+	autocompleteWords.length = 0;
+	for (const word of Object.values(store.words)) {
+		const name = word?.displayName;
+		if (typeof name === "string" && name.length > 0) {
+			addWordToAutocomplete(name);
+		}
+	}
 	shouldTrackDirty = true;
 };
 

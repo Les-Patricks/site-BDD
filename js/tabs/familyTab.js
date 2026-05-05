@@ -13,6 +13,7 @@ import {
 } from "../state.js";
 import { notify } from "../notify.js";
 import { bindTabAddSystem } from "../ui/tabAddSystem.js";
+import { refreshTabSearch } from "../ui/tabSearch.js";
 import { createWordElement } from "./wordTab.js";
 
 const addFamilyBtn = document.getElementById("addFamilyBtn");
@@ -59,11 +60,15 @@ export const renderFamily = function (
 		() => {
 			removeFamily(currentFamilyId);
 			notify.success("Famille supprimee.", { durationMs: 2500 });
+			queueMicrotask(() => {
+				refreshTabSearch("wordFamilyTab");
+			});
 		},
 		(newName, done) => {
 			if (modifyFamily(currentFamilyId, newName)) {
 				notify.success("Famille renommee.", { durationMs: 2500 });
 				done();
+				refreshTabSearch("wordFamilyTab");
 			} else {
 				notify.warning("Ce nom est deja utilise par une autre famille.");
 			}
@@ -90,6 +95,7 @@ export const renderFamily = function (
 	wordsToRender.forEach((wordId) => {
 		createWordElement(wordId, content);
 	});
+	refreshTabSearch("wordFamilyTab");
 };
 
 export const updateFamilies = function () {

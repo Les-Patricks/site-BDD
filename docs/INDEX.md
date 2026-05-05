@@ -8,7 +8,7 @@ Ce dossier regroupe la documentation technique et operationnelle du repo.
 2. `docs/SETUP.md`
 3. `docs/DATA_MODEL.md`
 4. `docs/WORKFLOWS.md`
-5. `docs/TESTING.md`
+5. `docs/TESTING.md` (inclut la recette manuelle recherche onglets Mots / Familles, ticket 13)
 6. `docs/KNOWN_ISSUES.md`
 7. `docs/NOTIFICATIONS.md` (toasts `notify`, integrations save/publish/login/bootstrap ; checklist manuelle ticket 10)
 

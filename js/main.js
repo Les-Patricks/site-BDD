@@ -6,6 +6,7 @@ import { updateBtns } from "./ui/AccordionView.js";
 import "./saveManager.js";
 import { displayPublishBtn, hidePublishBtn } from "./publish.js";
 import { notify } from "./notify.js";
+import { initTabSearch, refreshTabSearch } from "./ui/tabSearch.js";
 import {
 	hydrateStore,
 } from "./state.js";
@@ -180,12 +181,14 @@ wordFamilyBtn.addEventListener("click", () => {
 	activateBtn(wordFamilyBtn);
 	openTab(wordFamilyTab);
 	updateFamilies();
+	refreshTabSearch("wordFamilyTab");
 });
 
 wordBtn.addEventListener("click", () => {
 	activateBtn(wordBtn);
 	openTab(wordTab);
 	updateWords();
+	refreshTabSearch("wordTab");
 });
 languagesBtn.addEventListener("click", () => {
 	activateBtn(languagesBtn);
@@ -204,5 +207,6 @@ function openTab(currentTab) {
 
 if (bootstrapOk) {
 	updateBtns();
+	initTabSearch();
 	wordFamilyBtn.click();
 }

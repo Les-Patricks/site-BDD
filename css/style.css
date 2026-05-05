@@ -473,6 +473,20 @@ label:hover {
 	margin-bottom: 10px;
 }
 
+.tab-search__item--hidden {
+	display: none;
+}
+
+#familyTabPanelContent[data-search-empty="true"]::after,
+#wordTabPanelContent[data-search-empty="true"]::after {
+	content: "Aucun resultat";
+	display: block;
+	padding: 10px 0;
+	text-align: center;
+	color: #3d3d3d;
+	font-style: italic;
+}
+
 .validate-btn,
 .accordion__submit {
 	cursor: pointer;

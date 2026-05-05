@@ -9,6 +9,7 @@ vi.mock("../ui/saveBtn.js", () => ({
 	displaySaveBtn: vi.fn(),
 }));
 
+import { addWordToAutocomplete } from "../ui/autocomplete.js";
 import {
 	addFamily,
 	addLanguage,
@@ -42,6 +43,7 @@ const resetStore = () => {
 
 beforeEach(() => {
 	resetStore();
+	vi.clearAllMocks();
 });
 
 describe("state unified api", () => {
@@ -147,5 +149,20 @@ describe("state unified api", () => {
 		expect(storeChanges.created.languages.size).toBe(0);
 		expect(storeChanges.modified.languages.size).toBe(0);
 		expect(storeChanges.deleted.languages.size).toBe(0);
+	});
+
+	it("hydrateStore registers snapshot words for autocomplete", () => {
+		hydrateStore({
+			languages: {},
+			words: {
+				w1: { displayName: "chat", translations: {} },
+				w2: { displayName: "chien", translations: {} },
+			},
+			families: {},
+		});
+
+		expect(addWordToAutocomplete).toHaveBeenCalledWith("chat");
+		expect(addWordToAutocomplete).toHaveBeenCalledWith("chien");
+		expect(addWordToAutocomplete).toHaveBeenCalledTimes(2);
 	});
 });

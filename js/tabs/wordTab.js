@@ -13,6 +13,7 @@ import { notify } from "../notify.js";
 import { createTraductionItem } from "../dom.js";
 import { createAccordionElement } from "../components/accordion.js";
 import { bindTabAddSystem } from "../ui/tabAddSystem.js";
+import { refreshTabSearch } from "../ui/tabSearch.js";
 
 const wordContent = document.getElementById("wordTabPanelContent");
 const addWordBtn = document.getElementById("addWordButton");
@@ -34,11 +35,19 @@ export const createWordElement = function (wordId, container, date = "") {
 		() => {
 			deleteWord(currentWordId);
 			notify.success("Mot supprime.", { durationMs: 2500 });
+			if (container === wordContent) {
+				queueMicrotask(() => {
+					refreshTabSearch("wordTab");
+				});
+			}
 		},
 		(newName, done) => {
 			if (changeWord(currentWordId, newName)) {
 				notify.success("Mot renomme.", { durationMs: 2500 });
 				done();
+				if (container === wordContent) {
+					refreshTabSearch("wordTab");
+				}
 			} else {
 				notify.warning("Ce nom est deja utilise par un autre mot.");
 			}
@@ -64,6 +73,9 @@ export const createWordElement = function (wordId, container, date = "") {
 			},
 		);
 	});
+	if (container === wordContent) {
+		refreshTabSearch("wordTab");
+	}
 };
 
 export const renderWord = function (wordId, date = "") {
