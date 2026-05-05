@@ -1,5 +1,6 @@
 import { supabase } from "./SupabaseManager.js";
 import { notify } from "./notify.js";
+import { evaluateLoginFields } from "./loginValidation.js";
 
 const form = document.getElementById("loginForm");
 const emailInput = document.getElementById("email");
@@ -30,13 +31,11 @@ form.addEventListener("submit", async function (event) {
 });
 
 const getErrors = function (email, password) {
-	const errors = [];
-	if (!email || email.trim() === "") {
-		errors.push("L'email est requis.");
+	const { errors, emailEmpty, passwordEmpty } = evaluateLoginFields(email, password);
+	if (emailEmpty) {
 		emailInput.parentElement.classList.add("incorrect");
 	}
-	if (!password || password.trim() === "") {
-		errors.push("Le mot de passe est requis.");
+	if (passwordEmpty) {
 		passwordInput.parentElement.classList.add("incorrect");
 	}
 	return errors;
