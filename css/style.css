@@ -135,18 +135,21 @@ label:hover {
 }
 
 .accordion__panel {
-	display: grid;
-	grid-template-rows: 0fr;
-	transition: grid-template-rows 0.3s ease;
+	display: block;
 	overflow: hidden;
+	max-height: 0;
+	transition: max-height 0.3s ease;
+	box-sizing: border-box;
 }
 
 .accordion__panel--open {
-	grid-template-rows: 1fr;
+	max-height: 999px;
 }
 
 .accordion__content {
 	overflow: hidden;
+	min-height: 0;
+	box-sizing: border-box;
 	padding-left: 30px;
 	padding-right: 50px;
 	padding-bottom: 10px;

@@ -44,6 +44,16 @@ Onglets **Famille de mots** et **Mots** uniquement (pas de barre sur Langues).
 5. Basculer entre Familles et Mots : la recherche d’un onglet ne filtre pas l’autre.
 6. Avec une recherche active, ajouter une famille ou un mot : la nouvelle ligne doit respecter le filtre (masquée si elle ne matche pas) sans avoir besoin de retaper la requête.
 
+## Verification manuelle (ticket 16 — accordion Chrome)
+
+Navigateur cible: Chrome (version stable recente), zoom 100%.
+
+1. Onglet **Famille de mots**: avec tous les accordions fermes, verifier qu'aucun premier mot enfant n'est visible au-dessus de la ligne parent.
+2. Ouvrir un accordion: la transition doit etre fluide (pas d'ouverture instantanee).
+3. Fermer le meme accordion: le contenu enfant doit disparaitre completement (aucune fuite visuelle du premier mot).
+4. Reouvrir/fermer rapidement 3-4 fois de suite: pas de blocage en etat intermediaire, pas de depassement.
+5. Refaire les etapes 1-4 dans l'onglet **Mots**.
+
 ## Attention importante
 
 Les suites `state` sont maintenant alignees sur l'API unifiee de `js/state.js`.
