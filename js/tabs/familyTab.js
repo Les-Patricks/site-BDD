@@ -13,7 +13,7 @@ import {
 } from "../state.js";
 import { notify } from "../notify.js";
 import { bindTabAddSystem } from "../ui/tabAddSystem.js";
-import { refreshTabSearch } from "../ui/tabSearch.js";
+import { getRowSearchLabel, refreshTabSearch } from "../ui/tabSearch.js";
 import { createWordElement } from "./wordTab.js";
 
 const addFamilyBtn = document.getElementById("addFamilyBtn");
@@ -21,6 +21,35 @@ const addFamilyLabel = document.getElementById("addFamilyLabel");
 const addFamilyInput = document.getElementById("addFamilyInput");
 const submitFamilyBtn = document.getElementById("addFamilySubmitBtn");
 const familyContent = document.getElementById("familyTabPanelContent");
+const familyOrderBtn = document.querySelector("#wordFamilyTab .tab-panel-order");
+
+let nextFamilySortDirection = "desc";
+
+const sortFamilyRowsByDirection = (direction) => {
+	const rows = Array.from(familyContent.children);
+	rows
+		.sort((leftRow, rightRow) => {
+			const leftLabel = getRowSearchLabel(leftRow);
+			const rightLabel = getRowSearchLabel(rightRow);
+			const baseOrder = leftLabel.localeCompare(rightLabel, "fr", {
+				sensitivity: "base",
+			});
+			return direction === "asc" ? baseOrder : -baseOrder;
+		})
+		.forEach((row) => {
+			familyContent.appendChild(row);
+		});
+};
+
+const applyDefaultFamilySort = () => {
+	sortFamilyRowsByDirection("asc");
+	nextFamilySortDirection = "desc";
+};
+
+const toggleFamilySort = () => {
+	sortFamilyRowsByDirection(nextFamilySortDirection);
+	nextFamilySortDirection = nextFamilySortDirection === "asc" ? "desc" : "asc";
+};
 
 export const submitAddingFamily = function () {
 	const value = addFamilyInput.value.trim().toLowerCase();
@@ -41,6 +70,7 @@ bindTabAddSystem(
 	submitFamilyBtn,
 	submitAddingFamily,
 );
+
 export const renderFamily = function (
 	familyId,
 	modificationDate,
@@ -104,4 +134,11 @@ export const updateFamilies = function () {
 		const family = getFamily(familyId);
 		renderFamily(familyId, Date.now(), family.wordsKeys);
 	});
+	applyDefaultFamilySort();
 };
+
+if (familyOrderBtn) {
+	familyOrderBtn.addEventListener("click", () => {
+		toggleFamilySort();
+	});
+}

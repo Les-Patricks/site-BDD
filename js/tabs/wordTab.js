@@ -13,13 +13,44 @@ import { notify } from "../notify.js";
 import { createTraductionItem } from "../dom.js";
 import { createAccordionElement } from "../components/accordion.js";
 import { bindTabAddSystem } from "../ui/tabAddSystem.js";
-import { refreshTabSearch } from "../ui/tabSearch.js";
+import { getRowSearchLabel, refreshTabSearch } from "../ui/tabSearch.js";
 
 const wordContent = document.getElementById("wordTabPanelContent");
 const addWordBtn = document.getElementById("addWordButton");
 const addWordLabel = document.getElementById("addWordLabel");
 const addWordInput = document.getElementById("addWordInput");
 const submitWordBtn = document.getElementById("addWordSubmitBtn");
+const wordOrderBtn = document.querySelector("#wordTab .tab-panel-order");
+
+let nextWordSortDirection = "desc";
+
+const sortWordRowsByDirection = (direction) => {
+	const rows = Array.from(wordContent.children).filter((child) =>
+		child.classList.contains("accordion-item"),
+	);
+	rows
+		.sort((leftRow, rightRow) => {
+			const leftLabel = getRowSearchLabel(leftRow);
+			const rightLabel = getRowSearchLabel(rightRow);
+			const baseOrder = leftLabel.localeCompare(rightLabel, "fr", {
+				sensitivity: "base",
+			});
+			return direction === "asc" ? baseOrder : -baseOrder;
+		})
+		.forEach((row) => {
+			wordContent.appendChild(row);
+		});
+};
+
+const applyDefaultWordSort = () => {
+	sortWordRowsByDirection("asc");
+	nextWordSortDirection = "desc";
+};
+
+const toggleWordSort = () => {
+	sortWordRowsByDirection(nextWordSortDirection);
+	nextWordSortDirection = nextWordSortDirection === "asc" ? "desc" : "asc";
+};
 
 export const createWordElement = function (wordId, container, date = "") {
 	let currentWordId = wordId;
@@ -87,6 +118,7 @@ export const updateWords = function () {
 	Object.keys(getAllWords()).forEach((wordId) => {
 		renderWord(wordId);
 	});
+	applyDefaultWordSort();
 };
 
 export const submitAddingWord = function () {
@@ -109,3 +141,9 @@ bindTabAddSystem(
 	submitWordBtn,
 	submitAddingWord,
 );
+
+if (wordOrderBtn) {
+	wordOrderBtn.addEventListener("click", () => {
+		toggleWordSort();
+	});
+}
