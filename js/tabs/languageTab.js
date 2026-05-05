@@ -14,6 +14,43 @@ const addLanguageBtn = document.getElementById("addLanguageBtn");
 const addLanguageLabel = document.getElementById("addLanguageLabel");
 const addLanguageInput = document.getElementById("addLanguageInput");
 const submitLanguageBtn = document.getElementById("addLanguageSubmitBtn");
+const languageOrderBtn = document.querySelector("#languageTab .tab-panel-order");
+
+let nextLanguageSortDirection = "desc";
+
+const sortLanguageRowsByDirection = (direction) => {
+	const rows = Array.from(languageContent.children).filter((child) =>
+		child.classList.contains("language-item"),
+	);
+	rows
+		.sort((leftRow, rightRow) => {
+			const leftLabel =
+				leftRow?.querySelector(":scope > .language-item__name")?.textContent?.trim() ??
+				"";
+			const rightLabel =
+				rightRow
+					?.querySelector(":scope > .language-item__name")
+					?.textContent?.trim() ?? "";
+			const baseOrder = leftLabel.localeCompare(rightLabel, "fr", {
+				sensitivity: "base",
+			});
+			return direction === "asc" ? baseOrder : -baseOrder;
+		})
+		.forEach((row) => {
+			languageContent.appendChild(row);
+		});
+};
+
+const applyDefaultLanguageSort = () => {
+	sortLanguageRowsByDirection("asc");
+	nextLanguageSortDirection = "desc";
+};
+
+const toggleLanguageSort = () => {
+	sortLanguageRowsByDirection(nextLanguageSortDirection);
+	nextLanguageSortDirection =
+		nextLanguageSortDirection === "asc" ? "desc" : "asc";
+};
 
 export const submitAddingLanguage = function () {
 	const value = addLanguageInput.value.trim().toLowerCase();
@@ -57,6 +94,7 @@ export const updateLanguages = function () {
 	Object.keys(getAllLanguages()).forEach((languageId) => {
 		renderLanguage(languageId);
 	});
+	applyDefaultLanguageSort();
 };
 
 bindTabAddSystem(
@@ -66,3 +104,9 @@ bindTabAddSystem(
 	submitLanguageBtn,
 	submitAddingLanguage,
 );
+
+if (languageOrderBtn) {
+	languageOrderBtn.addEventListener("click", () => {
+		toggleLanguageSort();
+	});
+}
