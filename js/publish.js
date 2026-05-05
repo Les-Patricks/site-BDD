@@ -16,10 +16,13 @@ confirmPublishBtn.addEventListener("click", async () => {
 	publishBtn.classList.add("publish__btn--saving");
 	const originalText = publishBtn.textContent;
 	publishBtn.textContent = "Publishing...";
-	await publishDatabase();
-	publishBtn.classList.remove("publish__btn--saving");
-	publishBtn.textContent = originalText;
-	hidePublishBtn();
+	try {
+		await publishDatabase();
+		hidePublishBtn();
+	} finally {
+		publishBtn.classList.remove("publish__btn--saving");
+		publishBtn.textContent = originalText;
+	}
 });
 
 export const displayPublishBtn = function () {

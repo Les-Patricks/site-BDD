@@ -1,10 +1,25 @@
 //import { createClient } from '@supabase/supabase-js'
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
-const supabaseUrl = "https://kywafnfxmugjwhykwiae.supabase.co";
-const supabaseKey =
-	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt5d2FmbmZ4bXVnandoeWt3aWFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1MjU0NDUsImV4cCI6MjA4ODEwMTQ0NX0.jjDuqAzsoiAdLXFVxM9xjBesnXfNa-8K9SGCNzDjHNQ";
-export const supabase = createClient(supabaseUrl, supabaseKey);
+import { supabaseUrl, supabaseAnonKey } from "./supabase-config.js";
+
+function assertClientConfig(url, anonKey) {
+	const u = typeof url === "string" ? url.trim() : "";
+	const k = typeof anonKey === "string" ? anonKey.trim() : "";
+	if (!u || !k) {
+		throw new Error(
+			"Supabase client: missing supabaseUrl or supabaseAnonKey. Copy js/supabase-config.example.js to js/supabase-config.js and set values (see docs/SETUP.md).",
+		);
+	}
+	if (!u.startsWith("https://")) {
+		throw new Error(
+			"Supabase client: supabaseUrl must be an https URL. Check js/supabase-config.js.",
+		);
+	}
+}
+
+assertClientConfig(supabaseUrl, supabaseAnonKey);
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const DEFAULT_LIMIT = 1000;
 

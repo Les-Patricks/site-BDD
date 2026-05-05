@@ -1,0 +1,88 @@
+# Workflows metier
+
+## 1) Authentification
+
+- `login.html` charge `js/validation.js`.
+- `validation.js` appelle `supabase.auth.signInWithPassword`.
+- En cas de succes, redirection vers `index.html`.
+- `index.html` verifie la session (`supabase.auth.getSession`) et renvoie vers `login.html` si absent.
+
+### Session et Edge Functions (JWT)
+
+Apres connexion, chaque `supabase.functions.invoke` vers `admin-bootstrap`, `admin-save` ou `publish-to-firebase` envoie automatiquement le **JWT de session** utilisateur. Ces endpoints sont deployes **avec verification JWT** cote Supabase (scripts `npm run deploy:*` sans `--no-verify-jwt` ; detail dans `docs/SETUP.md`). Un appel HTTP direct (curl, script) doit inclure `Authorization: Bearer <access_token>` obtenu via Supabase Auth.
+
+## 2) Chargement initial
+
+`js/main.js`:
+- lit `language`, `words`, `word_translation`, `word_family`, `word_family_association`
+- lit aussi l'etat global `publish_pending` (source: `public.admin_state`, cle `id='global'`) via `admin-bootstrap`
+- hydrate l'etat local via les fonctions de `state.js`
+- pilote la visibilite de `Publish`:
+  - `publish_pending=true` => bouton visible
+  - `publish_pending=false` => bouton masque
+- active la tab Families par defaut
+
+## 3) Edition locale
+
+Les tabs (`js/tabs/*.js`) rendent l'etat courant et deleguent les actions a `state.js`:
+- creation/suppression/rename languages
+- creation/suppression/rename words
+- edition traductions
+- creation/suppression/rename families
+- association mot <-> famille
+
+## 4) Save vers Supabase
+
+`js/saveManager.js`:
+- ecoute le clic sur `#saveBtn`
+- appelle `save()` de `state.js`, qui invoque l'Edge Function `admin-save`
+- `admin-save` appelle le RPC `public.admin_save_and_mark_pending(jsonb)` qui, dans un meme flux SQL:
+  - applique l'ecriture atomique globale (`languages`, `words`, `word_translation`, `word_family`, `word_family_association`, suppressions)
+  - met `publish_pending=true`
+- affiche ensuite le bouton Publish
+
+## 5) Publish vers Firebase
+
+- `js/publish.js` affiche une popup de confirmation.
+- `js/databaseTransfer.js` invoque la fonction Supabase `publish-to-firebase`.
+- `supabase/functions/publish-to-firebase/index.ts`:
+  - lit Supabase
+  - reformate les donnees
+  - appelle `https://publishwords-5jhqdozovq-od.a.run.app` (endpoint Firebase Cloud Run de `publishWords`)
+  - si la publication Firebase reussit, appelle le RPC `public.admin_set_publish_pending(false)`
+- `functions/index.js`:
+  - valide le bearer token (`SECRET_TOKEN`)
+  - purge Firestore
+  - reecrit `Words` et `WordFamilies`
+
+### Debug publish (erreurs detaillees)
+
+En cas d'erreur `publish`, `publish-to-firebase` retourne desormais un JSON:
+
+- `error`: message d'erreur technique
+- `stage`: etape du pipeline ou l'erreur est survenue (`fetch_supabase_rows`, `format_payload`, `read_secret_token`, `call_firebase_publish`, `sync_publish_pending_flag`)
+
+Le front (`js/databaseTransfer.js`) affiche ce detail dans l'alerte pour faciliter le diagnostic.
+
+### Etat global de publication (`admin_state`)
+
+- La persistance de "publication en attente" est centralisee dans `public.admin_state`.
+- Ligne singleton attendue: `id='global'`.
+- Lecture via RPC `public.admin_get_publish_pending()`.
+- Ecriture via RPC `public.admin_save_and_mark_pending(jsonb)` (save + pending=true) et `public.admin_set_publish_pending(boolean)` (pending=false apres publish).
+- Aucun acces table direct depuis le code applicatif.
+
+## 6) CI/CD — GitHub Actions et Firebase Hosting
+
+| Workflow | Declencheur | Effet |
+|----------|-------------|--------|
+| `.github/workflows/firebase-hosting-merge.yml` | `push` sur **`main`** | Deploie le site sur le canal Hosting **`live`** (production). |
+| Meme fichier | `push` sur **`dev`** | Deploie sur le canal nomme **`dev`** (integration ; URL stable une fois le canal cree). |
+| `.github/workflows/firebase-hosting-pull-request.yml` | `pull_request` (depot interne) | Preview Hosting (URL par PR). |
+| `.github/workflows/sonar.yml` | `push` sur `main`, et PR | Tests + analyse SonarCloud (quality gate). |
+
+Les etapes de build injectent `js/supabase-config.js` via `scripts/write-supabase-config.mjs` et les secrets `SUPABASE_URL` / `SUPABASE_ANON_KEY` en CI.
+
+### CORS (Edge Functions)
+
+Le front appele `admin-bootstrap`, `admin-save` et `publish-to-firebase` depuis l **origine** du navigateur (`Origin`). Chaque **nouvelle** URL Hosting (canal `dev`, preview PR, etc.) doit etre ajoutee dans la liste centralisee `ALLOWED_ORIGINS` du module `supabase/functions/_shared/corsOrigins.ts`, puis les fonctions redeployees — sinon le navigateur bloque les requetes (`origin not allowed`). Les URLs `web.app` / `firebaseapp.com` de **production** sont deja listees ; apres le **premier** deploiement reussi sur le canal `dev`, copier l URL exacte depuis les logs du workflow ou Firebase Console et mettre a jour ce module partage.

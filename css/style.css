@@ -135,18 +135,21 @@ label:hover {
 }
 
 .accordion__panel {
-	display: grid;
-	grid-template-rows: 0fr;
-	transition: grid-template-rows 0.3s ease;
+	display: block;
 	overflow: hidden;
+	max-height: 0;
+	transition: max-height 0.3s ease;
+	box-sizing: border-box;
 }
 
 .accordion__panel--open {
-	grid-template-rows: 1fr;
+	max-height: 999px;
 }
 
 .accordion__content {
 	overflow: hidden;
+	min-height: 0;
+	box-sizing: border-box;
 	padding-left: 30px;
 	padding-right: 50px;
 	padding-bottom: 10px;
@@ -473,6 +476,20 @@ label:hover {
 	margin-bottom: 10px;
 }
 
+.tab-search__item--hidden {
+	display: none;
+}
+
+#familyTabPanelContent[data-search-empty="true"]::after,
+#wordTabPanelContent[data-search-empty="true"]::after {
+	content: "Aucun resultat";
+	display: block;
+	padding: 10px 0;
+	text-align: center;
+	color: #3d3d3d;
+	font-style: italic;
+}
+
 .validate-btn,
 .accordion__submit {
 	cursor: pointer;
@@ -521,4 +538,93 @@ label:hover {
 
 .custom-context-menu__list {
 	text-decoration: none;
+}
+
+/* Ticket 10 — echec chargement admin-bootstrap */
+.bootstrap-error-banner {
+	max-width: 42rem;
+	margin: 0 1rem 1rem 2.5rem;
+	padding: 0.85rem 1rem;
+	border-radius: 8px;
+	border: 1px solid #ef9a9a;
+	background: #ffebee;
+	color: #b71c1c;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.75rem 1rem;
+}
+
+.bootstrap-error-banner__text {
+	margin: 0;
+	flex: 1 1 12rem;
+	text-align: left;
+}
+
+.bootstrap-error-banner__reload {
+	flex-shrink: 0;
+	padding: 0.45rem 0.85rem;
+	border-radius: 6px;
+	border: 1px solid #b71c1c;
+	background: #fff;
+	color: #b71c1c;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.bootstrap-error-banner__reload:hover {
+	background: #ffcdd2;
+}
+
+/* Ticket 11 - bootstrap loading */
+.bootstrap-loading {
+	position: fixed;
+	inset: 0;
+	z-index: 900;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	background: rgba(255, 255, 255, 0.9);
+}
+
+.bootstrap-loading--hidden {
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+}
+
+.bootstrap-loading__content {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 0.9rem 1.1rem;
+	border: 1px solid #d9d9d9;
+	border-radius: 10px;
+	background: #fff;
+	color: #252525;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.bootstrap-loading__spinner {
+	width: 1rem;
+	height: 1rem;
+	border-radius: 999px;
+	border: 2px solid #d1d1d1;
+	border-top-color: #4f4f4f;
+	animation: bootstrap-loading-spin 0.8s linear infinite;
+}
+
+.bootstrap-loading__text {
+	margin: 0;
+	font-weight: 600;
+}
+
+@keyframes bootstrap-loading-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }

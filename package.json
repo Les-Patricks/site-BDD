@@ -4,12 +4,18 @@
 		"firebase": "^12.10.0"
 	},
 	"devDependencies": {
-		"vitest": "^4.0.18",
-		"@vitest/coverage-v8": "latest"
+		"@vitest/coverage-v8": "^4.0.18",
+		"jsdom": "^26.1.0",
+		"vitest": "^4.0.18"
 	},
 	"scripts": {
+		"lint": "node -e \"console.log('Lint is not configured yet.');\"",
+		"typecheck": "node -e \"console.log('Typecheck is not configured yet (no tsconfig).');\"",
+		"build": "npm exec vite build",
 		"test": "vitest run --coverage",
 		"test:watch": "vitest",
-		"deploy:publish": "supabase functions deploy publish-to-firebase --project-ref kywafnfxmugjwhykwiae --no-verify-jwt"
+		"deploy:admin-bootstrap": "npx supabase functions deploy admin-bootstrap --project-ref kywafnfxmugjwhykwiae",
+		"deploy:admin-save": "npx supabase functions deploy admin-save --project-ref kywafnfxmugjwhykwiae",
+		"deploy:publish": "npx supabase functions deploy publish-to-firebase --project-ref kywafnfxmugjwhykwiae"
 	}
 }

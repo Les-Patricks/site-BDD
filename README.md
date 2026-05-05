@@ -1,49 +1,64 @@
-# Outil d'Administration - Bluffers
+# Site-BDD - Backoffice Bluffers
 
-## 📝 Description
-Ce projet est l'outil back-office développé en JavaScript Vanilla pour la gestion des mots, familles et traductions du jeu multijoueur *Bluffers*. Il communique avec une base de données relationnelle (Supabase/PostgreSQL) pour la gestion quotidienne et synchronise les données validées vers une base NoSQL (Firebase/Firestore) pour l'environnement de production du jeu.
+Outil d'administration web (Vanilla JS) pour gerer le dictionnaire du jeu Bluffers:
+- langues
+- mots
+- traductions
+- familles de mots
 
-## 🛠 Prérequis
-- [Visual Studio Code](https://code.visualstudio.com/) avec l'extension **Live Server** installée.
-- [Node.js](https://nodejs.org/) (requis uniquement pour l'installation du framework de test).
+Le backoffice ecrit dans **Supabase** puis publie une projection exploitable vers **Firebase Firestore**.
 
-## 🚀 Installation et Lancement local
+## Demarrage rapide
 
-1. **Cloner le dépôt :**
-   ```bash
-   git clone [VOTRE_URL_GITHUB]
-   cd [NOM_DU_DOSSIER]
-   ```
+1. Installer les dependances:
+```bash
+npm install
+```
 
-2. **Installer les dépendances (pour les tests) :**
-   ```bash
-   npm install
-   ```
+2. Lancer un serveur statique (exemple VS Code Live Server) et ouvrir:
+- `login.html` pour se connecter
+- puis `index.html` pour l'interface principale
 
-3. **Lancer l'application :**
-   - Ouvrez le dossier du projet dans Visual Studio Code.
-   - Cliquez sur le bouton **"Go Live"** situé dans la barre d'état en bas à droite de l'éditeur.
-   - L'application s'ouvrira automatiquement dans votre navigateur Web par défaut.
-
-## Gestion des clés et Sécurité
-Afin de faciliter la collaboration au sein de l'équipe, ce projet front-end n'utilise pas de fichier `.env` local.
-- **Clés d'API Client :** Les clés publiques de Supabase et Firebase sont directement intégrées au code. La sécurisation des données n'est pas basée sur l'obscurcissement de ces clés, mais sur les règles de sécurité strictes configurées côté serveur (Row Level Security pour Supabase).
-- **Secrets de déploiement :** Le jeton de service Firebase permettant le déploiement (`FIREBASE_SERVICE_ACCOUNT`) n'est jamais exposé. Il est stocké de manière chiffrée dans les **GitHub Secrets** du dépôt.
-
-## 🧪 Tests Automatisés
-Le projet intègre une suite de tests unitaires développée avec **Vitest** pour garantir la fiabilité de la gestion d'état local et des requêtes d'accès aux bases de données (via l'utilisation de Mocks).
-
-Pour exécuter la suite de tests, lancez la commande suivante dans le terminal :
+3. Lancer les tests:
 ```bash
 npm run test
 ```
 
-## Déploiement Continu (CI/CD)
-L'outil d'administration est hébergé sur **Firebase Hosting**. Ne nécessitant pas d'étape de build (JavaScript Vanilla pur), le déploiement est entièrement automatisé grâce à deux workflows **GitHub Actions** :
+## Documentation
 
-1. **Environnement de Prévisualisation (Tests) :**
-   Toute création de *Pull Request* déclenche l'action `Deploy to Firebase Hosting on PR`. Elle génère une URL de prévisualisation temporaire permettant à l'équipe de valider les modifications avant intégration.
+- Vue d'ensemble: `docs/INDEX.md`
+- Architecture: `docs/ARCHITECTURE.md`
+- Installation et environnement: `docs/SETUP.md`
+- Modele de donnees: `docs/DATA_MODEL.md`
+- Flux metier (save/publish/auth): `docs/WORKFLOWS.md`
+- Tests et qualite: `docs/TESTING.md`
+- Limites connues: `docs/KNOWN_ISSUES.md`
+- Contribution projet: `CONTRIBUTING.md`
+- Contexte IA (pour assistants): `AGENTS.md`
 
-2. **Environnement de Production :**
-   Toute fusion (Merge) ou Push direct sur la branche `main` déclenche l'action `Deploy to Firebase Hosting on merge`. Les fichiers statiques sont alors automatiquement déployés en direct (`channelId: live`) sur les serveurs de production.
+## Stack technique
+
+- Frontend: HTML/CSS/JavaScript ES Modules (sans framework)
+- Auth et stockage primaire: Supabase (PostgreSQL + Auth + Edge Function)
+- Publication prod: Firebase Cloud Functions + Firestore
+- Tests: Vitest
+- CI/CD: GitHub Actions + Firebase Hosting + SonarCloud
+
+## Deploiement (Firebase Hosting)
+
+- **Production** : push sur `main` deploie le canal Hosting **`live`** (URL habituelle `https://bluffers-backoffice.web.app` et domaine `firebaseapp.com` associe).
+- **Integration** : push sur `dev` deploie le canal nomme **`dev`** (URL du type `https://bluffers-backoffice--dev-*.web.app` ; voir sortie du workflow GitHub ou la console Firebase → Hosting → canaux).
+- **Previews** : chaque PR declenche un deploiement preview (`firebase-hosting-pull-request.yml`), URL ephemere par PR.
+
+Detail des workflows et CORS : `docs/WORKFLOWS.md` (section CI/CD).
+
+## Scripts utiles
+
+- `npm run test`: execute les tests unitaires avec couverture
+- `npm run test:watch`: mode watch Vitest
+- `npm run deploy:publish` : deploie la fonction Supabase `publish-to-firebase` (idem `deploy:admin-save`, `deploy:admin-bootstrap`). Ces endpoints exigent un JWT utilisateur valide cote appelant ; voir `docs/SETUP.md` section Supabase Edge Functions.
+
+## Etat du code
+
+Le repository contient du code legacy encore present dans certains modules (`state`, `saveManager`) et des tests qui ciblent une ancienne API d'etat. Voir `docs/KNOWN_ISSUES.md` avant toute refonte.
 

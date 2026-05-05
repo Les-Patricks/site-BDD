@@ -20,7 +20,7 @@ export const createAccordionElement = function (
 		.cloneNode(true)
 		.querySelector(".accordion-item");
 	insertElementAt(accordionItem, 0, parent);
-	const btn = parent.querySelector(".row-content");
+	const btn = accordionItem.querySelector(".row-content");
 	const expandIcon = parent.querySelector(".expand-icon");
 	const accordionName = parent.querySelector(".accordion__button");
 	const wordCount = parent.querySelector(".word-count");
