@@ -3,6 +3,7 @@ const PANEL_OPEN_CLASS = "accordion__panel--open";
 const openPanel = (panel) => {
 	panel.classList.add(PANEL_OPEN_CLASS);
 	panel.style.maxHeight = "0px";
+	panel.removeAttribute("inert");
 	requestAnimationFrame(() => {
 		panel.style.maxHeight = `${panel.scrollHeight}px`;
 	});
@@ -10,6 +11,7 @@ const openPanel = (panel) => {
 
 const closePanel = (panel) => {
 	panel.style.maxHeight = `${panel.scrollHeight}px`;
+	panel.setAttribute("inert", "");
 	requestAnimationFrame(() => {
 		panel.classList.remove(PANEL_OPEN_CLASS);
 		panel.style.maxHeight = "0px";
@@ -24,6 +26,7 @@ export const addEventToButton = function (btn) {
 
 	if (!panel.classList.contains(PANEL_OPEN_CLASS)) {
 		panel.style.maxHeight = "0px";
+		panel.setAttribute("inert", "");
 	}
 
 	panel.addEventListener("transitionend", () => {
@@ -40,6 +43,14 @@ export const addEventToButton = function (btn) {
 			return;
 		}
 		openPanel(panel);
+	});
+
+	btn.addEventListener("keydown", function (e) {
+		if (e.target !== btn) return;
+		if (e.key === "Enter" || e.key === " ") {
+			e.preventDefault();
+			btn.click();
+		}
 	});
 };
 

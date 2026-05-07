@@ -12,11 +12,13 @@
 		<div class="wrapper">
 			<h1>Signup</h1>
 			<form id="loginForm">
-				<p id="errorMessage" class="error-message"></p>
+				<p id="errorMessage" class="error-message" role="alert" aria-live="assertive" aria-atomic="true"></p>
 				<div>
+					<label for="email" class="sr-only">Email</label>
 					<input type="email" name="email" id="email" placeholder="Email" />
 				</div>
 				<div>
+					<label for="password" class="sr-only">Mot de passe</label>
 					<input
 						type="password"
 						name="password"

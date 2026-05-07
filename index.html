@@ -56,10 +56,13 @@
 			"tab-panel--open" to the target panel and removes it from all others,
 			ensuring only one panel is visible at a time.
 		-->
-		<div class="tab">
-			<button class="tab__button" id="wordFamilyBtn">Famille de mots</button>
-			<button class="tab__button" id="wordBtn">Mots</button>
-			<button class="tab__button" id="languagesBtn">Langues</button>
+		<div class="tab" role="tablist" aria-label="Navigation principale">
+			<button class="tab__button" id="wordFamilyBtn"
+				role="tab" aria-selected="false" aria-controls="wordFamilyTab" tabindex="0">Famille de mots</button>
+			<button class="tab__button" id="wordBtn"
+				role="tab" aria-selected="false" aria-controls="wordTab" tabindex="0">Mots</button>
+			<button class="tab__button" id="languagesBtn"
+				role="tab" aria-selected="false" aria-controls="languageTab" tabindex="0">Langues</button>
 		</div>
 
 		<!-- ═══════════════════════════ Tab Panels ═══════════════════════════ -->
@@ -69,9 +72,10 @@
 			class toggled by openTab() in main.js — no inline styles are used.
 		-->
 
-		<div class="tab-panel" id="wordFamilyTab">
+		<div class="tab-panel" id="wordFamilyTab" role="tabpanel" aria-labelledby="wordFamilyBtn">
 			<div class="tab-panel__search-header">
-				<input class="tab-panel__search-bar" placeholder="Rechercher" />
+				<label for="familySearchInput" class="sr-only">Rechercher dans les familles</label>
+				<input id="familySearchInput" class="tab-panel__search-bar" placeholder="Rechercher" />
 				<button type="button" class="tab-panel__search-btn">🔍</button>
 			</div>
 			<div class="tab-panel__header">
@@ -111,9 +115,10 @@
 			scrollable content area populated by updateWords() in wordTab.js.
 			Each rendered word entry is an accordion cloned from #listTemplate.
 		-->
-		<div class="tab-panel" id="wordTab">
+		<div class="tab-panel" id="wordTab" role="tabpanel" aria-labelledby="wordBtn">
 			<div class="tab-panel__search-header">
-				<input class="tab-panel__search-bar" placeholder="Rechercher" />
+				<label for="wordSearchInput" class="sr-only">Rechercher dans les mots</label>
+				<input id="wordSearchInput" class="tab-panel__search-bar" placeholder="Rechercher" />
 				<button type="button" class="tab-panel__search-btn">🔍</button>
 			</div>
 			<div class="tab-panel__header">
@@ -154,7 +159,7 @@
 			Note: the label is intentionally placed after the submit button in
 			the source order; visual positioning is handled by CSS.
 		-->
-		<div class="tab-panel" id="languageTab">
+		<div class="tab-panel" id="languageTab" role="tabpanel" aria-labelledby="languagesBtn">
 			<div class="tab-panel__header">
 				<button type="button" class="tab-panel__button" id="addLanguageBtn">
 					+
@@ -198,7 +203,7 @@
 
 		<template id="accordion">
 			<div class="accordion-item">
-				<span class="row-content row">
+				<span class="row-content row" tabindex="0">
 					<span class="title-group left-group">
 						<span class="expand-icon">></span>
 						<span class="accordion__button">Family Name</span>
@@ -209,6 +214,7 @@
 					</span>
 					<span class="word-count">8</span>
 					<span class="creation-date right-group">2023/01/01</span>
+					<button type="button" class="actions-btn" aria-label="Actions" aria-haspopup="menu" aria-expanded="false">⋮</button>
 				</span>
 				<div class="accordion__panel">
 					<div class="accordion__content"></div>
@@ -258,6 +264,7 @@
 				<span class="creation-date">23/12/2023</span>
 				<button type="button" class="accordion__add-btn hidden">+</button>
 				<button type="button" class="accordion__edit-btn hidden">✏️</button>
+				<button type="button" class="actions-btn" aria-label="Actions" aria-haspopup="menu" aria-expanded="false">⋮</button>
 			</div>
 		</template>
 
@@ -278,6 +285,7 @@
 				</span>
 
 				<button type="button" class="accordion__edit-btn hidden">✏️</button>
+				<button type="button" class="actions-btn" aria-label="Actions" aria-haspopup="menu" aria-expanded="false">⋮</button>
 			</div>
 		</template>
 
@@ -323,7 +331,7 @@
 			Placing this before .modal in the DOM ensures the modal renders
 			on top of the overlay without requiring extra z-index management.
 		-->
-		<div class="document-panel"></div>
+		<div class="document-panel" aria-hidden="true" tabindex="-1"></div>
 
 		<!--
 			Context menu modal — .modal
