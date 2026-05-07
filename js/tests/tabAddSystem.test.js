@@ -57,4 +57,24 @@ describe("tabAddSystem", () => {
 		expect(submitFn).toHaveBeenCalledTimes(1);
 		expect(addInput.classList.contains("tab-panel__input--visible")).toBe(false);
 	});
+
+	it("bindTabAddSystem non-Enter keydown on input does nothing", () => {
+		const submitFn = vi.fn();
+		bindTabAddSystem(addBtn, addLabel, addInput, submitBtn, submitFn);
+		addBtn.click();
+		addInput.value = "typed";
+		addInput.dispatchEvent(new KeyboardEvent("keydown", { key: "a", bubbles: true, cancelable: true }));
+		expect(submitFn).not.toHaveBeenCalled();
+		expect(addInput.classList.contains("tab-panel__input--visible")).toBe(true);
+	});
+
+	it("bindTabAddSystem Enter keydown on input calls fn and collapses", () => {
+		const submitFn = vi.fn();
+		bindTabAddSystem(addBtn, addLabel, addInput, submitBtn, submitFn);
+		addBtn.click();
+		addInput.value = "via-enter";
+		addInput.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
+		expect(submitFn).toHaveBeenCalledTimes(1);
+		expect(addInput.classList.contains("tab-panel__input--visible")).toBe(false);
+	});
 });

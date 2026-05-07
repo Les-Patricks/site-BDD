@@ -116,4 +116,49 @@ describe("accordion createAccordionElement", () => {
 		form.querySelector(".accordion__submit").click();
 		expect(onAdd).toHaveBeenCalled();
 	});
+
+	it("rename via Enter keydown on editInput calls onRename", async () => {
+		const { createAccordionElement } = await import("../components/accordion.js");
+		const parent = document.getElementById("acc-root");
+		const onRename = vi.fn((_v, done) => done());
+		createAccordionElement(parent, "Famille A", "3", "2024", null, onRename, null);
+		const item = parent.querySelector(".accordion-item");
+		const btn = item.querySelector(".row-content");
+
+		btn.dispatchEvent(new MouseEvent("contextmenu", { bubbles: true, cancelable: true, clientX: 1, clientY: 2 }));
+		vi.runAllTimers();
+
+		const renameBtn = [...document.querySelectorAll("#customContextMenuTemplate .custom-context-menu__btn")]
+			.find((b) => b.textContent === "Renommer");
+		renameBtn.click();
+
+		const editInput = item.querySelector(".edit-input");
+		editInput.value = "Nouveau Nom";
+		editInput.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
+
+		expect(onRename).toHaveBeenCalledWith("Nouveau Nom", expect.any(Function));
+	});
+
+	it("add word via Enter keydown on form input calls onAdd", async () => {
+		const { createAccordionElement } = await import("../components/accordion.js");
+		const parent = document.getElementById("acc-root");
+		const onAdd = vi.fn((_v, done) => done());
+		createAccordionElement(parent, "Famille B", "0", "2024", null, null, onAdd);
+		const item = parent.querySelector(".accordion-item");
+		const btn = item.querySelector(".row-content");
+
+		btn.dispatchEvent(new MouseEvent("contextmenu", { bubbles: true, cancelable: true, clientX: 1, clientY: 2 }));
+		vi.runAllTimers();
+
+		const addWordBtn = [...document.querySelectorAll("#customContextMenuTemplate .custom-context-menu__btn")]
+			.find((b) => b.textContent === "Ajouter un mot");
+		addWordBtn.click();
+
+		const form = item.querySelector(".accordion__add-form");
+		const input = form.querySelector(".accordion__input");
+		input.value = "nouveau-mot";
+		input.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
+
+		expect(onAdd).toHaveBeenCalledWith("nouveau-mot", expect.any(Function));
+	});
 });

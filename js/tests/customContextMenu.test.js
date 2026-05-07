@@ -74,4 +74,93 @@ describe("customContextMenu", () => {
 		document.body.dispatchEvent(new MouseEvent("click", { bubbles: true }));
 		expect(menu.classList.contains("hidden")).toBe(true);
 	});
+
+	it("Tab key moves focus to next menu button", async () => {
+		const { renderContextMenu } = await import("../ui/customContextMenu.js");
+		const menu = renderContextMenu({ clientX: 0, clientY: 0 }, ["A", vi.fn()], ["B", vi.fn()]);
+		const buttons = [...menu.querySelectorAll(".custom-context-menu__btn")];
+		buttons[0].focus();
+
+		document.dispatchEvent(new KeyboardEvent("keydown", { key: "Tab", bubbles: true, cancelable: true }));
+		expect(document.activeElement).toBe(buttons[1]);
+	});
+
+	it("Shift+Tab wraps focus from first to last button", async () => {
+		const { renderContextMenu } = await import("../ui/customContextMenu.js");
+		const menu = renderContextMenu({ clientX: 0, clientY: 0 }, ["A", vi.fn()], ["B", vi.fn()]);
+		const buttons = [...menu.querySelectorAll(".custom-context-menu__btn")];
+		buttons[0].focus();
+
+		document.dispatchEvent(new KeyboardEvent("keydown", { key: "Tab", shiftKey: true, bubbles: true, cancelable: true }));
+		expect(document.activeElement).toBe(buttons[buttons.length - 1]);
+	});
+
+	it("ArrowUp moves focus to previous button", async () => {
+		const { renderContextMenu } = await import("../ui/customContextMenu.js");
+		const menu = renderContextMenu({ clientX: 0, clientY: 0 }, ["A", vi.fn()], ["B", vi.fn()]);
+		const buttons = [...menu.querySelectorAll(".custom-context-menu__btn")];
+		buttons[1].focus();
+
+		document.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowUp", bubbles: true, cancelable: true }));
+		expect(document.activeElement).toBe(buttons[0]);
+	});
+
+	it("Escape closes menu and restores focus to trigger element", async () => {
+		const { renderContextMenu } = await import("../ui/customContextMenu.js");
+		const trigger = document.getElementById("host");
+		trigger.tabIndex = 0;
+		trigger.focus();
+
+		const menu = renderContextMenu({ clientX: 0, clientY: 0 }, trigger, ["A", vi.fn()]);
+		expect(menu.classList.contains("hidden")).toBe(false);
+
+		document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true, cancelable: true }));
+		expect(menu.classList.contains("hidden")).toBe(true);
+		expect(document.activeElement).toBe(trigger);
+	});
+
+	it("second renderContextMenu call replaces previous keydown handler", async () => {
+		const { renderContextMenu } = await import("../ui/customContextMenu.js");
+		const cb1 = vi.fn();
+		const cb2 = vi.fn();
+		renderContextMenu({ clientX: 0, clientY: 0 }, ["A", cb1]);
+		const menu = renderContextMenu({ clientX: 5, clientY: 5 }, ["B", cb2]);
+
+		const buttons = [...menu.querySelectorAll(".custom-context-menu__btn")];
+		buttons[0].focus();
+		document.dispatchEvent(new KeyboardEvent("keydown", { key: "Tab", bubbles: true, cancelable: true }));
+		expect(document.activeElement).toBe(buttons[0]);
+	});
+
+	it("bindContextMenu actionsBtn click opens menu at button position", async () => {
+		const { bindContextMenu } = await import("../ui/customContextMenu.js");
+		const host = document.getElementById("host");
+		const actionsBtn = document.createElement("button");
+		actionsBtn.className = "actions-btn";
+		host.appendChild(actionsBtn);
+		const cb = vi.fn();
+
+		bindContextMenu(host, () => [["Option", cb]]);
+		actionsBtn.click();
+		vi.runAllTimers();
+
+		const menu = document.getElementById("customContextMenuTemplate");
+		expect(menu.classList.contains("hidden")).toBe(false);
+		const btn = menu.querySelector(".custom-context-menu__btn");
+		expect(btn.textContent).toBe("Option");
+	});
+
+	it("bindContextMenu actionsBtn click with empty contextData does nothing", async () => {
+		const { bindContextMenu } = await import("../ui/customContextMenu.js");
+		const host = document.getElementById("host");
+		const actionsBtn = document.createElement("button");
+		actionsBtn.className = "actions-btn";
+		host.appendChild(actionsBtn);
+
+		bindContextMenu(host, () => []);
+		actionsBtn.click();
+
+		const menu = document.getElementById("customContextMenuTemplate");
+		expect(menu.classList.contains("hidden")).toBe(true);
+	});
 });

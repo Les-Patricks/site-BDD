@@ -88,4 +88,47 @@ describe("modal", () => {
 		const vis = document.querySelectorAll(".modal--visible");
 		expect(vis.length).toBe(0);
 	});
+
+	it("Escape key closes visible modal", async () => {
+		const { toggleModal } = await import("../modal.js");
+		toggleModal(true);
+		const modal = document.querySelector(".modal");
+		expect(modal.classList.contains("modal--visible")).toBe(true);
+
+		document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true, cancelable: true }));
+		expect(modal.classList.contains("modal--visible")).toBe(false);
+	});
+
+	it("Tab at last focusable wraps focus to first", async () => {
+		const { toggleModal } = await import("../modal.js");
+		toggleModal(true);
+		const modal = document.querySelector(".modal");
+		const deleteBtn = modal.querySelector("#modalDeleteBtn");
+		deleteBtn.focus();
+
+		document.dispatchEvent(new KeyboardEvent("keydown", { key: "Tab", bubbles: true, cancelable: true }));
+		expect(document.activeElement).toBe(modal.querySelector("#modalRenameBtn"));
+	});
+
+	it("Shift+Tab at first focusable wraps focus to last", async () => {
+		const { toggleModal } = await import("../modal.js");
+		toggleModal(true);
+		const modal = document.querySelector(".modal");
+		const renameBtn = modal.querySelector("#modalRenameBtn");
+		renameBtn.focus();
+
+		document.dispatchEvent(new KeyboardEvent("keydown", { key: "Tab", shiftKey: true, bubbles: true, cancelable: true }));
+		expect(document.activeElement).toBe(modal.querySelector("#modalDeleteBtn"));
+	});
+
+	it("callModal with triggerEl restores focus to triggerEl on close", async () => {
+		const { callModal, toggleModal } = await import("../modal.js");
+		const trigger = document.createElement("button");
+		document.body.appendChild(trigger);
+		trigger.focus();
+
+		callModal({ x: 10, y: 10 }, vi.fn(), vi.fn(), trigger);
+		toggleModal(false);
+		expect(document.activeElement).toBe(trigger);
+	});
 });
