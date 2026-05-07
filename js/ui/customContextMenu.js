@@ -83,6 +83,15 @@ export const renderContextMenu = function (positionSource, triggerElOrFirstItem,
 	}, 0);
 
 	document.body.appendChild(contextMenu);
+
+	const rect = contextMenu.getBoundingClientRect();
+	if (rect.right > window.innerWidth) {
+		contextMenu.style.left = `${Math.max(0, window.innerWidth - rect.width)}px`;
+	}
+	if (rect.bottom > window.innerHeight) {
+		contextMenu.style.top = `${Math.max(0, window.innerHeight - rect.height)}px`;
+	}
+
 	return contextMenu;
 };
 

@@ -567,7 +567,7 @@ label:hover {
 }
 
 #customContextMenuTemplate {
-	position: absolute;
+	position: fixed;
 }
 
 .custom-context-menu__list {
