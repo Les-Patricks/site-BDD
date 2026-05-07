@@ -30,4 +30,12 @@ export const bindTabAddSystem = function (
 		submitFn();
 		toggleAddSystem(addBtn, addLabel, addInput, submitBtn);
 	});
+
+	addInput.addEventListener("keydown", (e) => {
+		if (e.key === "Enter") {
+			e.preventDefault();
+			submitFn();
+			toggleAddSystem(addBtn, addLabel, addInput, submitBtn);
+		}
+	});
 };

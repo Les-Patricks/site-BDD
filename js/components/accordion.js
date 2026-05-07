@@ -68,7 +68,13 @@ export const createAccordionElement = function (
 		}
 	};
 	validateBtn.addEventListener("click", handleRenameSubmit);
+	editInput.addEventListener("keydown", (e) => {
+		if (e.key === "Enter") { e.preventDefault(); handleRenameSubmit(e); }
+	});
 	submitBtn.addEventListener("click", handleAddSubmit);
+	input.addEventListener("keydown", (e) => {
+		if (e.key === "Enter") { e.preventDefault(); handleAddSubmit(); }
+	});
 
 	bindContextMenu(btn, () => {
 		const contextData = [];

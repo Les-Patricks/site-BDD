@@ -15,6 +15,12 @@ vi.mock("../SupabaseManager.js", () => ({
 		functions: {
 			invoke: invokeMock,
 		},
+		auth: {
+			getSession: vi.fn().mockResolvedValue({
+				data: { session: { user: { id: "test-user" } } },
+				error: null,
+			}),
+		},
 	},
 }));
 

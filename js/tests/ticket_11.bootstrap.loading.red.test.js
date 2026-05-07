@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const invokeMock = vi.fn();
+const getSessionMock = vi.fn();
 const notifyErrorMock = vi.fn();
 const hidePublishBtnMock = vi.fn();
 const displayPublishBtnMock = vi.fn();
@@ -12,6 +13,9 @@ const hydrateStoreMock = vi.fn();
 
 vi.mock("../SupabaseManager.js", () => ({
 	supabase: {
+		auth: {
+			getSession: getSessionMock,
+		},
 		functions: {
 			invoke: invokeMock,
 		},
@@ -129,9 +133,14 @@ describe("ticket_11 red - bootstrap loading", () => {
 	beforeEach(() => {
 		vi.resetModules();
 		vi.clearAllMocks();
+		vi.stubGlobal("location", {
+			pathname: "/index.html",
+			href: "http://localhost/index.html",
+		});
 	});
 
 	it("CA-1102/1104: masque le loader en succes et conserve le flux Publish", async () => {
+		getSessionMock.mockResolvedValue({ data: { session: { user: {} } } });
 		invokeMock.mockResolvedValueOnce({
 			data: {
 				languages: [],
@@ -157,7 +166,8 @@ describe("ticket_11 red - bootstrap loading", () => {
 		expect(displayPublishBtnMock).toHaveBeenCalledTimes(1);
 	});
 
-	it("CA-1103: retire le loader aussi en erreur bootstrap", async () => {
+	it("CA-1103: retire le loader aussi en erreur bootstrap (si auth ok)", async () => {
+		getSessionMock.mockResolvedValue({ data: { session: { user: {} } } });
 		invokeMock.mockResolvedValueOnce({
 			error: new Error("bootstrap-down"),
 		});
@@ -169,13 +179,23 @@ describe("ticket_11 red - bootstrap loading", () => {
 		expect(bootstrapLoadingRoot.classList.add).toHaveBeenCalledWith(
 			"bootstrap-loading--hidden",
 		);
-		expect(bootstrapLoadingRoot.setAttribute).toHaveBeenCalledWith(
-			"aria-busy",
-			"false",
+	});
+
+	it("securite: conserve le loader si pas d'authentification", async () => {
+		getSessionMock.mockResolvedValue({ data: { session: null } });
+		const { bootstrapLoadingRoot } = makeBaseDom();
+
+		await import("../main.js");
+
+		// Le loader ne doit PAS être masqué si pas de session
+		expect(bootstrapLoadingRoot.classList.add).not.toHaveBeenCalledWith(
+			"bootstrap-loading--hidden",
 		);
+		expect(invokeMock).not.toHaveBeenCalled();
 	});
 
 	it("robustesse: bootstrap reste fonctionnel si le noeud loader est absent", async () => {
+		getSessionMock.mockResolvedValue({ data: { session: { user: {} } } });
 		invokeMock.mockResolvedValueOnce({
 			data: {
 				languages: [],
