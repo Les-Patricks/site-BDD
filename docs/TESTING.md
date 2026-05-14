@@ -14,7 +14,7 @@ npm run test:watch
 Config: `vitest.config.js`
 - alias CDN Supabase -> package npm pour les mocks
 - plugin `resolveId` : en tests, les imports de `js/supabase-config.js` sont rediriges vers `js/tests/supabase-config.stub.js` (le vrai fichier est gitignore et optionnel en local)
-- environnement `node` par défaut ; un fichier peut forcer **jsdom** avec `/** @vitest-environment jsdom */` en tête (ex. `ticket_13.tab-search.test.js`, `modal.test.js`, `dom.helpers.test.js`, `validation.dom.test.js`)
+- environnement `node` par défaut ; un fichier peut forcer **jsdom** avec `/** @vitest-environment jsdom */` en tête (ex. `tab-search.test.js`, `modal.test.js`, `dom.helpers.test.js`, `validation.dom.test.js`)
 - couverture V8, sortie texte + lcov
 
 ## Suites actuelles
@@ -23,18 +23,18 @@ Config: `vitest.config.js`
 - `js/tests/state.unified.contract.test.js`
 - `js/tests/state.persistence.test.js`
 - `js/tests/SupabaseManager.test.js`
-- `js/tests/ticket_04.jwt.contract.test.js` — scripts `deploy:*` sans `--no-verify-jwt`, chemins `functions.invoke` ; test distant optionnel `RUN_JWT_GATE_TEST=1` (attend **401** sans `Authorization` sur `publish-to-firebase`, `admin-save`, `admin-bootstrap` une fois JWT actif en runtime).
-- `js/tests/ticket_06.sonar.workflow.contract.test.js` — contrat `.github/workflows/sonar.yml` (job **SonarCloud**, declencheurs, ordre `npm run test` puis scan).
-- `js/tests/ticket_07.firebase.merge.workflow.contract.test.js` — contrat `.github/workflows/firebase-hosting-merge.yml` (push `main` / `dev`, canaux `live` et `dev`).
-- `js/tests/ticket_10.notify.test.js` — module `js/notify.js` (durees, error persistant + bouton Fermer, pas d’`alert`). Reference comportementale : `docs/NOTIFICATIONS.md`.
-- `js/tests/ticket_10.saveManager.notify.test.js` — branchement `saveManager` → `notify` (succes 2,5 s, erreur).
-- `js/tests/ticket_10.main.bootstrap.test.js` — echec `admin-bootstrap` : `notify.error`, banniere, boutons desactives, pas d’hydratation ni premier clic onglet.
-- `js/tests/ticket_11.bootstrap.loading.red.test.js` — indicateur de chargement bootstrap : retrait du loader en succes/erreur, non-regression sur l'etat `Publish`, robustesse si `#bootstrapLoadingRoot` est absent.
-- `js/tests/ticket_10_1.tabAdd.notify.contract.test.js` — ticket 10.1 : appels `notify` dans les onglets (ajout, renommage, suppression) + contrat `durationMs: 2500` sur les succès courts (lecture source).
-- `js/tests/ticket_13.tab-search.test.js` — ticket 13 : filtre client-side des barres de recherche Mots / Familles (`computeFilterState`, libellé racine accordéon via `getRowSearchLabel`). Fichier en environnement **jsdom** (directive `@vitest-environment jsdom`).
+- `js/tests/jwt.contract.test.js` — scripts `deploy:*` sans `--no-verify-jwt`, chemins `functions.invoke` ; test distant optionnel `RUN_JWT_GATE_TEST=1` (attend **401** sans `Authorization` sur `publish-to-firebase`, `admin-save`, `admin-bootstrap` une fois JWT actif en runtime).
+- `js/tests/sonar.workflow.contract.test.js` — contrat `.github/workflows/sonar.yml` (job **SonarCloud**, declencheurs, ordre `npm run test` puis scan).
+- `js/tests/firebase.merge.workflow.contract.test.js` — contrat `.github/workflows/firebase-hosting-merge.yml` (push `main` / `dev`, canaux `live` et `dev`).
+- `js/tests/notify.test.js` — module `js/notify.js` (durees, error persistant + bouton Fermer, pas d’`alert`). Reference comportementale : `docs/NOTIFICATIONS.md`.
+- `js/tests/saveManager.notify.test.js` — branchement `saveManager` → `notify` (succes 2,5 s, erreur).
+- `js/tests/main.bootstrap.test.js` — echec `admin-bootstrap` : `notify.error`, banniere, boutons desactives, pas d’hydratation ni premier clic onglet.
+- `js/tests/bootstrap.loading.test.js` — indicateur de chargement bootstrap : retrait du loader en succes/erreur, non-regression sur l'etat `Publish`, robustesse si `#bootstrapLoadingRoot` est absent.
+- `js/tests/tabAdd.notify.contract.test.js` — appels `notify` dans les onglets (ajout, renommage, suppression) + contrat `durationMs: 2500` sur les succès courts (lecture source).
+- `js/tests/tab-search.test.js` — filtre client-side des barres de recherche Mots / Familles (`computeFilterState`, libellé racine accordéon via `getRowSearchLabel`). Fichier en environnement **jsdom** (directive `@vitest-environment jsdom`).
 - `js/tests/tabAddSystem.test.js`, `saveBtn.test.js`, `customContextMenu.test.js`, `modal.test.js`, `dom.helpers.test.js`, `accordion.component.test.js` — **jsdom** : formulaires d’ajout d’onglet, bouton Save, menu contextuel, modales mot/famille, helpers `dom.js`, creation d’accordéon (chemins delete / onAdd). `loginValidation.test.js` / `validation.dom.test.js` : validation login.
 
-## Verification manuelle (ticket 13 — recherche onglets)
+## Verification manuelle (recherche onglets)
 
 Onglets **Famille de mots** et **Mots** uniquement (pas de barre sur Langues).
 
@@ -45,7 +45,7 @@ Onglets **Famille de mots** et **Mots** uniquement (pas de barre sur Langues).
 5. Basculer entre Familles et Mots : la recherche d’un onglet ne filtre pas l’autre.
 6. Avec une recherche active, ajouter une famille ou un mot : la nouvelle ligne doit respecter le filtre (masquée si elle ne matche pas) sans avoir besoin de retaper la requête.
 
-## Verification manuelle (ticket 16 — accordion Chrome)
+## Verification manuelle (accordion Chrome)
 
 Navigateur cible: Chrome (version stable recente), zoom 100%.
 
@@ -64,22 +64,11 @@ Repartition:
 - `state.unified.contract.test.js`: contrat API cible + cas limites metier.
 - `state.persistence.test.js`: integration de `save()`/`publish()` via mocks des dependances externes.
 
-## Matrice CA -> T (Ticket 01)
-
-- `CA-01` -> `T-01`: `state.unified.contract.test.js` / "exposes expected ticket API", "matches expected function arity from contract".
-- `CA-02` -> `T-02`: `state.test.js` / "creates entities and links word to family", "keeps changeWord constrained by uniqueness", `state.unified.contract.test.js` / "keeps empty-string translation until explicit removeTranslation".
-- `CA-03` -> `T-03`: `state.unified.contract.test.js` / "does not duplicate word ids in a family", `state.test.js` / "removes a word from a family without touching others".
-- `CA-04` -> `T-04`: `state.test.js` / "cleans family links when deleting a word", "removes translation explicitly and cascades language deletion", `state.unified.contract.test.js` / "deleting a language removes only that language translations".
-- `CA-04bis` -> `T-04bis`: `state.unified.contract.test.js` / "keeps empty-string translation until explicit removeTranslation".
-- `CA-05` -> `T-05`: `state.persistence.test.js` / "persists current store shape across all Supabase tables", "applies deletions for removed language/word/family entities", "clears change tracking after successful save".
-- `CA-06` -> `T-06`: `state.persistence.test.js` / "delegates publish() to databaseTransfer", "propagates publish errors from databaseTransfer".
-- `CA-07` -> `T-07`: execution cible `npm run test` + couverture et suites `state.*` alignees modele unifie.
-
 ## Exclusions justifiees
 
-- UI rendering detail (`tabs/*`, classes CSS, labels) n'est pas teste ici: hors contrat metier de Ticket 01, couvert par verification manuelle et tests d'integration UI ulterieurs (exception ciblee : recherche onglets ticket 13 via `ticket_13.tab-search.test.js`).
+- UI rendering detail (`tabs/*`, classes CSS, labels) n'est pas teste ici: couvert par verification manuelle et tests d'integration UI (exception ciblee : recherche onglets via `tab-search.test.js`).
 - Reseau réel Supabase/Firebase non teste en CI unitaire: volontairement mocke pour determinisme, cout et fiabilite.
-- Performance/load tests exclus: hors perimetre fonctionnel de la migration store unifie.
+- Performance/load tests exclus: hors perimetre fonctionnel du store unifie.
 
 ## Qualite continue
 
@@ -90,7 +79,7 @@ Repartition:
 - Etapes dans ce job: install dependances, `npm run test` (couverture), scan SonarCloud (quality gate et regles selon le projet SonarCloud)
 - Exclusions de couverture cote Sonar (`sonar.coverage.exclusions` dans `sonar-project.properties`) : gabarit `supabase-config.example.js` et stub Vitest `supabase-config.stub.js` ne comptent pas dans la couverture « new code ». Le rapport `npm run test` local peut encore les afficher a 0 %.
 
-### Merge et branch protection (Ticket 06)
+### Merge et branch protection
 
 **Reference YAML** (`.github/workflows/sonar.yml`) : workflow `name` **SonarCloud Analysis** ; job id `sonarcloud` ; job `name` **SonarCloud**. Sur la PR, le statut a exiger correspond en general au **nom du job** : **SonarCloud** (si la liste GitHub propose plusieurs libelles, choisir celui qui correspond a ce job apres une PR qui a declenche le workflow).
 

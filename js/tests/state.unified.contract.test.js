@@ -61,7 +61,7 @@ const getSingleIdByDisplayName = (scope, displayName) => {
 };
 
 describe("Unified store contract", () => {
-	it("exposes expected ticket API", () => {
+	it("exposes expected store API", () => {
 		expect(addWord).toBeTypeOf("function");
 		expect(changeWord).toBeTypeOf("function");
 		expect(deleteWord).toBeTypeOf("function");

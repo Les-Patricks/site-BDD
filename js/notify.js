@@ -1,5 +1,5 @@
 /**
- * Notifications toast non bloquantes (ticket 10). Durees par defaut alignees sur plan_technique.md.
+ * Notifications toast non bloquantes.
  */
 
 const MS_SUCCESS_DEFAULT = 4_000;

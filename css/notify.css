@@ -1,4 +1,4 @@
-/* Ticket 10 — toasts (BEM). Position : bas de l’ecran (decision produit). */
+/* Toasts (BEM). Position : bas de l’ecran. */
 
 .notify {
 	position: fixed;

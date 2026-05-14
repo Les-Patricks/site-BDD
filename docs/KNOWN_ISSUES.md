@@ -2,7 +2,7 @@
 
 ## Incoherences `state.js`
 
-Statut: **resolu pour le Ticket 01**.
+Statut: **resolu**.
 
 Le module est maintenant aligne sur un store unifie (`store` / `storeChanges`) avec une API unique (`add*`, `modify*`, `delete*`, `save`, `publish`, getters).
 
@@ -10,13 +10,13 @@ Les alias legacy de `state.js` (`wordKeys`, `languageKeys`, `traductions`, `upda
 
 ## Incoherences `saveManager.js`
 
-Statut: **resolu pour le Ticket 01**.
+Statut: **resolu**.
 
 `saveManager.js` orchestre l'UI et delegue la persistance a `save()` du module `state`, qui persiste le store unifie.
 
 ## Tests potentiellement desynchronises
 
-Statut: **resolu pour le Ticket 01**.
+Statut: **resolu**.
 
 Les tests `state` sont alignes sur le contrat unifie (`js/tests/state.test.js`, `js/tests/state.unified.contract.test.js`, `js/tests/state.persistence.test.js`).
 
@@ -29,12 +29,12 @@ Les tests `state` sont alignes sur le contrat unifie (`js/tests/state.test.js`, 
 
 ## Feedback utilisateur (notifications)
 
-Statut: **partiellement resolu**.
+Statut: **resolu**.
 
-- **Ticket 10** (historise) : flux critiques (save global, publish, login, echec bootstrap) passent par le module **`notify`** (`js/notify.js`) ; plus d’`alert` sur ce perimetre. Voir `docs/NOTIFICATIONS.md` et `docs/taches/ticket_10/strategie_notifications.md`.
+Flux critiques (save global, publish, login, echec bootstrap) passent par le module **`notify`** (`js/notify.js`) ; plus d’`alert` sur ce perimetre. Voir `docs/NOTIFICATIONS.md`.
 
 ## Feedback UX sur les actions CRUD des onglets
 
-Statut: **partiellement resolu** (ticket **10.1** : `docs/taches/ticket_10_1/ticket.md`).
+Statut: **resolu**.
 
-Les **ajouts**, **renommages** (succes / conflit de nom) et **suppressions** via les formulaires et accordéons des onglets Mots / Familles / Langues (y compris lignes de traduction dans l’accordéon mot) declenchent des toasts `notify` (succes court `durationMs: 2500`, warning si doublon / impossible). Voir `docs/NOTIFICATIONS.md` § ticket 10.1.
+Les **ajouts**, **renommages** (succes / conflit de nom) et **suppressions** via les formulaires et accordéons des onglets Mots / Familles / Langues (y compris lignes de traduction dans l’accordéon mot) declenchent des toasts `notify` (succes court `durationMs: 2500`, warning si doublon / impossible). Voir `docs/NOTIFICATIONS.md`.

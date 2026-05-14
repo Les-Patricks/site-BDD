@@ -34,7 +34,6 @@ npm run test
 - Tests et qualite: `docs/TESTING.md`
 - Limites connues: `docs/KNOWN_ISSUES.md`
 - Contribution projet: `CONTRIBUTING.md`
-- Contexte IA (pour assistants): `AGENTS.md`
 
 ## Stack technique
 

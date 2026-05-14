@@ -574,7 +574,7 @@ label:hover {
 	text-decoration: none;
 }
 
-/* Ticket 10 — echec chargement admin-bootstrap */
+/* Echec chargement admin-bootstrap */
 .bootstrap-error-banner {
 	max-width: 42rem;
 	margin: 0 1rem 1rem 2.5rem;
@@ -610,7 +610,7 @@ label:hover {
 	background: #ffcdd2;
 }
 
-/* Ticket 11 - bootstrap loading */
+/* Bootstrap loading */
 .bootstrap-loading {
 	position: fixed;
 	inset: 0;
